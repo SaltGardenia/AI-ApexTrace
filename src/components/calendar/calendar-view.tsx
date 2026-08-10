@@ -18,10 +18,10 @@ interface Ev {
 }
 
 const ccfColor: Record<string, string> = {
-  A: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-  B: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-  C: "bg-sky-500/20 text-sky-300 border-sky-500/30",
-  none: "bg-zinc-500/20 text-zinc-300 border-zinc-500/30",
+  A: "bg-[#d08a8a]/20 text-[#c2766f] border-[#d08a8a]/30",
+  B: "bg-[#c9a95a]/20 text-[#b0913f] border-[#c9a95a]/30",
+  C: "bg-[#5aa9c9]/20 text-[#4f93ae] border-[#5aa9c9]/30",
+  none: "bg-[#9a8fd0]/20 text-[#8276b8] border-[#9a8fd0]/30",
 };
 const ccfKey = (v: Venue) => (v.ccf ?? "none") as string;
 
@@ -67,10 +67,10 @@ export function CalendarView() {
   };
 
   const kindStyle: Record<Kind, string> = {
-    submit: "bg-sky-500/20 text-sky-300 border-sky-500/30",
-    abstract: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-    full: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-    conference: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    submit: "bg-[#5aa9c9]/20 text-[#4f93ae] border-[#5aa9c9]/30",
+    abstract: "bg-[#c9a95a]/20 text-[#b0913f] border-[#c9a95a]/30",
+    full: "bg-[#d08a8a]/20 text-[#c2766f] border-[#d08a8a]/30",
+    conference: "bg-[#6bb39a]/20 text-[#5a9c86] border-[#6bb39a]/30",
   };
 
   const events = React.useMemo(() => buildEvents(), []);
@@ -204,7 +204,7 @@ export function CalendarView() {
               <span
                 className={cn(
                   "absolute -left-[13px] size-2.5 rounded-full ring-4 ring-background",
-                  e.kind === "conference" ? "bg-emerald-400" : "bg-primary",
+                  e.kind === "conference" ? "bg-[#6bb39a]" : "bg-primary",
                 )}
               />
               <CalendarDays className="size-4 shrink-0 text-muted-foreground" />

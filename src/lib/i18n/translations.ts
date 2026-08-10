@@ -85,6 +85,7 @@ export const dict = {
     zh: "从产出、影响力、增长与交叉融合多视角透视 AI 各研究方向。",
     en: "Explore AI research directions through output, impact, growth and cross-fusion.",
   },
+  home_view_all: { zh: "查看全部", en: "View all" },
   dir_list_title: { zh: "全部研究方向", en: "All Directions" },
   dir_count: { zh: "个方向", en: "directions" },
   dir_select_hint: { zh: "选择左侧方向查看详情", en: "Select a direction on the left to view details" },

@@ -17,6 +17,8 @@ import {
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { directions } from "@/lib/data/directions";
+import { colorById } from "@/lib/chart-palette";
+import { SortedLineTooltip } from "@/components/charts/line-tooltip";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 import { RADAR_METRICS } from "@/lib/i18n/translations";
@@ -72,7 +74,7 @@ export function CompareExplorer() {
                 disabled && "cursor-not-allowed opacity-40",
               )}
             >
-              <span className="size-2.5 rounded-full" style={{ background: d.color }} />
+              <span className="size-2.5 rounded-full" style={{ background: colorById(d.id) }} />
               {pick(d.name)}
             </button>
           );
@@ -96,8 +98,8 @@ export function CompareExplorer() {
                       <PolarGrid stroke="var(--border)" />
                       <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} tickFormatter={(m) => pick(RADAR_METRICS[m as string])} />
                       <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
-                      {chosen.map((d) => (
-                        <Radar key={d.id} name={pick(d.name)} dataKey={d.id} stroke={d.color} fill={d.color} fillOpacity={0.12} />
+                       {chosen.map((d) => (
+                        <Radar key={d.id} name={pick(d.name)} dataKey={d.id} stroke={colorById(d.id)} fill={colorById(d.id)} fillOpacity={0.12} />
                       ))}
                       <Tooltip contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }} />
                     </RadarChart>
@@ -117,9 +119,21 @@ export function CompareExplorer() {
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
                       <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
                       <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
-                      <Tooltip contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }} />
+                      <Tooltip
+                        cursor={{ stroke: "var(--border)", strokeWidth: 1 }}
+                        content={
+                          <SortedLineTooltip
+                            colorById={colorById}
+                            nameById={(id) => {
+                              const d = chosen.find((x) => x.id === id);
+                              return d ? pick(d.name) : id;
+                            }}
+                            title={t("compare_line")}
+                          />
+                        }
+                      />
                       {chosen.map((d) => (
-                        <Line key={d.id} type="monotone" dataKey={d.id} stroke={d.color} strokeWidth={2} dot={false} />
+                        <Line key={d.id} type="monotone" dataKey={d.id} stroke={colorById(d.id)} strokeWidth={2} dot={false} activeDot={{ r: 3, strokeWidth: 0 }} />
                       ))}
                     </LineChart>
                   </ResponsiveContainer>
@@ -140,7 +154,7 @@ export function CompareExplorer() {
                     {chosen.map((d) => (
                       <th key={d.id} className="px-3 py-2 text-right font-medium">
                         <span className="inline-flex items-center gap-1.5">
-                          <span className="size-2.5 rounded-full" style={{ background: d.color }} />
+                          <span className="size-2.5 rounded-full" style={{ background: colorById(d.id) }} />
                           {pick(d.name)}
                         </span>
                       </th>

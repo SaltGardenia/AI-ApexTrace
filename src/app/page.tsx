@@ -30,13 +30,15 @@ export default function HomePage() {
           />
         </aside>
 
-        <div className="min-w-0 space-y-16">
+        <div className="min-w-0 space-y-20">
           <section id="directions" className="scroll-mt-24">
             <SectionHeader
               title={t("page_directions")}
               desc={t("page_directions_desc")}
+              href="/directions"
+              hrefLabel={t("home_view_all")}
             />
-            <div className="mt-5 grid gap-6 lg:grid-cols-3">
+            <div className="mt-6 grid gap-6 lg:grid-cols-3">
               <div className="lg:col-span-1">
                 <TopDirections />
               </div>
@@ -44,7 +46,7 @@ export default function HomePage() {
                 <DirectionsExplorer />
               </div>
             </div>
-            <div className="mt-6">
+            <div className="mt-8">
               <SectionHeader title={t("compare_title")} desc={t("compare_desc")} />
               <div className="mt-4">
                 <CompareExplorer />
@@ -57,7 +59,7 @@ export default function HomePage() {
               title={t("trend_title")}
               desc={t("trend_sub")}
             />
-            <div className="mt-5">
+            <div className="mt-6">
               <DirectionTrend />
             </div>
           </section>
@@ -66,8 +68,10 @@ export default function HomePage() {
             <SectionHeader
               title={t("page_calendar")}
               desc={t("page_calendar_desc")}
+              href="/venues"
+              hrefLabel={t("home_view_all")}
             />
-            <div className="mt-5">
+            <div className="mt-6">
               <CalendarView />
             </div>
           </section>

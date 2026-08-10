@@ -68,7 +68,7 @@ export function HeatHero() {
             </div>
             <div className="pb-2 text-sm text-muted-foreground">
               <div>{t("composite_index")}</div>
-              <div className="text-emerald-400">▲ 12.6% YoY</div>
+              <div className="text-[#6bb39a]">▲ 12.6% YoY</div>
             </div>
           </div>
 

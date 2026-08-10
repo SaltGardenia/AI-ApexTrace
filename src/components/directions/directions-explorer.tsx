@@ -116,10 +116,10 @@ export function DirectionsExplorer() {
             </ResponsiveContainer>
           </div>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
-            <LegendTag className="border-emerald-500/40 text-emerald-400" label={t("quad_star")} />
-            <LegendTag className="border-sky-500/40 text-sky-400" label={t("quad_potential")} />
-            <LegendTag className="border-amber-500/40 text-amber-400" label={t("quad_mature")} />
-            <LegendTag className="border-zinc-500/40 text-zinc-400" label={t("quad_declining")} />
+            <LegendTag className="border-[#6bb39a]/40 text-[#5a9c86]" label={t("quad_star")} />
+            <LegendTag className="border-[#5aa9c9]/40 text-[#4f93ae]" label={t("quad_potential")} />
+            <LegendTag className="border-[#c9a95a]/40 text-[#b0913f]" label={t("quad_mature")} />
+            <LegendTag className="border-[#9a8fd0]/40 text-[#8276b8]" label={t("quad_declining")} />
           </div>
         </CardContent>
       </Card>

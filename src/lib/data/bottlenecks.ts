@@ -1,4 +1,5 @@
 import type { Bottleneck, DirectionId } from "@/lib/types";
+import { ancestorIds } from "@/lib/field-tree-utils";
 
 export const bottlenecks: Bottleneck[] = [
   // CV
@@ -49,5 +50,5 @@ export const bottlenecks: Bottleneck[] = [
   { id: "th-b2", direction: "theory", text: { zh: "Transformer 表达力与注意力机制理论", en: "Expressiveness of Transformers & attention theory" }, source: { zh: "COLT 2023", en: "COLT 2023" }, status: "partial", priority: 7 },
 ];
 
-export const bottlenecksByDirection = (dir: DirectionId | string) =>
-  bottlenecks.filter((b) => b.direction === dir);
+export const bottlenecksByDirection = (dir: string) =>
+  bottlenecks.filter((b) => ancestorIds(dir).includes(b.direction));

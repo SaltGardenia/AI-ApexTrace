@@ -1,4 +1,5 @@
 import type { Milestone } from "@/lib/types";
+import { ancestorIds } from "@/lib/field-tree-utils";
 
 export const milestones: Milestone[] = [
   // ---------- CV ----------
@@ -47,4 +48,4 @@ export const milestones: Milestone[] = [
 ];
 
 export const milestonesByDirection = (dir: string) =>
-  milestones.filter((m) => m.direction === dir);
+  milestones.filter((m) => ancestorIds(dir).includes(m.direction));

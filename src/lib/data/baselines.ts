@@ -1,4 +1,5 @@
 import type { Baseline, Dataset } from "@/lib/types";
+import { ancestorIds } from "@/lib/field-tree-utils";
 
 export const baselines: { direction: string; items: Baseline[] }[] = [
   // ---------- AI ----------
@@ -217,7 +218,7 @@ export const datasets: { direction: string; items: Dataset[] }[] = [
 ];
 
 export const baselinesByDirection = (dir: string): Baseline[] =>
-  baselines.find((b) => b.direction === dir)?.items ?? [];
+  baselines.filter((b) => ancestorIds(dir).includes(b.direction)).flatMap((b) => b.items);
 
 export const datasetsByDirection = (dir: string): Dataset[] =>
-  datasets.find((d) => d.direction === dir)?.items ?? [];
+  datasets.filter((d) => ancestorIds(dir).includes(d.direction)).flatMap((d) => d.items);

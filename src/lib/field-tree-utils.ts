@@ -70,3 +70,9 @@ export function topLevelId(id: string): string {
   const path = pathToNode(id);
   return path[0]?.id ?? id;
 }
+
+// Self + all ancestor ids (root → ... → self), for inherited sub-table lookup.
+export function ancestorIds(id: string): string[] {
+  const path = pathToNode(id);
+  return path.map((n) => n.id);
+}

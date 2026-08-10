@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BookOpen, Database, GitBranch, Scale } from "lucide-react";
+import { Database, GitBranch, Scale } from "lucide-react";
 import { heatWeights } from "@/lib/heat-index";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -100,48 +100,6 @@ export default function MethodologyPage() {
           </CardContent>
         </Card>
       </div>
-
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle className="text-base flex items-center gap-2">
-            <BookOpen className="size-4" /> 收录范围与白名单
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm text-muted-foreground">
-          <p>
-            会议与期刊白名单以 <code className="text-foreground">LIST.md</code> 为权威来源，
-            涵盖 CCF 2022 版人工智能领域 A/B/C 类，并延伸纳入 ICLR / CoRL / MLSys / WACV 等业界公认顶会，
-            以及数据库、图形多媒体、安全、系统、人机交互等 AI 研究者高频投稿的相邻领域。
-            每个 venue 均配套 CCF 等级、领域标签与结构化投稿/截稿/会期字段。
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle className="text-base">更新日志</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3 text-sm">
-          <Log version="v2026.Q2" date="2026-08" items={["初始版上线：综合热度指数、方向版图、会议全景、会议日历、对比分析。", "白名单接入 CCF A/B/C 类与业界顶会。"]} />
-          <Log version="v2026.Q1" date="2026-05" items={["关于页与权重口径公开。", "接入 ccfddl 截止日期字段。"]} />
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function Log({ version, date, items }: { version: string; date: string; items: string[] }) {
-  return (
-    <div className="flex gap-3">
-      <div className="shrink-0">
-        <span className="rounded bg-primary/15 px-2 py-0.5 text-xs font-medium text-primary">{version}</span>
-        <div className="mt-1 text-[11px] text-muted-foreground">{date}</div>
-      </div>
-      <ul className="list-disc space-y-1 pl-4 text-muted-foreground">
-        {items.map((i) => (
-          <li key={i}>{i}</li>
-        ))}
-      </ul>
     </div>
   );
 }

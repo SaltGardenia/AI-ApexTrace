@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import {
-  Area,
-  AreaChart,
   CartesianGrid,
+  Line,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -14,7 +14,7 @@ import { directions as allDirections } from "@/lib/data/directions";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useI18n } from "@/lib/i18n";
 
-// 按论文总量降序排序，确保 数据 → 堆叠层 → 图例 → tooltip 顺序一致
+// 按论文总量降序排序，确保 数据 / 图例 / tooltip 顺序一致
 const directions = [...allDirections].sort((a, b) => b.papers - a.papers);
 
 const years = directions[0].yearly.map((d) => d.year);
@@ -70,15 +70,7 @@ export function DirectionTrend() {
       <CardContent>
         <div className="h-80 w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
-              <defs>
-                {directions.map((d) => (
-                  <linearGradient key={d.id} id={`grad-${d.id}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor={d.color} stopOpacity={0.7} />
-                    <stop offset="100%" stopColor={d.color} stopOpacity={0.05} />
-                  </linearGradient>
-                ))}
-              </defs>
+            <LineChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
               <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
               <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
@@ -86,27 +78,28 @@ export function DirectionTrend() {
                 content={<TrendTooltip />}
                 cursor={{ stroke: "var(--border)", strokeWidth: 1 }}
               />
-              {directions.map((d) => (
-                  <Area
-                   key={d.id}
-                   type="monotone"
-                   dataKey={d.id}
-                   name={pick(d.name)}
-                   stackId="1"
-                   stroke={d.color}
-                   fill={`url(#grad-${d.id})`}
-                   strokeWidth={1.5}
-                 />
+              {directions.map((d, i) => (
+                <Line
+                  key={d.id}
+                  type="monotone"
+                  dataKey={d.id}
+                  name={pick(d.name)}
+                  stroke={d.color}
+                  strokeWidth={i < 4 ? 2.25 : 1.25}
+                  dot={false}
+                  activeDot={{ r: 3, strokeWidth: 0 }}
+                  isAnimationActive={false}
+                />
               ))}
-            </AreaChart>
+            </LineChart>
           </ResponsiveContainer>
         </div>
         <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
           {directions.map((d) => (
-              <span key={d.id} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-               <span className="size-2 rounded-full" style={{ background: d.color }} />
-               {pick(d.name)}
-             </span>
+            <span key={d.id} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="size-2 rounded-full" style={{ background: d.color }} />
+              {pick(d.name)}
+            </span>
           ))}
         </div>
       </CardContent>

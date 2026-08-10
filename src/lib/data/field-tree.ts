@@ -788,7 +788,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "frontier",
-    name: { zh: "2025-2026 最热门交叉方向", en: "2025-2026 Hot Cross-direction" },
+    name: { zh: "最热门交叉方向", en: "Hot Cross-direction" },
     description: { zh: "AI Agent、世界模型、具身智能、多模态基础模型与三维基础模型。", en: "AI Agent, World Model, Embodied Intelligence, Multimodal Foundation Model and 3D Foundation Model." },
     children: [
       {

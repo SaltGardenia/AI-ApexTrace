@@ -10,9 +10,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { directions } from "@/lib/data/directions";
+import { directions as allDirections } from "@/lib/data/directions";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useI18n } from "@/lib/i18n";
+
+// 按论文总量降序排序，确保 数据 → 堆叠层 → 图例 → tooltip 顺序一致
+const directions = [...allDirections].sort((a, b) => b.papers - a.papers);
 
 const years = directions[0].yearly.map((d) => d.year);
 const data = years.map((year, idx) => {
@@ -20,6 +23,42 @@ const data = years.map((year, idx) => {
   for (const d of directions) row[d.id] = d.yearly[idx].papers;
   return row;
 });
+
+function TrendTooltip({
+  active,
+  payload,
+  label,
+}: {
+  active?: boolean;
+  payload?: { dataKey: string; value: number; color: string }[];
+  label?: string | number;
+}) {
+  const { pick } = useI18n();
+  if (!active || !payload?.length) return null;
+  const rows = [...payload]
+    .map((p) => {
+      const d = directions.find((x) => x.id === p.dataKey);
+      return d ? { name: pick(d.name), color: d.color, value: p.value } : null;
+    })
+    .filter((x): x is { name: string; color: string; value: number } => Boolean(x))
+    .sort((a, b) => b.value - a.value);
+  return (
+    <div className="rounded-xl border border-border bg-popover p-3 text-xs shadow-lg">
+      <div className="mb-2 font-medium text-foreground">{label}</div>
+      <div className="space-y-1">
+        {rows.map((r) => (
+          <div key={r.name} className="flex items-center gap-2">
+            <span className="size-2.5 shrink-0 rounded-full" style={{ background: r.color }} />
+            <span className="text-muted-foreground">{r.name}</span>
+            <span className="ml-auto font-medium tabular-nums text-foreground">
+              {r.value.toLocaleString()}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function DirectionTrend() {
   const { t, pick } = useI18n();
@@ -44,13 +83,8 @@ export function DirectionTrend() {
               <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
               <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
               <Tooltip
-                contentStyle={{
-                  background: "var(--popover)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 12,
-                  fontSize: 12,
-                }}
-                labelStyle={{ color: "var(--foreground)" }}
+                content={<TrendTooltip />}
+                cursor={{ stroke: "var(--border)", strokeWidth: 1 }}
               />
               {directions.map((d) => (
                   <Area
@@ -59,10 +93,10 @@ export function DirectionTrend() {
                    dataKey={d.id}
                    name={pick(d.name)}
                    stackId="1"
-                  stroke={d.color}
-                  fill={`url(#grad-${d.id})`}
-                  strokeWidth={1.5}
-                />
+                   stroke={d.color}
+                   fill={`url(#grad-${d.id})`}
+                   strokeWidth={1.5}
+                 />
               ))}
             </AreaChart>
           </ResponsiveContainer>

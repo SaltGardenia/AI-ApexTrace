@@ -38,13 +38,9 @@ export default function HomePage() {
               href="/directions"
               hrefLabel={t("home_view_all")}
             />
-            <div className="mt-6 grid gap-6 lg:grid-cols-3">
-              <div className="lg:col-span-1">
-                <TopDirections />
-              </div>
-              <div className="lg:col-span-2">
-                <DirectionsExplorer />
-              </div>
+            <div className="mt-6 space-y-6">
+              <TopDirections />
+              <DirectionsExplorer />
             </div>
             <div className="mt-8">
               <SectionHeader title={t("compare_title")} desc={t("compare_desc")} />

@@ -59,8 +59,8 @@ export function DirectionsExplorer() {
   const maxZ = Math.max(...data.map((d) => d.z));
 
   return (
-    <div className="grid gap-6 lg:grid-cols-5">
-      <Card className="lg:col-span-3">
+    <div className="space-y-6">
+      <Card>
         <CardHeader>
           <CardTitle className="text-base">{t("quadrant_title")}</CardTitle>
           <p className="text-xs text-muted-foreground">
@@ -124,7 +124,7 @@ export function DirectionsExplorer() {
         </CardContent>
       </Card>
 
-      <Card className="lg:col-span-2">
+      <Card>
         <CardHeader>
             <div className="flex flex-wrap gap-1">
               {CATEGORY_LABELS.map((c) => (
@@ -140,19 +140,21 @@ export function DirectionsExplorer() {
               ))}
             </div>
         </CardHeader>
-        <CardContent className="space-y-1">
-          {list.map((d, i) => (
-            <Link
-              key={d.id}
-              href={`/directions/${d.id}`}
-              className="flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-muted/50"
-            >
-              <span className="w-5 text-right text-xs tabular-nums text-muted-foreground">{i + 1}</span>
-              <span className="size-2.5 shrink-0 rounded-full" style={{ background: d.color }} />
-              <span className="flex-1 truncate text-sm font-medium">{pick(d.name)}</span>
-              <span className="text-xs text-muted-foreground">{t(CATEGORY_KEY[d.id])}</span>
-            </Link>
-          ))}
+        <CardContent>
+          <div className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2">
+            {list.map((d, i) => (
+              <Link
+                key={d.id}
+                href={`/directions/${d.id}`}
+                className="flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-muted/50"
+              >
+                <span className="w-5 text-right text-xs tabular-nums text-muted-foreground">{i + 1}</span>
+                <span className="size-2.5 shrink-0 rounded-full" style={{ background: d.color }} />
+                <span className="flex-1 truncate text-sm font-medium">{pick(d.name)}</span>
+                <span className="text-xs text-muted-foreground">{t(CATEGORY_KEY[d.id])}</span>
+              </Link>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>

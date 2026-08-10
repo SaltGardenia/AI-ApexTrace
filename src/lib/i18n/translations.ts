@@ -5,6 +5,11 @@ export const dict = {
   nav_home: { zh: "首页", en: "Home" },
   nav_directions: { zh: "研究方向", en: "Directions" },
   nav_venues: { zh: "会议全景", en: "Venues" },
+  nav_journals: { zh: "期刊全景", en: "Journals" },
+  page_journals_desc: {
+    zh: "按 CCF 等级与领域覆盖筛选全部收录的 AI 顶刊，查看影响力、录用率与方向分布。",
+    en: "Filter all covered AI journals by CCF tier and field; see impact, acceptance and direction mix.",
+  },
   nav_calendar: { zh: "会议日历", en: "Calendar" },
   nav_about: { zh: "关于", en: "About" },
   menu: { zh: "导航", en: "Navigation" },

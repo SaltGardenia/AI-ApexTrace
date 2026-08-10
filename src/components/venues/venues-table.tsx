@@ -15,9 +15,13 @@ const TYPES: ("all" | "conference" | "journal")[] = ["all", "conference", "journ
 
 type SortKey = "heat" | "acceptance" | "citations" | "h5";
 
-export function VenuesTable() {
+export function VenuesTable({
+  initialType = "all",
+}: {
+  initialType?: "all" | "conference" | "journal";
+}) {
   const { pick, t } = useI18n();
-  const [type, setType] = React.useState<"all" | "conference" | "journal">("all");
+  const [type, setType] = React.useState<"all" | "conference" | "journal">(initialType);
   const [level, setLevel] = React.useState<"all" | CCFLevel | "none">("all");
   const [q, setQ] = React.useState("");
   const [sort, setSort] = React.useState<SortKey>("heat");

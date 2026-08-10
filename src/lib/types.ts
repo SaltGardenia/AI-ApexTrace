@@ -24,6 +24,7 @@ export type DirectionId =
 export type RadarMetricKey = "output" | "impact" | "growth" | "ecosystem" | "fusion";
 
 export interface DeadlineInfo {
+  submissionStart?: string;
   abstractDeadline?: string;
   deadline?: string;
   notification?: string;

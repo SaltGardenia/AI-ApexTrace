@@ -90,6 +90,7 @@ export const venues: Venue[] = [
     h5: 142,
     deadline: {
       year: 2026,
+      submissionStart: "2025-06-15",
       abstractDeadline: "2025-08-01",
       deadline: "2025-08-08",
       notification: "2025-11-11",
@@ -115,7 +116,8 @@ export const venues: Venue[] = [
     avgCitations: 64,
     h5: 309,
     deadline: {
-      year: 2025,
+      year: 2026,
+      submissionStart: "2025-03-20",
       abstractDeadline: "2025-05-15",
       deadline: "2025-05-22",
       notification: "2025-09-18",
@@ -142,6 +144,7 @@ export const venues: Venue[] = [
     h5: 253,
     deadline: {
       year: 2026,
+      submissionStart: "2025-12-01",
       abstractDeadline: "2026-01-21",
       deadline: "2026-01-28",
       notification: "2026-05-01",
@@ -168,6 +171,7 @@ export const venues: Venue[] = [
     h5: 389,
     deadline: {
       year: 2026,
+      submissionStart: "2025-09-20",
       abstractDeadline: "2025-11-14",
       deadline: "2025-11-21",
       notification: "2026-02-27",
@@ -193,7 +197,8 @@ export const venues: Venue[] = [
     avgCitations: 76,
     h5: 285,
     deadline: {
-      year: 2025,
+      year: 2026,
+      submissionStart: "2025-01-15",
       abstractDeadline: "2025-03-07",
       deadline: "2025-03-14",
       notification: "2025-06-25",
@@ -220,6 +225,7 @@ export const venues: Venue[] = [
     h5: 198,
     deadline: {
       year: 2026,
+      submissionStart: "2026-01-01",
       abstractDeadline: "2026-02-15",
       deadline: "2026-02-22",
       notification: "2026-05-15",
@@ -246,6 +252,7 @@ export const venues: Venue[] = [
     h5: 167,
     deadline: {
       year: 2026,
+      submissionStart: "2025-12-05",
       abstractDeadline: "2026-01-23",
       deadline: "2026-01-30",
       notification: "2026-04-20",
@@ -259,12 +266,12 @@ export const venues: Venue[] = [
   // ---------- 核心 AI 会议 (CCF-B) ----------
   { id: "colt", name: "COLT", fullName: "Annual Conference on Computational Learning Theory", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "theory", field: f("机器学习理论"), dblpKey: "conf/colt", coreRank: "A", acceptanceRate: 0.29, avgCitations: 33, h5: 71 },
   { id: "emnlp", name: "EMNLP", fullName: "Conference on Empirical Methods in Natural Language Processing", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "nlp", field: f("自然语言处理"), dblpKey: "conf/emnlp", coreRank: "A", acceptanceRate: 0.22, avgCitations: 44, h5: 165,
-    deadline: { year: 2025, abstractDeadline: "2025-05-19", deadline: "2025-05-26", notification: "2025-08-21", date: "2025-11-05", place: "Suzhou, China", timezone: "UTC+8", link: "https://2025.emnlp.org/" } },
+    deadline: { year: 2025, submissionStart: "2025-04-01", abstractDeadline: "2025-05-19", deadline: "2025-05-26", notification: "2025-08-21", date: "2025-11-05", place: "Suzhou, China", timezone: "UTC+8", link: "https://2025.emnlp.org/" } },
   { id: "ecai", name: "ECAI", fullName: "European Conference on Artificial Intelligence", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "conf/ecai", coreRank: "A", acceptanceRate: 0.18, avgCitations: 22, h5: 58 },
   { id: "eccv", name: "ECCV", fullName: "European Conference on Computer Vision", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "cv", field: f("计算机视觉"), dblpKey: "conf/eccv", coreRank: "A", acceptanceRate: 0.28, avgCitations: 62, h5: 198,
-    deadline: { year: 2026, abstractDeadline: "2026-03-06", deadline: "2026-03-13", notification: "2026-06-25", date: "2026-09-08", place: "Malmö, Sweden", timezone: "UTC+1", link: "https://eccv.ecva.net/" } },
+    deadline: { year: 2026, submissionStart: "2026-01-15", abstractDeadline: "2026-03-06", deadline: "2026-03-13", notification: "2026-06-25", date: "2026-09-08", place: "Malmö, Sweden", timezone: "UTC+1", link: "https://eccv.ecva.net/" } },
   { id: "icra", name: "ICRA", fullName: "IEEE International Conference on Robotics and Automation", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "robotics", field: f("机器人"), dblpKey: "conf/icra", coreRank: "A*", acceptanceRate: 0.45, avgCitations: 26, h5: 121,
-    deadline: { year: 2026, abstractDeadline: "2025-09-15", deadline: "2025-09-22", notification: "2026-01-15", date: "2026-05-25", place: "Vienna, Austria", timezone: "UTC+1", link: "https://www.icra2026.org/" } },
+    deadline: { year: 2026, submissionStart: "2025-07-25", abstractDeadline: "2025-09-15", deadline: "2025-09-22", notification: "2026-01-15", date: "2026-05-25", place: "Vienna, Austria", timezone: "UTC+1", link: "https://www.icra2026.org/" } },
   { id: "icaps", name: "ICAPS", fullName: "International Conference on Automated Planning and Scheduling", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("智能规划与调度"), dblpKey: "conf/icaps", coreRank: "A", acceptanceRate: 0.31, avgCitations: 18, h5: 39 },
   { id: "coling", name: "COLING", fullName: "International Conference on Computational Linguistics", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "nlp", field: f("计算语言学"), dblpKey: "conf/coling", coreRank: "A", acceptanceRate: 0.23, avgCitations: 31, h5: 74 },
   { id: "kr", name: "KR", fullName: "International Conference on Principles of Knowledge Representation and Reasoning", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("知识表示与推理"), dblpKey: "conf/kr", coreRank: "A", acceptanceRate: 0.27, avgCitations: 24, h5: 42 },
@@ -293,23 +300,23 @@ export const venues: Venue[] = [
 
   // ---------- 业界公认顶会（非 CCF / 跨领域） ----------
   { id: "iclr", name: "ICLR", fullName: "International Conference on Learning Representations", type: "conference", ccf: null, ccfField: cf("非 CCF / 业界顶会"), domain: "ml", field: f("表征学习"), dblpKey: "conf/iclr", coreRank: "A*", acceptanceRate: 0.31, avgCitations: 69, h5: 421,
-    deadline: { year: 2026, abstractDeadline: "2025-09-24", deadline: "2025-10-01", notification: "2026-01-22", date: "2026-04-26", place: "Rio de Janeiro, Brazil", timezone: "UTC-3", link: "https://iclr.cc/" } },
+    deadline: { year: 2026, submissionStart: "2025-08-01", abstractDeadline: "2025-09-24", deadline: "2025-10-01", notification: "2026-01-22", date: "2026-04-26", place: "Rio de Janeiro, Brazil", timezone: "UTC-3", link: "https://iclr.cc/" } },
   { id: "corl", name: "CoRL", fullName: "Conference on Robot Learning", type: "conference", ccf: null, ccfField: cf("非 CCF"), domain: "robotics", field: f("机器人学习"), dblpKey: "conf/corl", coreRank: "B", acceptanceRate: 0.33, avgCitations: 28, h5: 54,
-    deadline: { year: 2026, abstractDeadline: "2026-06-19", deadline: "2026-06-26", notification: "2026-09-15", date: "2026-11-04", place: "San Francisco, USA", timezone: "UTC-8", link: "https://corl.org/" } },
+    deadline: { year: 2026, submissionStart: "2026-05-01", abstractDeadline: "2026-06-19", deadline: "2026-06-26", notification: "2026-09-15", date: "2026-11-04", place: "San Francisco, USA", timezone: "UTC-8", link: "https://corl.org/" } },
   { id: "mlsys", name: "MLSys", fullName: "Conference on Machine Learning and Systems", type: "conference", ccf: null, ccfField: cf("非 CCF"), domain: "ml", field: f("机器学习系统"), dblpKey: "conf/mlsys", coreRank: "A", acceptanceRate: 0.24, avgCitations: 46, h5: 96,
-    deadline: { year: 2026, abstractDeadline: "2025-09-11", deadline: "2025-09-18", notification: "2025-12-04", date: "2026-02-24", place: "Santa Clara, USA", timezone: "UTC-8", link: "https://mlsys.org/" } },
+    deadline: { year: 2026, submissionStart: "2025-07-20", abstractDeadline: "2025-09-11", deadline: "2025-09-18", notification: "2025-12-04", date: "2026-02-24", place: "Santa Clara, USA", timezone: "UTC-8", link: "https://mlsys.org/" } },
   { id: "wacv", name: "WACV", fullName: "IEEE/CVF Winter Conference on Applications of Computer Vision", type: "conference", ccf: "C", ccfField: cf("人工智能（视觉领域）"), domain: "cv", field: f("计算机视觉"), dblpKey: "conf/wacv", coreRank: "B", acceptanceRate: 0.35, avgCitations: 19, h5: 51 },
   { id: "iros", name: "IROS", fullName: "IEEE/RSJ International Conference on Intelligent Robots and Systems", type: "conference", ccf: "B", ccfField: cf("机器人领域"), domain: "robotics", field: f("机器人"), dblpKey: "conf/iros", coreRank: "A*", acceptanceRate: 0.47, avgCitations: 21, h5: 110 },
   { id: "kdd", name: "KDD", fullName: "ACM SIGKDD Conference on Knowledge Discovery and Data Mining", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/kdd", coreRank: "A*", acceptanceRate: 0.19, avgCitations: 54, h5: 213,
-    deadline: { year: 2026, abstractDeadline: "2026-02-12", deadline: "2026-02-19", notification: "2026-05-14", date: "2026-08-09", place: "San Francisco, USA", timezone: "UTC-8", link: "https://kdd.org/" } },
+    deadline: { year: 2026, submissionStart: "2025-12-20", abstractDeadline: "2026-02-12", deadline: "2026-02-19", notification: "2026-05-14", date: "2026-08-09", place: "San Francisco, USA", timezone: "UTC-8", link: "https://kdd.org/" } },
   { id: "sigir", name: "SIGIR", fullName: "ACM SIGIR Conference on Information Retrieval", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("信息检索"), dblpKey: "conf/sigir", coreRank: "A*", acceptanceRate: 0.21, avgCitations: 41, h5: 142,
-    deadline: { year: 2026, abstractDeadline: "2026-02-04", deadline: "2026-02-11", notification: "2026-05-07", date: "2026-07-16", place: "Padua, Italy", timezone: "UTC+2", link: "https://sigir.org/" } },
+    deadline: { year: 2026, submissionStart: "2025-12-10", abstractDeadline: "2026-02-04", deadline: "2026-02-11", notification: "2026-05-07", date: "2026-07-16", place: "Padua, Italy", timezone: "UTC+2", link: "https://sigir.org/" } },
   { id: "www", name: "WWW", fullName: "The Web Conference", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("万维网/推荐"), dblpKey: "conf/www", coreRank: "A*", acceptanceRate: 0.2, avgCitations: 43, h5: 158 },
   { id: "siggraph", name: "SIGGRAPH", fullName: "ACM SIGGRAPH Annual Conference", type: "conference", ccf: "A", ccfField: cf("图形领域"), domain: "graphics", field: f("计算机图形学"), dblpKey: "conf/siggraph", coreRank: "A*", acceptanceRate: 0.23, avgCitations: 49, h5: 167 },
   { id: "acmmm", name: "ACM MM", fullName: "ACM International Conference on Multimedia", type: "conference", ccf: "A", ccfField: cf("多媒体领域"), domain: "multimodal", field: f("多媒体与多模态"), dblpKey: "conf/mm", coreRank: "A*", acceptanceRate: 0.27, avgCitations: 32, h5: 121 },
   { id: "sp", name: "S&P", fullName: "IEEE Symposium on Security and Privacy", type: "conference", ccf: "A", ccfField: cf("安全领域"), domain: "security", field: f("AI安全/隐私"), dblpKey: "conf/sp", coreRank: "A*", acceptanceRate: 0.13, avgCitations: 61, h5: 139 },
   { id: "chi", name: "CHI", fullName: "ACM Conference on Human Factors in Computing Systems", type: "conference", ccf: "A", ccfField: cf("人机交互领域"), domain: "hci", field: f("人机交互"), dblpKey: "conf/chi", coreRank: "A*", acceptanceRate: 0.26, avgCitations: 38, h5: 184,
-    deadline: { year: 2026, abstractDeadline: "2025-09-12", deadline: "2025-09-19", notification: "2025-12-23", date: "2026-04-18", place: "Yokohama, Japan", timezone: "UTC+9", link: "https://chi2026.acm.org/" } },
+    deadline: { year: 2026, submissionStart: "2025-07-25", abstractDeadline: "2025-09-12", deadline: "2025-09-19", notification: "2025-12-23", date: "2026-04-18", place: "Yokohama, Japan", timezone: "UTC+9", link: "https://chi2026.acm.org/" } },
 
   // ---------- 期刊 A 类 ----------
   { id: "ai", name: "AI", fullName: "Artificial Intelligence", type: "journal", ccf: "A", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/ai", sci: true, ei: true, acceptanceRate: 0.14, avgCitations: 39, h5: 84 },

@@ -28,15 +28,25 @@ export type DirectionId =
 export type RadarMetricKey = "output" | "impact" | "growth" | "ecosystem" | "fusion";
 
 // A node in the multi-level AI research landscape tree.
-// The first level (12 top categories) maps to a DirectionId; every node
-// (including the smallest leaf sub-category) has a stable `id` used as the
-// detail-page slug. `papers` is the aggregated paper count for that node.
+// The first level = 12 top categories. The smallest sub-fields (leaves, the
+// numbered end-nodes in the source taxonomy) carry full `Direction`-like
+// statistics so their detail page mirrors the original direction page.
 export interface FieldNode {
   id: string;
   name: Bilingual;
   description?: Bilingual;
   papers?: number;
   children?: FieldNode[];
+  // Leaf-only statistics (mirror Direction for the detail page layout)
+  avgCitations?: number;
+  topCitedRatio?: number;
+  growth?: number;
+  openRate?: number;
+  topVenues?: string[];
+  topInstitutions?: { name: string; papers: number }[];
+  crossFields?: string[];
+  radar?: { metric: RadarMetricKey; value: number }[];
+  yearly?: { year: number; papers: number }[];
 }
 
 export interface DeadlineInfo {

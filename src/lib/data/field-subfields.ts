@@ -483,8 +483,112 @@ export const fieldSubfields: Record<DirectionId, FieldSubfield[]> = {
       ],
     },
   ],
-  graphics: [],
-  security: [],
+  graphics: [
+    {
+      id: "gfx-neural",
+      name: { zh: "神经渲染", en: "Neural Rendering" },
+      description: {
+        zh: "将深度学习与图形学物理知识结合，实现可控、真实的场景建模（NeRF、3D Gaussian Splatting、逆渲染）。",
+        en: "Combines deep learning with graphics physics for controllable, photoreal scenes (NeRF, 3DGS, inverse rendering).",
+      },
+      children: [
+        { id: "gfx-ne-nerf", name: { zh: "NeRF/辐射场", en: "NeRF / Radiance" }, papers: 1100 },
+        { id: "gfx-ne-3dgs", name: { zh: "3D 高斯泼溅", en: "3D Gaussian Splatting" }, papers: 900 },
+        { id: "gfx-ne-inv", name: { zh: "逆渲染", en: "Inverse Rendering" }, papers: 500 },
+      ],
+    },
+    {
+      id: "gfx-recon",
+      name: { zh: "三维重建", en: "3D Reconstruction" },
+      description: {
+        zh: "从多视图/事件相机/单图重建三维结构，扩散模型正成为 3D 生成与重建的主流方法。",
+        en: "Reconstructing 3D from multi-view/event/monocular inputs; diffusion is now mainstream for 3D generation.",
+      },
+      children: [
+        { id: "gfx-re-mv", name: { zh: "多视图重建", en: "Multi-View" }, papers: 800 },
+        { id: "gfx-re-event", name: { zh: "事件相机重建", en: "Event-based" }, papers: 300 },
+        { id: "gfx-re-diff", name: { zh: "扩散式 3D", en: "Diffusion 3D" }, papers: 700 },
+      ],
+    },
+    {
+      id: "gfx-gen",
+      name: { zh: "扩散生成", en: "Diffusion Generation" },
+      description: {
+        zh: "以扩散模型为核心的图/视频生成，追求高可控性与高保真，并向 3D 与视频扩展。",
+        en: "Diffusion-based image/video generation pursuing high controllability & fidelity, extending to 3D and video.",
+      },
+      children: [
+        { id: "gfx-ge-img", name: { zh: "图像生成", en: "Image Generation" }, papers: 900 },
+        { id: "gfx-ge-video", name: { zh: "视频生成", en: "Video Generation" }, papers: 600 },
+        { id: "gfx-ge-control", name: { zh: "可控生成", en: "Controllable Gen" }, papers: 500 },
+      ],
+    },
+    {
+      id: "gfx-media",
+      name: { zh: "交互多媒体", en: "Interactive Media" },
+      description: {
+        zh: "面向 VR/AR、影视与数字娱乐的实时交互图形，以及元宇宙场景的实时渲染。",
+        en: "Real-time interactive graphics for VR/AR, film and digital entertainment, and metaverse rendering.",
+      },
+      children: [
+        { id: "gfx-me-vr", name: { zh: "VR/AR 渲染", en: "VR / AR" }, papers: 400 },
+        { id: "gfx-me-real", name: { zh: "实时渲染", en: "Real-time Render" }, papers: 400 },
+      ],
+    },
+  ],
+  security: [
+    {
+      id: "sec-adv",
+      name: { zh: "对抗鲁棒", en: "Adversarial Robustness" },
+      description: {
+        zh: "研究对抗样本、攻击与防御（对抗训练、蒸馏、认证鲁棒性），覆盖视觉与多模态模型。",
+        en: "Adversarial examples, attacks & defenses (adv. training, distillation, certified robustness) for vision/MLLMs.",
+      },
+      children: [
+        { id: "sec-ad-attack", name: { zh: "对抗攻击", en: "Adversarial Attacks" }, papers: 900 },
+        { id: "sec-ad-def", name: { zh: "对抗防御", en: "Adversarial Defense" }, papers: 700 },
+        { id: "sec-ad-cert", name: { zh: "认证鲁棒", en: "Certified Robust" }, papers: 400 },
+      ],
+    },
+    {
+      id: "sec-privacy",
+      name: { zh: "隐私保护", en: "Privacy Preservation" },
+      description: {
+        zh: "联邦学习、差分隐私与同态加密协同保障数据隐私，抵御成员推断等隐私攻击。",
+        en: "Federated learning, differential privacy and homomorphic encryption defend against membership inference.",
+      },
+      children: [
+        { id: "sec-pr-fl", name: { zh: "联邦学习", en: "Federated Learning" }, papers: 700 },
+        { id: "sec-pr-dp", name: { zh: "差分隐私", en: "Differential Privacy" }, papers: 500 },
+        { id: "sec-pr-mi", name: { zh: "成员推断防御", en: "MI Defense" }, papers: 300 },
+      ],
+    },
+    {
+      id: "sec-wm",
+      name: { zh: "模型水印", en: "Model Watermarking" },
+      description: {
+        zh: "通过水印与指纹保护模型所有权与提示版权（PromptCARE、SSLGuard 等）。",
+        en: "Watermarking & fingerprinting protect model ownership and prompt copyright (PromptCARE, SSLGuard).",
+      },
+      children: [
+        { id: "sec-wm-own", name: { zh: "所有权水印", en: "Ownership WM" }, papers: 400 },
+        { id: "sec-wm-prompt", name: { zh: "提示版权", en: "Prompt Copyright" }, papers: 300 },
+      ],
+    },
+    {
+      id: "sec-align",
+      name: { zh: "对齐安全", en: "Alignment Safety" },
+      description: {
+        zh: "面向 LLM 的安全对齐与越狱防御，涵盖 RLHF/DPO 对齐、越狱攻击与后门防护。",
+        en: "LLM safety alignment & jailbreak defense; RLHF/DPO alignment, jailbreaks and backdoor protection.",
+      },
+      children: [
+        { id: "sec-al-jb", name: { zh: "越狱攻击", en: "Jailbreak" }, papers: 600 },
+        { id: "sec-al-rlhf", name: { zh: "安全对齐", en: "Safety Alignment" }, papers: 500 },
+        { id: "sec-al-back", name: { zh: "后门防护", en: "Backdoor Defense" }, papers: 300 },
+      ],
+    },
+  ],
   hci: [],
   theory: [],
 };

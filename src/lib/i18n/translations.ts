@@ -96,6 +96,8 @@ export const dict = {
   venue_all: { zh: "全部", en: "All" },
   venue_conf: { zh: "会议全景", en: "Conferences" },
   venue_journal: { zh: "期刊全景", en: "Journals" },
+  th_cas: { zh: "中科院分区", en: "CAS" },
+  th_jcr: { zh: "JCR 分区", en: "JCR" },
   page_calendar: { zh: "会议日历", en: "Calendar" },
   page_calendar_desc: {
     zh: "全年 12 个月的截稿与召开节点，快速规划投稿与参会节奏。",

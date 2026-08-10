@@ -5,6 +5,10 @@ export type { RankedDirection } from "@/lib/heat-index";
 
 export type CCFLevel = "A" | "B" | "C" | null;
 
+export type CasDivision = 1 | 2 | 3 | 4 | null;
+
+export type JcrQuartile = "Q1" | "Q2" | "Q3" | "Q4" | null;
+
 export type VenueType = "conference" | "journal";
 
 export type DirectionId =
@@ -49,6 +53,8 @@ export interface Venue {
   coreRank?: string;
   ei?: boolean;
   sci?: boolean;
+  cas?: CasDivision;
+  jcr?: JcrQuartile;
   acceptanceRate?: number;
   avgCitations?: number;
   h5?: number;

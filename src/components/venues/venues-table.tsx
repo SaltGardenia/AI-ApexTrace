@@ -13,6 +13,13 @@ const LEVELS: ("all" | "A" | "B" | "C" | "none")[] = ["all", "A", "B", "C", "non
 const levelLabel = (l: string) => (l === "all" ? "全部" : l === "none" ? "非 CCF" : `CCF-${l}`);
 const TYPES: ("all" | "conference" | "journal")[] = ["all", "conference", "journal"];
 
+const JCR_CLS: Record<"Q1" | "Q2" | "Q3" | "Q4", string> = {
+  Q1: "bg-emerald-500/15 text-emerald-400",
+  Q2: "bg-sky-500/15 text-sky-400",
+  Q3: "bg-amber-500/15 text-amber-400",
+  Q4: "bg-rose-500/15 text-rose-400",
+};
+
 type SortKey = "heat" | "acceptance" | "citations" | "h5";
 
 export function VenuesTable({
@@ -116,6 +123,8 @@ export function VenuesTable({
               <th className="px-4 py-2.5 font-medium">全称</th>
               <th className="px-4 py-2.5 font-medium">分级</th>
               <th className="px-4 py-2.5 font-medium">领域</th>
+              <th className="px-4 py-2.5 text-center font-medium">{t("th_cas")}</th>
+              <th className="px-4 py-2.5 text-center font-medium">{t("th_jcr")}</th>
               <th className="px-4 py-2.5 text-right font-medium">录用率</th>
               <th className="px-4 py-2.5 text-right font-medium">平均引用</th>
               <th className="px-4 py-2.5 text-right font-medium">H5</th>
@@ -132,6 +141,20 @@ export function VenuesTable({
                 <td className="max-w-[260px] truncate px-4 py-2.5 text-muted-foreground">{v.fullName}</td>
                 <td className="px-4 py-2.5"><CcfBadge venue={v} /></td>
                 <td className="px-4 py-2.5 text-muted-foreground">{pick(v.field)}</td>
+                <td className="px-4 py-2.5 text-center tabular-nums">
+                  {v.cas ? (
+                    <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs font-medium text-primary">CAS {v.cas}</span>
+                  ) : (
+                    "—"
+                  )}
+                </td>
+                <td className="px-4 py-2.5 text-center">
+                  {v.jcr ? (
+                    <span className={cn("rounded px-1.5 py-0.5 text-xs font-medium", JCR_CLS[v.jcr])}>{v.jcr}</span>
+                  ) : (
+                    "—"
+                  )}
+                </td>
                 <td className="px-4 py-2.5 text-right tabular-nums">
                   {v.acceptanceRate ? `${Math.round(v.acceptanceRate * 100)}%` : "—"}
                 </td>

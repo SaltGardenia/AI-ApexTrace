@@ -1,4 +1,4 @@
-import type { Venue, Bilingual } from "@/lib/types";
+import type { Venue, Bilingual, CasDivision, JcrQuartile } from "@/lib/types";
 
 const FIELDS: Record<string, Bilingual> = {
   人工智能: { zh: "人工智能", en: "Artificial Intelligence" },
@@ -71,7 +71,7 @@ const CCF_FIELDS: Record<string, Bilingual> = {
 const f = (k: keyof typeof FIELDS): Bilingual => FIELDS[k];
 const cf = (k: keyof typeof CCF_FIELDS): Bilingual => CCF_FIELDS[k];
 
-export const venues: Venue[] = [
+const rawVenues: Venue[] = [
   // ---------- 核心 AI 会议 (CCF-A) ----------
   {
     id: "aaai",
@@ -408,6 +408,142 @@ export const venues: Venue[] = [
   { id: "mir", name: "Machine Intelligence Research", fullName: "Machine Intelligence Research", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ml", field: f("机器学习"), dblpKey: "journals/mir", sci: true, acceptanceRate: 0.32, avgCitations: 15, h5: 26 },
   { id: "aiopen", name: "AI Open", fullName: "AI Open", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/aiopen", sci: true, acceptanceRate: 0.34, avgCitations: 14, h5: 22 },
 ];
+
+// 中科院分区 (CAS) 与 JCR Q 分区（按 venue id 标注）
+const CLASS: Record<string, { cas: CasDivision; jcr: JcrQuartile }> = {
+  // 核心 AI 会议 (CCF-A)
+  aaai: { cas: 1, jcr: "Q1" },
+  neurips: { cas: 1, jcr: "Q1" },
+  icml: { cas: 1, jcr: "Q1" },
+  cvpr: { cas: 1, jcr: "Q1" },
+  iccv: { cas: 1, jcr: "Q1" },
+  acl: { cas: 1, jcr: "Q1" },
+  ijcai: { cas: 1, jcr: "Q1" },
+  // 核心 AI 会议 (CCF-B)
+  colt: { cas: 2, jcr: "Q1" },
+  emnlp: { cas: 2, jcr: "Q1" },
+  ecai: { cas: 2, jcr: "Q1" },
+  eccv: { cas: 2, jcr: "Q1" },
+  icra: { cas: 2, jcr: "Q1" },
+  icaps: { cas: 2, jcr: "Q1" },
+  coling: { cas: 2, jcr: "Q1" },
+  kr: { cas: 2, jcr: "Q1" },
+  uai: { cas: 2, jcr: "Q1" },
+  aamas: { cas: 2, jcr: "Q1" },
+  ppsn: { cas: 2, jcr: "Q2" },
+  naacl: { cas: 2, jcr: "Q1" },
+  // 核心 AI 会议 (CCF-C)
+  aistats: { cas: 2, jcr: "Q1" },
+  accv: { cas: 3, jcr: "Q2" },
+  acml: { cas: 3, jcr: "Q2" },
+  bmvc: { cas: 3, jcr: "Q2" },
+  conll: { cas: 2, jcr: "Q1" },
+  nlpcc: { cas: 4, jcr: "Q3" },
+  icann: { cas: 3, jcr: "Q2" },
+  fg: { cas: 3, jcr: "Q2" },
+  icdar: { cas: 3, jcr: "Q2" },
+  ksem: { cas: 4, jcr: "Q3" },
+  pricai: { cas: 4, jcr: "Q3" },
+  ictai: { cas: 4, jcr: "Q3" },
+  ijcnn: { cas: 3, jcr: "Q2" },
+  eacl: { cas: 2, jcr: "Q1" },
+  gecco: { cas: 2, jcr: "Q1" },
+  iconip: { cas: 3, jcr: "Q2" },
+  // 业界公认顶会（非 CCF / 跨领域）
+  iclr: { cas: 1, jcr: "Q1" },
+  corl: { cas: 2, jcr: "Q1" },
+  mlsys: { cas: 2, jcr: "Q1" },
+  wacv: { cas: 3, jcr: "Q2" },
+  iros: { cas: 2, jcr: "Q1" },
+  kdd: { cas: 1, jcr: "Q1" },
+  sigir: { cas: 1, jcr: "Q1" },
+  www: { cas: 1, jcr: "Q1" },
+  siggraph: { cas: 1, jcr: "Q1" },
+  acmmm: { cas: 1, jcr: "Q1" },
+  sp: { cas: 1, jcr: "Q1" },
+  chi: { cas: 1, jcr: "Q1" },
+  // 数据库 / 信息检索 会议
+  icde: { cas: 1, jcr: "Q1" },
+  vldb: { cas: 1, jcr: "Q1" },
+  sigmod: { cas: 1, jcr: "Q1" },
+  icdm: { cas: 2, jcr: "Q1" },
+  cikm: { cas: 2, jcr: "Q1" },
+  // 语音 / 音频 / 推荐 会议
+  icassp: { cas: 2, jcr: "Q1" },
+  interspeech: { cas: 3, jcr: "Q2" },
+  recsys: { cas: 2, jcr: "Q1" },
+  icwsm: { cas: 2, jcr: "Q2" },
+  // 机器人 / 医疗视觉 / 多媒体 会议
+  rss: { cas: 2, jcr: "Q1" },
+  miccai: { cas: 2, jcr: "Q1" },
+  "siggraph-asia": { cas: 2, jcr: "Q1" },
+  icme: { cas: 3, jcr: "Q2" },
+  // 期刊 A 类
+  ai: { cas: 1, jcr: "Q1" },
+  tpami: { cas: 1, jcr: "Q1" },
+  ijcv: { cas: 1, jcr: "Q1" },
+  jmlr: { cas: 1, jcr: "Q1" },
+  tkde: { cas: 1, jcr: "Q1" },
+  tois: { cas: 1, jcr: "Q1" },
+  tip: { cas: 1, jcr: "Q1" },
+  tmm: { cas: 1, jcr: "Q1" },
+  tifs: { cas: 1, jcr: "Q1" },
+  // 期刊 B 类
+  tacl: { cas: 2, jcr: "Q1" },
+  cl: { cas: 2, jcr: "Q1" },
+  cviu: { cas: 2, jcr: "Q1" },
+  pr: { cas: 2, jcr: "Q1" },
+  tnnls: { cas: 1, jcr: "Q1" },
+  tfs: { cas: 1, jcr: "Q1" },
+  tec: { cas: 1, jcr: "Q1" },
+  tcyb: { cas: 1, jcr: "Q1" },
+  taslp: { cas: 2, jcr: "Q1" },
+  tac: { cas: 2, jcr: "Q1" },
+  jair: { cas: 2, jcr: "Q1" },
+  ml: { cas: 2, jcr: "Q1" },
+  "aamas-j": { cas: 2, jcr: "Q1" },
+  kbs: { cas: 1, jcr: "Q1" },
+  air: { cas: 2, jcr: "Q1" },
+  tist: { cas: 2, jcr: "Q1" },
+  tkdd: { cas: 2, jcr: "Q1" },
+  tvc: { cas: 2, jcr: "Q1" },
+  tochi: { cas: 2, jcr: "Q1" },
+  ras: { cas: 2, jcr: "Q1" },
+  is: { cas: 1, jcr: "Q1" },
+  dmkd: { cas: 2, jcr: "Q1" },
+  eswa: { cas: 1, jcr: "Q1" },
+  tcss: { cas: 2, jcr: "Q1" },
+  // 期刊 C 类
+  prl: { cas: 3, jcr: "Q2" },
+  neurocomputing: { cas: 2, jcr: "Q1" },
+  "soft-computing": { cas: 3, jcr: "Q2" },
+  "neural-networks": { cas: 2, jcr: "Q1" },
+  "applied-intelligence": { cas: 3, jcr: "Q2" },
+  eaai: { cas: 2, jcr: "Q1" },
+  mtap: { cas: 3, jcr: "Q2" },
+  mva: { cas: 3, jcr: "Q2" },
+  ijmlc: { cas: 3, jcr: "Q2" },
+  kais: { cas: 3, jcr: "Q2" },
+  npl: { cas: 3, jcr: "Q2" },
+  ijns: { cas: 3, jcr: "Q2" },
+  compint: { cas: 3, jcr: "Q2" },
+  asoc: { cas: 2, jcr: "Q1" },
+  "neural-computation": { cas: 3, jcr: "Q2" },
+  // 非 CCF 高影响力期刊
+  tmlr: { cas: 3, jcr: "Q2" },
+  "nature-mi": { cas: 1, jcr: "Q1" },
+  tiai: { cas: 2, jcr: "Q1" },
+  mlst: { cas: 2, jcr: "Q1" },
+  patterns: { cas: 2, jcr: "Q1" },
+  mir: { cas: 3, jcr: "Q2" },
+  aiopen: { cas: 3, jcr: "Q2" },
+};
+
+export const venues: Venue[] = rawVenues.map((v) => ({
+  ...v,
+  cas: CLASS[v.id]?.cas ?? null,
+  jcr: CLASS[v.id]?.jcr ?? null,
+}));
 
 export const venueById = (id: string) => venues.find((v) => v.id === id);
 

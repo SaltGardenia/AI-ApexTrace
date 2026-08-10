@@ -589,6 +589,108 @@ export const fieldSubfields: Record<DirectionId, FieldSubfield[]> = {
       ],
     },
   ],
-  hci: [],
-  theory: [],
+  hci: [
+    {
+      id: "hci-xai",
+      name: { zh: "可解释交互", en: "Explainable Interaction" },
+      description: {
+        zh: "从可解释 AI（XAI）走向可交互 AI，让用户超越「可质疑」而能参与甚至共设模型内部机制。",
+        en: "From explainable AI toward interactive AI, letting users go beyond contestability to co-design model internals.",
+      },
+      children: [
+        { id: "hci-x-explain", name: { zh: "可解释 AI", en: "Explainable AI" }, papers: 900 },
+        { id: "hci-x-interact", name: { zh: "可交互 AI", en: "Interactive AI" }, papers: 500 },
+        { id: "hci-x-contest", name: { zh: "可质疑性", en: "Contestability" }, papers: 300 },
+      ],
+    },
+    {
+      id: "hci-genui",
+      name: { zh: "生成式界面", en: "Generative UI" },
+      description: {
+        zh: "由 AI 模型即时生成的界面（Generative UI），正在重塑设计方法、工作流与用户体验。",
+        en: "AI-generated interfaces (Generative UI) are reshaping design methods, workflows and user experience.",
+      },
+      children: [
+        { id: "hci-g-ui", name: { zh: "生成式界面", en: "Generative UI" }, papers: 600 },
+        { id: "hci-g-code", name: { zh: "LLM 辅助设计", en: "LLM-assisted Design" }, papers: 400 },
+      ],
+    },
+    {
+      id: "hci-affect",
+      name: { zh: "情感计算", en: "Affective Computing" },
+      description: {
+        zh: "让机器识别与模拟人类情绪，从基础情绪识别走向多模态融合与生成式情感合成。",
+        en: "Enabling machines to recognize & simulate emotion; from recognition to multimodal fusion & generative synthesis.",
+      },
+      children: [
+        { id: "hci-a-recogn", name: { zh: "情绪识别", en: "Emotion Recognition" }, papers: 500 },
+        { id: "hci-a-gen", name: { zh: "生成式情感", en: "Affective Synthesis" }, papers: 300 },
+      ],
+    },
+    {
+      id: "hci-usability",
+      name: { zh: "可用性", en: "Usability" },
+      description: {
+        zh: "以人为中心的设计评估、无障碍与用户研究，关注易用性、执行效率与用户满意度。",
+        en: "Human-centered design evaluation, accessibility and user studies; ease of use, efficiency and satisfaction.",
+      },
+      children: [
+        { id: "hci-u-access", name: { zh: "无障碍设计", en: "Accessibility" }, papers: 400 },
+        { id: "hci-u-eval", name: { zh: "用户研究", en: "User Studies" }, papers: 500 },
+      ],
+    },
+  ],
+  theory: [
+    {
+      id: "theory-learning",
+      name: { zh: "学习理论", en: "Learning Theory" },
+      description: {
+        zh: "计算学习理论（Computational Learning Theory）研究学习作为计算过程的根本原理与可学习性。",
+        en: "Computational learning theory studies the fundamental principles and learnability of learning as a process.",
+      },
+      children: [
+        { id: "th-l-pac", name: { zh: "PAC/可学习性", en: "PAC / Learnability" }, papers: 500 },
+        { id: "th-l-gen", name: { zh: "泛化界", en: "Generalization Bounds" }, papers: 500 },
+        { id: "th-l-rl", name: { zh: "强化学习理论", en: "RL Theory" }, papers: 300 },
+      ],
+    },
+    {
+      id: "theory-opt",
+      name: { zh: "优化收敛", en: "Optimization" },
+      description: {
+        zh: "深度学习优化的收敛性与泛化分析，涵盖一/二阶方法与分布式（中心化/去中心化）优化。",
+        en: "Convergence & generalization analysis of DL optimization; first/second-order and distributed methods.",
+      },
+      children: [
+        { id: "th-o-convex", name: { zh: "非凸优化", en: "Non-convex Opt" }, papers: 500 },
+        { id: "th-o-dist", name: { zh: "分布式优化", en: "Distributed Opt" }, papers: 300 },
+        { id: "th-o-l2o", name: { zh: "学习式优化", en: "Learning-to-Optimize" }, papers: 200 },
+      ],
+    },
+    {
+      id: "theory-game",
+      name: { zh: "博弈理论", en: "Game Theory" },
+      description: {
+        zh: "多智能体博弈、机制设计与社会选择，为多智能体系统与对齐提供理论基礎。",
+        en: "Multi-agent games, mechanism design and social choice; foundations for multi-agent systems & alignment.",
+      },
+      children: [
+        { id: "th-g-multi", name: { zh: "多智能体博弈", en: "Multi-Agent Games" }, papers: 400 },
+        { id: "th-g-mech", name: { zh: "机制设计", en: "Mechanism Design" }, papers: 300 },
+      ],
+    },
+    {
+      id: "theory-causal",
+      name: { zh: "因果推断", en: "Causal Inference" },
+      description: {
+        zh: "基于 SCM 与潜在结果的因果发现与推断，并与深度学习结合提升可解释性与公平性。",
+        en: "Causal discovery & inference via SCMs and potential outcomes; fused with DL for interpretability & fairness.",
+      },
+      children: [
+        { id: "th-c-discovery", name: { zh: "因果发现", en: "Causal Discovery" }, papers: 400 },
+        { id: "th-c-infer", name: { zh: "因果推断", en: "Causal Inference" }, papers: 400 },
+        { id: "th-c-fair", name: { zh: "因果公平", en: "Causal Fairness" }, papers: 200 },
+      ],
+    },
+  ],
 };

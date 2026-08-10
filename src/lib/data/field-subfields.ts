@@ -123,8 +123,140 @@ export const fieldSubfields: Record<DirectionId, FieldSubfield[]> = {
       ],
     },
   ],
-  nlp: [],
-  ml: [],
+  nlp: [
+    {
+      id: "nlp-llm",
+      name: { zh: "大语言模型", en: "Large Language Models" },
+      description: {
+        zh: "以 Transformer 预训练为核心的基座模型，涵盖指令微调（SFT）、对齐（RLHF/DPO）与规模化训练（Scaling Law）。",
+        en: "Transformer-pretrained foundation models covering instruction tuning (SFT), alignment (RLHF/DPO) and scaling laws.",
+      },
+      children: [
+        { id: "nlp-llm-pretrain", name: { zh: "预训练与缩放律", en: "Pretraining & Scaling" }, papers: 2600 },
+        { id: "nlp-llm-align", name: { zh: "对齐 (RLHF/DPO)", en: "Alignment (RLHF/DPO)" }, papers: 1600 },
+        { id: "nlp-llm-sft", name: { zh: "指令微调", en: "Instruction Tuning" }, papers: 1400 },
+      ],
+    },
+    {
+      id: "nlp-rag",
+      name: { zh: "检索增强生成", en: "Retrieval-Augmented" },
+      description: {
+        zh: "将外部知识检索注入生成过程以缓解幻觉，从朴素 RAG 演进到模块化、智能体式（Agentic）RAG。",
+        en: "Injecting external retrieval into generation to curb hallucination; from naive to modular and agentic RAG.",
+      },
+      children: [
+        { id: "nlp-rag-naive", name: { zh: "朴素/高级 RAG", en: "Naive / Advanced RAG" }, papers: 1200 },
+        { id: "nlp-rag-agentic", name: { zh: "智能体式 RAG", en: "Agentic RAG" }, papers: 900 },
+        { id: "nlp-rag-eval", name: { zh: "RAG 评测", en: "RAG Evaluation" }, papers: 500 },
+      ],
+    },
+    {
+      id: "nlp-reason",
+      name: { zh: "推理能力", en: "Reasoning" },
+      description: {
+        zh: "从推理时缩放（CoT、Self-Consistency）到学习式推理（DeepSeek-R1、GRPO）与可验证奖励训练。",
+        en: "From inference scaling (CoT, self-consistency) to learning-to-reason (DeepSeek-R1, GRPO) and verifier training.",
+      },
+      children: [
+        { id: "nlp-re-cot", name: { zh: "思维链/缩放", en: "CoT / Scaling" }, papers: 1100 },
+        { id: "nlp-re-rl", name: { zh: "强化学习推理", en: "RL Reasoning" }, papers: 700 },
+        { id: "nlp-re-math", name: { zh: "数学推理", en: "Math Reasoning" }, papers: 600 },
+      ],
+    },
+    {
+      id: "nlp-agent",
+      name: { zh: "Agent 能力", en: "Agent Capabilities" },
+      description: {
+        zh: "赋予 LLM 规划、工具调用、自我反思与多智能体协作的自主任务求解能力。",
+        en: "Equipping LLMs with planning, tool use, self-reflection and multi-agent collaboration for autonomous solving.",
+      },
+      children: [
+        { id: "nlp-ag-tool", name: { zh: "工具调用", en: "Tool Use" }, papers: 1000 },
+        { id: "nlp-ag-reflect", name: { zh: "自我反思", en: "Self-Reflection" }, papers: 600 },
+        { id: "nlp-ag-multi", name: { zh: "多智能体协作", en: "Multi-Agent" }, papers: 700 },
+      ],
+    },
+    {
+      id: "nlp-app",
+      name: { zh: "NLP 应用", en: "NLP Applications" },
+      description: {
+        zh: "机器翻译、摘要、问答、情感分析与信息抽取等面向任务的自然语言处理应用。",
+        en: "Machine translation, summarization, QA, sentiment analysis and information extraction.",
+      },
+      children: [
+        { id: "nlp-ap-trans", name: { zh: "机器翻译", en: "Machine Translation" }, papers: 800 },
+        { id: "nlp-ap-qa", name: { zh: "问答/对话", en: "QA / Dialogue" }, papers: 900 },
+        { id: "nlp-ap-sum", name: { zh: "摘要/抽取", en: "Summarization" }, papers: 700 },
+      ],
+    },
+  ],
+  ml: [
+    {
+      id: "ml-rep",
+      name: { zh: "表征学习", en: "Representation Learning" },
+      description: {
+        zh: "学习数据的高效低维表示，自监督、对比学习与生成式预训练是核心范式。",
+        en: "Learning efficient low-dimensional representations; self-supervised, contrastive and generative pretraining are key.",
+      },
+      children: [
+        { id: "ml-re-ssl", name: { zh: "自监督学习", en: "Self-Supervised" }, papers: 2200 },
+        { id: "ml-re-contrast", name: { zh: "对比学习", en: "Contrastive" }, papers: 1400 },
+        { id: "ml-re-disent", name: { zh: "解耦表征", en: "Disentangled" }, papers: 600 },
+      ],
+    },
+    {
+      id: "ml-paradigm",
+      name: { zh: "学习范式", en: "Learning Paradigms" },
+      description: {
+        zh: "监督、无监督、半监督、迁移与元学习的整体方法论谱系。",
+        en: "The methodological spectrum of supervised, unsupervised, semi-supervised, transfer and meta learning.",
+      },
+      children: [
+        { id: "ml-pa-meta", name: { zh: "元学习", en: "Meta-Learning" }, papers: 1100 },
+        { id: "ml-pa-trans", name: { zh: "迁移学习", en: "Transfer Learning" }, papers: 1300 },
+        { id: "ml-pa-semi", name: { zh: "半监督学习", en: "Semi-Supervised" }, papers: 700 },
+      ],
+    },
+    {
+      id: "ml-fewshot",
+      name: { zh: "小样本学习", en: "Few-shot Learning" },
+      description: {
+        zh: "利用先验知识快速适配新任务，涵盖元学习、上下文学习（In-context）与神经过程。",
+        en: "Rapid adaptation to novel tasks via meta-learning, in-context learning and neural processes.",
+      },
+      children: [
+        { id: "ml-fs-icl", name: { zh: "上下文学习", en: "In-Context Learning" }, papers: 900 },
+        { id: "ml-fs-meta", name: { zh: "少样本元学习", en: "Few-shot Meta" }, papers: 600 },
+        { id: "ml-fs-zero", name: { zh: "零样本泛化", en: "Zero-Shot" }, papers: 500 },
+      ],
+    },
+    {
+      id: "ml-cont",
+      name: { zh: "持续学习", en: "Continual Learning" },
+      description: {
+        zh: "在不遗忘旧知识的前提下序贯学习新任务，应对灾难性遗忘（架构/正则/回放三类方法）。",
+        en: "Sequentially learning new tasks without forgetting old ones; tackles catastrophic forgetting via architecture/regularization/replay.",
+      },
+      children: [
+        { id: "ml-co-replay", name: { zh: "回放方法", en: "Replay" }, papers: 600 },
+        { id: "ml-co-reg", name: { zh: "正则方法", en: "Regularization" }, papers: 400 },
+        { id: "ml-co-llm", name: { zh: "LLM 持续学习", en: "LLM Continual" }, papers: 500 },
+      ],
+    },
+    {
+      id: "ml-gen",
+      name: { zh: "生成模型", en: "Generative Models" },
+      description: {
+        zh: "学习数据分布并生成新样本，GAN、VAE、归一化流与扩散模型构成主干。",
+        en: "Learning data distributions to synthesize samples; GANs, VAEs, flows and diffusion models form the backbone.",
+      },
+      children: [
+        { id: "ml-ge-diff", name: { zh: "扩散模型", en: "Diffusion Models" }, papers: 2400 },
+        { id: "ml-ge-gan", name: { zh: "GAN/VAE", en: "GAN / VAE" }, papers: 1200 },
+        { id: "ml-ge-flow", name: { zh: "归一化流", en: "Normalizing Flows" }, papers: 400 },
+      ],
+    },
+  ],
   robotics: [],
   multimodal: [],
   ai4science: [],

@@ -60,7 +60,7 @@ export function DirectionsExplorer() {
 
   return (
     <div className="space-y-6">
-      <Card>
+      <Card id="quadrant">
         <CardHeader>
           <CardTitle className="text-base">{t("quadrant_title")}</CardTitle>
           <p className="text-xs text-muted-foreground">
@@ -124,7 +124,7 @@ export function DirectionsExplorer() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="direction-list">
         <CardHeader>
             <div className="flex flex-wrap gap-1">
               {CATEGORY_LABELS.map((c) => (

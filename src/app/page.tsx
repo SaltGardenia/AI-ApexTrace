@@ -12,8 +12,13 @@ import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
 const NAV_SECTIONS = [
-  { id: "directions", key: "home_nav_directions" },
   { id: "trend", key: "home_nav_trend" },
+  { id: "ranking", key: "home_nav_ranking" },
+  { id: "quadrant", key: "home_nav_quadrant" },
+  { id: "direction-list", key: "home_nav_list" },
+  { id: "compare-radar", key: "home_nav_compare_radar" },
+  { id: "compare-line", key: "home_nav_compare_line" },
+  { id: "compare-table", key: "home_nav_compare_table" },
   { id: "calendar", key: "home_nav_calendar" },
 ] as const;
 
@@ -23,7 +28,7 @@ export default function HomePage() {
     <div className="pb-16">
       <HeatHero />
 
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[180px_1fr] lg:gap-12">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[200px_1fr] lg:gap-12">
         <aside>
           <HomeNav
             sections={NAV_SECTIONS.map((s) => ({ id: s.id, label: t(s.key as DictKey) }))}
@@ -31,6 +36,13 @@ export default function HomePage() {
         </aside>
 
         <div className="min-w-0 space-y-20">
+          <section id="trend" className="scroll-mt-24">
+            <SectionHeader title={t("trend_title")} desc={t("trend_sub")} />
+            <div className="mt-6">
+              <DirectionTrend />
+            </div>
+          </section>
+
           <section id="directions" className="scroll-mt-24">
             <SectionHeader
               title={t("page_directions")}
@@ -39,7 +51,9 @@ export default function HomePage() {
               hrefLabel={t("home_view_all")}
             />
             <div className="mt-6 space-y-6">
-              <TopDirections />
+              <div id="ranking" className="scroll-mt-24">
+                <TopDirections />
+              </div>
               <DirectionsExplorer />
             </div>
             <div className="mt-8">
@@ -47,16 +61,6 @@ export default function HomePage() {
               <div className="mt-4">
                 <CompareExplorer />
               </div>
-            </div>
-          </section>
-
-          <section id="trend" className="scroll-mt-24">
-            <SectionHeader
-              title={t("trend_title")}
-              desc={t("trend_sub")}
-            />
-            <div className="mt-6">
-              <DirectionTrend />
             </div>
           </section>
 

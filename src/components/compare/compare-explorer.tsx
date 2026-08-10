@@ -87,7 +87,7 @@ export function CompareExplorer() {
       ) : (
         <div className="space-y-6">
           <div className="grid gap-6 lg:grid-cols-2">
-            <Card>
+            <Card id="compare-radar">
               <CardHeader>
                 <CardTitle className="text-base">{t("compare_radar")}</CardTitle>
               </CardHeader>
@@ -108,7 +108,7 @@ export function CompareExplorer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card id="compare-line">
               <CardHeader>
                 <CardTitle className="text-base">{t("compare_line")}</CardTitle>
               </CardHeader>
@@ -142,7 +142,7 @@ export function CompareExplorer() {
             </Card>
           </div>
 
-          <Card>
+          <Card id="compare-table">
             <CardHeader>
                 <CardTitle className="text-base">{t("compare_table")}</CardTitle>
             </CardHeader>

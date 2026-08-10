@@ -44,9 +44,6 @@ function wrapLabel(str: string, maxChars: number): string[] {
   return lines;
 }
 
-const LABEL_FONT =
-  'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif';
-
 // recharts clones `content` with `nodeProps`, so our data fields (label,
 // catColor, size) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
@@ -91,7 +88,7 @@ function Content(props: any) {
           fillOpacity={0.95}
           fontSize={fontSize}
           fontWeight="normal"
-          fontFamily={LABEL_FONT}
+          fontFamily="inherit"
           clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >

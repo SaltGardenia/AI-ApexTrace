@@ -6,7 +6,6 @@ export const dict = {
   nav_directions: { zh: "研究方向", en: "Directions" },
   nav_venues: { zh: "会议全景", en: "Venues" },
   nav_calendar: { zh: "会议日历", en: "Calendar" },
-  nav_compare: { zh: "对比分析", en: "Compare" },
   nav_about: { zh: "关于", en: "About" },
   menu: { zh: "导航", en: "Navigation" },
 
@@ -84,11 +83,6 @@ export const dict = {
   page_calendar_desc: {
     zh: "全年 12 个月的截稿与召开节点，快速规划投稿与参会节奏。",
     en: "All submission and conference nodes across 12 months to plan your year.",
-  },
-  page_compare: { zh: "对比分析", en: "Compare" },
-  page_compare_desc: {
-    zh: "并排对比研究方向的热度曲线、增长率与多维画像，发现交叉与差异。",
-    en: "Compare heat curves, growth and multi-dimensional profiles side by side.",
   },
 
   // ---------- directions explorer ----------

@@ -4,7 +4,6 @@ import * as React from "react";
 import { ChevronRight } from "lucide-react";
 import type { FieldNode } from "@/lib/types";
 import { fieldTree } from "@/lib/data/field-tree";
-import { nodePapers } from "@/lib/field-tree-utils";
 import { useI18n } from "@/lib/i18n";
 
 function TreeBranch({
@@ -39,9 +38,6 @@ function TreeBranch({
         >
           <ChevronRight className={`size-3.5 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
           <span className="flex-1 truncate">{pick(node.name)}</span>
-          <span className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground">
-            {nodePapers(node).toLocaleString()}
-          </span>
         </button>
         {open && (
           <ul>
@@ -66,9 +62,6 @@ function TreeBranch({
       >
         <span className="size-3.5 shrink-0" />
         <span className="flex-1 truncate">{pick(node.name)}</span>
-        <span className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground">
-          {nodePapers(node).toLocaleString()}
-        </span>
       </button>
     </li>
   );
@@ -82,14 +75,22 @@ export function FieldTreeNav({
   onSelect: (id: string) => void;
 }) {
   const { t } = useI18n();
+  const [expanded, setExpanded] = React.useState(false);
+
   return (
     <nav className="overflow-hidden rounded-xl border border-border/60">
-      <div className="border-b border-border/40 bg-muted/30 px-3 py-2 text-sm font-semibold tracking-tight">
-        {t("field_tree_title")}
+      <div className="flex items-center justify-between border-b border-border/40 bg-muted/30 px-3 py-2">
+        <span className="text-sm font-semibold tracking-tight">{t("field_tree_title")}</span>
+        <button
+          onClick={() => setExpanded((e) => !e)}
+          className="rounded-md px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        >
+          {expanded ? t("field_tree_collapse") : t("field_tree_expand")}
+        </button>
       </div>
-      <ul className="p-1.5">
+      <ul className="p-1.5" key={expanded ? "expanded" : "collapsed"}>
         {fieldTree.map((n) => (
-          <TreeBranch key={n.id} node={n} depth={0} activeId={activeId} defaultOpen onSelect={onSelect} />
+          <TreeBranch key={n.id} node={n} depth={0} activeId={activeId} defaultOpen={expanded} onSelect={onSelect} />
         ))}
       </ul>
     </nav>

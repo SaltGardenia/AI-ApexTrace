@@ -107,6 +107,8 @@ export const dict = {
   dir_count: { zh: "个方向", en: "directions" },
   dir_select_hint: { zh: "选择左侧方向查看详情", en: "Select a direction on the left to view details" },
   field_tree_title: { zh: "领域分类树", en: "Field Tree" },
+  field_tree_expand: { zh: "展开全部", en: "Expand all" },
+  field_tree_collapse: { zh: "合并全部", en: "Collapse all" },
   field_path: { zh: "路径", en: "Path" },
   field_papers: { zh: "论文数", en: "Papers" },
   field_children: { zh: "子分类", en: "Sub-categories" },

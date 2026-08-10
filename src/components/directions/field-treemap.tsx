@@ -52,7 +52,7 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const fontSize = width < 64 ? 10 : 12;
+  const fontSize = width < 60 ? 9 : 11;
   const charW = fontSize * 0.95;
   const maxChars = Math.floor((width - 8) / charW);
   const showText = width > 34 && height > 14 && maxChars >= 1;
@@ -87,8 +87,8 @@ function Content(props: any) {
           fill="#fff"
           fillOpacity={0.95}
           fontSize={fontSize}
-          fontWeight={300}
-          style={{ fontWeight: 300, fontFamily: "inherit" }}
+          fontWeight={400}
+          style={{ fontWeight: 400, fontFamily: "inherit" }}
           clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >

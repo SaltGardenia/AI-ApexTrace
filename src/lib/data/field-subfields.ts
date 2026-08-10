@@ -257,8 +257,126 @@ export const fieldSubfields: Record<DirectionId, FieldSubfield[]> = {
       ],
     },
   ],
-  robotics: [],
-  multimodal: [],
+  robotics: [
+    {
+      id: "robotics-perception",
+      name: { zh: "感知", en: "Perception" },
+      description: {
+        zh: "融合视觉、触觉与力觉的机器人感知，涵盖分割/跟踪、位姿估计与基于基础模型的物理属性推理。",
+        en: "Fusing vision, tactile and force sensing; covers segmentation/tracking, pose estimation and foundation-model physical reasoning.",
+      },
+      children: [
+        { id: "rob-pe-vision", name: { zh: "视觉感知", en: "Visual Perception" }, papers: 1300 },
+        { id: "rob-pe-tactile", name: { zh: "触觉/力觉", en: "Tactile / Force" }, papers: 700 },
+        { id: "rob-pe-pose", name: { zh: "位姿估计", en: "Pose Estimation" }, papers: 700 },
+      ],
+    },
+    {
+      id: "robotics-planning",
+      name: { zh: "规划", en: "Planning" },
+      description: {
+        zh: "在连续运动与离散任务之间联合推理，运动规划、任务与运动规划（TAMP）与基于 LLM 的高层规划。",
+        en: "Joint reasoning over continuous motion and discrete tasks; motion planning, TAMP and LLM-driven high-level planning.",
+      },
+      children: [
+        { id: "rob-pl-motion", name: { zh: "运动规划", en: "Motion Planning" }, papers: 900 },
+        { id: "rob-pl-tamp", name: { zh: "任务与运动规划", en: "TAMP" }, papers: 700 },
+        { id: "rob-pl-llm", name: { zh: "LLM 规划", en: "LLM Planning" }, papers: 600 },
+      ],
+    },
+    {
+      id: "robotics-control",
+      name: { zh: "控制", en: "Control" },
+      description: {
+        zh: "从优化控制（MPC）到学习式控制（模仿/强化学习）与视觉-语言-动作（VLA）模型。",
+        en: "From optimal control (MPC) to learning-based control (imitation/RL) and vision-language-action (VLA) models.",
+      },
+      children: [
+        { id: "rob-co-mpc", name: { zh: "模型预测控制", en: "MPC" }, papers: 700 },
+        { id: "rob-co-rl", name: { zh: "强化学习控制", en: "RL Control" }, papers: 900 },
+        { id: "rob-co-vla", name: { zh: "视觉-语言-动作", en: "VLA Models" }, papers: 800 },
+      ],
+    },
+    {
+      id: "robotics-manipulation",
+      name: { zh: "操作", en: "Manipulation" },
+      description: {
+        zh: "抓取与灵巧操作，尤其柔性与可变形物体操作的建模、感知与策略（扩散策略、模仿学习）。",
+        en: "Grasping and dexterous manipulation, esp. modeling, perception and policies (diffusion, imitation) for deformable objects.",
+      },
+      children: [
+        { id: "rob-ma-grasp", name: { zh: "抓取", en: "Grasping" }, papers: 900 },
+        { id: "rob-ma-dexterous", name: { zh: "灵巧操作", en: "Dexterous" }, papers: 700 },
+        { id: "rob-ma-deform", name: { zh: "柔体操作", en: "Deformable Objects" }, papers: 600 },
+      ],
+    },
+    {
+      id: "robotics-nav",
+      name: { zh: "导航", en: "Navigation" },
+      description: {
+        zh: "自主与多机器人导航：SLAM、路径规划、避障及基于基础语言模型的导航协作。",
+        en: "Autonomous & multi-robot navigation: SLAM, path planning, obstacle avoidance and LLM-based navigation.",
+      },
+      children: [
+        { id: "rob-na-slam", name: { zh: "SLAM/建图", en: "SLAM / Mapping" }, papers: 700 },
+        { id: "rob-na-path", name: { zh: "路径规划", en: "Path Planning" }, papers: 600 },
+        { id: "rob-na-llm", name: { zh: "语言模型导航", en: "LLM Navigation" }, papers: 500 },
+      ],
+    },
+  ],
+  multimodal: [
+    {
+      id: "mm-vl",
+      name: { zh: "图文理解", en: "Vision-Language" },
+      description: {
+        zh: "视觉-语言模型（VLM/MLLM）已成为 CV 研究的组织核心，从 2023 年 16% 增至 2025 年 40% 的论文占比。",
+        en: "Vision-language models (VLM/MLLM) became the organizing center of CV, rising from 16% (2023) to 40% (2025) of papers.",
+      },
+      children: [
+        { id: "mm-vl-mllm", name: { zh: "多模态大模型", en: "MLLMs" }, papers: 1800 },
+        { id: "mm-vl-ground", name: { zh: "视觉定位", en: "Visual Grounding" }, papers: 900 },
+        { id: "mm-vl-align", name: { zh: "模态对齐", en: "Modality Alignment" }, papers: 800 },
+      ],
+    },
+    {
+      id: "mm-gen",
+      name: { zh: "多模态生成", en: "Multimodal Generation" },
+      description: {
+        zh: "文本到图像/视频生成、图文编辑与统一生成框架（扩散模型占生成论文 19.2%）。",
+        en: "Text-to-image/video generation, image-text editing and unified generative frameworks (diffusion ~19% of generative papers).",
+      },
+      children: [
+        { id: "mm-ge-t2i", name: { zh: "文生图", en: "Text-to-Image" }, papers: 1200 },
+        { id: "mm-ge-t2v", name: { zh: "文生视频", en: "Text-to-Video" }, papers: 1000 },
+        { id: "mm-ge-edit", name: { zh: "多模态编辑", en: "Multimodal Editing" }, papers: 700 },
+      ],
+    },
+    {
+      id: "mm-reason",
+      name: { zh: "视觉推理", en: "Visual Reasoning" },
+      description: {
+        zh: "多模态思维链、空间推理与具身推理（VLM 上的 RFT/CoT），连接感知与决策。",
+        en: "Multimodal chain-of-thought, spatial reasoning and embodied reasoning (RFT/CoT on VLMs) bridging perception and action.",
+      },
+      children: [
+        { id: "mm-re-cot", name: { zh: "多模态思维链", en: "Multimodal CoT" }, papers: 800 },
+        { id: "mm-re-space", name: { zh: "空间推理", en: "Spatial Reasoning" }, papers: 500 },
+        { id: "mm-re-emb", name: { zh: "具身推理", en: "Embodied Reasoning" }, papers: 500 },
+      ],
+    },
+    {
+      id: "mm-audio",
+      name: { zh: "音视频多模态", en: "Audio-Visual" },
+      description: {
+        zh: "语音/音频与视觉的联合理解与生成，包括视听说话人分离与音频驱动生成。",
+        en: "Joint audio-visual understanding and generation, incl. audio-visual separation and audio-driven synthesis.",
+      },
+      children: [
+        { id: "mm-au-av", name: { zh: "视听理解", en: "Audio-Visual" }, papers: 500 },
+        { id: "mm-au-speech", name: { zh: "语音生成", en: "Speech Generation" }, papers: 400 },
+      ],
+    },
+  ],
   ai4science: [],
   datamining: [],
   graphics: [],

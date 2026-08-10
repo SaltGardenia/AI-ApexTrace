@@ -144,6 +144,9 @@ export const dict = {
     zh: "每个色块为一个最小子领域，面积 = 其论文数量，颜色为所属一级领域",
     en: "Each block is a smallest sub-field; area = paper count, color = its top-level category",
   },
+  lvl_one: { zh: "一级领域", en: "L1 Category" },
+  lvl_two: { zh: "二级领域", en: "L2 Field" },
+  lvl_three: { zh: "三级子领域", en: "L3 Sub-field" },
   quadrant_title: { zh: "方向气泡象限图", en: "Direction Quadrant" },
   quadrant_sub: {
     zh: "X = 增长率，Y = 平均引用（影响力），气泡大小 = 论文产出",

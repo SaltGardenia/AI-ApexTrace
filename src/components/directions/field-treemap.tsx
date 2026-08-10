@@ -3,11 +3,18 @@
 import * as React from "react";
 import { ResponsiveContainer, Treemap } from "recharts";
 import { fieldTree } from "@/lib/data/field-tree";
+import { pathToNode } from "@/lib/field-tree-utils";
 import type { Bilingual, FieldNode } from "@/lib/types";
 import { DIRECTION_PALETTE } from "@/lib/chart-palette";
 import { useI18n } from "@/lib/i18n";
 
-type LeafDatum = { label: string; size: number; catColor: string };
+type LeafDatum = {
+  id: string;
+  label: string;
+  size: number;
+  catColor: string;
+  path: string[];
+};
 
 function collectLeaves(node: FieldNode): FieldNode[] {
   if (!node.children || node.children.length === 0) return [node];
@@ -20,9 +27,11 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
     const color = DIRECTION_PALETTE[top.id as keyof typeof DIRECTION_PALETTE] ?? "#9a8fd0";
     for (const leaf of collectLeaves(top)) {
       out.push({
+        id: leaf.id,
         label: leaf.name[locale],
         size: leaf.papers ?? 0,
         catColor: color,
+        path: pathToNode(leaf.id).map((n) => n.name[locale]),
       });
     }
   }
@@ -44,10 +53,12 @@ function wrapLabel(str: string, maxChars: number): string[] {
   return lines;
 }
 
+type HoverState = { label: string; size: number; path: string[]; color: string; x: number; y: number };
+
 // recharts clones `content` with `nodeProps`, so our data fields (label,
-// catColor, size) arrive as direct props (no `payload` wrapper).
+// catColor, size, path) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
-  const { x, y, width, height, label, catColor, size, index } = props;
+  const { x, y, width, height, label, catColor, size, path, index } = props;
   if (width <= 0 || height <= 0) return null;
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
@@ -75,9 +86,7 @@ function Content(props: any) {
         fillOpacity={0.85}
         stroke="#fff"
         strokeWidth={1}
-      >
-        <title>{`${text}: ${(size ?? 0).toLocaleString()}`}</title>
-      </rect>
+      />
       {lines.length > 0 && (
         <text
           x={tx}
@@ -104,12 +113,15 @@ function Content(props: any) {
 }
 
 export function FieldTreemap() {
-  const { lang, pick } = useI18n();
+  const { lang, pick, t } = useI18n();
   const data = React.useMemo(() => buildRaw(lang), [lang]);
+  const [hover, setHover] = React.useState<HoverState | null>(null);
+
+  const levelNames = [t("lvl_one"), t("lvl_two"), t("lvl_three")];
 
   return (
     <div className="rounded-xl border border-border/60 bg-card/40 p-4">
-      <div className="h-[560px] w-full">
+      <div className="relative h-[560px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <Treemap
             data={data}
@@ -118,8 +130,45 @@ export function FieldTreemap() {
             stroke="#fff"
             isAnimationActive={false}
             content={<Content />}
+            onMouseEnter={(node: any, e: React.MouseEvent) => {
+              setHover({
+                label: node.label,
+                size: node.size,
+                path: node.path ?? [],
+                color: node.catColor ?? "#9a8fd0",
+                x: e.clientX,
+                y: e.clientY,
+              });
+            }}
+            onMouseLeave={() => setHover(null)}
           />
         </ResponsiveContainer>
+
+        {hover && (
+          <div
+            className="pointer-events-none fixed z-50 max-w-[260px] rounded-lg border border-border bg-popover px-3 py-2 text-xs shadow-lg"
+            style={{ left: hover.x + 14, top: hover.y + 14 }}
+          >
+            <div className="mb-1 flex items-center gap-2">
+              <span className="size-2.5 shrink-0 rounded-sm" style={{ background: hover.color }} />
+              <span className="font-semibold text-foreground">{hover.label}</span>
+            </div>
+            <div className="space-y-0.5 text-muted-foreground">
+              {hover.path.map((p, i) => (
+                <div key={i} className="flex gap-2">
+                  <span className="shrink-0 text-[10px] text-muted-foreground/70">
+                    {levelNames[i] ?? `L${i + 1}`}
+                  </span>
+                  <span>{p}</span>
+                </div>
+              ))}
+              <div className="flex gap-2 pt-0.5">
+                <span className="shrink-0 text-[10px] text-muted-foreground/70">{t("field_papers")}</span>
+                <span className="tabular-nums">{(hover.size ?? 0).toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
         {fieldTree.map((top) => (

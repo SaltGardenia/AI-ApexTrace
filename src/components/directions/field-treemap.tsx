@@ -32,13 +32,19 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
 // recharts clones `content` with `nodeProps`, so our data fields (label,
 // catColor, size) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
-  const { x, y, width, height, label, catColor, size } = props;
+  const { x, y, width, height, label, catColor, size, index } = props;
   if (width <= 0 || height <= 0) return null;
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
+  const clipId = `tm-clip-${index}`;
+  const showText = width > 40 && height > 16;
+  const fontSize = width < 70 || height < 30 ? 9 : 10;
 
   return (
     <g>
+      <clipPath id={clipId}>
+        <rect x={x} y={y} width={width} height={height} />
+      </clipPath>
       <rect
         x={x}
         y={y}
@@ -51,15 +57,16 @@ function Content(props: any) {
       >
         <title>{`${text}: ${(size ?? 0).toLocaleString()}`}</title>
       </rect>
-      {width > 42 && height > 18 && (
+      {showText && (
         <text
           x={x + width / 2}
           y={y + height / 2}
           textAnchor="middle"
           dominantBaseline="middle"
           fill="#fff"
-          fontSize={11}
+          fontSize={fontSize}
           fontWeight={500}
+          clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >
           {text}

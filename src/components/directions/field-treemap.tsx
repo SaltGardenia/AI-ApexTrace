@@ -35,7 +35,7 @@ function wrapLabel(str: string, maxChars: number): string[] {
   const lines: string[] = [];
   for (let i = 0; i < str.length; i += maxChars) {
     lines.push(str.slice(i, i + maxChars));
-    if (lines.length >= 3) break;
+    if (lines.length >= 4) break;
   }
   if (str.length > lines.length * maxChars) {
     const last = lines[lines.length - 1];
@@ -54,14 +54,14 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const fontSize = width < 56 ? 9 : 11;
+  const fontSize = width < 64 ? 10 : 12;
   const charW = fontSize * 0.95;
   const maxChars = Math.floor((width - 8) / charW);
-  const showText = width > 40 && height > 16 && maxChars >= 1;
+  const showText = width > 34 && height > 14 && maxChars >= 1;
   const lines = showText ? wrapLabel(text, maxChars) : [];
-  const lineH = fontSize * 1.15;
-  const tx = x + 4;
-  const ty = y + fontSize + 2;
+  const lineH = fontSize * 1.2;
+  const tx = x + 5;
+  const ty = y + fontSize + 3;
 
   return (
     <g>
@@ -111,7 +111,7 @@ export function FieldTreemap() {
 
   return (
     <div className="rounded-xl border border-border/60 bg-card/40 p-4">
-      <div className="h-[440px] w-full">
+      <div className="h-[560px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <Treemap
             data={data}

@@ -6,14 +6,16 @@ import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { directionRanking } from "@/lib/heat-index";
 import type { RankedDirection } from "@/lib/heat-index";
+import { useI18n } from "@/lib/i18n";
+import type { DictKey } from "@/lib/i18n/translations";
 
 type SortKey = "heat" | "output" | "impact" | "growth";
 
-const SORTS: { key: SortKey; label: string }[] = [
-  { key: "heat", label: "综合" },
-  { key: "output", label: "产出" },
-  { key: "impact", label: "影响力" },
-  { key: "growth", label: "新兴" },
+const SORTS: { key: SortKey; tkey: DictKey }[] = [
+  { key: "heat", tkey: "sort_overall" },
+  { key: "output", tkey: "sort_output" },
+  { key: "impact", tkey: "sort_impact" },
+  { key: "growth", tkey: "sort_emerging" },
 ];
 
 function metricValue(d: RankedDirection, key: SortKey) {
@@ -26,14 +28,15 @@ function metricValue(d: RankedDirection, key: SortKey) {
 }
 
 export function TopDirections() {
+  const { t, pick } = useI18n();
   const [sort, setSort] = React.useState<SortKey>("heat");
   const list = directionRanking(sort);
   const max = Math.max(...list.map((d) => metricValue(d, sort)));
 
   return (
-    <Card>
-      <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
-        <CardTitle className="text-base">研究方向热度总榜</CardTitle>
+    <Card className="overflow-hidden shadow-sm">
+      <CardHeader className="flex-row items-center justify-between gap-2 space-y-0 border-b border-border/60 pb-4">
+        <CardTitle className="text-base">{t("ranking_title")}</CardTitle>
         <div className="flex gap-1 rounded-lg bg-muted/60 p-1">
           {SORTS.map((s) => (
             <button
@@ -45,12 +48,12 @@ export function TopDirections() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {s.label}
+              {t(s.tkey)}
             </button>
           ))}
         </div>
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-1 pt-4">
         {list.map((d, i) => {
           const v = metricValue(d, sort);
           const pct = (v / max) * 100;
@@ -64,17 +67,23 @@ export function TopDirections() {
             >
               <Link
                 href={`/directions/${d.id}`}
-                className="group flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-muted/50"
+                className="group flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-muted/50"
               >
-                <span className="w-5 text-right text-xs tabular-nums text-muted-foreground">
+                <span
+                  className={`grid w-6 shrink-0 place-items-center rounded-md text-xs font-semibold tabular-nums ${
+                    i === 0
+                      ? "bg-primary/15 text-primary"
+                      : "bg-muted/60 text-muted-foreground"
+                  }`}
+                >
                   {i + 1}
                 </span>
                 <span
                   className="size-2.5 shrink-0 rounded-full"
                   style={{ background: d.color }}
                 />
-                <span className="w-28 shrink-0 truncate text-sm font-medium">
-                  {d.name}
+                 <span className="w-28 shrink-0 truncate text-sm font-medium">
+                  {pick(d.name)}
                 </span>
                 <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-muted/60">
                   <motion.div
@@ -84,7 +93,7 @@ export function TopDirections() {
                     transition={{ duration: 0.5 }}
                   />
                 </div>
-                <span className="w-14 text-right text-sm tabular-nums text-muted-foreground">
+                <span className="w-14 text-right text-sm font-semibold tabular-nums">
                   {sort === "growth" ? `${v}%` : v.toLocaleString()}
                 </span>
               </Link>

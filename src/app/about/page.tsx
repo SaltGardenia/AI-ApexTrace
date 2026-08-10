@@ -4,7 +4,7 @@ import { heatWeights } from "@/lib/heat-index";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "方法论",
+  title: "关于",
   description: "AI 研究热度指数的计算口径、数据来源与局限性。",
 };
 
@@ -35,7 +35,7 @@ export default function MethodologyPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold tracking-tight">方法论 & 更新日志</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">关于 & 更新日志</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           公开、可解释、可复现的 AI 研究热度指数计算口径。
         </p>
@@ -123,7 +123,7 @@ export default function MethodologyPage() {
         </CardHeader>
         <CardContent className="space-y-3 text-sm">
           <Log version="v2026.Q2" date="2026-08" items={["初始版上线：综合热度指数、方向版图、会议全景、会议日历、对比分析。", "白名单接入 CCF A/B/C 类与业界顶会。"]} />
-          <Log version="v2026.Q1" date="2026-05" items={["方法论与权重口径公开。", "接入 ccfddl 截止日期字段。"]} />
+          <Log version="v2026.Q1" date="2026-05" items={["关于页与权重口径公开。", "接入 ccfddl 截止日期字段。"]} />
         </CardContent>
       </Card>
     </div>

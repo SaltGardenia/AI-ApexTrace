@@ -1,3 +1,8 @@
+import type { Bilingual } from "@/lib/i18n/types";
+
+export type { Bilingual } from "@/lib/i18n/types";
+export type { RankedDirection } from "@/lib/heat-index";
+
 export type CCFLevel = "A" | "B" | "C" | null;
 
 export type VenueType = "conference" | "journal";
@@ -16,6 +21,8 @@ export type DirectionId =
   | "hci"
   | "theory";
 
+export type RadarMetricKey = "output" | "impact" | "growth" | "ecosystem" | "fusion";
+
 export interface DeadlineInfo {
   abstractDeadline?: string;
   deadline?: string;
@@ -33,9 +40,9 @@ export interface Venue {
   fullName: string;
   type: VenueType;
   ccf: CCFLevel;
-  ccfField?: string;
+  ccfField?: Bilingual;
   domain: DirectionId | "cross";
-  field: string;
+  field: Bilingual;
   link?: string;
   dblpKey?: string;
   coreRank?: string;
@@ -49,8 +56,8 @@ export interface Venue {
 
 export interface Direction {
   id: DirectionId;
-  name: string;
-  description: string;
+  name: Bilingual;
+  description: Bilingual;
   color: string;
   papers: number;
   avgCitations: number;
@@ -61,7 +68,7 @@ export interface Direction {
   topVenues: string[];
   topInstitutions: { name: string; papers: number }[];
   crossDirections: DirectionId[];
-  radar: { metric: string; value: number }[];
+  radar: { metric: RadarMetricKey; value: number }[];
   yearly: { year: number; papers: number }[];
 }
 
@@ -71,10 +78,10 @@ export interface Milestone {
   id: string;
   direction: DirectionId;
   year: number;
-  title: string;
+  title: Bilingual;
   venue?: string;
   parentIds: string[];
-  impact: string;
+  impact: Bilingual;
   nodeType: MilestoneType;
 }
 
@@ -83,8 +90,8 @@ export type BottleneckStatus = "unsolved" | "partial" | "solved";
 export interface Bottleneck {
   id: string;
   direction: DirectionId;
-  text: string;
-  source: string;
+  text: Bilingual;
+  source: Bilingual;
   status: BottleneckStatus;
   relatedMilestone?: string;
   priority: number;

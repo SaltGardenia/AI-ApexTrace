@@ -4,6 +4,7 @@ import * as React from "react";
 import { ChevronRight, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Milestone } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
 
 interface TreeNode {
   node: Milestone;
@@ -27,6 +28,7 @@ function buildForest(list: Milestone[]): TreeNode[] {
 }
 
 function TreeItem({ node, depth }: { node: TreeNode; depth: number }) {
+  const { t, pick } = useI18n();
   const [open, setOpen] = React.useState(true);
   const hasChildren = node.children.length > 0;
   return (
@@ -43,11 +45,11 @@ function TreeItem({ node, depth }: { node: TreeNode; depth: number }) {
         ) : (
           <span className="ml-3.5 size-1.5 shrink-0 rounded-full bg-primary/60" />
         )}
-        <span className="shrink-0 text-xs font-mono text-muted-foreground">{node.node.year}</span>
-        <span className="text-sm font-medium">{node.node.title}</span>
-        {node.node.nodeType === "leaf" && (
-          <span className="ml-auto rounded bg-emerald-500/15 px-1.5 text-[10px] text-emerald-400">SOTA</span>
-        )}
+         <span className="shrink-0 text-xs font-mono text-muted-foreground">{node.node.year}</span>
+         <span className="text-sm font-medium">{pick(node.node.title)}</span>
+          {node.node.nodeType === "leaf" && (
+           <span className="ml-auto rounded bg-emerald-500/15 px-1.5 text-[10px] text-emerald-400">{t("ms_sota")}</span>
+         )}
       </button>
       {hasChildren && open && (
         <div className="relative ml-4 border-l border-border/60">
@@ -61,12 +63,13 @@ function TreeItem({ node, depth }: { node: TreeNode; depth: number }) {
 }
 
 export function MilestoneTree({ milestones }: { milestones: Milestone[] }) {
+  const { t, pick } = useI18n();
   const forest = React.useMemo(() => buildForest(milestones), [milestones]);
-  if (!forest.length) return <p className="text-sm text-muted-foreground">暂无里程碑数据。</p>;
+  if (!forest.length) return <p className="text-sm text-muted-foreground">{t("ms_empty")}</p>;
   return (
     <div className="space-y-1">
       <div className="mb-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-        <GitBranch className="size-3.5" /> 发展脉络（根 → 分支 → 最新 SOTA）
+        <GitBranch className="size-3.5" /> {t("ms_intro")}
       </div>
       {forest.map((root) => (
         <TreeItem key={root.node.id} node={root} depth={0} />

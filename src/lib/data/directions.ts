@@ -1,4 +1,4 @@
-import type { Direction, DirectionId } from "@/lib/types";
+import type { Direction, DirectionId, Bilingual } from "@/lib/types";
 
 const y = (papers: number[]) =>
   papers.map((p, i) => ({ year: 2015 + i, papers: p }));
@@ -6,9 +6,11 @@ const y = (papers: number[]) =>
 export const directions: Direction[] = [
   {
     id: "ai",
-    name: "人工智能综合",
-    description:
-      "通用人工智能、知识表示与推理、多智能体、规划调度与不确定性推理，是贯穿各专攻方向的上层综合领域。",
+    name: { zh: "人工智能综合", en: "General AI" },
+    description: {
+      zh: "通用人工智能、知识表示与推理、多智能体、规划调度与不确定性推理，是贯穿各专攻方向的上层综合领域。",
+      en: "General AI, knowledge representation & reasoning, multi-agent systems, planning/scheduling and uncertain reasoning — an umbrella over specialized directions.",
+    },
     color: "#f97316",
     papers: 9100,
     avgCitations: 38,
@@ -26,19 +28,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "nlp", "robotics", "theory"],
     radar: [
-      { metric: "产出规模", value: 80 },
-      { metric: "学术影响力", value: 72 },
-      { metric: "增长趋势", value: 60 },
-      { metric: "生态活跃度", value: 68 },
-      { metric: "交叉融合", value: 92 },
+      { metric: "output", value: 80 },
+      { metric: "impact", value: 72 },
+      { metric: "growth", value: 60 },
+      { metric: "ecosystem", value: 68 },
+      { metric: "fusion", value: 92 },
     ],
     yearly: y([3600, 4000, 4500, 5000, 5500, 6100, 6700, 7400, 8000, 8600, 9100]),
   },
   {
     id: "cv",
-    name: "计算机视觉",
-    description:
-      "图像/视频理解、检测分割、生成式视觉、三维感知与多模态视觉推理。深度学习时代论文产出最大的方向之一。",
+    name: { zh: "计算机视觉", en: "Computer Vision" },
+    description: {
+      zh: "图像/视频理解、检测分割、生成式视觉、三维感知与多模态视觉推理。深度学习时代论文产出最大的方向之一。",
+      en: "Image/video understanding, detection & segmentation, generative vision, 3D perception and multimodal visual reasoning — among the highest-output directions of the deep-learning era.",
+    },
     color: "#7c5cff",
     papers: 14800,
     avgCitations: 41,
@@ -56,19 +60,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["multimodal", "graphics", "robotics"],
     radar: [
-      { metric: "产出规模", value: 96 },
-      { metric: "学术影响力", value: 88 },
-      { metric: "增长趋势", value: 72 },
-      { metric: "生态活跃度", value: 90 },
-      { metric: "交叉融合", value: 84 },
+      { metric: "output", value: 96 },
+      { metric: "impact", value: 88 },
+      { metric: "growth", value: 72 },
+      { metric: "ecosystem", value: 90 },
+      { metric: "fusion", value: 84 },
     ],
     yearly: y([4200, 5100, 6100, 7300, 8600, 9800, 10900, 11800, 12700, 13600, 14800]),
   },
   {
     id: "nlp",
-    name: "自然语言处理",
-    description:
-      "预训练语言模型、机器翻译、问答与对话、指令对齐（RLHF）与多语言理解。大语言模型（LLM）重塑了整个方向。",
+    name: { zh: "自然语言处理", en: "NLP" },
+    description: {
+      zh: "预训练语言模型、机器翻译、问答与对话、指令对齐（RLHF）与多语言理解。大语言模型（LLM）重塑了整个方向。",
+      en: "Pretrained language models, machine translation, QA & dialogue, instruction alignment (RLHF) and multilingual understanding. LLMs have reshaped the whole field.",
+    },
     color: "#38bdf8",
     papers: 13600,
     avgCitations: 53,
@@ -86,19 +92,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["multimodal", "ml", "ai4science"],
     radar: [
-      { metric: "产出规模", value: 92 },
-      { metric: "学术影响力", value: 91 },
-      { metric: "增长趋势", value: 95 },
-      { metric: "生态活跃度", value: 86 },
-      { metric: "交叉融合", value: 90 },
+      { metric: "output", value: 92 },
+      { metric: "impact", value: 91 },
+      { metric: "growth", value: 95 },
+      { metric: "ecosystem", value: 86 },
+      { metric: "fusion", value: 90 },
     ],
     yearly: y([3100, 3800, 4700, 5600, 6400, 7100, 8200, 9600, 10800, 12100, 13600]),
   },
   {
     id: "ml",
-    name: "机器学习",
-    description:
-      "深度学习架构、优化与泛化理论、表征学习、生成模型与可信机器学习，是贯穿各方向的基础方法论。",
+    name: { zh: "机器学习", en: "Machine Learning" },
+    description: {
+      zh: "深度学习架构、优化与泛化理论、表征学习、生成模型与可信机器学习，是贯穿各方向的基础方法论。",
+      en: "Deep learning architectures, optimization & generalization theory, representation learning, generative models and trustworthy ML — the foundational methodology behind every direction.",
+    },
     color: "#34d399",
     papers: 15200,
     avgCitations: 61,
@@ -116,19 +124,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["theory", "ai4science", "robotics"],
     radar: [
-      { metric: "产出规模", value: 98 },
-      { metric: "学术影响力", value: 96 },
-      { metric: "增长趋势", value: 83 },
-      { metric: "生态活跃度", value: 94 },
-      { metric: "交叉融合", value: 88 },
+      { metric: "output", value: 98 },
+      { metric: "impact", value: 96 },
+      { metric: "growth", value: 83 },
+      { metric: "ecosystem", value: 94 },
+      { metric: "fusion", value: 88 },
     ],
     yearly: y([4800, 5900, 7200, 8500, 9700, 10900, 11800, 12700, 13500, 14400, 15200]),
   },
   {
     id: "robotics",
-    name: "机器人",
-    description:
-      "运动规划、感知-控制闭环、模仿/强化学习驱动的操作与导航、人机协作与具身智能（Embodied AI）。",
+    name: { zh: "机器人", en: "Robotics" },
+    description: {
+      zh: "运动规划、感知-控制闭环、模仿/强化学习驱动的操作与导航、人机协作与具身智能（Embodied AI）。",
+      en: "Motion planning, perception-control loops, imitation/RL-driven manipulation & navigation, human-robot collaboration and Embodied AI.",
+    },
     color: "#fbbf24",
     papers: 7200,
     avgCitations: 33,
@@ -146,19 +156,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "cv", "multimodal"],
     radar: [
-      { metric: "产出规模", value: 64 },
-      { metric: "学术影响力", value: 66 },
-      { metric: "增长趋势", value: 89 },
-      { metric: "生态活跃度", value: 62 },
-      { metric: "交叉融合", value: 80 },
+      { metric: "output", value: 64 },
+      { metric: "impact", value: 66 },
+      { metric: "growth", value: 89 },
+      { metric: "ecosystem", value: 62 },
+      { metric: "fusion", value: 80 },
     ],
     yearly: y([2200, 2500, 2900, 3300, 3700, 4200, 4800, 5400, 6000, 6700, 7200]),
   },
   {
     id: "multimodal",
-    name: "多模态",
-    description:
-      "视觉-语言对齐、图文生成、视频理解、具身多模态与统一多模态基础模型（如 GPT-4V、Gemini）。",
+    name: { zh: "多模态", en: "Multimodal" },
+    description: {
+      zh: "视觉-语言对齐、图文生成、视频理解、具身多模态与统一多模态基础模型（如 GPT-4V、Gemini）。",
+      en: "Vision-language alignment, text-to-image generation, video understanding, embodied multimodality and unified foundation models (e.g. GPT-4V, Gemini).",
+    },
     color: "#ec4899",
     papers: 6100,
     avgCitations: 49,
@@ -176,19 +188,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["cv", "nlp", "graphics"],
     radar: [
-      { metric: "产出规模", value: 58 },
-      { metric: "学术影响力", value: 82 },
-      { metric: "增长趋势", value: 99 },
-      { metric: "生态活跃度", value: 70 },
-      { metric: "交叉融合", value: 96 },
+      { metric: "output", value: 58 },
+      { metric: "impact", value: 82 },
+      { metric: "growth", value: 99 },
+      { metric: "ecosystem", value: 70 },
+      { metric: "fusion", value: 96 },
     ],
     yearly: y([900, 1200, 1800, 2600, 3500, 4200, 4600, 5000, 5400, 5800, 6100]),
   },
   {
     id: "ai4science",
-    name: "AI4Science",
-    description:
-      "科学发现中的机器学习：蛋白质结构（AlphaFold）、分子生成、材料/气候建模与神经微分方程。",
+    name: { zh: "AI4Science", en: "AI4Science" },
+    description: {
+      zh: "科学发现中的机器学习：蛋白质结构（AlphaFold）、分子生成、材料/气候建模与神经微分方程。",
+      en: "ML for scientific discovery: protein structure (AlphaFold), molecule generation, materials/climate modeling and neural differential equations.",
+    },
     color: "#22d3ee",
     papers: 4300,
     avgCitations: 58,
@@ -206,19 +220,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "nlp"],
     radar: [
-      { metric: "产出规模", value: 46 },
-      { metric: "学术影响力", value: 90 },
-      { metric: "增长趋势", value: 94 },
-      { metric: "生态活跃度", value: 64 },
-      { metric: "交叉融合", value: 78 },
+      { metric: "output", value: 46 },
+      { metric: "impact", value: 90 },
+      { metric: "growth", value: 94 },
+      { metric: "ecosystem", value: 64 },
+      { metric: "fusion", value: 78 },
     ],
     yearly: y([700, 900, 1200, 1600, 2100, 2600, 3100, 3500, 3800, 4100, 4300]),
   },
   {
     id: "datamining",
-    name: "数据挖掘/IR",
-    description:
-      "大规模图学习、推荐系统、信息检索与知识图谱，连接工业落地与学术前沿。",
+    name: { zh: "数据挖掘/IR", en: "Data Mining / IR" },
+    description: {
+      zh: "大规模图学习、推荐系统、信息检索与知识图谱，连接工业落地与学术前沿。",
+      en: "Large-scale graph learning, recommender systems, information retrieval and knowledge graphs — bridging industry deployment and the research frontier.",
+    },
     color: "#a78bfa",
     papers: 8900,
     avgCitations: 36,
@@ -236,19 +252,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "nlp"],
     radar: [
-      { metric: "产出规模", value: 78 },
-      { metric: "学术影响力", value: 70 },
-      { metric: "增长趋势", value: 64 },
-      { metric: "生态活跃度", value: 74 },
-      { metric: "交叉融合", value: 72 },
+      { metric: "output", value: 78 },
+      { metric: "impact", value: 70 },
+      { metric: "growth", value: 64 },
+      { metric: "ecosystem", value: 74 },
+      { metric: "fusion", value: 72 },
     ],
     yearly: y([3400, 3900, 4400, 5000, 5600, 6200, 6900, 7500, 8000, 8500, 8900]),
   },
   {
     id: "graphics",
-    name: "图形/多媒体",
-    description:
-      "神经渲染、三维重建、神经辐射场（NeRF）、扩散式图像/视频生成与交互式多媒体。",
+    name: { zh: "图形/多媒体", en: "Graphics / Multimedia" },
+    description: {
+      zh: "神经渲染、三维重建、神经辐射场（NeRF）、扩散式图像/视频生成与交互式多媒体。",
+      en: "Neural rendering, 3D reconstruction, neural radiance fields (NeRF), diffusion-based image/video generation and interactive multimedia.",
+    },
     color: "#fb7185",
     papers: 5200,
     avgCitations: 44,
@@ -266,19 +284,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["cv", "multimodal"],
     radar: [
-      { metric: "产出规模", value: 52 },
-      { metric: "学术影响力", value: 76 },
-      { metric: "增长趋势", value: 86 },
-      { metric: "生态活跃度", value: 68 },
-      { metric: "交叉融合", value: 82 },
+      { metric: "output", value: 52 },
+      { metric: "impact", value: 76 },
+      { metric: "growth", value: 86 },
+      { metric: "ecosystem", value: 68 },
+      { metric: "fusion", value: 82 },
     ],
     yearly: y([1900, 2200, 2600, 3000, 3400, 3800, 4100, 4400, 4700, 5000, 5200]),
   },
   {
     id: "security",
-    name: "AI 安全/隐私",
-    description:
-      "对抗鲁棒性、数据隐私（联邦/差分隐私）、模型水印与对齐安全（AI Alignment）。",
+    name: { zh: "AI 安全/隐私", en: "AI Security / Privacy" },
+    description: {
+      zh: "对抗鲁棒性、数据隐私（联邦/差分隐私）、模型水印与对齐安全（AI Alignment）。",
+      en: "Adversarial robustness, data privacy (federated / differential privacy), model watermarking and alignment safety (AI Alignment).",
+    },
     color: "#f87171",
     papers: 3600,
     avgCitations: 47,
@@ -296,19 +316,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "nlp"],
     radar: [
-      { metric: "产出规模", value: 40 },
-      { metric: "学术影响力", value: 80 },
-      { metric: "增长趋势", value: 90 },
-      { metric: "生态活跃度", value: 58 },
-      { metric: "交叉融合", value: 74 },
+      { metric: "output", value: 40 },
+      { metric: "impact", value: 80 },
+      { metric: "growth", value: 90 },
+      { metric: "ecosystem", value: 58 },
+      { metric: "fusion", value: 74 },
     ],
     yearly: y([900, 1100, 1400, 1700, 2000, 2300, 2700, 3000, 3200, 3400, 3600]),
   },
   {
     id: "hci",
-    name: "人机交互",
-    description:
-      "以人为中心的 AI、可解释交互、生成式界面、情感计算与可用性研究。",
+    name: { zh: "人机交互", en: "HCI" },
+    description: {
+      zh: "以人为中心的 AI、可解释交互、生成式界面、情感计算与可用性研究。",
+      en: "Human-centered AI, explainable interaction, generative interfaces, affective computing and usability research.",
+    },
     color: "#2dd4bf",
     papers: 4100,
     avgCitations: 32,
@@ -326,19 +348,21 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "nlp", "multimodal"],
     radar: [
-      { metric: "产出规模", value: 44 },
-      { metric: "学术影响力", value: 62 },
-      { metric: "增长趋势", value: 70 },
-      { metric: "生态活跃度", value: 52 },
-      { metric: "交叉融合", value: 76 },
+      { metric: "output", value: 44 },
+      { metric: "impact", value: 62 },
+      { metric: "growth", value: 70 },
+      { metric: "ecosystem", value: 52 },
+      { metric: "fusion", value: 76 },
     ],
     yearly: y([1600, 1800, 2100, 2400, 2700, 3000, 3300, 3500, 3700, 3900, 4100]),
   },
   {
     id: "theory",
-    name: "理论/博弈",
-    description:
-      "学习理论、优化收敛性、泛化界、多智能体博弈与因果推断的理论基础。",
+    name: { zh: "理论/博弈", en: "Theory / Game Theory" },
+    description: {
+      zh: "学习理论、优化收敛性、泛化界、多智能体博弈与因果推断的理论基础。",
+      en: "Learning theory, optimization convergence, generalization bounds, multi-agent game theory and the theoretical foundations of causal inference.",
+    },
     color: "#c084fc",
     papers: 2300,
     avgCitations: 39,
@@ -356,11 +380,11 @@ export const directions: Direction[] = [
     ],
     crossDirections: ["ml", "ai"],
     radar: [
-      { metric: "产出规模", value: 30 },
-      { metric: "学术影响力", value: 72 },
-      { metric: "增长趋势", value: 52 },
-      { metric: "生态活跃度", value: 56 },
-      { metric: "交叉融合", value: 60 },
+      { metric: "output", value: 30 },
+      { metric: "impact", value: 72 },
+      { metric: "growth", value: 52 },
+      { metric: "ecosystem", value: 56 },
+      { metric: "fusion", value: 60 },
     ],
     yearly: y([1100, 1200, 1300, 1400, 1500, 1600, 1750, 1900, 2050, 2200, 2300]),
   },
@@ -369,11 +393,11 @@ export const directions: Direction[] = [
 export const directionById = (id: DirectionId) =>
   directions.find((d) => d.id === id)!;
 
-export const directionMeta: Record<DirectionId, { name: string; color: string }> =
+export const directionMeta: Record<DirectionId, { name: Bilingual; color: string }> =
   directions.reduce(
     (acc, d) => {
       acc[d.id] = { name: d.name, color: d.color };
       return acc;
     },
-    {} as Record<DirectionId, { name: string; color: string }>,
+    {} as Record<DirectionId, { name: Bilingual; color: string }>,
   );

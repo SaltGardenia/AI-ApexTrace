@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,19 +35,20 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}}catch(e){}})();",
+          }}
+        />
+      </head>
       <body className="min-h-full bg-background text-foreground">
         <Providers>
           <div className="flex min-h-full flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
-            <footer className="border-t border-border/60 py-8 text-center text-xs text-muted-foreground">
-              <div className="mx-auto max-w-7xl px-6">
-                <p>
-                  ApexTrace · AI Research Landscape Index · 数据以 DBLP / OpenAlex
-                  / Semantic Scholar / ccfddl 为口径（示例数据为结构化演示）
-                </p>
-              </div>
-            </footer>
+            <SiteFooter />
           </div>
         </Providers>
       </body>

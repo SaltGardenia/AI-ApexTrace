@@ -16,27 +16,38 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { directions } from "@/lib/data/directions";
 import type { DirectionId } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
+import type { DictKey } from "@/lib/i18n/translations";
 
-const CATEGORY: Record<DirectionId, string> = {
-  ai: "综合与理论",
-  theory: "综合与理论",
-  cv: "视觉与图形",
-  graphics: "视觉与图形",
-  nlp: "语言与语音",
-  ml: "机器学习",
-  robotics: "具身与机器人",
-  multimodal: "交叉前沿",
-  ai4science: "交叉前沿",
-  datamining: "交叉前沿",
-  security: "交叉前沿",
-  hci: "交叉前沿",
+const CATEGORY_KEY: Record<DirectionId, DictKey> = {
+  ai: "cat_general",
+  theory: "cat_general",
+  cv: "cat_vision",
+  graphics: "cat_vision",
+  nlp: "cat_language",
+  ml: "cat_ml",
+  robotics: "cat_robotics",
+  multimodal: "cat_cross",
+  ai4science: "cat_cross",
+  datamining: "cat_cross",
+  security: "cat_cross",
+  hci: "cat_cross",
 };
 
-const CATEGORIES = ["全部", "综合与理论", "视觉与图形", "语言与语音", "机器学习", "具身与机器人", "交叉前沿"];
+const CATEGORY_LABELS: DictKey[] = [
+  "cat_all",
+  "cat_general",
+  "cat_vision",
+  "cat_language",
+  "cat_ml",
+  "cat_robotics",
+  "cat_cross",
+];
 
 export function DirectionsExplorer() {
-  const [cat, setCat] = React.useState("全部");
-  const list = directions.filter((d) => cat === "全部" || CATEGORY[d.id] === cat);
+  const { t, pick } = useI18n();
+  const [cat, setCat] = React.useState<DictKey>("cat_all");
+  const list = directions.filter((d) => cat === "cat_all" || CATEGORY_KEY[d.id] === cat);
   const data = list.map((d) => ({
     id: d.id,
     x: Math.round(d.growth * 100),
@@ -51,9 +62,9 @@ export function DirectionsExplorer() {
     <div className="grid gap-6 lg:grid-cols-5">
       <Card className="lg:col-span-3">
         <CardHeader>
-          <CardTitle className="text-base">方向气泡象限图</CardTitle>
+          <CardTitle className="text-base">{t("quadrant_title")}</CardTitle>
           <p className="text-xs text-muted-foreground">
-            X = 增长率，Y = 平均引用（影响力），气泡大小 = 论文产出
+            {t("quadrant_sub")}
           </p>
         </CardHeader>
         <CardContent>
@@ -64,7 +75,7 @@ export function DirectionsExplorer() {
                 <XAxis
                   type="number"
                   dataKey="x"
-                  name="增长率"
+                  name={t("axis_growth")}
                   unit="%"
                   tickLine={false}
                   axisLine={false}
@@ -74,7 +85,7 @@ export function DirectionsExplorer() {
                 <YAxis
                   type="number"
                   dataKey="y"
-                  name="引用"
+                  name={t("axis_citations")}
                   tickLine={false}
                   axisLine={false}
                   fontSize={11}
@@ -86,14 +97,14 @@ export function DirectionsExplorer() {
                   content={({ active, payload }) => {
                     if (!active || !payload?.length) return null;
                     const p = payload[0].payload as (typeof data)[number];
-                    return (
-                      <div className="rounded-lg border border-border bg-popover p-2 text-xs shadow">
-                        <div className="font-medium">{p.name}</div>
-                        <div className="text-muted-foreground">
-                          增长率 {p.x}% · 平均引用 {p.y} · 论文 {p.z.toLocaleString()}
-                        </div>
-                      </div>
-                    );
+                     return (
+                       <div className="rounded-lg border border-border bg-popover p-2 text-xs shadow">
+                         <div className="font-medium">{pick(p.name)}</div>
+                         <div className="text-muted-foreground">
+                           {t("tooltip_quadrant", { x: p.x, y: p.y, z: p.z.toLocaleString() })}
+                         </div>
+                       </div>
+                     );
                   }}
                 />
                 <Scatter data={data}>
@@ -105,29 +116,29 @@ export function DirectionsExplorer() {
             </ResponsiveContainer>
           </div>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
-            <LegendTag className="border-emerald-500/40 text-emerald-400" label="明星象限（高增·高影响）" />
-            <LegendTag className="border-sky-500/40 text-sky-400" label="潜力象限（高增·低影响）" />
-            <LegendTag className="border-amber-500/40 text-amber-400" label="成熟象限（低增·高影响）" />
-            <LegendTag className="border-zinc-500/40 text-zinc-400" label="衰退象限（低增·低影响）" />
+            <LegendTag className="border-emerald-500/40 text-emerald-400" label={t("quad_star")} />
+            <LegendTag className="border-sky-500/40 text-sky-400" label={t("quad_potential")} />
+            <LegendTag className="border-amber-500/40 text-amber-400" label={t("quad_mature")} />
+            <LegendTag className="border-zinc-500/40 text-zinc-400" label={t("quad_declining")} />
           </div>
         </CardContent>
       </Card>
 
       <Card className="lg:col-span-2">
         <CardHeader>
-          <div className="flex flex-wrap gap-1">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c}
-                onClick={() => setCat(c)}
-                className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                  cat === c ? "bg-primary text-primary-foreground" : "bg-muted/60 text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
+            <div className="flex flex-wrap gap-1">
+              {CATEGORY_LABELS.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCat(c)}
+                  className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+                    cat === c ? "bg-primary text-primary-foreground" : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {t(c)}
+                </button>
+              ))}
+            </div>
         </CardHeader>
         <CardContent className="space-y-1">
           {list.map((d, i) => (
@@ -138,8 +149,8 @@ export function DirectionsExplorer() {
             >
               <span className="w-5 text-right text-xs tabular-nums text-muted-foreground">{i + 1}</span>
               <span className="size-2.5 shrink-0 rounded-full" style={{ background: d.color }} />
-              <span className="flex-1 truncate text-sm font-medium">{d.name}</span>
-              <span className="text-xs text-muted-foreground">{CATEGORY[d.id]}</span>
+              <span className="flex-1 truncate text-sm font-medium">{pick(d.name)}</span>
+              <span className="text-xs text-muted-foreground">{t(CATEGORY_KEY[d.id])}</span>
             </Link>
           ))}
         </CardContent>

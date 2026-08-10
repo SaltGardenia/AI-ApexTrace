@@ -7,6 +7,7 @@ import { venues } from "@/lib/data/venues";
 import { CcfBadge } from "@/components/shared/ccf-badge";
 import { cn } from "@/lib/utils";
 import type { CCFLevel } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
 
 const LEVELS: ("all" | "A" | "B" | "C" | "none")[] = ["all", "A", "B", "C", "none"];
 const levelLabel = (l: string) => (l === "all" ? "全部" : l === "none" ? "非 CCF" : `CCF-${l}`);
@@ -14,6 +15,7 @@ const levelLabel = (l: string) => (l === "all" ? "全部" : l === "none" ? "非 
 type SortKey = "heat" | "acceptance" | "citations" | "h5";
 
 export function VenuesTable() {
+  const { pick } = useI18n();
   const [level, setLevel] = React.useState<"all" | CCFLevel | "none">("all");
   const [q, setQ] = React.useState("");
   const [sort, setSort] = React.useState<SortKey>("heat");
@@ -108,7 +110,7 @@ export function VenuesTable() {
                 </td>
                 <td className="max-w-[260px] truncate px-4 py-2.5 text-muted-foreground">{v.fullName}</td>
                 <td className="px-4 py-2.5"><CcfBadge venue={v} /></td>
-                <td className="px-4 py-2.5 text-muted-foreground">{v.field}</td>
+                <td className="px-4 py-2.5 text-muted-foreground">{pick(v.field)}</td>
                 <td className="px-4 py-2.5 text-right tabular-nums">
                   {v.acceptanceRate ? `${Math.round(v.acceptanceRate * 100)}%` : "—"}
                 </td>

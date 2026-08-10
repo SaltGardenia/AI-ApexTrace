@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { CalendarDays, MapPin } from "lucide-react";
 import { venues } from "@/lib/data/venues";
 import { CcfBadge } from "@/components/shared/ccf-badge";
+import { useI18n } from "@/lib/i18n";
 
 const fmt = (s?: string) =>
   s ? new Date(s + "T00:00:00").toLocaleDateString("zh-CN", { month: "short", day: "numeric" }) : "—";
@@ -20,15 +21,16 @@ const items = venues
   .slice(0, 14);
 
 export function ConferenceTimeline() {
+  const { t } = useI18n();
   return (
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-4 flex items-end justify-between">
         <div>
-          <h2 className="text-lg font-semibold tracking-tight">顶会时间轴</h2>
-          <p className="text-sm text-muted-foreground">即将截稿与召开的会议（投稿 → 截稿 → 开会）</p>
+          <h2 className="text-lg font-semibold tracking-tight">{t("timeline_title")}</h2>
+          <p className="text-sm text-muted-foreground">{t("timeline_sub")}</p>
         </div>
         <Link href="/calendar" className="text-sm text-primary hover:underline">
-          完整日历 →
+          {t("full_calendar")}
         </Link>
       </div>
 
@@ -49,15 +51,15 @@ export function ConferenceTimeline() {
             <p className="mt-1 truncate text-xs text-muted-foreground">{venue.fullName}</p>
             <div className="mt-3 space-y-1.5 text-xs">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">摘要截稿</span>
+                <span className="text-muted-foreground">{t("dl_abstract")}</span>
                 <span className="tabular-nums">{fmt(venue.deadline?.abstractDeadline)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">全文截稿</span>
+                <span className="text-muted-foreground">{t("dl_full")}</span>
                 <span className="font-medium tabular-nums">{fmt(venue.deadline?.deadline)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">开会</span>
+                <span className="text-muted-foreground">{t("dl_conference")}</span>
                 <span className="tabular-nums">{fmt(venue.deadline?.date)}</span>
               </div>
             </div>

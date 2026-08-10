@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import { directions } from "@/lib/data/directions";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useI18n } from "@/lib/i18n";
 
 const years = directions[0].yearly.map((d) => d.year);
 const data = years.map((year, idx) => {
@@ -21,13 +22,14 @@ const data = years.map((year, idx) => {
 });
 
 export function DirectionTrend() {
+  const { t, pick } = useI18n();
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-base">领域趋势大图 · 历年论文产出演化</CardTitle>
+    <Card className="overflow-hidden shadow-sm">
+      <CardHeader className="border-b border-border/60 pb-4">
+        <CardTitle className="text-base">{t("trend_title")}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-72 w-full">
+        <div className="h-80 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
               <defs>
@@ -51,12 +53,12 @@ export function DirectionTrend() {
                 labelStyle={{ color: "var(--foreground)" }}
               />
               {directions.map((d) => (
-                <Area
-                  key={d.id}
-                  type="monotone"
-                  dataKey={d.id}
-                  name={d.name}
-                  stackId="1"
+                  <Area
+                   key={d.id}
+                   type="monotone"
+                   dataKey={d.id}
+                   name={pick(d.name)}
+                   stackId="1"
                   stroke={d.color}
                   fill={`url(#grad-${d.id})`}
                   strokeWidth={1.5}
@@ -67,10 +69,10 @@ export function DirectionTrend() {
         </div>
         <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
           {directions.map((d) => (
-            <span key={d.id} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="size-2 rounded-full" style={{ background: d.color }} />
-              {d.name}
-            </span>
+              <span key={d.id} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+               <span className="size-2 rounded-full" style={{ background: d.color }} />
+               {pick(d.name)}
+             </span>
           ))}
         </div>
       </CardContent>

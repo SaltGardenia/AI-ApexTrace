@@ -29,7 +29,7 @@ export default async function VenueDetailPage({
 
   const related = directions
     .filter((d) => d.topVenues.includes(v.id))
-    .map((d) => ({ id: d.id, name: d.name, color: d.color, weight: d.papers }))
+    .map((d) => ({ id: d.id, name: d.name.zh, color: d.color, weight: d.papers }))
     .sort((a, b) => b.weight - a.weight);
   const total = related.reduce((s, d) => s + d.weight, 0) || 1;
 
@@ -120,8 +120,8 @@ export default async function VenueDetailPage({
           </CardHeader>
           <CardContent className="space-y-2 text-sm">
             <Row k="类型" val={v.type === "conference" ? "会议" : "期刊"} />
-            <Row k="CCF 领域" val={v.ccfField ?? "—"} />
-            <Row k="领域标签" val={v.field} />
+            <Row k="CCF 领域" val={v.ccfField?.zh ?? "—"} />
+            <Row k="领域标签" val={v.field.zh} />
             <Row k="DBLP key" val={v.dblpKey ?? "—"} />
             <Row k="EI / SCI" val={`${v.ei ? "EI " : ""}${v.sci ? "SCI" : ""}`.trim() || "—"} />
           </CardContent>

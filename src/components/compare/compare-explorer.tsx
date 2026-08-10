@@ -18,10 +18,12 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { directions } from "@/lib/data/directions";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 const MAX = 5;
 
 export function CompareExplorer() {
+  const { pick } = useI18n();
   const [selected, setSelected] = React.useState<string[]>(["cv", "nlp", "ml"]);
 
   const toggle = (id: string) =>
@@ -40,7 +42,7 @@ export function CompareExplorer() {
       const row: Record<string, string | number> = { metric: m };
       for (const d of chosen) {
         const r = d.radar.find((x) => x.metric === m);
-        if (r) row[d.name] = r.value;
+        if (r) row[d.id] = r.value;
       }
       return row;
     });
@@ -48,7 +50,7 @@ export function CompareExplorer() {
 
   const lineData = directions[0].yearly.map((y, idx) => {
     const row: Record<string, number> = { year: y.year };
-    for (const d of chosen) row[d.name] = d.yearly[idx].papers;
+    for (const d of chosen) row[d.id] = d.yearly[idx].papers;
     return row;
   });
 
@@ -70,7 +72,7 @@ export function CompareExplorer() {
               )}
             >
               <span className="size-2.5 rounded-full" style={{ background: d.color }} />
-              {d.name}
+              {pick(d.name)}
             </button>
           );
         })}
@@ -94,7 +96,7 @@ export function CompareExplorer() {
                       <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} />
                       <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
                       {chosen.map((d) => (
-                        <Radar key={d.id} name={d.name} dataKey={d.name} stroke={d.color} fill={d.color} fillOpacity={0.12} />
+                        <Radar key={d.id} name={pick(d.name)} dataKey={d.id} stroke={d.color} fill={d.color} fillOpacity={0.12} />
                       ))}
                       <Tooltip contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }} />
                     </RadarChart>
@@ -116,7 +118,7 @@ export function CompareExplorer() {
                       <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
                       <Tooltip contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }} />
                       {chosen.map((d) => (
-                        <Line key={d.id} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={false} />
+                        <Line key={d.id} type="monotone" dataKey={d.id} stroke={d.color} strokeWidth={2} dot={false} />
                       ))}
                     </LineChart>
                   </ResponsiveContainer>
@@ -138,7 +140,7 @@ export function CompareExplorer() {
                       <th key={d.id} className="px-3 py-2 text-right font-medium">
                         <span className="inline-flex items-center gap-1.5">
                           <span className="size-2.5 rounded-full" style={{ background: d.color }} />
-                          {d.name}
+                          {pick(d.name)}
                         </span>
                       </th>
                     ))}

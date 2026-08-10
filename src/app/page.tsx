@@ -5,21 +5,23 @@ import { ArrowRight } from "lucide-react";
 import { HeatHero } from "@/components/dashboard/heat-hero";
 import { TopDirections } from "@/components/dashboard/top-directions";
 import { DirectionTrend } from "@/components/charts/direction-trend";
-import { ConferenceTimeline } from "@/components/dashboard/conference-timeline";
+import { DirectionsExplorer } from "@/components/directions/directions-explorer";
+import { CompareExplorer } from "@/components/compare/compare-explorer";
+import { CalendarView } from "@/components/calendar/calendar-view";
 import { HomeNav } from "@/components/home/home-nav";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
 const QUICK = [
-  { href: "/directions", titleKey: "ql_directions", descKey: "ql_directions_desc" },
+  { href: "/#directions", titleKey: "ql_directions", descKey: "ql_directions_desc" },
   { href: "/venues", titleKey: "ql_venues", descKey: "ql_venues_desc" },
-  { href: "/calendar", titleKey: "ql_calendar", descKey: "ql_calendar_desc" },
+  { href: "/#calendar", titleKey: "ql_calendar", descKey: "ql_calendar_desc" },
 ] as const;
 
 const NAV_SECTIONS = [
-  { id: "ranking", key: "home_nav_ranking" },
+  { id: "directions", key: "home_nav_directions" },
   { id: "trend", key: "home_nav_trend" },
-  { id: "timeline", key: "home_nav_timeline" },
+  { id: "calendar", key: "home_nav_calendar" },
   { id: "explore", key: "home_nav_explore" },
 ] as const;
 
@@ -37,25 +39,45 @@ export default function HomePage() {
         </aside>
 
         <div className="min-w-0 space-y-16">
-          <section id="ranking" className="scroll-mt-24">
+          <section id="directions" className="scroll-mt-24">
             <SectionHeader
-              title={t("ranking_title")}
-              desc={t("sort_overall")}
-              href="/directions"
-              hrefLabel={t("nav_directions")}
+              title={t("page_directions")}
+              desc={t("page_directions_desc")}
             />
             <div className="mt-5 grid gap-6 lg:grid-cols-3">
               <div className="lg:col-span-1">
                 <TopDirections />
               </div>
               <div className="lg:col-span-2">
-                <DirectionTrend />
+                <DirectionsExplorer />
+              </div>
+            </div>
+            <div className="mt-6">
+              <SectionHeader title={t("compare_title")} desc={t("compare_desc")} />
+              <div className="mt-4">
+                <CompareExplorer />
               </div>
             </div>
           </section>
 
-          <section id="timeline" className="scroll-mt-24">
-            <ConferenceTimeline />
+          <section id="trend" className="scroll-mt-24">
+            <SectionHeader
+              title={t("trend_title")}
+              desc={t("trend_sub")}
+            />
+            <div className="mt-5">
+              <DirectionTrend />
+            </div>
+          </section>
+
+          <section id="calendar" className="scroll-mt-24">
+            <SectionHeader
+              title={t("page_calendar")}
+              desc={t("page_calendar_desc")}
+            />
+            <div className="mt-5">
+              <CalendarView />
+            </div>
           </section>
 
           <section id="explore" className="scroll-mt-24">

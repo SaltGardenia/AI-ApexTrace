@@ -16,8 +16,10 @@ export const dict = {
   // ---------- home / hero ----------
   hero_title: { zh: "AI 研究版图指数", en: "AI Research Landscape Index" },
   home_nav_overview: { zh: "指数概览", en: "Index Overview" },
+  home_nav_directions: { zh: "研究方向版图", en: "Research Directions" },
   home_nav_ranking: { zh: "方向热度总榜", en: "Direction Ranking" },
   home_nav_trend: { zh: "领域趋势大图", en: "Field Trends" },
+  home_nav_calendar: { zh: "会议日历", en: "Conference Calendar" },
   home_nav_timeline: { zh: "顶会时间轴", en: "Conference Timeline" },
   home_nav_explore: { zh: "继续探索", en: "Explore" },
   hero_desc: {
@@ -42,6 +44,10 @@ export const dict = {
   sort_emerging: { zh: "新兴", en: "Emerging" },
 
   trend_title: { zh: "领域趋势大图 · 历年论文产出演化", en: "Field Trends · Annual Output Evolution" },
+  trend_sub: {
+    zh: "各研究方向历年论文产出演化，堆叠呈现总量与结构变化。",
+    en: "Annual output evolution per direction, stacked to show total and structure.",
+  },
 
   timeline_title: { zh: "顶会时间轴", en: "Conference Timeline" },
   timeline_sub: {
@@ -183,6 +189,11 @@ export const dict = {
   // ---------- compare ----------
   compare_max: { zh: "最多对比 {n} 个", en: "Compare up to {n}" },
   compare_empty: { zh: "请选择至少一个研究方向进行对比。", en: "Select at least one direction to compare." },
+  compare_title: { zh: "对比分析", en: "Compare" },
+  compare_desc: {
+    zh: "并排对比 2-5 个研究方向的热度曲线、增长率与多维画像，发现交叉与差异。",
+    en: "Compare heat curves, growth and multi-dimensional profiles of 2-5 directions side by side.",
+  },
   compare_radar: { zh: "多维画像对比（雷达）", en: "Profile Comparison (Radar)" },
   compare_line: { zh: "历年论文产出对比", en: "Annual Output Comparison" },
   compare_table: { zh: "指标对比表", en: "Metrics Comparison" },

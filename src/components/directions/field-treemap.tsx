@@ -18,9 +18,8 @@ function collectLeaves(node: FieldNode): FieldNode[] {
 function buildRaw(locale: "zh" | "en"): CatDatum[] {
   return fieldTree.map((top) => {
     const color = DIRECTION_PALETTE[top.id as keyof typeof DIRECTION_PALETTE] ?? "#9a8fd0";
-    const name: Bilingual = top.name;
     return {
-      label: name[locale],
+      label: top.name[locale],
       catColor: color,
       children: collectLeaves(top).map((leaf) => ({
         label: leaf.name[locale],
@@ -32,8 +31,9 @@ function buildRaw(locale: "zh" | "en"): CatDatum[] {
 }
 
 function Content(props: any) {
-  const { x, y, width, height, payload } = props;
+  const { x, y, width, height, depth, payload } = props;
   if (width <= 0 || height <= 0) return null;
+  if (depth <= 0) return null; // skip the root canvas
   const label = payload?.label ?? "";
   const isParent = !!payload?.children;
   const color = payload?.catColor ?? "#9a8fd0";
@@ -47,9 +47,9 @@ function Content(props: any) {
           width={width}
           height={height}
           fill={color}
-          fillOpacity={0.14}
+          fillOpacity={0.16}
           stroke={color}
-          strokeOpacity={0.5}
+          strokeOpacity={0.6}
           strokeWidth={1}
         />
         {width > 70 && height > 18 && (
@@ -69,7 +69,7 @@ function Content(props: any) {
         width={width}
         height={height}
         fill={color}
-        fillOpacity={0.78}
+        fillOpacity={0.8}
         stroke="#fff"
         strokeWidth={1}
       >
@@ -103,7 +103,9 @@ export function FieldTreemap() {
         <ResponsiveContainer width="100%" height="100%">
           <Treemap
             data={data}
+            type="nest"
             dataKey="size"
+            nameKey="label"
             stroke="#fff"
             isAnimationActive={false}
             content={<Content />}

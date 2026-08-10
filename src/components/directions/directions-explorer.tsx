@@ -16,6 +16,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { directions } from "@/lib/data/directions";
 import type { DirectionId } from "@/lib/types";
+import { FieldTreemap } from "@/components/directions/field-treemap";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
@@ -60,6 +61,18 @@ export function DirectionsExplorer() {
 
   return (
     <div className="space-y-6">
+      <Card id="field-treemap">
+        <CardHeader>
+          <CardTitle className="text-base">{t("treemap_title")}</CardTitle>
+          <p className="text-xs text-muted-foreground">
+            {t("treemap_sub")}
+          </p>
+        </CardHeader>
+        <CardContent>
+          <FieldTreemap />
+        </CardContent>
+      </Card>
+
       <Card id="quadrant">
         <CardHeader>
           <CardTitle className="text-base">{t("quadrant_title")}</CardTitle>

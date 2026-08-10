@@ -14,6 +14,7 @@ import type { DictKey } from "@/lib/i18n/translations";
 const NAV_SECTIONS = [
   { id: "trend", key: "home_nav_trend" },
   { id: "ranking", key: "home_nav_ranking" },
+  { id: "field-treemap", key: "home_nav_treemap" },
   { id: "quadrant", key: "home_nav_quadrant" },
   { id: "direction-list", key: "home_nav_list" },
   { id: "compare-radar", key: "home_nav_compare_radar" },

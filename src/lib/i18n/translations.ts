@@ -24,6 +24,7 @@ export const dict = {
   home_nav_directions: { zh: "研究方向版图", en: "Research Directions" },
   home_nav_ranking: { zh: "方向热度总榜", en: "Direction Ranking" },
   home_nav_trend: { zh: "领域趋势大图", en: "Field Trends" },
+  home_nav_treemap: { zh: "领域论文占比", en: "Field Share" },
   home_nav_quadrant: { zh: "方向气泡象限图", en: "Direction Quadrant" },
   home_nav_list: { zh: "研究方向列表", en: "Direction List" },
   home_nav_compare: { zh: "对比分析", en: "Compare" },
@@ -138,6 +139,11 @@ export const dict = {
   },
 
   // ---------- directions explorer ----------
+  treemap_title: { zh: "领域论文占比", en: "Field Paper Share" },
+  treemap_sub: {
+    zh: "面积 = 论文数量；12 个色块为一级领域，其内小领域按论文量占比切片（类同股市份额图）",
+    en: "Area = paper count; 12 colored blocks are top categories, sliced by each sub-field's share (stock-share style)",
+  },
   quadrant_title: { zh: "方向气泡象限图", en: "Direction Quadrant" },
   quadrant_sub: {
     zh: "X = 增长率，Y = 平均引用（影响力），气泡大小 = 论文产出",

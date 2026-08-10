@@ -64,3 +64,9 @@ export function flattenTree(): FlatNode[] {
 }
 
 export const allFieldNodes = fieldTree;
+
+// The top-level category id of a node (first element of its path).
+export function topLevelId(id: string): string {
+  const path = pathToNode(id);
+  return path[0]?.id ?? id;
+}

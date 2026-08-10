@@ -15,11 +15,17 @@ import {
   YAxis,
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Direction } from "@/lib/types";
+import type { RadarMetricKey } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 import { RADAR_METRICS } from "@/lib/i18n/translations";
 
-export function DirectionCharts({ direction }: { direction: Direction }) {
+interface ChartDirection {
+  color: string;
+  yearly: { year: number; papers: number }[];
+  radar: { metric: RadarMetricKey; value: number }[];
+}
+
+export function DirectionCharts({ direction }: { direction: ChartDirection }) {
   const { t, pick } = useI18n();
   const line = direction.yearly.map((y) => ({ year: y.year, papers: y.papers }));
   return (

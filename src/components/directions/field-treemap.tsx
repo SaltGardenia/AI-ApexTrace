@@ -8,58 +8,32 @@ import { DIRECTION_PALETTE } from "@/lib/chart-palette";
 import { useI18n } from "@/lib/i18n";
 
 type LeafDatum = { label: string; size: number; catColor: string };
-type CatDatum = { label: string; catColor: string; children: LeafDatum[] };
 
 function collectLeaves(node: FieldNode): FieldNode[] {
   if (!node.children || node.children.length === 0) return [node];
   return node.children.flatMap(collectLeaves);
 }
 
-function buildRaw(locale: "zh" | "en"): CatDatum[] {
-  return fieldTree.map((top) => {
+function buildRaw(locale: "zh" | "en"): LeafDatum[] {
+  const out: LeafDatum[] = [];
+  for (const top of fieldTree) {
     const color = DIRECTION_PALETTE[top.id as keyof typeof DIRECTION_PALETTE] ?? "#9a8fd0";
-    return {
-      label: top.name[locale],
-      catColor: color,
-      children: collectLeaves(top).map((leaf) => ({
+    for (const leaf of collectLeaves(top)) {
+      out.push({
         label: leaf.name[locale],
         size: leaf.papers ?? 0,
         catColor: color,
-      })),
-    };
-  });
+      });
+    }
+  }
+  return out;
 }
 
 function Content(props: any) {
-  const { x, y, width, height, depth, payload } = props;
+  const { x, y, width, height, payload } = props;
   if (width <= 0 || height <= 0) return null;
-  if (depth <= 0) return null; // skip the root canvas
   const label = payload?.label ?? "";
-  const isParent = !!payload?.children;
   const color = payload?.catColor ?? "#9a8fd0";
-
-  if (isParent) {
-    return (
-      <g>
-        <rect
-          x={x}
-          y={y}
-          width={width}
-          height={height}
-          fill={color}
-          fillOpacity={0.16}
-          stroke={color}
-          strokeOpacity={0.6}
-          strokeWidth={1}
-        />
-        {width > 70 && height > 18 && (
-          <text x={x + 6} y={y + 15} fill={color} fontSize={12} fontWeight={600}>
-            {label}
-          </text>
-        )}
-      </g>
-    );
-  }
 
   return (
     <g>
@@ -69,13 +43,13 @@ function Content(props: any) {
         width={width}
         height={height}
         fill={color}
-        fillOpacity={0.8}
+        fillOpacity={0.85}
         stroke="#fff"
         strokeWidth={1}
       >
         <title>{`${label}: ${((payload?.size ?? 0)).toLocaleString()}`}</title>
       </rect>
-      {width > 46 && height > 22 && (
+      {width > 42 && height > 18 && (
         <text
           x={x + width / 2}
           y={y + height / 2}
@@ -103,9 +77,8 @@ export function FieldTreemap() {
         <ResponsiveContainer width="100%" height="100%">
           <Treemap
             data={data}
-            type="nest"
+            type="flat"
             dataKey="size"
-            nameKey="label"
             stroke="#fff"
             isAnimationActive={false}
             content={<Content />}

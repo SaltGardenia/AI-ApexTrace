@@ -141,8 +141,8 @@ export const dict = {
   // ---------- directions explorer ----------
   treemap_title: { zh: "领域论文占比", en: "Field Paper Share" },
   treemap_sub: {
-    zh: "面积 = 论文数量；12 个色块为一级领域，其内小领域按论文量占比切片（类同股市份额图）",
-    en: "Area = paper count; 12 colored blocks are top categories, sliced by each sub-field's share (stock-share style)",
+    zh: "每个色块为一个最小子领域，面积 = 其论文数量，颜色为所属一级领域",
+    en: "Each block is a smallest sub-field; area = paper count, color = its top-level category",
   },
   quadrant_title: { zh: "方向气泡象限图", en: "Direction Quadrant" },
   quadrant_sub: {

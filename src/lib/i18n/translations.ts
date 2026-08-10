@@ -33,6 +33,17 @@ export const dict = {
   home_nav_calendar: { zh: "会议日历", en: "Conference Calendar" },
   home_nav_timeline: { zh: "顶会时间轴", en: "Conference Timeline" },
   home_nav_explore: { zh: "继续探索", en: "Explore" },
+  home_nav_fieldmap: { zh: "领域贡献分布", en: "Field Contribution" },
+  fieldmap_title: { zh: "AI 研究领域贡献热力图", en: "AI Research Field Contribution Treemap" },
+  fieldmap_sub: {
+    zh: "一级领域以颜色区分，其下各子领域按论文贡献量（papers）铺满该领域的面积。",
+    en: "Top-level fields are color-coded; each sub-field fills its parent area by paper contribution.",
+  },
+  fieldmap_note: {
+    zh: "子领域面积 = 父领域论文总数 × 该子领域相对权重，故子矩形之和恒等于父领域总量。",
+    en: "Sub-field area = parent papers × relative weight, so sub-rectangles always sum to the parent total.",
+  },
+  fieldmap_papers: { zh: "篇", en: "papers" },
   hero_desc: {
     zh: "全景透视 CCF A/B/C 类顶会顶刊的研究方向热度、会议画像与投稿时间线，以指数化、对比化视角呈现 AI 学术版图。",
     en: "A panoramic view of research-direction heat, venue profiles and submission timelines across CCF A/B/C venues — an indexed, comparative map of the AI academic landscape.",
@@ -155,6 +166,8 @@ export const dict = {
   tab_milestone: { zh: "里程碑工作树", en: "Milestone Tree" },
   tab_bottleneck: { zh: "前沿瓶颈清单", en: "Bottleneck List" },
   related_dirs: { zh: "交叉关联方向", en: "Related Directions" },
+  subfield_title: { zh: "研究领域细分", en: "Sub-fields" },
+  subfield_leaves_count: { zh: "最小子分类（方法级）共", en: "Method-level leaves:" },
 
   // ---------- charts ----------
   chart_yearly: { zh: "历年论文产出", en: "Annual Output" },

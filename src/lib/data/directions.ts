@@ -1,4 +1,5 @@
 import type { Direction, DirectionId, Bilingual } from "@/lib/types";
+import { fieldSubfields } from "@/lib/data/field-subfields";
 
 const y = (papers: number[]) =>
   papers.map((p, i) => ({ year: 2015 + i, papers: p }));
@@ -401,3 +402,8 @@ export const directionMeta: Record<DirectionId, { name: Bilingual; color: string
     },
     {} as Record<DirectionId, { name: Bilingual; color: string }>,
   );
+
+// Attach the curated sub-field trees (method-level leaves) to each direction.
+for (const d of directions) {
+  d.subfields = fieldSubfields[d.id];
+}

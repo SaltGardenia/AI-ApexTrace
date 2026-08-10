@@ -27,6 +27,22 @@ export type DirectionId =
 
 export type RadarMetricKey = "output" | "impact" | "growth" | "ecosystem" | "fusion";
 
+export interface FieldNode {
+  id: string;
+  name: Bilingual;
+  children?: FieldNode[];
+  slug?: string;
+}
+
+// A sub-field (and its method-level leaves) of a top-level research direction.
+export interface FieldSubfield {
+  id: string;
+  name: Bilingual;
+  description?: Bilingual;
+  papers?: number;
+  children?: FieldSubfield[];
+}
+
 export interface DeadlineInfo {
   submissionStart?: string;
   abstractDeadline?: string;
@@ -77,6 +93,7 @@ export interface Direction {
   crossDirections: DirectionId[];
   baselines?: Baseline[];
   datasets?: Dataset[];
+  subfields?: FieldSubfield[];
   radar: { metric: RadarMetricKey; value: number }[];
   yearly: { year: number; papers: number }[];
 }

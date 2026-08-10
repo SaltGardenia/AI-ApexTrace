@@ -11,6 +11,7 @@ import { DirectionCharts } from "@/components/directions/direction-charts";
 import { MilestoneTree } from "@/components/directions/milestone-tree";
 import { BottleneckList } from "@/components/directions/bottleneck-list";
 import { BaselineList, DatasetList } from "@/components/directions/list-cards";
+import { SubfieldTree } from "@/components/directions/subfield-tree";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
@@ -110,6 +111,21 @@ export function DirectionDetailView({
           </CardContent>
         </Card>
       </div>
+
+      {d.subfields && d.subfields.length > 0 && (
+        <div className="mt-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2">
+                <Layers className="size-4" /> {t("subfield_title")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <SubfieldTree subfields={d.subfields} />
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <Card>

@@ -19,11 +19,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { directions } from "@/lib/data/directions";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
+import { RADAR_METRICS } from "@/lib/i18n/translations";
 
 const MAX = 5;
 
 export function CompareExplorer() {
-  const { pick } = useI18n();
+  const { t, pick } = useI18n();
   const [selected, setSelected] = React.useState<string[]>(["cv", "nlp", "ml"]);
 
   const toggle = (id: string) =>
@@ -86,14 +87,14 @@ export function CompareExplorer() {
           <div className="grid gap-6 lg:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">多维画像对比（雷达）</CardTitle>
+                <CardTitle className="text-base">{t("compare_radar")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-72 w-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <RadarChart data={radarData} outerRadius="72%">
                       <PolarGrid stroke="var(--border)" />
-                      <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} />
+                      <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} tickFormatter={(m) => pick(RADAR_METRICS[m as string])} />
                       <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
                       {chosen.map((d) => (
                         <Radar key={d.id} name={pick(d.name)} dataKey={d.id} stroke={d.color} fill={d.color} fillOpacity={0.12} />
@@ -107,7 +108,7 @@ export function CompareExplorer() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">历年论文产出对比</CardTitle>
+                <CardTitle className="text-base">{t("compare_line")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-72 w-full">
@@ -129,13 +130,13 @@ export function CompareExplorer() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">指标对比表</CardTitle>
+                <CardTitle className="text-base">{t("compare_table")}</CardTitle>
             </CardHeader>
             <CardContent className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="text-xs text-muted-foreground">
                   <tr>
-                    <th className="px-3 py-2 text-left font-medium">指标</th>
+                    <th className="px-3 py-2 text-left font-medium">{t("th_metric")}</th>
                     {chosen.map((d) => (
                       <th key={d.id} className="px-3 py-2 text-right font-medium">
                         <span className="inline-flex items-center gap-1.5">
@@ -147,16 +148,16 @@ export function CompareExplorer() {
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    { k: "综合热度指数", f: (d: (typeof chosen)[number]) => d.heatIndex },
-                    { k: "年度论文产出", f: (d: (typeof chosen)[number]) => d.papers.toLocaleString() },
-                    { k: "平均引用", f: (d: (typeof chosen)[number]) => d.avgCitations },
-                    { k: "高被引占比", f: (d: (typeof chosen)[number]) => `${Math.round(d.topCitedRatio * 100)}%` },
-                    { k: "复合增长", f: (d: (typeof chosen)[number]) => `${Math.round(d.growth * 100)}%` },
-                    { k: "开源率", f: (d: (typeof chosen)[number]) => `${Math.round(d.openRate * 100)}%` },
-                  ].map((row) => (
+                  {([
+                    { k: "m_index", f: (d: (typeof chosen)[number]) => d.heatIndex },
+                    { k: "m_output", f: (d: (typeof chosen)[number]) => d.papers.toLocaleString() },
+                    { k: "m_citations", f: (d: (typeof chosen)[number]) => d.avgCitations },
+                    { k: "m_topcited", f: (d: (typeof chosen)[number]) => `${Math.round(d.topCitedRatio * 100)}%` },
+                    { k: "m_cagr", f: (d: (typeof chosen)[number]) => `${Math.round(d.growth * 100)}%` },
+                    { k: "m_open", f: (d: (typeof chosen)[number]) => `${Math.round(d.openRate * 100)}%` },
+                  ] as { k: "m_index" | "m_output" | "m_citations" | "m_topcited" | "m_cagr" | "m_open"; f: (d: (typeof chosen)[number]) => string | number }[]).map((row) => (
                     <tr key={row.k} className="border-t border-border/40">
-                      <td className="px-3 py-2 text-muted-foreground">{row.k}</td>
+                      <td className="px-3 py-2 text-muted-foreground">{t(row.k)}</td>
                       {chosen.map((d) => (
                         <td key={d.id} className="px-3 py-2 text-right tabular-nums">
                           {row.f(d)}

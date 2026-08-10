@@ -16,14 +16,17 @@ import {
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Direction } from "@/lib/types";
+import { useI18n } from "@/lib/i18n";
+import { RADAR_METRICS } from "@/lib/i18n/translations";
 
 export function DirectionCharts({ direction }: { direction: Direction }) {
+  const { t, pick } = useI18n();
   const line = direction.yearly.map((y) => ({ year: y.year, papers: y.papers }));
   return (
     <div className="grid gap-6 md:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">历年论文产出</CardTitle>
+          <CardTitle className="text-base">{t("chart_yearly")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-64 w-full">
@@ -42,7 +45,7 @@ export function DirectionCharts({ direction }: { direction: Direction }) {
                   contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }}
                   labelStyle={{ color: "var(--foreground)" }}
                 />
-                <Area type="monotone" dataKey="papers" stroke={direction.color} fill="url(#dgrad)" strokeWidth={2} />
+                <Area type="monotone" dataKey="papers" name={t("m_output")} stroke={direction.color} fill="url(#dgrad)" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -51,14 +54,14 @@ export function DirectionCharts({ direction }: { direction: Direction }) {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">多维画像雷达</CardTitle>
+          <CardTitle className="text-base">{t("chart_radar")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={direction.radar} outerRadius="75%">
                 <PolarGrid stroke="var(--border)" />
-                <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} />
+                <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} tickFormatter={(m) => pick(RADAR_METRICS[m as string])} />
                 <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
                 <Radar dataKey="value" stroke={direction.color} fill={direction.color} fillOpacity={0.35} />
                 <Tooltip

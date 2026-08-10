@@ -29,6 +29,21 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
   return out;
 }
 
+// Break a (mostly CJK) label into lines that fit the rect width.
+function wrapLabel(str: string, maxChars: number): string[] {
+  if (maxChars <= 0) return [];
+  const lines: string[] = [];
+  for (let i = 0; i < str.length; i += maxChars) {
+    lines.push(str.slice(i, i + maxChars));
+    if (lines.length >= 3) break;
+  }
+  if (str.length > lines.length * maxChars) {
+    const last = lines[lines.length - 1];
+    lines[lines.length - 1] = last.slice(0, Math.max(1, maxChars - 1)) + "…";
+  }
+  return lines;
+}
+
 // recharts clones `content` with `nodeProps`, so our data fields (label,
 // catColor, size) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
@@ -37,8 +52,14 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const showText = width > 40 && height > 16;
-  const fontSize = width < 70 || height < 30 ? 9 : 10;
+  const fontSize = width < 70 || height < 34 ? 9 : 10;
+  const charW = fontSize * 0.95;
+  const maxChars = Math.floor((width - 8) / charW);
+  const showText = width > 40 && height > 16 && maxChars >= 1;
+  const lines = showText ? wrapLabel(text, maxChars) : [];
+  const lineH = fontSize * 1.15;
+  const cx = x + width / 2;
+  const cy = y + height / 2;
 
   return (
     <g>
@@ -57,19 +78,28 @@ function Content(props: any) {
       >
         <title>{`${text}: ${(size ?? 0).toLocaleString()}`}</title>
       </rect>
-      {showText && (
+      {lines.length > 0 && (
         <text
-          x={x + width / 2}
-          y={y + height / 2}
+          x={cx}
+          y={cy}
           textAnchor="middle"
-          dominantBaseline="middle"
+          dominantBaseline="central"
           fill="#fff"
           fontSize={fontSize}
-          fontWeight={500}
+          fontWeight={400}
+          fontFamily="inherit"
           clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >
-          {text}
+          {lines.map((ln, i) => (
+            <tspan
+              key={i}
+              x={cx}
+              dy={i === 0 ? (-(lines.length - 1) * lineH) / 2 : lineH}
+            >
+              {ln}
+            </tspan>
+          ))}
         </text>
       )}
     </g>

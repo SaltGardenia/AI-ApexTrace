@@ -58,8 +58,8 @@ function Content(props: any) {
   const showText = width > 40 && height > 16 && maxChars >= 1;
   const lines = showText ? wrapLabel(text, maxChars) : [];
   const lineH = fontSize * 1.15;
-  const cx = x + width / 2;
-  const cy = y + height / 2;
+  const tx = x + 4;
+  const ty = y + fontSize + 2;
 
   return (
     <g>
@@ -80,10 +80,10 @@ function Content(props: any) {
       </rect>
       {lines.length > 0 && (
         <text
-          x={cx}
-          y={cy}
-          textAnchor="middle"
-          dominantBaseline="central"
+          x={tx}
+          y={ty}
+          textAnchor="start"
+          dominantBaseline="hanging"
           fill="#fff"
           fontSize={fontSize}
           fontWeight={400}
@@ -92,11 +92,7 @@ function Content(props: any) {
           pointerEvents="none"
         >
           {lines.map((ln, i) => (
-            <tspan
-              key={i}
-              x={cx}
-              dy={i === 0 ? (-(lines.length - 1) * lineH) / 2 : lineH}
-            >
+            <tspan key={i} x={tx} dy={i === 0 ? 0 : lineH}>
               {ln}
             </tspan>
           ))}

@@ -115,12 +115,6 @@ export function DirectionsExplorer() {
               </ScatterChart>
             </ResponsiveContainer>
           </div>
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
-            <LegendTag className="border-[#6bb39a]/40 text-[#5a9c86]" label={t("quad_star")} />
-            <LegendTag className="border-[#5aa9c9]/40 text-[#4f93ae]" label={t("quad_potential")} />
-            <LegendTag className="border-[#c9a95a]/40 text-[#b0913f]" label={t("quad_mature")} />
-            <LegendTag className="border-[#9a8fd0]/40 text-[#8276b8]" label={t("quad_declining")} />
-          </div>
         </CardContent>
       </Card>
 
@@ -158,13 +152,5 @@ export function DirectionsExplorer() {
         </CardContent>
       </Card>
     </div>
-  );
-}
-
-function LegendTag({ className, label }: { className: string; label: string }) {
-  return (
-    <span className={`flex items-center gap-1 rounded border px-1.5 py-0.5 ${className}`}>
-      {label}
-    </span>
   );
 }

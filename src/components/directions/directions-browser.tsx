@@ -4,16 +4,16 @@ import * as React from "react";
 import { useI18n } from "@/lib/i18n";
 import { FieldTreeNav } from "@/components/directions/field-tree-nav";
 import { FieldDetailView } from "@/components/directions/field-detail-view";
-import { findNode, allFieldNodes, flattenTree } from "@/lib/field-tree-utils";
+import { findNode, allFieldNodes } from "@/lib/field-tree-utils";
 
-const FIRST_LEAF = flattenTree().find((n) => n.leaf)?.node.id ?? allFieldNodes[0]?.id ?? "";
+const FIRST_TOP = allFieldNodes[0]?.id ?? "";
 
 export function DirectionsBrowser({ initialId }: { initialId?: string }) {
   const { t } = useI18n();
-  const [selectedId, setSelectedId] = React.useState<string>(initialId || FIRST_LEAF);
+  const [selectedId, setSelectedId] = React.useState<string>(initialId || FIRST_TOP);
 
   const handleSelect = React.useCallback((id: string) => {
-    setSelectedId(id || FIRST_LEAF);
+    setSelectedId(id || FIRST_TOP);
   }, []);
 
   // Keep the URL in sync for deep-linking / refresh, without full navigation.

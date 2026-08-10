@@ -44,6 +44,8 @@ function wrapLabel(str: string, maxChars: number): string[] {
   return lines;
 }
 
+const YOUYUAN = '"YouYuan", "幼圆", "Yuanti SC", "圆体-简", ui-rounded, sans-serif';
+
 // recharts clones `content` with `nodeProps`, so our data fields (label,
 // catColor, size) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
@@ -88,7 +90,7 @@ function Content(props: any) {
           fillOpacity={0.95}
           fontSize={fontSize}
           fontWeight="normal"
-          fontFamily="inherit"
+          fontFamily={YOUYUAN}
           clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >

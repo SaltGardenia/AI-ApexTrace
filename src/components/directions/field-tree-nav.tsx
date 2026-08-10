@@ -22,7 +22,7 @@ function TreeBranch({
   const { pick } = useI18n();
   const hasChildren = !!node.children?.length;
   const isLeaf = !hasChildren;
-  const [open, setOpen] = React.useState(defaultOpen || depth === 0);
+  const [open, setOpen] = React.useState(defaultOpen);
   const active = node.id === activeId;
 
   // Non-leaf nodes only toggle expansion; only leaf nodes select a detail panel.

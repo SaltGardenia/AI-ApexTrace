@@ -318,6 +318,25 @@ export const venues: Venue[] = [
   { id: "chi", name: "CHI", fullName: "ACM Conference on Human Factors in Computing Systems", type: "conference", ccf: "A", ccfField: cf("人机交互领域"), domain: "hci", field: f("人机交互"), dblpKey: "conf/chi", coreRank: "A*", acceptanceRate: 0.26, avgCitations: 38, h5: 184,
     deadline: { year: 2026, submissionStart: "2025-07-25", abstractDeadline: "2025-09-12", deadline: "2025-09-19", notification: "2025-12-23", date: "2026-04-18", place: "Yokohama, Japan", timezone: "UTC+9", link: "https://chi2026.acm.org/" } },
 
+  // ---------- 数据库 / 信息检索 会议 ----------
+  { id: "icde", name: "ICDE", fullName: "IEEE International Conference on Data Engineering", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/icde", coreRank: "A*", acceptanceRate: 0.19, avgCitations: 38, h5: 121 },
+  { id: "vldb", name: "VLDB", fullName: "International Conference on Very Large Data Bases", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/vldb", coreRank: "A*", acceptanceRate: 0.18, avgCitations: 47, h5: 158 },
+  { id: "sigmod", name: "SIGMOD", fullName: "ACM SIGMOD International Conference on Management of Data", type: "conference", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/sigmod", coreRank: "A*", acceptanceRate: 0.17, avgCitations: 44, h5: 142 },
+  { id: "icdm", name: "ICDM", fullName: "IEEE International Conference on Data Mining", type: "conference", ccf: "B", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/icdm", coreRank: "A", acceptanceRate: 0.19, avgCitations: 26, h5: 74 },
+  { id: "cikm", name: "CIKM", fullName: "ACM International Conference on Information and Knowledge Management", type: "conference", ccf: "B", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "conf/cikm", coreRank: "A", acceptanceRate: 0.2, avgCitations: 22, h5: 81 },
+
+  // ---------- 语音 / 音频 / 推荐 会议 ----------
+  { id: "icassp", name: "ICASSP", fullName: "IEEE International Conference on Acoustics, Speech and Signal Processing", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "nlp", field: f("语音与语言处理"), dblpKey: "conf/icassp", coreRank: "A", acceptanceRate: 0.45, avgCitations: 18, h5: 102 },
+  { id: "interspeech", name: "INTERSPEECH", fullName: "Annual Conference of the International Speech Communication Association", type: "conference", ccf: "C", ccfField: cf("人工智能"), domain: "nlp", field: f("语音与语言处理"), dblpKey: "conf/interspeech", coreRank: "A", acceptanceRate: 0.5, avgCitations: 16, h5: 78 },
+  { id: "recsys", name: "RecSys", fullName: "ACM Conference on Recommender Systems", type: "conference", ccf: "C", ccfField: cf("数据库领域"), domain: "datamining", field: f("万维网/推荐"), dblpKey: "conf/recsys", coreRank: "A", acceptanceRate: 0.22, avgCitations: 28, h5: 66 },
+  { id: "icwsm", name: "ICWSM", fullName: "International AAAI Conference on Web and Social Media", type: "conference", ccf: "B", ccfField: cf("人工智能"), domain: "datamining", field: f("万维网/推荐"), dblpKey: "conf/icwsm", coreRank: "A", acceptanceRate: 0.19, avgCitations: 24, h5: 53 },
+
+  // ---------- 机器人 / 医疗视觉 / 多媒体 会议 ----------
+  { id: "rss", name: "RSS", fullName: "Robotics: Science and Systems", type: "conference", ccf: null, ccfField: cf("非 CCF"), domain: "robotics", field: f("机器人学习"), dblpKey: "conf/rss", coreRank: "A*", acceptanceRate: 0.2, avgCitations: 41, h5: 88 },
+  { id: "miccai", name: "MICCAI", fullName: "International Conference on Medical Image Computing and Computer-Assisted Intervention", type: "conference", ccf: "B", ccfField: cf("人工智能（视觉领域）"), domain: "cv", field: f("计算机视觉"), dblpKey: "conf/miccai", coreRank: "A", acceptanceRate: 0.32, avgCitations: 29, h5: 96 },
+  { id: "siggraph-asia", name: "SIGGRAPH Asia", fullName: "ACM SIGGRAPH Conference and Exhibition on Computer Graphics & Interactive Techniques in Asia", type: "conference", ccf: "C", ccfField: cf("图形领域"), domain: "graphics", field: f("计算机图形学"), dblpKey: "conf/siga", coreRank: "A", acceptanceRate: 0.26, avgCitations: 26, h5: 71 },
+  { id: "icme", name: "ICME", fullName: "IEEE International Conference on Multimedia and Expo", type: "conference", ccf: "C", ccfField: cf("多媒体领域"), domain: "multimodal", field: f("多媒体与多模态"), dblpKey: "conf/icme", coreRank: "A", acceptanceRate: 0.3, avgCitations: 14, h5: 42 },
+
   // ---------- 期刊 A 类 ----------
   { id: "ai", name: "AI", fullName: "Artificial Intelligence", type: "journal", ccf: "A", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/ai", sci: true, ei: true, acceptanceRate: 0.14, avgCitations: 39, h5: 84 },
   { id: "tpami", name: "TPAMI", fullName: "IEEE Transactions on Pattern Analysis and Machine Intelligence", type: "journal", ccf: "A", ccfField: cf("人工智能"), domain: "cv", field: f("模式识别与机器学习"), dblpKey: "journals/pami", sci: true, ei: true, acceptanceRate: 0.18, avgCitations: 88, h5: 241 },
@@ -351,6 +370,43 @@ export const venues: Venue[] = [
   { id: "tmlr", name: "TMLR", fullName: "Transactions on Machine Learning Research", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ml", field: f("机器学习"), dblpKey: "journals/tmlr", sci: false, acceptanceRate: 0.28, avgCitations: 22, h5: 47 },
   { id: "nature-mi", name: "Nature MI", fullName: "Nature Machine Intelligence", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ai4science", field: f("综合/AI4Science"), dblpKey: "journals/natmi", sci: true, acceptanceRate: 0.09, avgCitations: 96, h5: 128 },
   { id: "neural-computation", name: "Neural Computation", fullName: "Neural Computation", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ml", field: f("神经计算"), dblpKey: "journals/neco", sci: true, acceptanceRate: 0.21, avgCitations: 33, h5: 58 },
+
+  // ---------- 期刊 A 类（扩充） ----------
+  { id: "tkde", name: "TKDE", fullName: "IEEE Transactions on Knowledge and Data Engineering", type: "journal", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "journals/tkde", sci: true, ei: true, acceptanceRate: 0.18, avgCitations: 45, h5: 178 },
+  { id: "tois", name: "TOIS", fullName: "ACM Transactions on Information Systems", type: "journal", ccf: "A", ccfField: cf("数据库领域"), domain: "datamining", field: f("信息检索"), dblpKey: "journals/tois", sci: true, acceptanceRate: 0.2, avgCitations: 42, h5: 96 },
+  { id: "tip", name: "TIP", fullName: "IEEE Transactions on Image Processing", type: "journal", ccf: "A", ccfField: cf("人工智能"), domain: "cv", field: f("计算机视觉"), dblpKey: "journals/tip", sci: true, ei: true, acceptanceRate: 0.24, avgCitations: 58, h5: 212 },
+  { id: "tmm", name: "TMM", fullName: "IEEE Transactions on Multimedia", type: "journal", ccf: "A", ccfField: cf("多媒体领域"), domain: "multimodal", field: f("多媒体与多模态"), dblpKey: "journals/tmm", sci: true, ei: true, acceptanceRate: 0.26, avgCitations: 33, h5: 108 },
+  { id: "tifs", name: "TIFS", fullName: "IEEE Transactions on Information Forensics and Security", type: "journal", ccf: "A", ccfField: cf("安全领域"), domain: "security", field: f("AI安全/隐私"), dblpKey: "journals/tifs", sci: true, ei: true, acceptanceRate: 0.22, avgCitations: 43, h5: 122 },
+
+  // ---------- 期刊 B 类（扩充） ----------
+  { id: "kbs", name: "KBS", fullName: "Knowledge-Based Systems", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("知识科学与工程"), dblpKey: "journals/kbs", sci: true, ei: true, acceptanceRate: 0.24, avgCitations: 31, h5: 118 },
+  { id: "air", name: "AI Review", fullName: "Artificial Intelligence Review", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/air", sci: true, acceptanceRate: 0.27, avgCitations: 20, h5: 64 },
+  { id: "tist", name: "TIST", fullName: "ACM Transactions on Intelligent Systems and Technology", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/tist", sci: true, acceptanceRate: 0.26, avgCitations: 36, h5: 72 },
+  { id: "tkdd", name: "TKDD", fullName: "ACM Transactions on Knowledge Discovery from Data", type: "journal", ccf: "B", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "journals/tkdd", sci: true, acceptanceRate: 0.23, avgCitations: 30, h5: 58 },
+  { id: "tvc", name: "TVCG", fullName: "IEEE Transactions on Visualization and Computer Graphics", type: "journal", ccf: "B", ccfField: cf("图形领域"), domain: "graphics", field: f("计算机图形学"), dblpKey: "journals/tvcg", sci: true, ei: true, acceptanceRate: 0.25, avgCitations: 44, h5: 98 },
+  { id: "tochi", name: "TOCHI", fullName: "ACM Transactions on Computer-Human Interaction", type: "journal", ccf: "B", ccfField: cf("人机交互领域"), domain: "hci", field: f("人机交互"), dblpKey: "journals/tochi", sci: true, acceptanceRate: 0.24, avgCitations: 39, h5: 79 },
+  { id: "ras", name: "RAS", fullName: "Robotics and Autonomous Systems", type: "journal", ccf: "B", ccfField: cf("机器人领域"), domain: "robotics", field: f("机器人"), dblpKey: "journals/ras", sci: true, ei: true, acceptanceRate: 0.28, avgCitations: 27, h5: 76 },
+  { id: "is", name: "Information Sciences", fullName: "Information Sciences", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/isci", sci: true, ei: true, acceptanceRate: 0.22, avgCitations: 34, h5: 132 },
+  { id: "dmkd", name: "DMKD", fullName: "Data Mining and Knowledge Discovery", type: "journal", ccf: "B", ccfField: cf("数据库领域"), domain: "datamining", field: f("数据挖掘"), dblpKey: "journals/datamine", sci: true, acceptanceRate: 0.21, avgCitations: 41, h5: 84 },
+  { id: "eswa", name: "ESWA", fullName: "Expert Systems with Applications", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("应用智能"), dblpKey: "journals/eswa", sci: true, ei: true, acceptanceRate: 0.25, avgCitations: 21, h5: 121 },
+  { id: "tcss", name: "TCSS", fullName: "IEEE Transactions on Computational Social Systems", type: "journal", ccf: "B", ccfField: cf("人工智能"), domain: "ai", field: f("控制与智能系统"), dblpKey: "journals/tcss", sci: true, ei: true, acceptanceRate: 0.27, avgCitations: 22, h5: 49 },
+
+  // ---------- 期刊 C 类（扩充） ----------
+  { id: "mtap", name: "MTAP", fullName: "Multimedia Tools and Applications", type: "journal", ccf: "C", ccfField: cf("多媒体领域"), domain: "multimodal", field: f("多媒体与多模态"), dblpKey: "journals/mtap", sci: true, acceptanceRate: 0.3, avgCitations: 11, h5: 38 },
+  { id: "mva", name: "MVA", fullName: "Machine Vision and Applications", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "cv", field: f("计算机视觉"), dblpKey: "journals/mva", sci: true, acceptanceRate: 0.32, avgCitations: 16, h5: 33 },
+  { id: "ijmlc", name: "IJMLC", fullName: "International Journal of Machine Learning and Cybernetics", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "ml", field: f("机器学习"), dblpKey: "journals/ijmlc", sci: true, acceptanceRate: 0.33, avgCitations: 10, h5: 27 },
+  { id: "kais", name: "KAIS", fullName: "Knowledge and Information Systems", type: "journal", ccf: "C", ccfField: cf("数据库领域"), domain: "datamining", field: f("知识科学与工程"), dblpKey: "journals/kais", sci: true, acceptanceRate: 0.29, avgCitations: 18, h5: 41 },
+  { id: "npl", name: "Neural Processing Letters", fullName: "Neural Processing Letters", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "ml", field: f("神经网络"), dblpKey: "journals/npl", sci: true, acceptanceRate: 0.35, avgCitations: 12, h5: 22 },
+  { id: "ijns", name: "IJNS", fullName: "International Journal of Neural Systems", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "ml", field: f("神经网络"), dblpKey: "journals/ijns", sci: true, acceptanceRate: 0.3, avgCitations: 19, h5: 36 },
+  { id: "compint", name: "Computational Intelligence", fullName: "Computational Intelligence", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/coe", sci: true, acceptanceRate: 0.34, avgCitations: 13, h5: 29 },
+  { id: "asoc", name: "Applied Soft Computing", fullName: "Applied Soft Computing", type: "journal", ccf: "C", ccfField: cf("人工智能"), domain: "ml", field: f("软计算"), dblpKey: "journals/asoc", sci: true, ei: true, acceptanceRate: 0.31, avgCitations: 17, h5: 62 },
+
+  // ---------- 非 CCF 高影响力期刊（扩充） ----------
+  { id: "tiai", name: "IEEE T-AI", fullName: "IEEE Transactions on Artificial Intelligence", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/tai", sci: true, acceptanceRate: 0.26, avgCitations: 24, h5: 54 },
+  { id: "mlst", name: "MLST", fullName: "Machine Learning: Science and Technology", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ml", field: f("机器学习"), dblpKey: "journals/mlst", sci: true, acceptanceRate: 0.3, avgCitations: 26, h5: 51 },
+  { id: "patterns", name: "Patterns", fullName: "Patterns (Cell Press)", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/patterns", sci: true, acceptanceRate: 0.28, avgCitations: 28, h5: 44 },
+  { id: "mir", name: "Machine Intelligence Research", fullName: "Machine Intelligence Research", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ml", field: f("机器学习"), dblpKey: "journals/mir", sci: true, acceptanceRate: 0.32, avgCitations: 15, h5: 26 },
+  { id: "aiopen", name: "AI Open", fullName: "AI Open", type: "journal", ccf: null, ccfField: cf("非 CCF"), domain: "ai", field: f("人工智能综合"), dblpKey: "journals/aiopen", sci: true, acceptanceRate: 0.34, avgCitations: 14, h5: 22 },
 ];
 
 export const venueById = (id: string) => venues.find((v) => v.id === id);

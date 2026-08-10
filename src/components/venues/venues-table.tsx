@@ -11,17 +11,20 @@ import { useI18n } from "@/lib/i18n";
 
 const LEVELS: ("all" | "A" | "B" | "C" | "none")[] = ["all", "A", "B", "C", "none"];
 const levelLabel = (l: string) => (l === "all" ? "全部" : l === "none" ? "非 CCF" : `CCF-${l}`);
+const TYPES: ("all" | "conference" | "journal")[] = ["all", "conference", "journal"];
 
 type SortKey = "heat" | "acceptance" | "citations" | "h5";
 
 export function VenuesTable() {
-  const { pick } = useI18n();
+  const { pick, t } = useI18n();
+  const [type, setType] = React.useState<"all" | "conference" | "journal">("all");
   const [level, setLevel] = React.useState<"all" | CCFLevel | "none">("all");
   const [q, setQ] = React.useState("");
   const [sort, setSort] = React.useState<SortKey>("heat");
 
   const list = venues
     .filter((v) => {
+      const okType = type === "all" || v.type === type;
       const okLevel =
         level === "all" ||
         (level === "none" ? !v.ccf : v.ccf === level);
@@ -29,7 +32,7 @@ export function VenuesTable() {
         !q ||
         v.name.toLowerCase().includes(q.toLowerCase()) ||
         v.fullName.toLowerCase().includes(q.toLowerCase());
-      return okLevel && okQ;
+      return okType && okLevel && okQ;
     })
     .sort((a, b) => {
       switch (sort) {
@@ -46,6 +49,20 @@ export function VenuesTable() {
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center gap-2">
+        <div className="flex gap-1 rounded-lg bg-muted/60 p-1">
+          {TYPES.map((ty) => (
+            <button
+              key={ty}
+              onClick={() => setType(ty)}
+              className={cn(
+                "rounded-md px-2.5 py-1 text-xs font-medium transition-colors",
+                type === ty ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {ty === "all" ? t("venue_all") : ty === "conference" ? t("venue_conf") : t("venue_journal")}
+            </button>
+          ))}
+        </div>
         <div className="flex gap-1 rounded-lg bg-muted/60 p-1">
           {LEVELS.map((l) => (
             <button

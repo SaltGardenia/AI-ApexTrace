@@ -85,9 +85,12 @@ export const dict = {
   dir_select_hint: { zh: "选择左侧方向查看详情", en: "Select a direction on the left to view details" },
   page_venues: { zh: "会议全景", en: "Venues" },
   page_venues_desc: {
-    zh: "按 CCF 等级与领域筛选全部收录的顶会顶刊，查看录用率、影响力和方向分布。",
+    zh: "按 CCF 等级与领域覆盖筛选全部收录的顶会顶刊，查看录用率、影响力和方向分布。",
     en: "Filter all covered top venues by CCF tier and field; see acceptance, impact and direction mix.",
   },
+  venue_all: { zh: "全部", en: "All" },
+  venue_conf: { zh: "会议全景", en: "Conferences" },
+  venue_journal: { zh: "期刊全景", en: "Journals" },
   page_calendar: { zh: "会议日历", en: "Calendar" },
   page_calendar_desc: {
     zh: "全年 12 个月的截稿与召开节点，快速规划投稿与参会节奏。",

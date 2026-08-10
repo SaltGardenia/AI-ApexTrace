@@ -97,6 +97,12 @@ export const dict = {
   venue_all: { zh: "全部", en: "All" },
   venue_conf: { zh: "会议全景", en: "Conferences" },
   venue_journal: { zh: "期刊全景", en: "Journals" },
+  venue_search: { zh: "搜索简称 / 全称…", en: "Search name / full name…" },
+  venue_count: { zh: "共 {n} 个", en: "{n} venues" },
+  venue_filtered: { zh: "已筛选 {n} 项", en: "{n} filter(s) active" },
+  th_sort_asc: { zh: "升序", en: "Ascending" },
+  th_sort_desc: { zh: "降序", en: "Descending" },
+  th_filter_all: { zh: "全部", en: "All" },
   th_cas: { zh: "中科院分区", en: "CAS" },
   th_jcr: { zh: "JCR 分区", en: "JCR" },
   page_calendar: { zh: "会议日历", en: "Calendar" },
@@ -193,6 +199,7 @@ export const dict = {
   th_field: { zh: "领域", en: "Field" },
   th_accept: { zh: "录用率", en: "Accept." },
   th_cit: { zh: "平均引用", en: "Citations" },
+  th_h5: { zh: "H5 指数", en: "H5" },
 
   // ---------- calendar ----------
   view_year: { zh: "年历视图", en: "Year" },

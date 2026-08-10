@@ -377,8 +377,112 @@ export const fieldSubfields: Record<DirectionId, FieldSubfield[]> = {
       ],
     },
   ],
-  ai4science: [],
-  datamining: [],
+  ai4science: [
+    {
+      id: "ai4science-protein",
+      name: { zh: "蛋白质结构", en: "Protein Structure" },
+      description: {
+        zh: "AlphaFold 开启结构预测新纪元，de novo 蛋白设计与折叠、功能与结合位点生成成为前沿。",
+        en: "AlphaFold opened structure prediction; de novo protein design, folding, function and binder generation are now frontiers.",
+      },
+      children: [
+        { id: "ai4-p-fold", name: { zh: "结构预测", en: "Structure Prediction" }, papers: 900 },
+        { id: "ai4-p-design", name: { zh: "蛋白设计", en: "Protein Design" }, papers: 700 },
+        { id: "ai4-p-binder", name: { zh: "结合子设计", en: "Binder Design" }, papers: 400 },
+      ],
+    },
+    {
+      id: "ai4science-molecule",
+      name: { zh: "分子生成", en: "Molecule Generation" },
+      description: {
+        zh: "以扩散/流模型配 GNN 生成小分子与药物，覆盖分子对接（DiffDock）、亲和力预测与逆合成。",
+        en: "Diffusion/flow models with GNNs generate small molecules & drugs; covers docking (DiffDock), affinity and retrosynthesis.",
+      },
+      children: [
+        { id: "ai4-m-drug", name: { zh: "药物设计", en: "Drug Design" }, papers: 800 },
+        { id: "ai4-m-dock", name: { zh: "分子对接", en: "Molecular Docking" }, papers: 500 },
+        { id: "ai4-m-retro", name: { zh: "逆合成", en: "Retrosynthesis" }, papers: 400 },
+      ],
+    },
+    {
+      id: "ai4science-materials",
+      name: { zh: "材料与气候", en: "Materials & Climate" },
+      description: {
+        zh: "图神经网络驱动的合金/材料发现，以及气候建模与地球系统模拟中的机器学习。",
+        en: "GNN-driven alloy/material discovery, plus ML for climate modeling and Earth-system simulation.",
+      },
+      children: [
+        { id: "ai4-ma-mat", name: { zh: "材料发现", en: "Material Discovery" }, papers: 500 },
+        { id: "ai4-ma-climate", name: { zh: "气候建模", en: "Climate Modeling" }, papers: 400 },
+      ],
+    },
+    {
+      id: "ai4science-ode",
+      name: { zh: "神经微分方程", en: "Neural ODEs" },
+      description: {
+        zh: "用神经网络参数化微分方程，支撑连续时间建模、物理信息神经网络（PINN）与科学仿真。",
+        en: "Parameterizing differential equations with neural nets; continuous-time modeling, PINNs and scientific simulation.",
+      },
+      children: [
+        { id: "ai4-od-pinn", name: { zh: "物理信息网络", en: "PINNs" }, papers: 400 },
+        { id: "ai4-od-node", name: { zh: "神经 ODE/流", en: "Neural ODE / Flow" }, papers: 200 },
+      ],
+    },
+  ],
+  datamining: [
+    {
+      id: "dm-graph",
+      name: { zh: "图学习", en: "Graph Learning" },
+      description: {
+        zh: "图神经网络（GNN）建模非欧关系，支撑药物发现、欺诈检测与推荐系统等复杂场景。",
+        en: "Graph neural networks model non-Euclidean relations; powers drug discovery, fraud detection and recsys.",
+      },
+      children: [
+        { id: "dm-g-gnn", name: { zh: "图神经网络", en: "GNNs" }, papers: 1600 },
+        { id: "dm-g-dynamic", name: { zh: "动态图", en: "Dynamic Graphs" }, papers: 600 },
+        { id: "dm-g-gen", name: { zh: "图生成", en: "Graph Generation" }, papers: 500 },
+      ],
+    },
+    {
+      id: "dm-recsys",
+      name: { zh: "推荐系统", en: "Recommender Systems" },
+      description: {
+        zh: "从协同过滤到图/序列与 LLM 增强推荐，知识图谱作为侧信息缓解稀疏与冷启动。",
+        en: "From collaborative filtering to graph/sequential & LLM-augmented recsys; KGs ease sparsity & cold-start.",
+      },
+      children: [
+        { id: "dm-r-seq", name: { zh: "序列推荐", en: "Sequential" }, papers: 900 },
+        { id: "dm-r-kg", name: { zh: "知识图谱推荐", en: "KG RecSys" }, papers: 700 },
+        { id: "dm-r-llm", name: { zh: "LLM 推荐", en: "LLM RecSys" }, papers: 500 },
+      ],
+    },
+    {
+      id: "dm-ir",
+      name: { zh: "信息检索", en: "Information Retrieval" },
+      description: {
+        zh: "面向搜索与排序的检索模型，近年图方法（GNN/知识图谱）显著提升相关性与个性化。",
+        en: "Retrieval & ranking models; graph methods (GNN/KG) recently boost relevance and personalization.",
+      },
+      children: [
+        { id: "dm-ir-rank", name: { zh: "文档排序", en: "Ranking" }, papers: 700 },
+        { id: "dm-ir-neural", name: { zh: "神经检索", en: "Neural IR" }, papers: 600 },
+        { id: "dm-ir-graph", name: { zh: "图检索", en: "Graph-based IR" }, papers: 400 },
+      ],
+    },
+    {
+      id: "dm-kg",
+      name: { zh: "知识图谱", en: "Knowledge Graphs" },
+      description: {
+        zh: "知识的表示、获取与推理，图谱嵌入与多跳推理是核心，并与检索/推荐深度结合。",
+        en: "Representation, acquisition and reasoning over KGs; embedding & multi-hop reasoning, fused with IR/recsys.",
+      },
+      children: [
+        { id: "dm-k-embed", name: { zh: "图谱嵌入", en: "KG Embedding" }, papers: 600 },
+        { id: "dm-k-reason", name: { zh: "图谱推理", en: "KG Reasoning" }, papers: 500 },
+        { id: "dm-k-construct", name: { zh: "图谱构建", en: "KG Construction" }, papers: 400 },
+      ],
+    },
+  ],
   graphics: [],
   security: [],
   hci: [],

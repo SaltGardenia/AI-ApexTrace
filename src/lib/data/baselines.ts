@@ -216,8 +216,8 @@ export const datasets: { direction: string; items: Dataset[] }[] = [
   },
 ];
 
-export const baselinesByDirection = (dir: DirectionId | string): Baseline[] =>
+export const baselinesByDirection = (dir: string): Baseline[] =>
   baselines.find((b) => b.direction === dir)?.items ?? [];
 
-export const datasetsByDirection = (dir: DirectionId | string): Dataset[] =>
+export const datasetsByDirection = (dir: string): Dataset[] =>
   datasets.find((d) => d.direction === dir)?.items ?? [];

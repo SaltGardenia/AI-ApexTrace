@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { directions } from "@/lib/data/directions";
-import { rankedDirections } from "@/lib/heat-index";
-import { milestonesByDirection } from "@/lib/data/milestones";
-import { bottlenecksByDirection } from "@/lib/data/bottlenecks";
-import { baselinesByDirection, datasetsByDirection } from "@/lib/data/baselines";
-import { venueById } from "@/lib/data/venues";
-import { DirectionDetailView } from "@/components/directions/direction-detail-view";
+import { findNode, pathToNode } from "@/lib/field-tree-utils";
+import { FieldDetailView } from "@/components/directions/field-detail-view";
 
 export async function generateMetadata({
   params,
@@ -14,8 +9,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const d = directions.find((x) => x.id === slug);
-  return { title: d ? d.name.zh : "研究方向" };
+  const node = findNode(slug);
+  return { title: node ? node.name.zh : "研究方向" };
 }
 
 export default async function DirectionDetailPage({
@@ -24,24 +19,9 @@ export default async function DirectionDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const d = directions.find((x) => x.id === slug);
-  if (!d) notFound();
-  const ranked = rankedDirections.find((x) => x.id === slug)!;
-  const ms = milestonesByDirection(slug);
-  const bs = bottlenecksByDirection(slug);
-  const bl = baselinesByDirection(slug);
-  const ds = datasetsByDirection(slug);
-  const topVenues = d.topVenues.map((id) => venueById(id));
-
-  return (
-    <DirectionDetailView
-      direction={d}
-      ranked={ranked}
-      milestones={ms}
-      bottlenecks={bs}
-      topVenues={topVenues}
-      baselines={bl}
-      datasets={ds}
-    />
-  );
+  const node = findNode(slug);
+  if (!node) notFound();
+  // touch pathToNode to ensure tree integrity at build time
+  void pathToNode(slug);
+  return <FieldDetailView node={node} />;
 }

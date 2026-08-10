@@ -106,6 +106,11 @@ export const dict = {
   dir_list_title: { zh: "全部研究方向", en: "All Directions" },
   dir_count: { zh: "个方向", en: "directions" },
   dir_select_hint: { zh: "选择左侧方向查看详情", en: "Select a direction on the left to view details" },
+  field_tree_title: { zh: "领域分类树", en: "Field Tree" },
+  field_path: { zh: "路径", en: "Path" },
+  field_papers: { zh: "论文数", en: "Papers" },
+  field_children: { zh: "子分类", en: "Sub-categories" },
+  field_no_children: { zh: "最小子分类（叶子节点）", en: "Smallest sub-category (leaf)" },
   page_venues: { zh: "会议全景", en: "Venues" },
   page_venues_desc: {
     zh: "按 CCF 等级与领域覆盖筛选全部收录的顶会顶刊，查看录用率、影响力和方向分布。",

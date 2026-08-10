@@ -80,6 +80,9 @@ export const dict = {
     zh: "从产出、影响力、增长与交叉融合多视角透视 AI 各研究方向。",
     en: "Explore AI research directions through output, impact, growth and cross-fusion.",
   },
+  dir_list_title: { zh: "全部研究方向", en: "All Directions" },
+  dir_count: { zh: "个方向", en: "directions" },
+  dir_select_hint: { zh: "选择左侧方向查看详情", en: "Select a direction on the left to view details" },
   page_venues: { zh: "会议全景", en: "Venues" },
   page_venues_desc: {
     zh: "按 CCF 等级与领域筛选全部收录的顶会顶刊，查看录用率、影响力和方向分布。",

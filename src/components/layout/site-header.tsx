@@ -14,7 +14,7 @@ import type { DictKey } from "@/lib/i18n/translations";
 
 const NAV: { href: string; key: DictKey }[] = [
   { href: "/", key: "nav_home" },
-  { href: "/#directions", key: "nav_directions" },
+  { href: "/directions", key: "nav_directions" },
   { href: "/venues", key: "nav_venues" },
   { href: "/#calendar", key: "nav_calendar" },
   { href: "/about", key: "nav_about" },
@@ -68,6 +68,8 @@ export function SiteHeader() {
            </nav>
 
           <div className="ml-auto flex items-center gap-1">
+            <LanguageToggle />
+            <ThemeToggle />
             <a
               href="https://github.com/SaltGardenia/ApexTrace"
               target="_blank"
@@ -77,8 +79,6 @@ export function SiteHeader() {
             >
               <GithubIcon className="size-4" />
             </a>
-            <LanguageToggle />
-            <ThemeToggle />
           <Sheet open={open} onOpenChange={setOpen}>
             <Button
               variant="ghost"

@@ -29,11 +29,13 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
   return out;
 }
 
+// recharts clones `content` with `nodeProps`, so our data fields (label,
+// catColor, size) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
-  const { x, y, width, height, payload } = props;
+  const { x, y, width, height, label, catColor, size } = props;
   if (width <= 0 || height <= 0) return null;
-  const label = payload?.label ?? "";
-  const color = payload?.catColor ?? "#9a8fd0";
+  const color = catColor ?? "#9a8fd0";
+  const text = label ?? "";
 
   return (
     <g>
@@ -47,7 +49,7 @@ function Content(props: any) {
         stroke="#fff"
         strokeWidth={1}
       >
-        <title>{`${label}: ${((payload?.size ?? 0)).toLocaleString()}`}</title>
+        <title>{`${text}: ${(size ?? 0).toLocaleString()}`}</title>
       </rect>
       {width > 42 && height > 18 && (
         <text
@@ -60,7 +62,7 @@ function Content(props: any) {
           fontWeight={500}
           pointerEvents="none"
         >
-          {label}
+          {text}
         </text>
       )}
     </g>

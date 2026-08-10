@@ -58,7 +58,7 @@ export interface Venue {
   type: VenueType;
   ccf: CCFLevel;
   ccfField?: Bilingual;
-  domain: DirectionId | "cross";
+  domain: string;
   field: Bilingual;
   link?: string;
   dblpKey?: string;
@@ -113,7 +113,7 @@ export type MilestoneType = "root" | "branch" | "leaf";
 
 export interface Milestone {
   id: string;
-  direction: DirectionId;
+  direction: string;
   year: number;
   title: Bilingual;
   venue?: string;
@@ -127,7 +127,7 @@ export type BottleneckStatus = "unsolved" | "partial" | "solved";
 
 export interface Bottleneck {
   id: string;
-  direction: DirectionId;
+  direction: string;
   text: Bilingual;
   source: Bilingual;
   status: BottleneckStatus;

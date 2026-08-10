@@ -1,6 +1,6 @@
-import type { Baseline, Dataset, DirectionId } from "@/lib/types";
+import type { Baseline, Dataset } from "@/lib/types";
 
-export const baselines: { direction: DirectionId; items: Baseline[] }[] = [
+export const baselines: { direction: string; items: Baseline[] }[] = [
   // ---------- AI ----------
   {
     direction: "ai",
@@ -111,7 +111,7 @@ export const baselines: { direction: DirectionId; items: Baseline[] }[] = [
   },
 ];
 
-export const datasets: { direction: DirectionId; items: Dataset[] }[] = [
+export const datasets: { direction: string; items: Dataset[] }[] = [
   // ---------- AI ----------
   {
     direction: "ai",

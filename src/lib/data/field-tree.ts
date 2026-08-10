@@ -615,4 +615,228 @@ export const fieldTree: FieldNode[] = [
       },
     ],
   },
+  {
+    id: "robotics",
+    name: { zh: "机器人", en: "Robotics" },
+    description: { zh: "机器人感知、规划与控制。", en: "Robot perception, planning and control." },
+    children: [
+      {
+        id: "robotics-perc",
+        name: { zh: "机器人感知", en: "Robot Perception" },
+        children: [
+          { id: "robotics-perc-visual", name: { zh: "视觉感知", en: "Visual Perception" }, papers: 480 },
+          { id: "robotics-perc-tactile", name: { zh: "触觉感知", en: "Tactile Perception" }, papers: 280 },
+          { id: "robotics-perc-multi", name: { zh: "多模态感知", en: "Multimodal Sensing" }, papers: 320 },
+        ],
+      },
+      {
+        id: "robotics-plan",
+        name: { zh: "机器人规划", en: "Robot Planning" },
+        children: [
+          { id: "robotics-plan-motion", name: { zh: "运动规划", en: "Motion Planning" }, papers: 420 },
+          { id: "robotics-plan-task", name: { zh: "任务规划", en: "Task Planning" }, papers: 380 },
+          { id: "robotics-plan-long", name: { zh: "长程规划", en: "Long Horizon Planning" }, papers: 280 },
+        ],
+      },
+      {
+        id: "robotics-ctrl",
+        name: { zh: "机器人控制", en: "Robot Control" },
+        children: [
+          { id: "robotics-ctrl-neural", name: { zh: "神经控制", en: "Neural Control" }, papers: 320 },
+          { id: "robotics-ctrl-learn", name: { zh: "学习控制", en: "Learning Control" }, papers: 380 },
+          { id: "robotics-ctrl-dexterous", name: { zh: "灵巧操作", en: "Dexterous Manipulation" }, papers: 340 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "efficiency",
+    name: { zh: "AI 系统与模型效率", en: "AI Efficiency" },
+    description: { zh: "模型压缩、高效 Transformer 与 AI 系统。", en: "Model compression, efficient Transformers and AI systems." },
+    children: [
+      {
+        id: "efficiency-compress",
+        name: { zh: "模型压缩", en: "Model Compression" },
+        children: [
+          {
+            id: "efficiency-compress-prune",
+            name: { zh: "剪枝", en: "Pruning" },
+            children: [
+              { id: "efficiency-compress-prune-struct", name: { zh: "结构化剪枝", en: "Structured Pruning" }, papers: 360 },
+              { id: "efficiency-compress-prune-unstruct", name: { zh: "非结构化剪枝", en: "Unstructured Pruning" }, papers: 280 },
+              { id: "efficiency-compress-prune-token", name: { zh: "Token 剪枝", en: "Token Pruning" }, papers: 220 },
+            ],
+          },
+          {
+            id: "efficiency-compress-quant",
+            name: { zh: "量化", en: "Quantization" },
+            children: [
+              { id: "efficiency-compress-quant-ptq", name: { zh: "PTQ", en: "PTQ" }, papers: 320 },
+              { id: "efficiency-compress-quant-qat", name: { zh: "QAT", en: "QAT" }, papers: 240 },
+              { id: "efficiency-compress-quant-llm", name: { zh: "LLM 量化", en: "LLM Quantization" }, papers: 360 },
+            ],
+          },
+          {
+            id: "efficiency-compress-distill",
+            name: { zh: "蒸馏", en: "Distillation" },
+            children: [
+              { id: "efficiency-compress-distill-kd", name: { zh: "知识蒸馏", en: "Knowledge Distillation" }, papers: 520 },
+              { id: "efficiency-compress-distill-feat", name: { zh: "特征蒸馏", en: "Feature Distillation" }, papers: 280 },
+            ],
+          },
+        ],
+      },
+      {
+        id: "efficiency-trans",
+        name: { zh: "高效 Transformer", en: "Efficient Transformer" },
+        children: [
+          { id: "efficiency-trans-sparse", name: { zh: "稀疏注意力", en: "Sparse Attention" }, papers: 420 },
+          { id: "efficiency-trans-linear", name: { zh: "线性注意力", en: "Linear Attention" }, papers: 320 },
+          { id: "efficiency-trans-merge", name: { zh: "Token 合并", en: "Token Merging" }, papers: 240 },
+          { id: "efficiency-trans-dyn", name: { zh: "动态网络", en: "Dynamic Network" }, papers: 280 },
+        ],
+      },
+      {
+        id: "efficiency-system",
+        name: { zh: "AI 系统", en: "AI Systems" },
+        children: [
+          { id: "efficiency-system-dist", name: { zh: "分布式训练", en: "Distributed Training" }, papers: 480 },
+          { id: "efficiency-system-gpu", name: { zh: "GPU 优化", en: "GPU Optimization" }, papers: 360 },
+          { id: "efficiency-system-infer", name: { zh: "推理加速", en: "Inference Acceleration" }, papers: 520 },
+          { id: "efficiency-system-edge", name: { zh: "边缘 AI", en: "Edge AI" }, papers: 300 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "security",
+    name: { zh: "AI 安全与可信人工智能", en: "AI Safety & Trustworthy AI" },
+    description: { zh: "对抗攻击、模型安全与 AI 对齐。", en: "Adversarial attacks, model security and AI alignment." },
+    children: [
+      {
+        id: "security-adv",
+        name: { zh: "对抗攻击", en: "Adversarial Attack" },
+        children: [
+          { id: "security-adv-example", name: { zh: "对抗样本", en: "Adversarial Examples" }, papers: 680 },
+          { id: "security-adv-robust", name: { zh: "鲁棒训练", en: "Robust Training" }, papers: 420 },
+        ],
+      },
+      {
+        id: "security-model",
+        name: { zh: "模型安全", en: "Model Security" },
+        children: [
+          { id: "security-model-poison", name: { zh: "数据投毒", en: "Data Poisoning" }, papers: 320 },
+          { id: "security-model-backdoor", name: { zh: "后门攻击", en: "Backdoor Attack" }, papers: 360 },
+          { id: "security-model-jailbreak", name: { zh: "越狱攻击", en: "Jailbreak Attack" }, papers: 420 },
+        ],
+      },
+      {
+        id: "security-align",
+        name: { zh: "AI 对齐", en: "AI Alignment" },
+        children: [
+          { id: "security-align-rlhf", name: { zh: "RLHF", en: "RLHF" }, papers: 520 },
+          { id: "security-align-constitutional", name: { zh: "宪法 AI", en: "Constitutional AI" }, papers: 280 },
+          { id: "security-align-value", name: { zh: "价值对齐", en: "Value Alignment" }, papers: 320 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "applications",
+    name: { zh: "AI 应用前沿方向", en: "AI Applications" },
+    description: { zh: "自动驾驶、医疗 AI、科学智能与工业智能。", en: "Autonomous driving, healthcare AI, AI for science and industrial AI." },
+    children: [
+      {
+        id: "applications-driving",
+        name: { zh: "自动驾驶", en: "Autonomous Driving" },
+        children: [
+          { id: "applications-driving-perc", name: { zh: "感知", en: "Perception" }, papers: 520 },
+          { id: "applications-driving-pred", name: { zh: "预测", en: "Prediction" }, papers: 420 },
+          { id: "applications-driving-plan", name: { zh: "规划", en: "Planning" }, papers: 400 },
+          { id: "applications-driving-e2e", name: { zh: "端到端驾驶", en: "End-to-End Driving" }, papers: 320 },
+          { id: "applications-driving-wm", name: { zh: "世界模型", en: "World Model" }, papers: 260 },
+        ],
+      },
+      {
+        id: "applications-health",
+        name: { zh: "医疗 AI", en: "Healthcare AI" },
+        children: [
+          { id: "applications-health-imaging", name: { zh: "医学影像", en: "Medical Imaging" }, papers: 620 },
+          { id: "applications-health-drug", name: { zh: "药物发现", en: "Drug Discovery" }, papers: 480 },
+          { id: "applications-health-biolm", name: { zh: "生物医学大模型", en: "Biomedical LLM" }, papers: 360 },
+        ],
+      },
+      {
+        id: "applications-science",
+        name: { zh: "科学智能", en: "AI for Science" },
+        children: [
+          { id: "applications-science-protein", name: { zh: "蛋白质折叠", en: "Protein Folding" }, papers: 420 },
+          { id: "applications-science-material", name: { zh: "材料发现", en: "Material Discovery" }, papers: 360 },
+          { id: "applications-science-physics", name: { zh: "物理仿真", en: "Physics Simulation" }, papers: 300 },
+        ],
+      },
+      {
+        id: "applications-industry",
+        name: { zh: "工业智能", en: "Industrial AI" },
+        children: [
+          { id: "applications-industry-vision", name: { zh: "工业视觉", en: "Industrial Vision" }, papers: 360 },
+          { id: "applications-industry-twin", name: { zh: "数字孪生", en: "Digital Twin" }, papers: 280 },
+          { id: "applications-industry-pm", name: { zh: "预测性维护", en: "Predictive Maintenance" }, papers: 240 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "frontier",
+    name: { zh: "2025-2026 最热门交叉方向", en: "2025-2026 Hot Cross-direction" },
+    description: { zh: "AI Agent、世界模型、具身智能、多模态基础模型与三维基础模型。", en: "AI Agent, World Model, Embodied Intelligence, Multimodal Foundation Model and 3D Foundation Model." },
+    children: [
+      {
+        id: "frontier-agent",
+        name: { zh: "AI Agent", en: "AI Agent" },
+        children: [
+          { id: "frontier-agent-llm", name: { zh: "LLM Agent", en: "LLM Agent" }, papers: 520 },
+          { id: "frontier-agent-code", name: { zh: "编程 Agent", en: "Coding Agent" }, papers: 360 },
+          { id: "frontier-agent-research", name: { zh: "研究 Agent", en: "Research Agent" }, papers: 240 },
+          { id: "frontier-agent-multi", name: { zh: "多智能体", en: "Multi-Agent" }, papers: 480 },
+        ],
+      },
+      {
+        id: "frontier-world",
+        name: { zh: "World Model", en: "World Model" },
+        children: [
+          { id: "frontier-world-video", name: { zh: "视频世界模型", en: "Video World Model" }, papers: 320 },
+          { id: "frontier-world-robot", name: { zh: "机器人世界模型", en: "Robotics World Model" }, papers: 260 },
+          { id: "frontier-world-sim", name: { zh: "仿真模型", en: "Simulation Model" }, papers: 220 },
+        ],
+      },
+      {
+        id: "frontier-embodied",
+        name: { zh: "具身智能", en: "Embodied Intelligence" },
+        children: [
+          { id: "frontier-embodied-vla", name: { zh: "视觉-语言-动作模型", en: "Vision-Language-Action Model" }, papers: 420 },
+          { id: "frontier-embodied-rfm", name: { zh: "机器人基础模型", en: "Robot Foundation Model" }, papers: 320 },
+          { id: "frontier-embodied-general", name: { zh: "通用机器人", en: "Generalist Robot" }, papers: 260 },
+        ],
+      },
+      {
+        id: "frontier-multimodal",
+        name: { zh: "多模态基础模型", en: "Multimodal Foundation Model" },
+        children: [
+          { id: "frontier-multimodal-vl", name: { zh: "视觉-语言", en: "Vision-Language" }, papers: 420 },
+          { id: "frontier-multimodal-av", name: { zh: "音视", en: "Audio-Visual" }, papers: 280 },
+          { id: "frontier-multimodal-omni", name: { zh: "全模态 AI", en: "Omni-modal AI" }, papers: 240 },
+        ],
+      },
+      {
+        id: "frontier-3d",
+        name: { zh: "三维基础模型", en: "3D Foundation Model" },
+        children: [
+          { id: "frontier-3d-gauss", name: { zh: "三维高斯", en: "3D Gaussian" }, papers: 300 },
+          { id: "frontier-3d-nsr", name: { zh: "神经场景表示", en: "Neural Scene Representation" }, papers: 260 },
+          { id: "frontier-3d-spatial", name: { zh: "空间智能", en: "Spatial Intelligence" }, papers: 220 },
+        ],
+      },
+    ],
+  },
 ];

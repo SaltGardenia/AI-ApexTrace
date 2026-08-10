@@ -20,18 +20,18 @@ import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
 const CATEGORY_KEY: Record<DirectionId, DictKey> = {
-  ai: "cat_general",
-  theory: "cat_general",
-  cv: "cat_vision",
-  graphics: "cat_vision",
-  nlp: "cat_language",
   ml: "cat_ml",
-  robotics: "cat_robotics",
+  cv: "cat_vision",
+  nlp: "cat_language",
   multimodal: "cat_cross",
-  ai4science: "cat_cross",
-  datamining: "cat_cross",
+  generative: "cat_vision",
+  embodied: "cat_robotics",
+  rl: "cat_ml",
+  robotics: "cat_robotics",
+  efficiency: "cat_ml",
   security: "cat_cross",
-  hci: "cat_cross",
+  applications: "cat_cross",
+  frontier: "cat_cross",
 };
 
 const CATEGORY_LABELS: DictKey[] = [

@@ -2,6 +2,8 @@
 
 > An open, explainable map of the AI academic landscape — research-direction heat, venue profiles, and submission timelines across CCF A/B/C venues, indexed and comparable at a glance.
 
+[🇨🇳 中文](README.zh-CN.md) · [🇺🇸 English](README.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev)
@@ -30,17 +32,6 @@ ApexTrace turns the firehose of AI publications into a **calm, comparative dashb
 
 ![ApexTrace hero](https://github.com/SaltGardenia/ApexTrace/raw/main/public/preview-hero.png)
 > _Tip: drop a `public/preview-hero.png` screenshot here to show the live dashboard._
-
-### Architecture
-
-```mermaid
-flowchart LR
-  A[Data Sources<br/>DBLP · OpenAlex · ccfddl] --> B[Structured Demo Data<br/>lib/data]
-  B --> C[Heat Index Engine<br/>lib/heat-index]
-  C --> D[UI Components<br/>dashboard · charts · directions]
-  D --> E[Pages<br/>Next.js App Router]
-  E --> F[Client State<br/>i18n · theme]
-```
 
 ---
 

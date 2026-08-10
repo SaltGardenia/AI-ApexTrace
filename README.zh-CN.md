@@ -2,6 +2,8 @@
 
 > 一个开放、可解释的 AI 学术版图工具——以指数化、对比化、全景化的视角，呈现 CCF A/B/C 类顶会顶刊的研究方向热度、会议画像与投稿时间线。
 
+[🇨🇳 中文](README.zh-CN.md) · [🇺🇸 English](README.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev)
@@ -30,17 +32,6 @@ ApexTrace 把海量 AI 论文整理成一个**冷静、可对比的仪表盘**�
 
 ![ApexTrace 首页](https://github.com/SaltGardenia/ApexTrace/raw/main/public/preview-hero.png)
 > _提示：在此处放入 `public/preview-hero.png` 截图即可展示实时仪表盘。_
-
-### 架构图
-
-```mermaid
-flowchart LR
-  A[数据源<br/>DBLP · OpenAlex · ccfddl] --> B[结构化演示数据<br/>lib/data]
-  B --> C[热度指数引擎<br/>lib/heat-index]
-  C --> D[UI 组件<br/>dashboard · charts · directions]
-  D --> E[页面<br/>Next.js App Router]
-  E --> F[客户端状态<br/>i18n · theme]
-```
 
 ---
 

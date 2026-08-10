@@ -52,7 +52,7 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const fontSize = width < 70 || height < 34 ? 9 : 10;
+  const fontSize = width < 56 ? 9 : 11;
   const charW = fontSize * 0.95;
   const maxChars = Math.floor((width - 8) / charW);
   const showText = width > 40 && height > 16 && maxChars >= 1;

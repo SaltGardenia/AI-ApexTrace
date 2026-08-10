@@ -11,7 +11,7 @@ export default function JournalsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <PageHeader titleKey="nav_journals" descKey="page_journals_desc" />
-      <VenuesTable initialType="journal" />
+      <VenuesTable type="journal" />
     </div>
   );
 }

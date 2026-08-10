@@ -11,7 +11,7 @@ export default function VenuesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <PageHeader titleKey="page_venues" descKey="page_venues_desc" />
-      <VenuesTable />
+      <VenuesTable type="conference" />
     </div>
   );
 }

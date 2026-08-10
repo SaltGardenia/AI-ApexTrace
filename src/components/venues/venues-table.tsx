@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import type { CCFLevel, CasDivision, JcrQuartile } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 
-type TypeFilter = "all" | "conference" | "journal";
 type LevelKey = "all" | CCFLevel | "none";
 type CasKey = "all" | CasDivision;
 type JcrKey = "all" | JcrQuartile;
@@ -41,13 +40,12 @@ const ccfRank = (v: { ccf: CCFLevel }) =>
   v.ccf === "A" ? 3 : v.ccf === "B" ? 2 : v.ccf === "C" ? 1 : 0;
 
 export function VenuesTable({
-  initialType = "all",
+  type = "conference",
 }: {
-  initialType?: "all" | "conference" | "journal";
+  type?: "conference" | "journal";
 }) {
   const { pick, t } = useI18n();
   _t = t;
-  const [type, setType] = React.useState<TypeFilter>(initialType);
   const [q, setQ] = React.useState("");
   const [level, setLevel] = React.useState<LevelKey>("all");
   const [cas, setCas] = React.useState<CasKey>("all");
@@ -65,7 +63,7 @@ export function VenuesTable({
 
   const list = venues
     .filter((v) => {
-      const okType = type === "all" || v.type === type;
+      const okType = v.type === type;
       const okLevel = level === "all" || (level === "none" ? !v.ccf : v.ccf === level);
       const okCas = cas === "all" || v.cas === cas;
       const okJcr = jcr === "all" || v.jcr === jcr;
@@ -95,22 +93,6 @@ export function VenuesTable({
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <div className="flex gap-1 rounded-lg bg-muted/60 p-1">
-          {(["all", "conference", "journal"] as TypeFilter[]).map((ty) => (
-            <button
-              key={ty}
-              onClick={() => setType(ty)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-                type === ty
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {ty === "all" ? t("venue_all") : ty === "conference" ? t("venue_conf") : t("venue_journal")}
-            </button>
-          ))}
-        </div>
         <div className="relative ml-auto w-full max-w-xs">
           <Input
             placeholder={t("venue_search")}

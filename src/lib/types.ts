@@ -12,35 +12,31 @@ export type JcrQuartile = "Q1" | "Q2" | "Q3" | "Q4" | null;
 export type VenueType = "conference" | "journal";
 
 export type DirectionId =
-  | "ai"
+  | "ml"
   | "cv"
   | "nlp"
-  | "ml"
-  | "robotics"
   | "multimodal"
-  | "ai4science"
-  | "datamining"
-  | "graphics"
+  | "generative"
+  | "embodied"
+  | "rl"
+  | "robotics"
+  | "efficiency"
   | "security"
-  | "hci"
-  | "theory";
+  | "applications"
+  | "frontier";
 
 export type RadarMetricKey = "output" | "impact" | "growth" | "ecosystem" | "fusion";
 
+// A node in the multi-level AI research landscape tree.
+// The first level (12 top categories) maps to a DirectionId; every node
+// (including the smallest leaf sub-category) has a stable `id` used as the
+// detail-page slug. `papers` is the aggregated paper count for that node.
 export interface FieldNode {
-  id: string;
-  name: Bilingual;
-  children?: FieldNode[];
-  slug?: string;
-}
-
-// A sub-field (and its method-level leaves) of a top-level research direction.
-export interface FieldSubfield {
   id: string;
   name: Bilingual;
   description?: Bilingual;
   papers?: number;
-  children?: FieldSubfield[];
+  children?: FieldNode[];
 }
 
 export interface DeadlineInfo {
@@ -93,7 +89,6 @@ export interface Direction {
   crossDirections: DirectionId[];
   baselines?: Baseline[];
   datasets?: Dataset[];
-  subfields?: FieldSubfield[];
   radar: { metric: RadarMetricKey; value: number }[];
   yearly: { year: number; papers: number }[];
 }

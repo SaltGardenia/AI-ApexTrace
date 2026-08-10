@@ -8,6 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CcfBadge } from "@/components/shared/ccf-badge";
 import { SubmissionTimeline } from "@/components/venues/submission-timeline";
 
+export function generateStaticParams() {
+  return venues.map((x) => ({ slug: x.id }));
+}
+
 export async function generateMetadata({
   params,
 }: {

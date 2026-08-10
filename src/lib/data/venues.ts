@@ -53,6 +53,9 @@ const FIELDS: Record<string, Bilingual> = {
   应用智能: { zh: "应用智能", en: "Applied Intelligence" },
   "人工智能工程应用": { zh: "人工智能工程应用", en: "AI Engineering Applications" },
   "综合/AI4Science": { zh: "综合/AI4Science", en: "General / AI4Science" },
+  "语音与语言处理": { zh: "语音与语言处理", en: "Speech & Language Processing" },
+  "情感计算": { zh: "情感计算", en: "Affective Computing" },
+  "人工智能研究": { zh: "人工智能研究", en: "AI Research" },
 };
 
 const CCF_FIELDS: Record<string, Bilingual> = {

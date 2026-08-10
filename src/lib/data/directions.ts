@@ -102,7 +102,7 @@ export const directions: Direction[] = [
   },
   {
     id: "multimodal",
-    name: { zh: "多模态人工智能", en: "Multimodal AI" },
+    name: { zh: "多模态", en: "Multimodal" },
     description: {
       zh: "视觉-语言模型与多模态生成，统一感知与生成的跨模态基础模型。",
       en: "Vision-language models and multimodal generation — unified cross-modal foundation models bridging perception and generation.",
@@ -262,7 +262,7 @@ export const directions: Direction[] = [
   },
   {
     id: "efficiency",
-    name: { zh: "AI 系统与模型效率", en: "AI Efficiency" },
+    name: { zh: "系统与模型效率", en: "AI Efficiency" },
     description: {
       zh: "模型压缩、高效 Transformer 与 AI 系统，关注部署侧的性能与成本。",
       en: "Model compression, efficient Transformers and AI systems — deployment-side performance and cost.",
@@ -294,7 +294,7 @@ export const directions: Direction[] = [
   },
   {
     id: "security",
-    name: { zh: "AI 安全与可信人工智能", en: "AI Safety & Trustworthy AI" },
+    name: { zh: "安全与可信人工智能", en: "AI Safety & Trustworthy AI" },
     description: {
       zh: "对抗攻击、模型安全与 AI 对齐，保障模型的鲁棒性与价值对齐。",
       en: "Adversarial attacks, model security and AI alignment — robustness and value alignment of models.",
@@ -326,7 +326,7 @@ export const directions: Direction[] = [
   },
   {
     id: "applications",
-    name: { zh: "AI 应用前沿方向", en: "AI Applications" },
+    name: { zh: "AI 应用", en: "AI Applications" },
     description: {
       zh: "自动驾驶、医疗 AI、科学智能与工业智能，AI 在各行业的落地。",
       en: "Autonomous driving, healthcare AI, AI for science and industrial AI — AI deployment across industries.",
@@ -358,7 +358,7 @@ export const directions: Direction[] = [
   },
   {
     id: "frontier",
-    name: { zh: "最热门交叉方向", en: "Hot Cross-direction" },
+    name: { zh: "交叉方向", en: "Hot Cross-direction" },
     description: {
       zh: "AI Agent、世界模型、具身智能、多模态基础模型与三维基础模型等前沿交叉热点。",
       en: "AI Agent, World Model, Embodied Intelligence, Multimodal Foundation Model and 3D Foundation Model — hot cross-direction frontiers.",

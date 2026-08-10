@@ -791,7 +791,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "multimodal",
-    name: { zh: "多模态人工智能", en: "Multimodal AI" },
+    name: { zh: "多模态", en: "Multimodal" },
     children: [
       {
         id: "multimodal-vlm",
@@ -1292,7 +1292,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "efficiency",
-    name: { zh: "AI 系统与模型效率", en: "AI Efficiency" },
+    name: { zh: "系统与模型效率", en: "AI Efficiency" },
     children: [
       {
         id: "efficiency-compress",
@@ -1409,7 +1409,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "security",
-    name: { zh: "AI 安全与可信人工智能", en: "AI Safety & Trustworthy AI" },
+    name: { zh: "安全与可信人工智能", en: "AI Safety & Trustworthy AI" },
     children: [
       {
         id: "security-adv",
@@ -1478,7 +1478,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "applications",
-    name: { zh: "AI 应用前沿方向", en: "AI Applications" },
+    name: { zh: "AI 应用", en: "AI Applications" },
     children: [
       {
         id: "applications-driving",
@@ -1568,7 +1568,7 @@ export const fieldTree: FieldNode[] = [
   },
   {
     id: "frontier",
-    name: { zh: "最热门交叉方向", en: "Hot Cross-direction" },
+    name: { zh: "交叉方向", en: "Hot Cross-direction" },
     children: [
       {
         id: "frontier-agent",

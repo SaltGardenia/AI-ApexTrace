@@ -42,8 +42,8 @@ export function DirectionTrend() {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-              <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
-              <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
+              <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" interval={0} angle={-35} textAnchor="end" height={40} tickMargin={8} />
+              <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v: number) => (v >= 10000 ? `${Math.round(v / 1000)}k` : `${Math.round(v)}`)} />
               <Tooltip
                 cursor={{ stroke: "var(--border)", strokeWidth: 1 }}
                 content={

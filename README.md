@@ -107,6 +107,37 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 ---
 
+## 🚀 Deploy
+
+ApexTrace is a static-friendly Next.js (App Router) app. Pick one:
+
+### Option A — Vercel (recommended)
+
+1. Push this repo to GitHub.
+2. Go to [vercel.com](https://vercel.com) → **Add New → Project** → import `SaltGardenia/ApexTrace`.
+3. Framework preset is auto-detected as **Next.js**. Build command `npm run build`, output is handled automatically.
+4. Click **Deploy**. Every push to `main` re-deploys via preview/production.
+
+### Option B — GitHub Pages (static export)
+
+1. Enable static export by adding to `next.config.ts`:
+   ```ts
+   export default defineConfig({
+     output: "export",
+     images: { unoptimized: true },
+   });
+   ```
+2. Build the static site:
+   ```bash
+   npm run build   # emits ./out
+   ```
+3. In **Settings → Pages**, set Source to **GitHub Actions** and add a workflow (`.github/workflows/deploy.yml`) that checks out, runs `npm ci && npm run build`, and publishes `./out` to `gh-pages`.
+4. After the workflow runs, the site is live at `https://SaltGardenia.github.io/ApexTrace`.
+
+> Note: `output: "export"` disables server features (none are used here), so the full app works as a static site.
+
+---
+
 ## 📄 License
 
 [MIT](LICENSE) © ApexTrace contributors.

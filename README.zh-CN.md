@@ -107,6 +107,37 @@ npm run start
 
 ---
 
+## 🚀 部署
+
+ApexTrace 是一个对静态化友好的 Next.js（App Router）应用，任选其一：
+
+### 方式 A — Vercel（推荐）
+
+1. 把本仓库推送到 GitHub。
+2. 打开 [vercel.com](https://vercel.com) → **Add New → Project** → 导入 `SaltGardenia/ApexTrace`。
+3. 框架会自动识别为 **Next.js**，构建命令 `npm run build`，输出由平台自动处理。
+4. 点击 **Deploy**。每次向 `main` 推送都会自动重新部署（预览/生产）。
+
+### 方式 B — GitHub Pages（静态导出）
+
+1. 在 `next.config.ts` 中开启静态导出：
+   ```ts
+   export default defineConfig({
+     output: "export",
+     images: { unoptimized: true },
+   });
+   ```
+2. 构建静态站点：
+   ```bash
+   npm run build   # 产物输出到 ./out
+   ```
+3. 在仓库 **Settings → Pages** 中，将 Source 设为 **GitHub Actions**，并添加工作流文件（`.github/workflows/deploy.yml`）：检出代码 → `npm ci && npm run build` → 将 `./out` 发布到 `gh-pages` 分支。
+4. 工作流运行后，站点地址为 `https://SaltGardenia.github.io/ApexTrace`。
+
+> 说明：开启 `output: "export"` 会禁用服务端特性（本项目未使用），因此整站可作为纯静态站点运行。
+
+---
+
 ## 📄 许可证
 
 [MIT](LICENSE) © ApexTrace 贡献者。

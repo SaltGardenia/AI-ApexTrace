@@ -63,6 +63,8 @@ export function DirectionsExplorer() {
                   axisLine={false}
                   fontSize={11}
                   stroke="var(--muted-foreground)"
+                  interval={0}
+                  tickMargin={6}
                 />
                 <YAxis
                   type="number"
@@ -72,6 +74,8 @@ export function DirectionsExplorer() {
                   axisLine={false}
                   fontSize={11}
                   stroke="var(--muted-foreground)"
+                  interval={0}
+                  tickMargin={6}
                 />
                 <ZAxis type="number" dataKey="z" range={[60, 900]} />
                 <Tooltip

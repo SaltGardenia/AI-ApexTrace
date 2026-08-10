@@ -11,6 +11,7 @@ node_modules/
 /dist
 *.tsbuildinfo
 next-env.d.ts
+.vercel
 
 # ===== Env & secrets =====
 .env
@@ -38,8 +39,8 @@ Thumbs.db
 .turbo
 .cache/
 
-# ===== Kilo internal dependencies (keep skills/agents tracked) =====
-.kilo/node_modules/
+# ===== Kilo internal (ignore entirely) =====
+.kilo/
 
 # ===== Local runtime data (future) =====
 /data/

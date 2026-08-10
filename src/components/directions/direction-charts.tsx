@@ -18,6 +18,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { RadarMetricKey } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 import { RADAR_METRICS } from "@/lib/i18n/translations";
+import { formatCount } from "@/lib/chart-helpers";
+
+// 雷达半径轴自定义刻度：把数字标在正上方那条纵向半径轴上，
+// 每个刻度沿轴从内(0)往外(100)一个一个竖立排（rotate(-90) 正读）。
+function RadiusTick(props: any) {
+  const { x, y, payload } = props;
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      fontSize={9}
+      fill="var(--muted-foreground)"
+      opacity={0.6}
+    >
+      {payload.value}
+    </text>
+  );
+}
+
 
 interface ChartDirection {
   color: string;
@@ -45,11 +65,12 @@ export function DirectionCharts({ direction }: { direction: ChartDirection }) {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
-                <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
+                <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" interval={0} angle={-35} textAnchor="end" height={40} tickMargin={8} />
+                <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={formatCount} />
                 <Tooltip
                   contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }}
                   labelStyle={{ color: "var(--foreground)" }}
+                  formatter={(value) => [formatCount(Number(value) || 0), t("m_output")]}
                 />
                 <Area type="monotone" dataKey="papers" name={t("m_output")} stroke={direction.color} fill="url(#dgrad)" strokeWidth={2} />
               </AreaChart>
@@ -68,7 +89,7 @@ export function DirectionCharts({ direction }: { direction: ChartDirection }) {
               <RadarChart data={direction.radar} outerRadius="75%">
                 <PolarGrid stroke="var(--border)" />
                 <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} tickFormatter={(m) => pick(RADAR_METRICS[m as string])} />
-                <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+                <PolarRadiusAxis domain={[0, 100]} angle={270} tick={<RadiusTick />} axisLine={false} tickCount={5} />
                 <Radar dataKey="value" stroke={direction.color} fill={direction.color} fillOpacity={0.35} />
                 <Tooltip
                   contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 12, fontSize: 12 }}

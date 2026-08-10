@@ -22,6 +22,26 @@ import { SortedLineTooltip } from "@/components/charts/line-tooltip";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 import { RADAR_METRICS } from "@/lib/i18n/translations";
+import { formatCount } from "@/lib/chart-helpers";
+
+// 雷达半径轴自定义刻度：把数字标在正上方那条纵向半径轴上，
+// 每个刻度沿轴从内(0)往外(100)一个一个竖立排（rotate(-90) 正读）。
+function RadiusTick(props: any) {
+  const { x, y, payload } = props;
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      fontSize={9}
+      fill="var(--muted-foreground)"
+      opacity={0.6}
+    >
+      {payload.value}
+    </text>
+  );
+}
+
 
 const MAX = 5;
 
@@ -97,7 +117,7 @@ export function CompareExplorer() {
                     <RadarChart data={radarData} outerRadius="72%">
                       <PolarGrid stroke="var(--border)" />
                       <PolarAngleAxis dataKey="metric" fontSize={11} tick={{ fill: "var(--muted-foreground)" }} tickFormatter={(m) => pick(RADAR_METRICS[m as string])} />
-                      <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+                      <PolarRadiusAxis domain={[0, 100]} angle={270} tick={<RadiusTick />} axisLine={false} tickCount={5} />
                        {chosen.map((d) => (
                         <Radar key={d.id} name={pick(d.name)} dataKey={d.id} stroke={colorById(d.id)} fill={colorById(d.id)} fillOpacity={0.12} />
                       ))}
@@ -117,8 +137,8 @@ export function CompareExplorer() {
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={lineData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                      <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" />
-                      <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v) => `${Math.round(v / 1000)}k`} />
+                      <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" interval={0} angle={-35} textAnchor="end" height={40} tickMargin={8} />
+                      <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--muted-foreground)" tickFormatter={(v: number) => formatCount(v)} />
                       <Tooltip
                         cursor={{ stroke: "var(--border)", strokeWidth: 1 }}
                         content={

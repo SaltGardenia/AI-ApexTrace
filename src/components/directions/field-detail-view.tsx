@@ -7,20 +7,46 @@ import type { FieldNode } from "@/lib/types";
 import { pathToNode, nodePapers } from "@/lib/field-tree-utils";
 import { useI18n } from "@/lib/i18n";
 
-export function FieldDetailView({ node }: { node: FieldNode }) {
+export function FieldDetailView({
+  node,
+  onSelect,
+}: {
+  node: FieldNode;
+  onSelect?: (id: string) => void;
+}) {
   const { t, pick } = useI18n();
   const path = pathToNode(node.id);
   const papers = nodePapers(node);
   const isLeaf = !node.children?.length;
+
+  // In-page SPA navigation: use buttons to switch panels without a full reload.
+  // Fallback to <Link> only when no handler is supplied (deep-link route).
+  const goTo = (id: string) => (onSelect ? onSelect(id) : undefined);
+  const Crumb = ({ id, label }: { id: string; label: string }) =>
+    onSelect ? (
+      <button onClick={() => goTo(id)} className="hover:text-foreground">
+        {label}
+      </button>
+    ) : (
+      <Link href={`/directions/${id}`} className="hover:text-foreground">
+        {label}
+      </Link>
+    );
 
   // Only the smallest sub-fields (leaves) have a dedicated detail page.
   // Non-leaf nodes act as navigational groupings only.
   if (!isLeaf) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-        <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
-          {t("back_directions")}
-        </Link>
+        {onSelect ? (
+          <button onClick={() => goTo("")} className="text-sm text-muted-foreground hover:text-foreground">
+            {t("back_directions")}
+          </button>
+        ) : (
+          <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
+            {t("back_directions")}
+          </Link>
+        )}
         <h1 className="mt-3 text-2xl font-semibold tracking-tight">{pick(node.name)}</h1>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           {node.description ? pick(node.description) : ""}
@@ -32,18 +58,31 @@ export function FieldDetailView({ node }: { node: FieldNode }) {
         </div>
         <p className="mt-6 text-sm text-muted-foreground">{t("field_select_leaf_hint")}</p>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {node.children!.map((c) => (
-            <Link
-              key={c.id}
-              href={`/directions/${c.id}`}
-              className="flex items-center justify-between gap-3 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 hover:border-primary/40"
-            >
-              <span className="truncate text-sm font-medium">{pick(c.name)}</span>
-              <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
-                {nodePapers(c).toLocaleString()}
-              </span>
-            </Link>
-          ))}
+          {node.children!.map((c) =>
+            onSelect ? (
+              <button
+                key={c.id}
+                onClick={() => goTo(c.id)}
+                className="flex items-center justify-between gap-3 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-left hover:border-primary/40"
+              >
+                <span className="truncate text-sm font-medium">{pick(c.name)}</span>
+                <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                  {nodePapers(c).toLocaleString()}
+                </span>
+              </button>
+            ) : (
+              <Link
+                key={c.id}
+                href={`/directions/${c.id}`}
+                className="flex items-center justify-between gap-3 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 hover:border-primary/40"
+              >
+                <span className="truncate text-sm font-medium">{pick(c.name)}</span>
+                <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                  {nodePapers(c).toLocaleString()}
+                </span>
+              </Link>
+            ),
+          )}
         </div>
       </div>
     );
@@ -51,16 +90,20 @@ export function FieldDetailView({ node }: { node: FieldNode }) {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-      <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
-        {t("back_directions")}
-      </Link>
+      {onSelect ? (
+        <button onClick={() => goTo("")} className="text-sm text-muted-foreground hover:text-foreground">
+          {t("back_directions")}
+        </button>
+      ) : (
+        <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
+          {t("back_directions")}
+        </Link>
+      )}
 
       <nav className="mt-3 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
         {path.slice(0, -1).map((p) => (
           <span key={p.id} className="flex items-center gap-1">
-            <Link href={`/directions/${p.id}`} className="hover:text-foreground">
-              {pick(p.name)}
-            </Link>
+            <Crumb id={p.id} label={pick(p.name)} />
             <ChevronRight className="size-3" />
           </span>
         ))}

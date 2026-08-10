@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { findNode, pathToNode } from "@/lib/field-tree-utils";
-import { FieldDetailView } from "@/components/directions/field-detail-view";
+import { findNode } from "@/lib/field-tree-utils";
+import { DirectionsBrowser } from "@/components/directions/directions-browser";
 
 export async function generateMetadata({
   params,
@@ -19,9 +19,6 @@ export default async function DirectionDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const node = findNode(slug);
-  if (!node) notFound();
-  // touch pathToNode to ensure tree integrity at build time
-  void pathToNode(slug);
-  return <FieldDetailView node={node} />;
+  if (!findNode(slug)) notFound();
+  return <DirectionsBrowser initialId={slug} />;
 }

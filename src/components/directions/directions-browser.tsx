@@ -8,9 +8,19 @@ import { findNode, allFieldNodes, flattenTree } from "@/lib/field-tree-utils";
 
 const FIRST_LEAF = flattenTree().find((n) => n.leaf)?.node.id ?? allFieldNodes[0]?.id ?? "";
 
-export function DirectionsBrowser() {
+export function DirectionsBrowser({ initialId }: { initialId?: string }) {
   const { t } = useI18n();
-  const [selectedId, setSelectedId] = React.useState<string>(FIRST_LEAF);
+  const [selectedId, setSelectedId] = React.useState<string>(initialId || FIRST_LEAF);
+
+  const handleSelect = React.useCallback((id: string) => {
+    setSelectedId(id || FIRST_LEAF);
+  }, []);
+
+  // Keep the URL in sync for deep-linking / refresh, without full navigation.
+  React.useEffect(() => {
+    if (!selectedId) return;
+    window.history.replaceState(null, "", `/directions/${selectedId}`);
+  }, [selectedId]);
 
   const node = findNode(selectedId) ?? allFieldNodes[0];
 
@@ -18,12 +28,12 @@ export function DirectionsBrowser() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
         <aside className="lg:sticky lg:top-20 lg:h-[calc(100vh-6rem)] lg:overflow-y-auto">
-          <FieldTreeNav activeId={selectedId} />
+          <FieldTreeNav activeId={selectedId} onSelect={handleSelect} />
         </aside>
 
         <div className="min-w-0">
           {node ? (
-            <FieldNodeRouter nodeId={node.id} onSelect={setSelectedId} />
+            <FieldDetailView node={node} onSelect={handleSelect} />
           ) : (
             <p className="text-sm text-muted-foreground">{t("dir_select_hint")}</p>
           )}
@@ -31,22 +41,4 @@ export function DirectionsBrowser() {
       </div>
     </div>
   );
-}
-
-// Minimal client router so clicking tree links updates the selected panel
-// without a full page navigation.
-function FieldNodeRouter({
-  nodeId,
-  onSelect,
-}: {
-  nodeId: string;
-  onSelect: (id: string) => void;
-}) {
-  React.useEffect(() => {
-    onSelect(nodeId);
-  }, [nodeId, onSelect]);
-
-  const node = findNode(nodeId);
-  if (!node) return null;
-  return <FieldDetailView node={node} />;
 }

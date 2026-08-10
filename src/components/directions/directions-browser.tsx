@@ -4,12 +4,9 @@ import * as React from "react";
 import { directionsByHeat } from "@/lib/heat-index";
 import { useI18n } from "@/lib/i18n";
 import { DirectionDetailView } from "@/components/directions/direction-detail-view";
-import {
-  milestonesByDirection,
-} from "@/lib/data/milestones";
-import {
-  bottlenecksByDirection,
-} from "@/lib/data/bottlenecks";
+import { milestonesByDirection } from "@/lib/data/milestones";
+import { bottlenecksByDirection } from "@/lib/data/bottlenecks";
+import { baselinesByDirection, datasetsByDirection } from "@/lib/data/baselines";
 import { venueById } from "@/lib/data/venues";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +19,8 @@ export function DirectionsBrowser() {
   const ranked = d;
   const milestones = d ? milestonesByDirection(d.id) : [];
   const bottlenecks = d ? bottlenecksByDirection(d.id) : [];
+  const baselines = d ? baselinesByDirection(d.id) : [];
+  const datasets = d ? datasetsByDirection(d.id) : [];
   const topVenues = d ? d.topVenues.map((id) => venueById(id)) : [];
 
   return (
@@ -68,6 +67,8 @@ export function DirectionsBrowser() {
               milestones={milestones}
               bottlenecks={bottlenecks}
               topVenues={topVenues}
+              baselines={baselines}
+              datasets={datasets}
             />
           ) : (
             <p className="text-sm text-muted-foreground">{t("dir_select_hint")}</p>

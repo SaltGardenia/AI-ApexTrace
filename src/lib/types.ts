@@ -69,8 +69,26 @@ export interface Direction {
   topVenues: string[];
   topInstitutions: { name: string; papers: number }[];
   crossDirections: DirectionId[];
+  baselines?: Baseline[];
+  datasets?: Dataset[];
   radar: { metric: RadarMetricKey; value: number }[];
   yearly: { year: number; papers: number }[];
+}
+
+export interface Baseline {
+  id: string;
+  name: Bilingual;
+  description?: Bilingual;
+  year?: number;
+  link?: string;
+}
+
+export interface Dataset {
+  id: string;
+  name: Bilingual;
+  description?: Bilingual;
+  year?: number;
+  link?: string;
 }
 
 export type MilestoneType = "root" | "branch" | "leaf";
@@ -84,6 +102,7 @@ export interface Milestone {
   parentIds: string[];
   impact: Bilingual;
   nodeType: MilestoneType;
+  link?: string;
 }
 
 export type BottleneckStatus = "unsolved" | "partial" | "solved";
@@ -96,4 +115,5 @@ export interface Bottleneck {
   status: BottleneckStatus;
   relatedMilestone?: string;
   priority: number;
+  link?: string;
 }

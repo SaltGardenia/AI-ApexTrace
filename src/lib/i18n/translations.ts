@@ -144,6 +144,9 @@ export const dict = {
   ms_empty: { zh: "暂无里程碑数据。", en: "No milestone data yet." },
   ms_intro: { zh: "发展脉络（根 → 分支 → 最新 SOTA）", en: "Evolution (root → branch → latest SOTA)" },
   ms_sota: { zh: "SOTA", en: "SOTA" },
+  list_empty: { zh: "暂无数据。", en: "No data yet." },
+  card_baselines: { zh: "重要基线", en: "Key Baselines" },
+  card_datasets: { zh: "重要数据集", en: "Key Datasets" },
 
   // ---------- bottleneck list ----------
   b_all: { zh: "全部", en: "All" },

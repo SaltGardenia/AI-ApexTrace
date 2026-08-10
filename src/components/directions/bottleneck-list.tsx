@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import type { Bottleneck, BottleneckStatus } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
+import { SourceLink } from "@/components/shared/source-link";
 
 const STATUS: Record<BottleneckStatus, { labelKey: DictKey; cls: string }> = {
   unsolved: { labelKey: "b_unsolved", cls: "bg-rose-500/15 text-rose-400 border-rose-500/30" },
@@ -45,6 +46,7 @@ export function BottleneckList({ bottlenecks }: { bottlenecks: Bottleneck[] }) {
               <span className={cn("shrink-0 rounded border px-1.5 py-0.5 text-[10px]", STATUS[b.status].cls)}>
                 {t(STATUS[b.status].labelKey)}
               </span>
+              {b.link && <SourceLink href={b.link} />}
             </div>
             <div className="mt-2 flex items-center gap-3 text-[11px] text-muted-foreground">
               <span>{t("b_source")}：{pick(b.source)}</span>

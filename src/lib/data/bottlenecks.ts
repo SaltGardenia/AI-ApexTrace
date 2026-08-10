@@ -2,18 +2,18 @@ import type { Bottleneck, DirectionId } from "@/lib/types";
 
 export const bottlenecks: Bottleneck[] = [
   // CV
-  { id: "cv-b1", direction: "cv", text: { zh: "大模型在长尾/小样本场景泛化不足，分布外鲁棒性差", en: "Large models generalize poorly on long-tail / few-shot and out-of-distribution cases" }, source: { zh: "CVPR 2024 Surveys (Limitations)", en: "CVPR 2024 Surveys (Limitations)" }, status: "partial", relatedMilestone: "cv-sam", priority: 9 },
+  { id: "cv-b1", direction: "cv", text: { zh: "大模型在长尾/小样本场景泛化不足，分布外鲁棒性差", en: "Large models generalize poorly on long-tail / few-shot and out-of-distribution cases" }, source: { zh: "CVPR 2024 Surveys (Limitations)", en: "CVPR 2024 Surveys (Limitations)" }, status: "partial", relatedMilestone: "cv-sam", priority: 9, link: "https://github.com/facebookresearch/segment-anything" },
   { id: "cv-b2", direction: "cv", text: { zh: "视频理解的时空复杂度与长视频推理仍受限", en: "Spatio-temporal complexity & long-video reasoning remain limited" }, source: { zh: "ICCV 2023 Future Work", en: "ICCV 2023 Future Work" }, status: "unsolved", relatedMilestone: "cv-mae", priority: 7 },
   { id: "cv-b3", direction: "cv", text: { zh: "视觉基础模型的标注/算力成本与可解释性", en: "Annotation / compute cost and interpretability of visual foundation models" }, source: { zh: "专家标注", en: "Expert annotation" }, status: "partial", relatedMilestone: "cv-sam", priority: 6 },
 
   // NLP
-  { id: "nlp-b1", direction: "nlp", text: { zh: "大模型的幻觉（Hallucination）与事实一致性", en: "Hallucination & factual consistency of LLMs" }, source: { zh: "ACL 2024 Surveys", en: "ACL 2024 Surveys" }, status: "partial", relatedMilestone: "nlp-gpt4", priority: 10 },
+  { id: "nlp-b1", direction: "nlp", text: { zh: "大模型的幻觉（Hallucination）与事实一致性", en: "Hallucination & factual consistency of LLMs" }, source: { zh: "ACL 2024 Surveys", en: "ACL 2024 Surveys" }, status: "partial", relatedMilestone: "nlp-gpt4", priority: 10, link: "https://github.com/NVIDIA/NeMo-Guardrails" },
   { id: "nlp-b2", direction: "nlp", text: { zh: "推理能力（数学/规划）的可控与可靠性", en: "Controllability & reliability of reasoning (math / planning)" }, source: { zh: "NeurIPS 2023", en: "NeurIPS 2023" }, status: "partial", relatedMilestone: "nlp-gpt4", priority: 9 },
   { id: "nlp-b3", direction: "nlp", text: { zh: "多语言、低资源语言覆盖不均", en: "Uneven coverage of multilingual & low-resource languages" }, source: { zh: "EMNLP 2024", en: "EMNLP 2024" }, status: "unsolved", relatedMilestone: "nlp-bert", priority: 6 },
 
   // ML
   { id: "ml-b1", direction: "ml", text: { zh: "训练/推理能效与碳足迹（绿色 AI）", en: "Training/inference energy & carbon footprint (Green AI)" }, source: { zh: "ICML 2024", en: "ICML 2024" }, status: "partial", relatedMilestone: "ml-scaling", priority: 8 },
-  { id: "ml-b2", direction: "ml", text: { zh: "可解释性与机理可解释（Mechanistic Interpretability）", en: "Interpretability & mechanistic interpretability" }, source: { zh: "NeurIPS 2023", en: "NeurIPS 2023" }, status: "unsolved", relatedMilestone: "ml-transformer", priority: 9 },
+  { id: "ml-b2", direction: "ml", text: { zh: "可解释性与机理可解释（Mechanistic Interpretability）", en: "Interpretability & mechanistic interpretability" }, source: { zh: "NeurIPS 2023", en: "NeurIPS 2023" }, status: "unsolved", relatedMilestone: "ml-transformer", priority: 9, link: "https://github.com/TransformerLensOrg/TransformerLens" },
   { id: "ml-b3", direction: "ml", text: { zh: "分布偏移下的持续学习与灾难性遗忘", en: "Continual learning under distribution shift & catastrophic forgetting" }, source: { zh: "ICLR 2024", en: "ICLR 2024" }, status: "partial", relatedMilestone: "ml-transformer", priority: 7 },
 
   // Robotics
@@ -37,7 +37,7 @@ export const bottlenecks: Bottleneck[] = [
   { id: "gr-b2", direction: "graphics", text: { zh: "实时神经渲染的显存与延迟", en: "Memory & latency of real-time neural rendering" }, source: { zh: "CVPR 2024", en: "CVPR 2024" }, status: "unsolved", priority: 6 },
 
   // Security
-  { id: "sec-b1", direction: "security", text: { zh: "对抗样本的鲁棒认证与自适应攻击", en: "Robust certification of adversarial examples & adaptive attacks" }, source: { zh: "S&P 2024", en: "S&P 2024" }, status: "partial", priority: 8 },
+  { id: "sec-b1", direction: "security", text: { zh: "对抗样本的鲁棒认证与自适应攻击", en: "Robust certification of adversarial examples & adaptive attacks" }, source: { zh: "S&P 2024", en: "S&P 2024" }, status: "partial", priority: 8, link: "https://github.com/Trusted-AI/adversarial-robustness-toolbox" },
   { id: "sec-b2", direction: "security", text: { zh: "大模型对齐安全与越狱防御", en: "Alignment safety of LLMs & jailbreak defense" }, source: { zh: "ICML 2024", en: "ICML 2024" }, status: "unsolved", priority: 9 },
 
   // HCI

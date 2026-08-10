@@ -5,6 +5,7 @@ import { ChevronRight, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Milestone } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
+import { SourceLink } from "@/components/shared/source-link";
 
 interface TreeNode {
   node: Milestone;
@@ -48,8 +49,9 @@ function TreeItem({ node, depth }: { node: TreeNode; depth: number }) {
          <span className="shrink-0 text-xs font-mono text-muted-foreground">{node.node.year}</span>
          <span className="text-sm font-medium">{pick(node.node.title)}</span>
           {node.node.nodeType === "leaf" && (
-           <span className="ml-auto rounded bg-emerald-500/15 px-1.5 text-[10px] text-emerald-400">{t("ms_sota")}</span>
-         )}
+            <span className="ml-auto rounded bg-emerald-500/15 px-1.5 text-[10px] text-emerald-400">{t("ms_sota")}</span>
+          )}
+          {node.node.link && <SourceLink href={node.node.link} className="ml-auto" />}
       </button>
       {hasChildren && open && (
         <div className="relative ml-4 border-l border-border/60">

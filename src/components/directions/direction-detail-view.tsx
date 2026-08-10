@@ -2,15 +2,15 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Building2, Layers } from "lucide-react";
-import type { Direction, RankedDirection, Venue, Milestone, Bottleneck } from "@/lib/types";
+import { ArrowUpRight, Building2, Layers, Flag, Database } from "lucide-react";
+import type { Direction, RankedDirection, Venue, Milestone, Bottleneck, Baseline, Dataset } from "@/lib/types";
 import { directions } from "@/lib/data/directions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CcfBadge } from "@/components/shared/ccf-badge";
 import { DirectionCharts } from "@/components/directions/direction-charts";
 import { MilestoneTree } from "@/components/directions/milestone-tree";
 import { BottleneckList } from "@/components/directions/bottleneck-list";
+import { BaselineList, DatasetList } from "@/components/directions/list-cards";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
@@ -29,12 +29,16 @@ export function DirectionDetailView({
   milestones,
   bottlenecks,
   topVenues,
+  baselines,
+  datasets,
 }: {
   direction: Direction;
   ranked: RankedDirection;
   milestones: Milestone[];
   bottlenecks: Bottleneck[];
   topVenues: (Venue | undefined)[];
+  baselines: Baseline[];
+  datasets: Dataset[];
 }) {
   const { t, pick } = useI18n();
   const d = direction;
@@ -107,27 +111,51 @@ export function DirectionDetailView({
         </Card>
       </div>
 
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle className="text-base flex items-center gap-2">
-            <Layers className="size-4" /> {t("ms_title")}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Tabs defaultValue="milestone">
-            <TabsList>
-              <TabsTrigger value="milestone">{t("tab_milestone")}</TabsTrigger>
-              <TabsTrigger value="bottleneck">{t("tab_bottleneck")}</TabsTrigger>
-            </TabsList>
-            <TabsContent value="milestone" className="mt-4">
-              <MilestoneTree milestones={milestones} />
-            </TabsContent>
-            <TabsContent value="bottleneck" className="mt-4">
-              <BottleneckList bottlenecks={bottlenecks} />
-            </TabsContent>
-          </Tabs>
-        </CardContent>
-      </Card>
+      <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Layers className="size-4" /> {t("tab_milestone")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <MilestoneTree milestones={milestones} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Flag className="size-4" /> {t("tab_bottleneck")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <BottleneckList bottlenecks={bottlenecks} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Layers className="size-4" /> {t("card_baselines")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <BaselineList baselines={baselines} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Database className="size-4" /> {t("card_datasets")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <DatasetList datasets={datasets} />
+          </CardContent>
+        </Card>
+      </div>
 
       {d.crossDirections.length > 0 && (
         <div className="mt-6">

@@ -21,45 +21,53 @@ function TreeBranch({
 }) {
   const { pick } = useI18n();
   const hasChildren = !!node.children?.length;
+  const isLeaf = !hasChildren;
   const [open, setOpen] = React.useState(defaultOpen || depth === 0);
   const active = node.id === activeId;
 
+  // Non-leaf nodes only toggle expansion; only leaf nodes route to a detail page.
+  if (!isLeaf) {
+    return (
+      <li>
+        <button
+          onClick={() => setOpen((o) => !o)}
+          className={`flex w-full items-center gap-1 rounded-md px-1.5 py-1.5 text-left text-sm transition-colors hover:bg-muted/50 ${
+            depth === 0 ? "font-semibold" : ""
+          }`}
+          style={{ paddingLeft: `${depth * 14 + 6}px` }}
+        >
+          <ChevronRight className={`size-3.5 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
+          <span className="flex-1 truncate">{pick(node.name)}</span>
+          <span className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground">
+            {nodePapers(node).toLocaleString()}
+          </span>
+        </button>
+        {open && (
+          <ul>
+            {node.children!.map((c) => (
+              <TreeBranch key={c.id} node={c} depth={depth + 1} activeId={activeId} defaultOpen={defaultOpen} />
+            ))}
+          </ul>
+        )}
+      </li>
+    );
+  }
+
   return (
     <li>
-      <div
-        className={`group flex items-center gap-1 rounded-md px-1.5 py-1.5 text-sm transition-colors ${
+      <Link
+        href={`/directions/${node.id}`}
+        className={`flex items-center gap-1 rounded-md px-1.5 py-1.5 text-sm transition-colors ${
           active ? "bg-primary/10 text-foreground" : "hover:bg-muted/50"
         }`}
         style={{ paddingLeft: `${depth * 14 + 6}px` }}
       >
-        {hasChildren ? (
-          <button
-            onClick={() => setOpen((o) => !o)}
-            className="flex size-4 shrink-0 items-center justify-center text-muted-foreground"
-            aria-label={open ? "collapse" : "expand"}
-          >
-            <ChevronRight className={`size-3.5 transition-transform ${open ? "rotate-90" : ""}`} />
-          </button>
-        ) : (
-          <span className="size-4 shrink-0" />
-        )}
-        <Link
-          href={`/directions/${node.id}`}
-          className="flex flex-1 items-center gap-2 truncate"
-        >
-          <span className={`truncate ${depth === 0 ? "font-semibold" : ""}`}>{pick(node.name)}</span>
-          <span className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground">
-            {nodePapers(node).toLocaleString()}
-          </span>
-        </Link>
-      </div>
-      {hasChildren && open && (
-        <ul>
-          {node.children!.map((c) => (
-            <TreeBranch key={c.id} node={c} depth={depth + 1} activeId={activeId} defaultOpen={defaultOpen} />
-          ))}
-        </ul>
-      )}
+        <span className="size-3.5 shrink-0" />
+        <span className="flex-1 truncate">{pick(node.name)}</span>
+        <span className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground">
+          {nodePapers(node).toLocaleString()}
+        </span>
+      </Link>
     </li>
   );
 }

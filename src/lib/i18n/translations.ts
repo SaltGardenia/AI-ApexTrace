@@ -111,6 +111,8 @@ export const dict = {
   field_papers: { zh: "论文数", en: "Papers" },
   field_children: { zh: "子分类", en: "Sub-categories" },
   field_no_children: { zh: "最小子分类（叶子节点）", en: "Smallest sub-category (leaf)" },
+  field_select_leaf_hint: { zh: "请在左侧选择最小子领域查看详情页", en: "Select a smallest sub-field on the left to open its detail page" },
+  field_leaf_badge: { zh: "最小子领域", en: "Sub-field" },
   page_venues: { zh: "会议全景", en: "Venues" },
   page_venues_desc: {
     zh: "按 CCF 等级与领域覆盖筛选全部收录的顶会顶刊，查看录用率、影响力和方向分布。",

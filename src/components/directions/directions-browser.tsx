@@ -4,11 +4,13 @@ import * as React from "react";
 import { useI18n } from "@/lib/i18n";
 import { FieldTreeNav } from "@/components/directions/field-tree-nav";
 import { FieldDetailView } from "@/components/directions/field-detail-view";
-import { findNode, allFieldNodes } from "@/lib/field-tree-utils";
+import { findNode, allFieldNodes, flattenTree } from "@/lib/field-tree-utils";
+
+const FIRST_LEAF = flattenTree().find((n) => n.leaf)?.node.id ?? allFieldNodes[0]?.id ?? "";
 
 export function DirectionsBrowser() {
   const { t } = useI18n();
-  const [selectedId, setSelectedId] = React.useState<string>(allFieldNodes[0]?.id ?? "");
+  const [selectedId, setSelectedId] = React.useState<string>(FIRST_LEAF);
 
   const node = findNode(selectedId) ?? allFieldNodes[0];
 

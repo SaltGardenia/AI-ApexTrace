@@ -67,6 +67,17 @@ export default async function VenueDetailPage({
     { label: "JCR 分区", value: v.jcr ?? "—" },
   ];
 
+  const externalLinks = [
+    v.link ? { key: "home", label: "官网主页", href: v.link } : null,
+    v.deadline?.link
+      ? { key: "edition", label: `本届主页（${v.deadline.year}）`, href: v.deadline.link }
+      : null,
+    v.dblpKey
+      ? { key: "dblp", label: "DBLP", href: `https://dblp.org/db/${v.dblpKey}/` }
+      : null,
+  ].filter((x): x is { key: string; label: string; href: string } => x !== null)
+   .filter((x, i, arr) => arr.findIndex((y) => y.href === x.href) === i);
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <Link
@@ -89,16 +100,6 @@ export default async function VenueDetailPage({
             {v.jcr}
           </span>
         )}
-        {v.link && (
-          <a
-            href={v.link}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1 text-sm text-primary hover:underline"
-          >
-            官网 <ExternalLink className="size-3.5" />
-          </a>
-        )}
       </div>
       <p className="mt-1 max-w-3xl text-sm text-muted-foreground">{v.fullName}</p>
 
@@ -110,6 +111,34 @@ export default async function VenueDetailPage({
           </div>
         ))}
       </div>
+
+      {externalLinks.length > 0 && (
+        <div className="mt-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <ExternalLink className="size-4" /> 相关链接
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {externalLinks.map((l) => (
+                  <a
+                    key={l.key}
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/60 px-3 py-1.5 text-sm hover:border-primary/40 hover:text-primary"
+                  >
+                    {l.label}
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       <div className="mt-6">
         <Card>

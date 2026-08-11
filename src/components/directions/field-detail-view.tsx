@@ -5,7 +5,9 @@ import * as React from "react";
 // 由管线真实指标派生雷达五维（0–100，真实驱动，避免手写假值）
 function deriveRadarFromReal(node: any) {
   const clamp = (v: number, a = 0, b = 100) => Math.max(a, Math.min(b, Math.round(v)));
-  const out = node.paperCount ? clamp((Math.log10(node.paperCount) - 2) * 32) : 0;     // 体量
+  const papers = node.paperCount ?? node.papers ?? 0;
+  // 体量：小产出(如 paperCount<100)也给出正值，避免旧对数公式把 (<100) 压成 0
+  const out = papers > 0 ? clamp(12 + Math.log10(papers) * 20) : 0;     // 体量
   const imp = node.avgCitations ? clamp(node.avgCitations / 5) : 0;                     // 影响力(平均被引)
   const gro = node.growth != null ? clamp(node.growth * 150) : 0;                       // 增长(CAGR)
   const eco = node.openRate != null ? clamp(node.openRate * 100) : 0;                   // 生态(开放率)

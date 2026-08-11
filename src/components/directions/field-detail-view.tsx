@@ -37,13 +37,21 @@ import { venueById } from "@/lib/data/venues";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
+// 由真实指标派生综合热度指数（0–100，五维加权，避免手写假值）
+function deriveHeatIndex(node: any): number {
+  const radar = deriveRadarFromReal(node);
+  const w: Record<string, number> = { output: 0.3, impact: 0.25, growth: 0.2, ecosystem: 0.15, fusion: 0.1 };
+  const sum = radar.reduce((s, r) => s + r.value * (w[r.metric] ?? 0), 0);
+  return Math.round(sum);
+}
+
 const STAT_KEYS: { key: DictKey; value: (n: FieldNode) => string }[] = [
-  { key: "stat_index", value: () => "0" },
+  { key: "stat_index", value: (n) => deriveHeatIndex(n).toString() },
   { key: "stat_output", value: (n) => nodePapers(n).toLocaleString() },
-  { key: "stat_citations", value: (n) => (n.realMetrics ? (n.avgCitations ?? 0).toString() : "—") },
-  { key: "stat_topcited", value: (n) => (n.realMetrics && n.topCitedRatio != null ? `${Math.round(n.topCitedRatio * 100)}%` : "—") },
-  { key: "stat_cagr", value: (n) => (n.realMetrics && n.growth != null ? `${Math.round(n.growth * 100)}%` : "—") },
-  { key: "stat_open", value: (n) => (n.realMetrics && n.openRate != null ? `${Math.round(n.openRate * 100)}%` : "—") },
+  { key: "stat_citations", value: (n) => (n.avgCitations != null ? (n.avgCitations ?? 0).toString() : "—") },
+  { key: "stat_topcited", value: (n) => (n.topCitedRatio != null ? `${Math.round(n.topCitedRatio * 100)}%` : "—") },
+  { key: "stat_cagr", value: (n) => (n.growth != null ? `${Math.round(n.growth * 100)}%` : "—") },
+  { key: "stat_open", value: (n) => (n.openRate != null ? `${Math.round(n.openRate * 100)}%` : "—") },
 ];
 
 export function FieldDetailView({
@@ -199,10 +207,10 @@ export function FieldDetailView({
         <DirectionCharts
           direction={{
             color,
-            radar: node.realMetrics
+            radar: node.yearly?.length || node.avgCitations != null || node.growth != null
               ? deriveRadarFromReal(node)
               : [],
-            yearly: node.realMetrics ? node.yearly ?? [] : [],
+            yearly: node.yearly ?? [],
           }}
         />
       </div>

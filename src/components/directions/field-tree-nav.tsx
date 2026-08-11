@@ -4,29 +4,46 @@ import * as React from "react";
 import { ChevronRight } from "lucide-react";
 import type { FieldNode } from "@/lib/types";
 import { fieldTree } from "@/lib/data/field-tree";
+import { pathToNode } from "@/lib/field-tree-utils";
 import { useI18n } from "@/lib/i18n";
+
+// 判断 activeId 是否落在 node 子树（含自身）内
+function isSelfOrDescendant(node: FieldNode, activeId: string): boolean {
+  if (node.id === activeId) return true;
+  return (node.children ?? []).some((c) => isSelfOrDescendant(c, activeId));
+}
 
 function TreeBranch({
   node,
   depth,
   activeId,
-  defaultOpen,
+  activePathIds,
+  expanded,
   onSelect,
 }: {
   node: FieldNode;
   depth: number;
   activeId: string;
-  defaultOpen: boolean;
+  activePathIds: Set<string>;
+  expanded: boolean;
   onSelect: (id: string) => void;
 }) {
   const { pick } = useI18n();
   const hasChildren = !!node.children?.length;
   const isLeaf = !hasChildren;
-  const [open, setOpen] = React.useState(defaultOpen);
   const active = node.id === activeId;
+  // active 节点自身、其子孙、或其祖先链上的节点都应自动展开
+  const onActivePath = activePathIds.has(node.id);
+  const descendantActive = isSelfOrDescendant(node, activeId);
 
-  // Non-leaf nodes: chevron toggles expansion, label navigates to the
-  // grouping detail page (from which children can be picked).
+  const [open, setOpen] = React.useState(expanded || onActivePath || descendantActive);
+
+  // 全局"展开全部 / 折叠全部"同步；同时保证 active 路径始终展开
+  React.useEffect(() => {
+    setOpen(expanded || onActivePath || descendantActive);
+  }, [expanded, onActivePath, descendantActive]);
+
+  // 非叶子节点：箭头切换展开，标签跳转分组详情页
   if (!isLeaf) {
     return (
       <li>
@@ -44,7 +61,7 @@ function TreeBranch({
             <ChevronRight className={`size-3.5 text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
           </button>
           <button
-            onClick={() => onSelect(node.id)}
+            onClick={() => setOpen((o) => !o)}
             className={`flex-1 truncate text-left ${active ? "text-foreground" : ""}`}
             aria-current={active ? "page" : undefined}
           >
@@ -54,7 +71,7 @@ function TreeBranch({
         {open && (
           <ul>
             {node.children!.map((c) => (
-              <TreeBranch key={c.id} node={c} depth={depth + 1} activeId={activeId} defaultOpen={defaultOpen} onSelect={onSelect} />
+              <TreeBranch key={c.id} node={c} depth={depth + 1} activeId={activeId} activePathIds={activePathIds} expanded={expanded} onSelect={onSelect} />
             ))}
           </ul>
         )}
@@ -89,6 +106,12 @@ export function FieldTreeNav({
   const { t } = useI18n();
   const [expanded, setExpanded] = React.useState(false);
 
+  // active 节点的祖先链 id 集合，用于自动展开整条路径
+  const activePathIds = React.useMemo(
+    () => new Set(activeId ? pathToNode(activeId).map((n) => n.id) : []),
+    [activeId],
+  );
+
   return (
     <nav className="overflow-hidden rounded-xl border border-border/60">
       <div className="flex items-center justify-between border-b border-border/40 bg-muted/30 px-3 py-2">
@@ -100,9 +123,9 @@ export function FieldTreeNav({
           {expanded ? t("field_tree_collapse") : t("field_tree_expand")}
         </button>
       </div>
-      <ul className="p-1.5" key={expanded ? "expanded" : "collapsed"}>
+      <ul className="p-1.5">
         {fieldTree.map((n) => (
-          <TreeBranch key={n.id} node={n} depth={0} activeId={activeId} defaultOpen={expanded} onSelect={onSelect} />
+          <TreeBranch key={n.id} node={n} depth={0} activeId={activeId} activePathIds={activePathIds} expanded={expanded} onSelect={onSelect} />
         ))}
       </ul>
     </nav>

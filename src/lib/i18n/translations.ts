@@ -180,7 +180,7 @@ export const dict = {
   quad_declining: { zh: "衰退象限（低增·低影响）", en: "Declining (low growth · low impact)" },
 
   // ---------- direction detail ----------
-  back_directions: { zh: "← 研究方向版图", en: "← Directions" },
+  back_directions: { zh: "研究方向版图", en: "Directions" },
   stat_index: { zh: "综合热度指数", en: "Composite Heat Index" },
   stat_output: { zh: "年度论文产出", en: "Annual Output" },
   stat_citations: { zh: "平均引用", en: "Avg Citations" },

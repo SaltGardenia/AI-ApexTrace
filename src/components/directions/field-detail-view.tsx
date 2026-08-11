@@ -86,11 +86,13 @@ export function FieldDetailView({
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
         {onSelect ? (
-          <button onClick={() => goTo("")} className="text-sm text-muted-foreground hover:text-foreground">
+          <button onClick={() => goTo("")} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+            <ChevronRight className="size-3.5 -rotate-180" />
             {t("back_directions")}
           </button>
         ) : (
-          <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link href="/directions" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+            <ChevronRight className="size-3.5 -rotate-180" />
             {t("back_directions")}
           </Link>
         )}

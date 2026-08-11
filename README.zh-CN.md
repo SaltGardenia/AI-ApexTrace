@@ -213,29 +213,6 @@ AI-ApexTrace/
 
 ---
 
-## 11. 📄 引用
-
-若你在研究中使用 AI-ApexTrace 的数据或视图，请引用：
-
-```bibtex
-@misc{ai-apextrace,
-  title        = {AI-ApexTrace: An Open AI Research Landscape Index},
-  author       = {AI-ApexTrace contributors},
-  year         = {2026},
-  howpublished = {\url{https://github.com/SaltGardenia/AI-ApexTrace}},
-  note         = {Macro-level CCF venue statistics \& research-direction heat index}
-}
-```
-
----
-
-## 12. 📜 许可证
-
-代码与生成数据集均基于 [MIT 许可证](LICENSE) © AI-ApexTrace 贡献者。
-第三方会议列表（如 CCF 推荐目录）仍归各自版权方所有。
-
----
-
 ## 13. 📬 联系方式与链接
 
 - **在线站点：** https://saltgardenia.github.io/AI-ApexTrace

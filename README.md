@@ -213,29 +213,6 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details. Conference timeline info i
 
 ---
 
-## 11. 📄 Citation
-
-If you use AI-ApexTrace data or views in research, please cite:
-
-```bibtex
-@misc{ai-apextrace,
-  title        = {AI-ApexTrace: An Open AI Research Landscape Index},
-  author       = {AI-ApexTrace contributors},
-  year         = {2026},
-  howpublished = {\url{https://github.com/SaltGardenia/AI-ApexTrace}},
-  note         = {Macro-level CCF venue statistics \& research-direction heat index}
-}
-```
-
----
-
-## 12. 📜 License
-
-Code and generated datasets are released under the [MIT License](LICENSE) © AI-ApexTrace contributors.
-Third-party venue lists (e.g., the CCF recommended list) remain under their respective terms.
-
----
-
 ## 13. 📬 Contact & Links
 
 - **Live site:** https://saltgardenia.github.io/AI-ApexTrace

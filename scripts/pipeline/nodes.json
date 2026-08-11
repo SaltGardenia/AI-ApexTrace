@@ -1,0 +1,2332 @@
+{
+  "nodes": [
+    {
+      "id": "ml",
+      "zh": "机器学习",
+      "en": "Machine Learning",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "ml"
+      ]
+    },
+    {
+      "id": "ml-rep",
+      "zh": "表征学习",
+      "en": "Representation Learning",
+      "isLeaf": false,
+      "parent": "ml",
+      "path": [
+        "ml",
+        "ml-rep"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl",
+      "zh": "自监督学习",
+      "en": "Self-Supervised Learning",
+      "isLeaf": false,
+      "parent": "ml-rep",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl-cl",
+      "zh": "对比学习",
+      "en": "Contrastive Learning",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-cl"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl-mm",
+      "zh": "掩码建模",
+      "en": "Masked Modeling",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-mm"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl-multi",
+      "zh": "多模态自监督",
+      "en": "Multimodal Self-Supervised",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-multi"
+      ]
+    },
+    {
+      "id": "ml-rep-align",
+      "zh": "表征对齐",
+      "en": "Representation Alignment",
+      "isLeaf": false,
+      "parent": "ml-rep",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align"
+      ]
+    },
+    {
+      "id": "ml-rep-align-xmodal",
+      "zh": "跨模态对齐",
+      "en": "Cross-modal Alignment",
+      "isLeaf": true,
+      "parent": "ml-rep-align",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align",
+        "ml-rep-align-xmodal"
+      ]
+    },
+    {
+      "id": "ml-rep-align-emb",
+      "zh": "Embedding 学习",
+      "en": "Embedding Learning",
+      "isLeaf": true,
+      "parent": "ml-rep-align",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align",
+        "ml-rep-align-emb"
+      ]
+    },
+    {
+      "id": "ml-paradigm",
+      "zh": "机器学习范式",
+      "en": "Learning Paradigm",
+      "isLeaf": false,
+      "parent": "ml",
+      "path": [
+        "ml",
+        "ml-paradigm"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few",
+      "zh": "小样本学习",
+      "en": "Few-shot Learning",
+      "isLeaf": false,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few-meta",
+      "zh": "元学习",
+      "en": "Meta Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-few",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few",
+        "ml-paradigm-few-meta"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few-icl",
+      "zh": "上下文学习",
+      "en": "In-context Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-few",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few",
+        "ml-paradigm-few-icl"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont",
+      "zh": "持续学习",
+      "en": "Continual Learning",
+      "isLeaf": false,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont-inc",
+      "zh": "增量学习",
+      "en": "Incremental Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-cont",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont",
+        "ml-paradigm-cont-inc"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont-forget",
+      "zh": "遗忘问题",
+      "en": "Forgetting",
+      "isLeaf": true,
+      "parent": "ml-paradigm-cont",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont",
+        "ml-paradigm-cont-forget"
+      ]
+    },
+    {
+      "id": "ml-paradigm-data",
+      "zh": "数据高效学习",
+      "en": "Data-efficient Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-data"
+      ]
+    },
+    {
+      "id": "cv",
+      "zh": "计算机视觉",
+      "en": "Computer Vision",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "cv"
+      ]
+    },
+    {
+      "id": "cv-recog",
+      "zh": "图像识别",
+      "en": "Image Recognition",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-recog"
+      ]
+    },
+    {
+      "id": "cv-recog-cls",
+      "zh": "图像分类",
+      "en": "Image Classification",
+      "isLeaf": true,
+      "parent": "cv-recog",
+      "path": [
+        "cv",
+        "cv-recog",
+        "cv-recog-cls"
+      ]
+    },
+    {
+      "id": "cv-recog-longtail",
+      "zh": "长尾分类",
+      "en": "Long-tail Recognition",
+      "isLeaf": true,
+      "parent": "cv-recog",
+      "path": [
+        "cv",
+        "cv-recog",
+        "cv-recog-longtail"
+      ]
+    },
+    {
+      "id": "cv-det",
+      "zh": "目标检测",
+      "en": "Object Detection",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-det"
+      ]
+    },
+    {
+      "id": "cv-det-two",
+      "zh": "两阶段检测",
+      "en": "Two-stage Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-two"
+      ]
+    },
+    {
+      "id": "cv-det-one",
+      "zh": "一阶段检测",
+      "en": "One-stage Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-one"
+      ]
+    },
+    {
+      "id": "cv-det-trans",
+      "zh": "Transformer 检测",
+      "en": "Transformer Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-trans"
+      ]
+    },
+    {
+      "id": "cv-det-open",
+      "zh": "开放世界检测",
+      "en": "Open-world Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-open"
+      ]
+    },
+    {
+      "id": "cv-seg",
+      "zh": "图像分割",
+      "en": "Image Segmentation",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-seg"
+      ]
+    },
+    {
+      "id": "cv-seg-sem",
+      "zh": "语义分割",
+      "en": "Semantic Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-sem"
+      ]
+    },
+    {
+      "id": "cv-seg-inst",
+      "zh": "实例分割",
+      "en": "Instance Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-inst"
+      ]
+    },
+    {
+      "id": "cv-seg-found",
+      "zh": "基础模型分割",
+      "en": "Foundation-model Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-found"
+      ]
+    },
+    {
+      "id": "cv-3d",
+      "zh": "三维视觉",
+      "en": "3D Vision",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-3d"
+      ]
+    },
+    {
+      "id": "cv-3d-recon",
+      "zh": "三维重建",
+      "en": "3D Reconstruction",
+      "isLeaf": false,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-trad",
+      "zh": "传统三维重建",
+      "en": "Traditional Reconstruction",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-trad"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-nerf",
+      "zh": "神经渲染",
+      "en": "Neural Rendering",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-nerf"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-gs",
+      "zh": "高斯渲染",
+      "en": "Gaussian Rendering",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-gs"
+      ]
+    },
+    {
+      "id": "cv-3d-understand",
+      "zh": "三维理解",
+      "en": "3D Understanding",
+      "isLeaf": true,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-understand"
+      ]
+    },
+    {
+      "id": "cv-3d-indoor",
+      "zh": "室内场景理解",
+      "en": "Indoor Scene Understanding",
+      "isLeaf": true,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-indoor"
+      ]
+    },
+    {
+      "id": "cv-video",
+      "zh": "视频理解",
+      "en": "Video Understanding",
+      "isLeaf": true,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-video"
+      ]
+    },
+    {
+      "id": "nlp",
+      "zh": "自然语言处理",
+      "en": "NLP",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "nlp"
+      ]
+    },
+    {
+      "id": "nlp-llm",
+      "zh": "大语言模型",
+      "en": "Large Language Model",
+      "isLeaf": false,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-llm"
+      ]
+    },
+    {
+      "id": "nlp-llm-base",
+      "zh": "基础模型",
+      "en": "Base Models",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-base"
+      ]
+    },
+    {
+      "id": "nlp-llm-train",
+      "zh": "模型训练",
+      "en": "Model Training",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-train"
+      ]
+    },
+    {
+      "id": "nlp-llm-peft",
+      "zh": "高效微调",
+      "en": "Parameter-efficient Fine-tuning",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-peft"
+      ]
+    },
+    {
+      "id": "nlp-cap",
+      "zh": "LLM 能力增强",
+      "en": "LLM Capability Enhancement",
+      "isLeaf": false,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-cap"
+      ]
+    },
+    {
+      "id": "nlp-cap-rag",
+      "zh": "检索增强生成",
+      "en": "Retrieval-Augmented Generation",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-rag"
+      ]
+    },
+    {
+      "id": "nlp-cap-reason",
+      "zh": "推理能力",
+      "en": "Reasoning",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-reason"
+      ]
+    },
+    {
+      "id": "nlp-cap-agent",
+      "zh": "Agent 能力",
+      "en": "Agent Capabilities",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-agent"
+      ]
+    },
+    {
+      "id": "nlp-app",
+      "zh": "NLP 应用",
+      "en": "NLP Applications",
+      "isLeaf": true,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-app"
+      ]
+    },
+    {
+      "id": "multimodal",
+      "zh": "多模态",
+      "en": "Multimodal",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "multimodal"
+      ]
+    },
+    {
+      "id": "multimodal-vlm",
+      "zh": "视觉-语言模型",
+      "en": "Vision-Language Model",
+      "isLeaf": false,
+      "parent": "multimodal",
+      "path": [
+        "multimodal",
+        "multimodal-vlm"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-understand",
+      "zh": "图文理解",
+      "en": "Image-Text Understanding",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-understand"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-large",
+      "zh": "多模态大模型",
+      "en": "Multimodal Large Model",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-large"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-reason",
+      "zh": "视觉推理",
+      "en": "Visual Reasoning",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-reason"
+      ]
+    },
+    {
+      "id": "multimodal-gen",
+      "zh": "多模态生成",
+      "en": "Multimodal Generation",
+      "isLeaf": false,
+      "parent": "multimodal",
+      "path": [
+        "multimodal",
+        "multimodal-gen"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t2i",
+      "zh": "文生图",
+      "en": "Text-to-Image",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2i"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t2v",
+      "zh": "文生视频",
+      "en": "Text-to-Video",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2v"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t23d",
+      "zh": "文生三维",
+      "en": "Text-to-3D",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t23d"
+      ]
+    },
+    {
+      "id": "generative",
+      "zh": "生成式人工智能",
+      "en": "Generative AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "generative"
+      ]
+    },
+    {
+      "id": "generative-diff",
+      "zh": "扩散模型",
+      "en": "Diffusion Model",
+      "isLeaf": false,
+      "parent": "generative",
+      "path": [
+        "generative",
+        "generative-diff"
+      ]
+    },
+    {
+      "id": "generative-diff-image",
+      "zh": "图像生成",
+      "en": "Image Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-image"
+      ]
+    },
+    {
+      "id": "generative-diff-video",
+      "zh": "视频生成",
+      "en": "Video Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-video"
+      ]
+    },
+    {
+      "id": "generative-diff-3d",
+      "zh": "三维生成",
+      "en": "3D Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-3d"
+      ]
+    },
+    {
+      "id": "generative-found",
+      "zh": "基础模型",
+      "en": "Foundation Model",
+      "isLeaf": true,
+      "parent": "generative",
+      "path": [
+        "generative",
+        "generative-found"
+      ]
+    },
+    {
+      "id": "embodied",
+      "zh": "具身智能",
+      "en": "Embodied AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "embodied"
+      ]
+    },
+    {
+      "id": "embodied-agent",
+      "zh": "智能体",
+      "en": "Agent",
+      "isLeaf": false,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-agent"
+      ]
+    },
+    {
+      "id": "embodied-agent-cog",
+      "zh": "认知智能体",
+      "en": "Cognitive Agent",
+      "isLeaf": true,
+      "parent": "embodied-agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-cog"
+      ]
+    },
+    {
+      "id": "embodied-agent-llm",
+      "zh": "LLM 智能体",
+      "en": "LLM Agent",
+      "isLeaf": true,
+      "parent": "embodied-agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-llm"
+      ]
+    },
+    {
+      "id": "embodied-env",
+      "zh": "环境理解",
+      "en": "Environment Understanding",
+      "isLeaf": false,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-env"
+      ]
+    },
+    {
+      "id": "embodied-env-nav",
+      "zh": "视觉导航",
+      "en": "Visual Navigation",
+      "isLeaf": true,
+      "parent": "embodied-env",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-nav"
+      ]
+    },
+    {
+      "id": "embodied-env-3d",
+      "zh": "三维空间理解",
+      "en": "3D Spatial Understanding",
+      "isLeaf": true,
+      "parent": "embodied-env",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-3d"
+      ]
+    },
+    {
+      "id": "embodied-robot",
+      "zh": "机器人学习",
+      "en": "Robot Learning",
+      "isLeaf": true,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-robot"
+      ]
+    },
+    {
+      "id": "rl",
+      "zh": "强化学习",
+      "en": "Reinforcement Learning",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "rl"
+      ]
+    },
+    {
+      "id": "rl-deep",
+      "zh": "深度强化学习",
+      "en": "Deep Reinforcement Learning",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-deep"
+      ]
+    },
+    {
+      "id": "rl-offline",
+      "zh": "离线强化学习",
+      "en": "Offline RL",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-offline"
+      ]
+    },
+    {
+      "id": "rl-rlhf",
+      "zh": "RLHF",
+      "en": "RLHF",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-rlhf"
+      ]
+    },
+    {
+      "id": "robotics",
+      "zh": "机器人",
+      "en": "Robotics",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "robotics"
+      ]
+    },
+    {
+      "id": "robotics-perc",
+      "zh": "机器人感知",
+      "en": "Robot Perception",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-perc"
+      ]
+    },
+    {
+      "id": "robotics-plan",
+      "zh": "机器人规划",
+      "en": "Robot Planning",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-plan"
+      ]
+    },
+    {
+      "id": "robotics-ctrl",
+      "zh": "机器人控制",
+      "en": "Robot Control",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-ctrl"
+      ]
+    },
+    {
+      "id": "efficiency",
+      "zh": "系统与模型效率",
+      "en": "AI Efficiency",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "efficiency"
+      ]
+    },
+    {
+      "id": "efficiency-compress",
+      "zh": "模型压缩",
+      "en": "Model Compression",
+      "isLeaf": false,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-compress"
+      ]
+    },
+    {
+      "id": "efficiency-compress-prune",
+      "zh": "剪枝",
+      "en": "Pruning",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-prune"
+      ]
+    },
+    {
+      "id": "efficiency-compress-quant",
+      "zh": "量化",
+      "en": "Quantization",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-quant"
+      ]
+    },
+    {
+      "id": "efficiency-compress-distill",
+      "zh": "蒸馏",
+      "en": "Distillation",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-distill"
+      ]
+    },
+    {
+      "id": "efficiency-trans",
+      "zh": "高效 Transformer",
+      "en": "Efficient Transformer",
+      "isLeaf": true,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-trans"
+      ]
+    },
+    {
+      "id": "efficiency-system",
+      "zh": "AI 系统",
+      "en": "AI Systems",
+      "isLeaf": true,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-system"
+      ]
+    },
+    {
+      "id": "security",
+      "zh": "安全与可信人工智能",
+      "en": "AI Safety & Trustworthy AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "security"
+      ]
+    },
+    {
+      "id": "security-adv",
+      "zh": "对抗攻击",
+      "en": "Adversarial Attack",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-adv"
+      ]
+    },
+    {
+      "id": "security-model",
+      "zh": "模型安全",
+      "en": "Model Security",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-model"
+      ]
+    },
+    {
+      "id": "security-align",
+      "zh": "AI 对齐",
+      "en": "AI Alignment",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-align"
+      ]
+    },
+    {
+      "id": "applications",
+      "zh": "AI 应用",
+      "en": "AI Applications",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "applications"
+      ]
+    },
+    {
+      "id": "applications-driving",
+      "zh": "自动驾驶",
+      "en": "Autonomous Driving",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-driving"
+      ]
+    },
+    {
+      "id": "applications-health",
+      "zh": "医疗 AI",
+      "en": "Healthcare AI",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-health"
+      ]
+    },
+    {
+      "id": "applications-science",
+      "zh": "科学智能",
+      "en": "AI for Science",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-science"
+      ]
+    },
+    {
+      "id": "applications-industry",
+      "zh": "工业智能",
+      "en": "Industrial AI",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-industry"
+      ]
+    },
+    {
+      "id": "frontier",
+      "zh": "交叉方向",
+      "en": "Hot Cross-direction",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "frontier"
+      ]
+    },
+    {
+      "id": "frontier-agent",
+      "zh": "AI Agent",
+      "en": "AI Agent",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-agent"
+      ]
+    },
+    {
+      "id": "frontier-world",
+      "zh": "World Model",
+      "en": "World Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-world"
+      ]
+    },
+    {
+      "id": "frontier-embodied",
+      "zh": "具身智能",
+      "en": "Embodied Intelligence",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-embodied"
+      ]
+    },
+    {
+      "id": "frontier-multimodal",
+      "zh": "多模态基础模型",
+      "en": "Multimodal Foundation Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-multimodal"
+      ]
+    },
+    {
+      "id": "frontier-3d",
+      "zh": "三维基础模型",
+      "en": "3D Foundation Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-3d"
+      ]
+    }
+  ],
+  "leaves": [
+    {
+      "id": "ml-rep-ssl-cl",
+      "zh": "对比学习",
+      "en": "Contrastive Learning",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-cl"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl-mm",
+      "zh": "掩码建模",
+      "en": "Masked Modeling",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-mm"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl-multi",
+      "zh": "多模态自监督",
+      "en": "Multimodal Self-Supervised",
+      "isLeaf": true,
+      "parent": "ml-rep-ssl",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl",
+        "ml-rep-ssl-multi"
+      ]
+    },
+    {
+      "id": "ml-rep-align-xmodal",
+      "zh": "跨模态对齐",
+      "en": "Cross-modal Alignment",
+      "isLeaf": true,
+      "parent": "ml-rep-align",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align",
+        "ml-rep-align-xmodal"
+      ]
+    },
+    {
+      "id": "ml-rep-align-emb",
+      "zh": "Embedding 学习",
+      "en": "Embedding Learning",
+      "isLeaf": true,
+      "parent": "ml-rep-align",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align",
+        "ml-rep-align-emb"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few-meta",
+      "zh": "元学习",
+      "en": "Meta Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-few",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few",
+        "ml-paradigm-few-meta"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few-icl",
+      "zh": "上下文学习",
+      "en": "In-context Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-few",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few",
+        "ml-paradigm-few-icl"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont-inc",
+      "zh": "增量学习",
+      "en": "Incremental Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm-cont",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont",
+        "ml-paradigm-cont-inc"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont-forget",
+      "zh": "遗忘问题",
+      "en": "Forgetting",
+      "isLeaf": true,
+      "parent": "ml-paradigm-cont",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont",
+        "ml-paradigm-cont-forget"
+      ]
+    },
+    {
+      "id": "ml-paradigm-data",
+      "zh": "数据高效学习",
+      "en": "Data-efficient Learning",
+      "isLeaf": true,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-data"
+      ]
+    },
+    {
+      "id": "cv-recog-cls",
+      "zh": "图像分类",
+      "en": "Image Classification",
+      "isLeaf": true,
+      "parent": "cv-recog",
+      "path": [
+        "cv",
+        "cv-recog",
+        "cv-recog-cls"
+      ]
+    },
+    {
+      "id": "cv-recog-longtail",
+      "zh": "长尾分类",
+      "en": "Long-tail Recognition",
+      "isLeaf": true,
+      "parent": "cv-recog",
+      "path": [
+        "cv",
+        "cv-recog",
+        "cv-recog-longtail"
+      ]
+    },
+    {
+      "id": "cv-det-two",
+      "zh": "两阶段检测",
+      "en": "Two-stage Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-two"
+      ]
+    },
+    {
+      "id": "cv-det-one",
+      "zh": "一阶段检测",
+      "en": "One-stage Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-one"
+      ]
+    },
+    {
+      "id": "cv-det-trans",
+      "zh": "Transformer 检测",
+      "en": "Transformer Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-trans"
+      ]
+    },
+    {
+      "id": "cv-det-open",
+      "zh": "开放世界检测",
+      "en": "Open-world Detection",
+      "isLeaf": true,
+      "parent": "cv-det",
+      "path": [
+        "cv",
+        "cv-det",
+        "cv-det-open"
+      ]
+    },
+    {
+      "id": "cv-seg-sem",
+      "zh": "语义分割",
+      "en": "Semantic Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-sem"
+      ]
+    },
+    {
+      "id": "cv-seg-inst",
+      "zh": "实例分割",
+      "en": "Instance Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-inst"
+      ]
+    },
+    {
+      "id": "cv-seg-found",
+      "zh": "基础模型分割",
+      "en": "Foundation-model Segmentation",
+      "isLeaf": true,
+      "parent": "cv-seg",
+      "path": [
+        "cv",
+        "cv-seg",
+        "cv-seg-found"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-trad",
+      "zh": "传统三维重建",
+      "en": "Traditional Reconstruction",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-trad"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-nerf",
+      "zh": "神经渲染",
+      "en": "Neural Rendering",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-nerf"
+      ]
+    },
+    {
+      "id": "cv-3d-recon-gs",
+      "zh": "高斯渲染",
+      "en": "Gaussian Rendering",
+      "isLeaf": true,
+      "parent": "cv-3d-recon",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon",
+        "cv-3d-recon-gs"
+      ]
+    },
+    {
+      "id": "cv-3d-understand",
+      "zh": "三维理解",
+      "en": "3D Understanding",
+      "isLeaf": true,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-understand"
+      ]
+    },
+    {
+      "id": "cv-3d-indoor",
+      "zh": "室内场景理解",
+      "en": "Indoor Scene Understanding",
+      "isLeaf": true,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-indoor"
+      ]
+    },
+    {
+      "id": "cv-video",
+      "zh": "视频理解",
+      "en": "Video Understanding",
+      "isLeaf": true,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-video"
+      ]
+    },
+    {
+      "id": "nlp-llm-base",
+      "zh": "基础模型",
+      "en": "Base Models",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-base"
+      ]
+    },
+    {
+      "id": "nlp-llm-train",
+      "zh": "模型训练",
+      "en": "Model Training",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-train"
+      ]
+    },
+    {
+      "id": "nlp-llm-peft",
+      "zh": "高效微调",
+      "en": "Parameter-efficient Fine-tuning",
+      "isLeaf": true,
+      "parent": "nlp-llm",
+      "path": [
+        "nlp",
+        "nlp-llm",
+        "nlp-llm-peft"
+      ]
+    },
+    {
+      "id": "nlp-cap-rag",
+      "zh": "检索增强生成",
+      "en": "Retrieval-Augmented Generation",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-rag"
+      ]
+    },
+    {
+      "id": "nlp-cap-reason",
+      "zh": "推理能力",
+      "en": "Reasoning",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-reason"
+      ]
+    },
+    {
+      "id": "nlp-cap-agent",
+      "zh": "Agent 能力",
+      "en": "Agent Capabilities",
+      "isLeaf": true,
+      "parent": "nlp-cap",
+      "path": [
+        "nlp",
+        "nlp-cap",
+        "nlp-cap-agent"
+      ]
+    },
+    {
+      "id": "nlp-app",
+      "zh": "NLP 应用",
+      "en": "NLP Applications",
+      "isLeaf": true,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-app"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-understand",
+      "zh": "图文理解",
+      "en": "Image-Text Understanding",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-understand"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-large",
+      "zh": "多模态大模型",
+      "en": "Multimodal Large Model",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-large"
+      ]
+    },
+    {
+      "id": "multimodal-vlm-reason",
+      "zh": "视觉推理",
+      "en": "Visual Reasoning",
+      "isLeaf": true,
+      "parent": "multimodal-vlm",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-reason"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t2i",
+      "zh": "文生图",
+      "en": "Text-to-Image",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2i"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t2v",
+      "zh": "文生视频",
+      "en": "Text-to-Video",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2v"
+      ]
+    },
+    {
+      "id": "multimodal-gen-t23d",
+      "zh": "文生三维",
+      "en": "Text-to-3D",
+      "isLeaf": true,
+      "parent": "multimodal-gen",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t23d"
+      ]
+    },
+    {
+      "id": "generative-diff-image",
+      "zh": "图像生成",
+      "en": "Image Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-image"
+      ]
+    },
+    {
+      "id": "generative-diff-video",
+      "zh": "视频生成",
+      "en": "Video Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-video"
+      ]
+    },
+    {
+      "id": "generative-diff-3d",
+      "zh": "三维生成",
+      "en": "3D Generation",
+      "isLeaf": true,
+      "parent": "generative-diff",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-3d"
+      ]
+    },
+    {
+      "id": "generative-found",
+      "zh": "基础模型",
+      "en": "Foundation Model",
+      "isLeaf": true,
+      "parent": "generative",
+      "path": [
+        "generative",
+        "generative-found"
+      ]
+    },
+    {
+      "id": "embodied-agent-cog",
+      "zh": "认知智能体",
+      "en": "Cognitive Agent",
+      "isLeaf": true,
+      "parent": "embodied-agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-cog"
+      ]
+    },
+    {
+      "id": "embodied-agent-llm",
+      "zh": "LLM 智能体",
+      "en": "LLM Agent",
+      "isLeaf": true,
+      "parent": "embodied-agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-llm"
+      ]
+    },
+    {
+      "id": "embodied-env-nav",
+      "zh": "视觉导航",
+      "en": "Visual Navigation",
+      "isLeaf": true,
+      "parent": "embodied-env",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-nav"
+      ]
+    },
+    {
+      "id": "embodied-env-3d",
+      "zh": "三维空间理解",
+      "en": "3D Spatial Understanding",
+      "isLeaf": true,
+      "parent": "embodied-env",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-3d"
+      ]
+    },
+    {
+      "id": "embodied-robot",
+      "zh": "机器人学习",
+      "en": "Robot Learning",
+      "isLeaf": true,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-robot"
+      ]
+    },
+    {
+      "id": "rl-deep",
+      "zh": "深度强化学习",
+      "en": "Deep Reinforcement Learning",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-deep"
+      ]
+    },
+    {
+      "id": "rl-offline",
+      "zh": "离线强化学习",
+      "en": "Offline RL",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-offline"
+      ]
+    },
+    {
+      "id": "rl-rlhf",
+      "zh": "RLHF",
+      "en": "RLHF",
+      "isLeaf": true,
+      "parent": "rl",
+      "path": [
+        "rl",
+        "rl-rlhf"
+      ]
+    },
+    {
+      "id": "robotics-perc",
+      "zh": "机器人感知",
+      "en": "Robot Perception",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-perc"
+      ]
+    },
+    {
+      "id": "robotics-plan",
+      "zh": "机器人规划",
+      "en": "Robot Planning",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-plan"
+      ]
+    },
+    {
+      "id": "robotics-ctrl",
+      "zh": "机器人控制",
+      "en": "Robot Control",
+      "isLeaf": true,
+      "parent": "robotics",
+      "path": [
+        "robotics",
+        "robotics-ctrl"
+      ]
+    },
+    {
+      "id": "efficiency-compress-prune",
+      "zh": "剪枝",
+      "en": "Pruning",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-prune"
+      ]
+    },
+    {
+      "id": "efficiency-compress-quant",
+      "zh": "量化",
+      "en": "Quantization",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-quant"
+      ]
+    },
+    {
+      "id": "efficiency-compress-distill",
+      "zh": "蒸馏",
+      "en": "Distillation",
+      "isLeaf": true,
+      "parent": "efficiency-compress",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-distill"
+      ]
+    },
+    {
+      "id": "efficiency-trans",
+      "zh": "高效 Transformer",
+      "en": "Efficient Transformer",
+      "isLeaf": true,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-trans"
+      ]
+    },
+    {
+      "id": "efficiency-system",
+      "zh": "AI 系统",
+      "en": "AI Systems",
+      "isLeaf": true,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-system"
+      ]
+    },
+    {
+      "id": "security-adv",
+      "zh": "对抗攻击",
+      "en": "Adversarial Attack",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-adv"
+      ]
+    },
+    {
+      "id": "security-model",
+      "zh": "模型安全",
+      "en": "Model Security",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-model"
+      ]
+    },
+    {
+      "id": "security-align",
+      "zh": "AI 对齐",
+      "en": "AI Alignment",
+      "isLeaf": true,
+      "parent": "security",
+      "path": [
+        "security",
+        "security-align"
+      ]
+    },
+    {
+      "id": "applications-driving",
+      "zh": "自动驾驶",
+      "en": "Autonomous Driving",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-driving"
+      ]
+    },
+    {
+      "id": "applications-health",
+      "zh": "医疗 AI",
+      "en": "Healthcare AI",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-health"
+      ]
+    },
+    {
+      "id": "applications-science",
+      "zh": "科学智能",
+      "en": "AI for Science",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-science"
+      ]
+    },
+    {
+      "id": "applications-industry",
+      "zh": "工业智能",
+      "en": "Industrial AI",
+      "isLeaf": true,
+      "parent": "applications",
+      "path": [
+        "applications",
+        "applications-industry"
+      ]
+    },
+    {
+      "id": "frontier-agent",
+      "zh": "AI Agent",
+      "en": "AI Agent",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-agent"
+      ]
+    },
+    {
+      "id": "frontier-world",
+      "zh": "World Model",
+      "en": "World Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-world"
+      ]
+    },
+    {
+      "id": "frontier-embodied",
+      "zh": "具身智能",
+      "en": "Embodied Intelligence",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-embodied"
+      ]
+    },
+    {
+      "id": "frontier-multimodal",
+      "zh": "多模态基础模型",
+      "en": "Multimodal Foundation Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-multimodal"
+      ]
+    },
+    {
+      "id": "frontier-3d",
+      "zh": "三维基础模型",
+      "en": "3D Foundation Model",
+      "isLeaf": true,
+      "parent": "frontier",
+      "path": [
+        "frontier",
+        "frontier-3d"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "ml",
+      "zh": "机器学习",
+      "en": "Machine Learning",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "ml"
+      ]
+    },
+    {
+      "id": "ml-rep",
+      "zh": "表征学习",
+      "en": "Representation Learning",
+      "isLeaf": false,
+      "parent": "ml",
+      "path": [
+        "ml",
+        "ml-rep"
+      ]
+    },
+    {
+      "id": "ml-rep-ssl",
+      "zh": "自监督学习",
+      "en": "Self-Supervised Learning",
+      "isLeaf": false,
+      "parent": "ml-rep",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-ssl"
+      ]
+    },
+    {
+      "id": "ml-rep-align",
+      "zh": "表征对齐",
+      "en": "Representation Alignment",
+      "isLeaf": false,
+      "parent": "ml-rep",
+      "path": [
+        "ml",
+        "ml-rep",
+        "ml-rep-align"
+      ]
+    },
+    {
+      "id": "ml-paradigm",
+      "zh": "机器学习范式",
+      "en": "Learning Paradigm",
+      "isLeaf": false,
+      "parent": "ml",
+      "path": [
+        "ml",
+        "ml-paradigm"
+      ]
+    },
+    {
+      "id": "ml-paradigm-few",
+      "zh": "小样本学习",
+      "en": "Few-shot Learning",
+      "isLeaf": false,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-few"
+      ]
+    },
+    {
+      "id": "ml-paradigm-cont",
+      "zh": "持续学习",
+      "en": "Continual Learning",
+      "isLeaf": false,
+      "parent": "ml-paradigm",
+      "path": [
+        "ml",
+        "ml-paradigm",
+        "ml-paradigm-cont"
+      ]
+    },
+    {
+      "id": "cv",
+      "zh": "计算机视觉",
+      "en": "Computer Vision",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "cv"
+      ]
+    },
+    {
+      "id": "cv-recog",
+      "zh": "图像识别",
+      "en": "Image Recognition",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-recog"
+      ]
+    },
+    {
+      "id": "cv-det",
+      "zh": "目标检测",
+      "en": "Object Detection",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-det"
+      ]
+    },
+    {
+      "id": "cv-seg",
+      "zh": "图像分割",
+      "en": "Image Segmentation",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-seg"
+      ]
+    },
+    {
+      "id": "cv-3d",
+      "zh": "三维视觉",
+      "en": "3D Vision",
+      "isLeaf": false,
+      "parent": "cv",
+      "path": [
+        "cv",
+        "cv-3d"
+      ]
+    },
+    {
+      "id": "cv-3d-recon",
+      "zh": "三维重建",
+      "en": "3D Reconstruction",
+      "isLeaf": false,
+      "parent": "cv-3d",
+      "path": [
+        "cv",
+        "cv-3d",
+        "cv-3d-recon"
+      ]
+    },
+    {
+      "id": "nlp",
+      "zh": "自然语言处理",
+      "en": "NLP",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "nlp"
+      ]
+    },
+    {
+      "id": "nlp-llm",
+      "zh": "大语言模型",
+      "en": "Large Language Model",
+      "isLeaf": false,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-llm"
+      ]
+    },
+    {
+      "id": "nlp-cap",
+      "zh": "LLM 能力增强",
+      "en": "LLM Capability Enhancement",
+      "isLeaf": false,
+      "parent": "nlp",
+      "path": [
+        "nlp",
+        "nlp-cap"
+      ]
+    },
+    {
+      "id": "multimodal",
+      "zh": "多模态",
+      "en": "Multimodal",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "multimodal"
+      ]
+    },
+    {
+      "id": "multimodal-vlm",
+      "zh": "视觉-语言模型",
+      "en": "Vision-Language Model",
+      "isLeaf": false,
+      "parent": "multimodal",
+      "path": [
+        "multimodal",
+        "multimodal-vlm"
+      ]
+    },
+    {
+      "id": "multimodal-gen",
+      "zh": "多模态生成",
+      "en": "Multimodal Generation",
+      "isLeaf": false,
+      "parent": "multimodal",
+      "path": [
+        "multimodal",
+        "multimodal-gen"
+      ]
+    },
+    {
+      "id": "generative",
+      "zh": "生成式人工智能",
+      "en": "Generative AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "generative"
+      ]
+    },
+    {
+      "id": "generative-diff",
+      "zh": "扩散模型",
+      "en": "Diffusion Model",
+      "isLeaf": false,
+      "parent": "generative",
+      "path": [
+        "generative",
+        "generative-diff"
+      ]
+    },
+    {
+      "id": "embodied",
+      "zh": "具身智能",
+      "en": "Embodied AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "embodied"
+      ]
+    },
+    {
+      "id": "embodied-agent",
+      "zh": "智能体",
+      "en": "Agent",
+      "isLeaf": false,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-agent"
+      ]
+    },
+    {
+      "id": "embodied-env",
+      "zh": "环境理解",
+      "en": "Environment Understanding",
+      "isLeaf": false,
+      "parent": "embodied",
+      "path": [
+        "embodied",
+        "embodied-env"
+      ]
+    },
+    {
+      "id": "rl",
+      "zh": "强化学习",
+      "en": "Reinforcement Learning",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "rl"
+      ]
+    },
+    {
+      "id": "robotics",
+      "zh": "机器人",
+      "en": "Robotics",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "robotics"
+      ]
+    },
+    {
+      "id": "efficiency",
+      "zh": "系统与模型效率",
+      "en": "AI Efficiency",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "efficiency"
+      ]
+    },
+    {
+      "id": "efficiency-compress",
+      "zh": "模型压缩",
+      "en": "Model Compression",
+      "isLeaf": false,
+      "parent": "efficiency",
+      "path": [
+        "efficiency",
+        "efficiency-compress"
+      ]
+    },
+    {
+      "id": "security",
+      "zh": "安全与可信人工智能",
+      "en": "AI Safety & Trustworthy AI",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "security"
+      ]
+    },
+    {
+      "id": "applications",
+      "zh": "AI 应用",
+      "en": "AI Applications",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "applications"
+      ]
+    },
+    {
+      "id": "frontier",
+      "zh": "交叉方向",
+      "en": "Hot Cross-direction",
+      "isLeaf": false,
+      "parent": null,
+      "path": [
+        "frontier"
+      ]
+    }
+  ]
+}

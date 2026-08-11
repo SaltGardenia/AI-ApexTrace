@@ -47,6 +47,12 @@ export interface FieldNode {
   crossFields?: string[];
   radar?: { metric: RadarMetricKey; value: number }[];
   yearly?: { year: number; papers: number }[];
+  // 管线生成的真实统计（OpenAlex/Crossref/arXiv 多源交叉）
+  paperCount?: number;
+  paperCountNormalized?: number;
+  confidence?: "high" | "medium" | "low";
+  corroborated?: boolean;
+  statSources?: { oa_phrase: number | null; oa_concept: number | null; crossref: number | null; arxiv: number | null };
 }
 
 export interface DeadlineInfo {

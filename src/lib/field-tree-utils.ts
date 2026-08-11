@@ -1,5 +1,29 @@
 import type { FieldNode } from "@/lib/types";
 import { fieldTree } from "@/lib/data/field-tree";
+import { allFieldStats, getFieldStat } from "@/lib/data/generated/FieldStats";
+
+// 构建 enriched 树：把管线生成的真实统计（多源交叉）合并进每个末级节点的 papers 字段。
+function buildEnrichedTree(): FieldNode[] {
+  const statsMap = new Map(allFieldStats().map((s) => [s.id, s]));
+  const clone = structuredClone(fieldTree);
+  const walk = (nodes: FieldNode[]) => {
+    for (const n of nodes) {
+      const stat = statsMap.get(n.id);
+      if (stat && (!n.children || n.children.length === 0)) {
+        n.papers = stat.paperCount;
+        n.paperCount = stat.paperCount;
+        n.paperCountNormalized = stat.paperCountNormalized;
+        n.confidence = stat.confidence;
+        n.corroborated = stat.corroborated;
+        n.statSources = stat.sources;
+      }
+      if (n.children) walk(n.children);
+    }
+  };
+  walk(clone);
+  return clone;
+}
+const enrichedFieldTree = buildEnrichedTree();
 
 export type FlatNode = {
   node: FieldNode;
@@ -20,7 +44,7 @@ export function findNode(id: string): FieldNode | undefined {
     }
     return undefined;
   };
-  return walk(fieldTree);
+  return walk(enrichedFieldTree);
 }
 
 export function pathToNode(id: string): FieldNode[] {
@@ -59,11 +83,11 @@ export function flattenTree(): FlatNode[] {
       if (n.children) walk(n.children, path);
     }
   };
-  walk(fieldTree, []);
+  walk(enrichedFieldTree, []);
   return out;
 }
 
-export const allFieldNodes = fieldTree;
+export const allFieldNodes = enrichedFieldTree;
 
 // The top-level category id of a node (first element of its path).
 export function topLevelId(id: string): string {

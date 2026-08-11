@@ -16,12 +16,9 @@ const WEIGHT_ROWS = [
 ];
 
 const SOURCES = [
-  { name: "DBLP", desc: "基准论文库，按 conf / journals 获取正式录用列表，保证只统计正式发表。" },
-  { name: "OpenAlex", desc: "CC0 开放数据，用 concepts 主题层级做方向分类与影响力归一化。" },
-  { name: "Semantic Scholar", desc: "精确引用量、作者与机构信息，用于高被引占比与机构榜。" },
-  { name: "OpenReview", desc: "NeurIPS / ICLR / ICML 等投稿、录用与接收等级分布。" },
-  { name: "ccfddl YAML", desc: "会议投稿/截稿/会期与 CCF 等级的主数据源。" },
-  { name: "HF ai-deadlines", desc: "社区维护的最新截稿动态与补漏。" },
+  { name: "OpenAlex", desc: "主力数据源（CC0 开放）。用 title/abstract 精确短语匹配统计各子领域 2015–2025 论文数，并以 concepts 官方主题体系做分类归一。" },
+  { name: "Crossref", desc: "交叉校验源。全文检索总量用于佐证方向的真实体量，口径较宽（含预印本与会议录），不参与最终数值合成。" },
+  { name: "arXiv", desc: "趋势补充源。预印本检索量用于观察新兴方向的早期热度，仅作参照不参与合成。" },
 ];
 
 const LIMITS = [
@@ -100,6 +97,26 @@ export default function MethodologyPage() {
           </CardContent>
         </Card>
       </div>
+
+      <Card className="mt-6">
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            <Database className="size-4" /> 数据管线与多源交叉印证
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2 text-sm text-muted-foreground">
+          <p>每个子领域的论文数由离线数据管线生成，而非手工填写：</p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li><span className="text-foreground">采集</span>：对领域树每个末级节点，并行查询 OpenAlex（主）、Crossref、arXiv 三源，原始计数落盘缓存、可断点续跑。</li>
+            <li><span className="text-foreground">映射</span>：用 OpenAlex concepts 官方主题体系将自研领域树自动归一，解决「自研分类 vs 真实分类不对应」问题。</li>
+            <li><span className="text-foreground">交叉印证</span>：以 OpenAlex 短语口径为最终值，concept 口径互相验证；Crossref/arXiv 仅佐证方向是否有真实体量，不参与数值合成。</li>
+            <li><span className="text-foreground">可信度</span>：各口径比值 &lt;3 标记为 high，单一可靠口径为 high，严重分歧降为 low/medium，并在详情页标注。</li>
+            <li><span className="text-foreground">归一化</span>：真实绝对数（常达数万）经 log 压缩后映射到图表可视区间，保留相对排序，详情页展示原始真实数。</li>
+          </ol>
+          <p className="pt-1">数据产物位于 <code className="rounded bg-muted px-1">src/lib/data/generated/field-stats.json</code>，可重跑 <code className="rounded bg-muted px-1">scripts/pipeline</code> 刷新。</p>
+        </CardContent>
+      </Card>
+
     </div>
   );
 }

@@ -49,3 +49,11 @@ Thumbs.db
 
 # ===== Misc temp =====
 .write_probe
+
+# ===== Data pipeline intermediate caches (final output is committed) =====
+scripts/pipeline/cache/
+scripts/pipeline/out/
+scripts/cache/
+scripts/fetch-all.mjs
+scripts/sample-fetch.mjs
+scripts/probe-enname.mjs

@@ -25,20 +25,32 @@ function TreeBranch({
   const [open, setOpen] = React.useState(defaultOpen);
   const active = node.id === activeId;
 
-  // Non-leaf nodes only toggle expansion; only leaf nodes select a detail panel.
+  // Non-leaf nodes: chevron toggles expansion, label navigates to the
+  // grouping detail page (from which children can be picked).
   if (!isLeaf) {
     return (
       <li>
-        <button
-          onClick={() => setOpen((o) => !o)}
+        <div
           className={`flex w-full items-center gap-1 rounded-md px-1.5 py-1.5 text-left text-sm transition-colors hover:bg-muted/50 ${
             depth === 0 ? "font-semibold" : ""
-          }`}
+          } ${active ? "bg-primary/10" : ""}`}
           style={{ paddingLeft: `${depth * 14 + 6}px` }}
         >
-          <ChevronRight className={`size-3.5 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
-          <span className="flex-1 truncate">{pick(node.name)}</span>
-        </button>
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="shrink-0 rounded p-0.5 hover:bg-muted"
+            aria-label={open ? "Collapse" : "Expand"}
+          >
+            <ChevronRight className={`size-3.5 text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
+          </button>
+          <button
+            onClick={() => onSelect(node.id)}
+            className={`flex-1 truncate text-left ${active ? "text-foreground" : ""}`}
+            aria-current={active ? "page" : undefined}
+          >
+            {pick(node.name)}
+          </button>
+        </div>
         {open && (
           <ul>
             {node.children!.map((c) => (

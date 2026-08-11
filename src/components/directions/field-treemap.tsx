@@ -90,17 +90,12 @@ function Content(props: any) {
           textAnchor="start"
           dominantBaseline="hanging"
           fill="#fff"
-          fillOpacity={0.95}
+          fillOpacity={1}
           fontSize={fontSize}
-          fontWeight={400}
-          // 细描边 + 投影让白字在彩色格上更利落、笔画不糊在一起
-          stroke="rgba(0,0,0,0.28)"
-          strokeWidth={0.5}
-          paintOrder="stroke"
+          fontWeight={500}
           style={{
-            fontWeight: 400,
+            fontWeight: 500,
             fontFamily: CJK_FONT,
-            textShadow: "0 1px 2px rgba(0,0,0,0.35)",
           }}
           clipPath={`url(#${clipId})`}
           pointerEvents="none"

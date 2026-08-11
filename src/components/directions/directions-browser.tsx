@@ -1,21 +1,20 @@
 "use client";
 
 import * as React from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { FieldTreeNav } from "@/components/directions/field-tree-nav";
 import { FieldDetailView } from "@/components/directions/field-detail-view";
 import { FieldTreemap } from "@/components/directions/field-treemap";
 import { findNode } from "@/lib/field-tree-utils";
 
-export function DirectionsBrowser() {
+export function DirectionsBrowser({ initialSlug = "" }: { initialSlug?: string }) {
   const { t } = useI18n();
   const router = useRouter();
-  const pathname = usePathname();
-
-  // URL is the single source of truth: /directions -> treemap, /directions/{id} -> detail.
-  const match = pathname?.match(/^\/directions\/(.+)$/);
-  const selectedId = match ? match[1] : "";
+  // useParams 自动剥离 basePath 与尾斜杠，是 slug 的可靠来源（正则匹配在
+  // basePath + trailingSlash 部署下会因前缀/斜杠而失败）。
+  const params = useParams<{ slug?: string }>();
+  const selectedId = params.slug ?? initialSlug ?? "";
   const node = selectedId ? findNode(selectedId) : undefined;
   const showDetail = !!node;
 

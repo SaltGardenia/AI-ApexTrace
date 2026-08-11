@@ -24,5 +24,5 @@ export default async function DirectionDetailPage({
 }) {
   const { slug } = await params;
   if (!findNode(slug)) notFound();
-  return <DirectionsBrowser />;
+  return <DirectionsBrowser initialSlug={slug} />;
 }

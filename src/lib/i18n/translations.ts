@@ -77,7 +77,7 @@ export const dict = {
     zh: "即将截稿与召开的会议（投稿 → 截稿 → 开会）",
     en: "Upcoming deadlines & conferences (submit → deadline → meet)",
   },
-  full_calendar: { zh: "完整日历 →", en: "Full calendar →" },
+  full_calendar: { zh: "完整日历", en: "Full calendar" },
   dl_submit: { zh: "投稿开始", en: "Submission opens" },
   dl_abstract: { zh: "摘要截稿", en: "Abstract" },
   dl_full: { zh: "全文截稿", en: "Full paper" },

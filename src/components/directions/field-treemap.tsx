@@ -17,6 +17,10 @@ type LeafDatum = {
   path: string[];
 };
 
+// 中文字形在低分替代字体下会发虚、笔画粘连；显式指定 CJK 字体栈保证清晰渲染。
+const CJK_FONT =
+  '"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif';
+
 function collectLeaves(node: FieldNode): FieldNode[] {
   if (!node.children || node.children.length === 0) return [node];
   return node.children.flatMap(collectLeaves);
@@ -64,12 +68,13 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const fontSize = width < 60 ? 9 : 11;
-  const charW = fontSize * 0.95;
+  const fontSize = width < 70 ? 9 : 11;
+  const charW = fontSize * 0.92;
   const maxChars = Math.floor((width - 8) / charW);
-  const showText = width > 34 && height > 14 && maxChars >= 1;
+  // 仅给足够大的格子标注，避免小格文字拥挤、笔画粘连
+  const showText = width > 46 && height > 20 && maxChars >= 2;
   const lines = showText ? wrapLabel(text, maxChars) : [];
-  const lineH = fontSize * 1.2;
+  const lineH = fontSize * 1.25;
   const tx = x + 5;
   const ty = y + fontSize + 3;
 
@@ -99,7 +104,15 @@ function Content(props: any) {
           fillOpacity={0.95}
           fontSize={fontSize}
           fontWeight={400}
-          style={{ fontWeight: 400, fontFamily: "inherit" }}
+          // 细描边 + 投影让白字在彩色格上更利落、笔画不糊在一起
+          stroke="rgba(0,0,0,0.28)"
+          strokeWidth={0.5}
+          paintOrder="stroke"
+          style={{
+            fontWeight: 400,
+            fontFamily: CJK_FONT,
+            textShadow: "0 1px 2px rgba(0,0,0,0.35)",
+          }}
           clipPath={`url(#${clipId})`}
           pointerEvents="none"
         >

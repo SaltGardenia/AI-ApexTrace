@@ -23,6 +23,8 @@ import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 import { RADAR_METRICS } from "@/lib/i18n/translations";
 import { formatCount } from "@/lib/chart-helpers";
+import { deriveRadar, type RadarPoint } from "@/lib/radar";
+import type { RadarMetricKey } from "@/lib/types";
 
 // 雷达半径轴自定义刻度：把数字标在正上方那条纵向半径轴上，
 // 每个刻度沿轴从内(0)往外(100)一个一个竖立排（rotate(-90) 正读）。
@@ -59,17 +61,16 @@ export function CompareExplorer() {
     );
 
   const chosen = directions.filter((d) => selected.includes(d.id));
-  const radarData = (() => {
-    const metrics = directions[0].radar.map((r) => r.metric);
-    return metrics.map((m) => {
-      const row: Record<string, string | number> = { metric: m };
-      for (const d of chosen) {
-        const r = d.radar.find((x) => x.metric === m);
-        if (r) row[d.id] = r.value;
-      }
-      return row;
-    });
-  })();
+  const RADAR_KEYS: RadarMetricKey[] = ["output", "impact", "growth", "ecosystem", "fusion"];
+  const radarById = new Map(chosen.map((d) => [d.id, deriveRadar(d)]));
+  const radarData = RADAR_KEYS.map((m) => {
+    const row: Record<string, string | number> = { metric: m };
+    for (const d of chosen) {
+      const r = radarById.get(d.id)!.find((x: RadarPoint) => x.metric === m);
+      if (r) row[d.id] = r.value;
+    }
+    return row;
+  });
 
   const lineData = directions[0].yearly.map((y, idx) => {
     const row: Record<string, number> = { year: y.year };

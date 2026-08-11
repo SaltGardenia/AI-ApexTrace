@@ -106,7 +106,7 @@ export interface Direction {
   crossDirections: DirectionId[];
   baselines?: Baseline[];
   datasets?: Dataset[];
-  radar: { metric: RadarMetricKey; value: number }[];
+  radar?: { metric: RadarMetricKey; value: number }[];
   yearly: { year: number; papers: number }[];
 }
 

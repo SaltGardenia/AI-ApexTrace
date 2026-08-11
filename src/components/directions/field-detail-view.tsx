@@ -2,24 +2,7 @@
 
 import * as React from "react";
 
-// 由管线真实指标派生雷达五维（0–100，真实驱动，避免手写假值）
-function deriveRadarFromReal(node: any) {
-  const clamp = (v: number, a = 0, b = 100) => Math.max(a, Math.min(b, Math.round(v)));
-  const papers = node.paperCount ?? node.papers ?? 0;
-  // 体量：小产出(如 paperCount<100)也给出正值，避免旧对数公式把 (<100) 压成 0
-  const out = papers > 0 ? clamp(12 + Math.log10(papers) * 20) : 0;     // 体量
-  const imp = node.avgCitations ? clamp(node.avgCitations / 5) : 0;                     // 影响力(平均被引)
-  const gro = node.growth != null ? clamp(node.growth * 150) : 0;                       // 增长(CAGR)
-  const eco = node.openRate != null ? clamp(node.openRate * 100) : 0;                   // 生态(开放率)
-  const fus = node.crossFields?.length ? clamp(node.crossFields.length * 20) : 0;       // 融合(跨领域)
-  return [
-    { metric: "output", value: out },
-    { metric: "impact", value: imp },
-    { metric: "growth", value: gro },
-    { metric: "ecosystem", value: eco },
-    { metric: "fusion", value: fus },
-  ] as { metric: RadarMetricKey; value: number }[];
-}
+import { deriveRadar } from "@/lib/radar";
 
 import Link from "next/link";
 import { ArrowUpRight, Building2, Layers, Flag, Database, ChevronRight } from "lucide-react";
@@ -41,7 +24,7 @@ import type { DictKey } from "@/lib/i18n/translations";
 
 // 由真实指标派生综合热度指数（0–100，五维加权，避免手写假值）
 function deriveHeatIndex(node: any): number {
-  const radar = deriveRadarFromReal(node);
+  const radar = deriveRadar(node);
   const w: Record<string, number> = { output: 0.3, impact: 0.25, growth: 0.2, ecosystem: 0.15, fusion: 0.1 };
   const sum = radar.reduce((s, r) => s + r.value * (w[r.metric] ?? 0), 0);
   return Math.round(sum);
@@ -212,7 +195,7 @@ export function FieldDetailView({
           direction={{
             color,
             radar: node.yearly?.length || node.avgCitations != null || node.growth != null
-              ? deriveRadarFromReal(node)
+              ? deriveRadar(node)
               : [],
             yearly: node.yearly ?? [],
           }}

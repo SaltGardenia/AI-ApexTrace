@@ -27,13 +27,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 470 },
     ],
     crossDirections: ["cv", "nlp", "rl"],
-    radar: [
-      { metric: "output", value: 98 },
-      { metric: "impact", value: 96 },
-      { metric: "growth", value: 83 },
-      { metric: "ecosystem", value: 94 },
-      { metric: "fusion", value: 88 },
-    ],
     yearly: y([4800, 5900, 7200, 8500, 9700, 10900, 11800, 12700, 13500, 14400, 15200]),
   },
   {
@@ -59,13 +52,6 @@ export const directions: Direction[] = [
       { name: "MIT", papers: 430 },
     ],
     crossDirections: ["multimodal", "generative", "robotics"],
-    radar: [
-      { metric: "output", value: 96 },
-      { metric: "impact", value: 88 },
-      { metric: "growth", value: 72 },
-      { metric: "ecosystem", value: 90 },
-      { metric: "fusion", value: 84 },
-    ],
     yearly: y([4200, 5100, 6100, 7300, 8600, 9800, 10900, 11800, 12700, 13600, 14800]),
   },
   {
@@ -91,13 +77,6 @@ export const directions: Direction[] = [
       { name: "Microsoft", papers: 590 },
     ],
     crossDirections: ["ml", "multimodal", "generative"],
-    radar: [
-      { metric: "output", value: 92 },
-      { metric: "impact", value: 91 },
-      { metric: "growth", value: 95 },
-      { metric: "ecosystem", value: 86 },
-      { metric: "fusion", value: 90 },
-    ],
     yearly: y([3100, 3800, 4700, 5600, 6400, 7100, 8200, 9600, 10800, 12100, 13600]),
   },
   {
@@ -123,13 +102,6 @@ export const directions: Direction[] = [
       { name: "Microsoft", papers: 360 },
     ],
     crossDirections: ["cv", "nlp", "generative"],
-    radar: [
-      { metric: "output", value: 58 },
-      { metric: "impact", value: 82 },
-      { metric: "growth", value: 99 },
-      { metric: "ecosystem", value: 70 },
-      { metric: "fusion", value: 96 },
-    ],
     yearly: y([900, 1200, 1800, 2600, 3500, 4200, 4600, 5000, 5400, 5800, 6100]),
   },
   {
@@ -155,13 +127,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 320 },
     ],
     crossDirections: ["cv", "multimodal", "nlp"],
-    radar: [
-      { metric: "output", value: 74 },
-      { metric: "impact", value: 80 },
-      { metric: "growth", value: 97 },
-      { metric: "ecosystem", value: 78 },
-      { metric: "fusion", value: 90 },
-    ],
     yearly: y([1200, 1700, 2400, 3300, 4200, 5000, 5600, 6200, 6900, 7600, 8200]),
   },
   {
@@ -187,13 +152,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 260 },
     ],
     crossDirections: ["robotics", "rl", "multimodal"],
-    radar: [
-      { metric: "output", value: 50 },
-      { metric: "impact", value: 70 },
-      { metric: "growth", value: 94 },
-      { metric: "ecosystem", value: 64 },
-      { metric: "fusion", value: 88 },
-    ],
     yearly: y([800, 1100, 1600, 2200, 2900, 3500, 4000, 4500, 4900, 5200, 5400]),
   },
   {
@@ -219,13 +177,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 240 },
     ],
     crossDirections: ["ml", "embodied", "security"],
-    radar: [
-      { metric: "output", value: 62 },
-      { metric: "impact", value: 84 },
-      { metric: "growth", value: 85 },
-      { metric: "ecosystem", value: 72 },
-      { metric: "fusion", value: 86 },
-    ],
     yearly: y([1500, 2000, 2700, 3500, 4300, 5000, 5600, 6100, 6400, 6600, 6800]),
   },
   {
@@ -251,13 +202,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 260 },
     ],
     crossDirections: ["embodied", "ml", "cv"],
-    radar: [
-      { metric: "output", value: 64 },
-      { metric: "impact", value: 66 },
-      { metric: "growth", value: 89 },
-      { metric: "ecosystem", value: 62 },
-      { metric: "fusion", value: 80 },
-    ],
     yearly: y([2200, 2500, 2900, 3300, 3700, 4200, 4800, 5400, 6000, 6700, 7200]),
   },
   {
@@ -283,13 +227,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 260 },
     ],
     crossDirections: ["ml", "cv", "nlp"],
-    radar: [
-      { metric: "output", value: 55 },
-      { metric: "impact", value: 70 },
-      { metric: "growth", value: 90 },
-      { metric: "ecosystem", value: 60 },
-      { metric: "fusion", value: 76 },
-    ],
     yearly: y([1200, 1600, 2100, 2800, 3500, 4100, 4600, 5100, 5500, 5800, 5900]),
   },
   {
@@ -315,13 +252,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 160 },
     ],
     crossDirections: ["rl", "ml", "nlp"],
-    radar: [
-      { metric: "output", value: 34 },
-      { metric: "impact", value: 74 },
-      { metric: "growth", value: 92 },
-      { metric: "ecosystem", value: 52 },
-      { metric: "fusion", value: 70 },
-    ],
     yearly: y([600, 800, 1100, 1500, 1900, 2300, 2700, 3000, 3300, 3500, 3600]),
   },
   {
@@ -347,13 +277,6 @@ export const directions: Direction[] = [
       { name: "MIT", papers: 330 },
     ],
     crossDirections: ["cv", "nlp", "ml"],
-    radar: [
-      { metric: "output", value: 80 },
-      { metric: "impact", value: 72 },
-      { metric: "growth", value: 88 },
-      { metric: "ecosystem", value: 68 },
-      { metric: "fusion", value: 92 },
-    ],
     yearly: y([2600, 3100, 3700, 4400, 5100, 5800, 6500, 7200, 8000, 8600, 9100]),
   },
   {
@@ -379,13 +302,6 @@ export const directions: Direction[] = [
       { name: "清华大学", papers: 200 },
     ],
     crossDirections: ["embodied", "multimodal", "generative"],
-    radar: [
-      { metric: "output", value: 42 },
-      { metric: "impact", value: 76 },
-      { metric: "growth", value: 99 },
-      { metric: "ecosystem", value: 66 },
-      { metric: "fusion", value: 98 },
-    ],
     yearly: y([300, 500, 800, 1300, 1900, 2500, 3000, 3500, 3900, 4100, 4300]),
   },
 ];

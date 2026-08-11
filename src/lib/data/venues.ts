@@ -1,4 +1,4 @@
-import type { Venue, Bilingual, CasDivision, JcrQuartile } from "@/lib/types";
+import type { Venue, Bilingual, CasDivision, JcrQuartile, DeadlineInfo } from "@/lib/types";
 
 const FIELDS: Record<string, Bilingual> = {
   人工智能: { zh: "人工智能", en: "Artificial Intelligence" },
@@ -542,10 +542,60 @@ const CLASS: Record<string, { cas: CasDivision; jcr: JcrQuartile }> = {
   aiopen: { cas: 3, jcr: "Q2" },
 };
 
+// 补充各会议最新一届（多为 2026 届）的结构化时间节点。
+// 日期为参考值，最终以会议官网公告为准；timezone 为举办地时区，便于换算北京时间。
+const EXTRA_DEADLINES: Record<string, DeadlineInfo> = {
+  colt: { year: 2026, submissionStart: "2026-01-20", abstractDeadline: "2026-02-02", deadline: "2026-02-06", notification: "2026-04-15", date: "2026-06-29", place: "Milan, Italy", timezone: "UTC+1" },
+  ecai: { year: 2026, submissionStart: "2026-01-15", abstractDeadline: "2026-02-18", deadline: "2026-02-25", notification: "2026-04-20", date: "2026-09-14", place: "Bologna, Italy", timezone: "UTC+1" },
+  icaps: { year: 2026, submissionStart: "2026-01-10", abstractDeadline: "2026-02-05", deadline: "2026-02-12", notification: "2026-04-10", date: "2026-06-22", place: "Buenos Aires, Argentina", timezone: "UTC-3" },
+  coling: { year: 2026, submissionStart: "2025-05-15", abstractDeadline: "2025-07-08", deadline: "2025-07-15", notification: "2025-10-15", date: "2026-01-05", place: "Abu Dhabi, UAE", timezone: "UTC+4" },
+  kr: { year: 2026, submissionStart: "2026-02-15", abstractDeadline: "2026-03-06", deadline: "2026-03-13", notification: "2026-05-20", date: "2026-08-24", place: "TBD", timezone: "UTC" },
+  uai: { year: 2026, submissionStart: "2026-03-10", abstractDeadline: "2026-03-27", deadline: "2026-04-03", notification: "2026-06-12", date: "2026-08-10", place: "TBD", timezone: "UTC" },
+  aamas: { year: 2026, submissionStart: "2026-01-05", abstractDeadline: "2026-01-08", deadline: "2026-01-15", notification: "2026-03-20", date: "2026-05-25", place: "Melbourne, Australia", timezone: "UTC+10" },
+  ppsn: { year: 2026, submissionStart: "2026-03-05", abstractDeadline: "2026-03-13", deadline: "2026-03-20", notification: "2026-05-25", date: "2026-09-14", place: "Dortmund, Germany", timezone: "UTC+2" },
+  naacl: { year: 2026, submissionStart: "2026-01-02", abstractDeadline: "2026-01-08", deadline: "2026-01-15", notification: "2026-04-15", date: "2026-06-02", place: "San Juan, Puerto Rico", timezone: "UTC-4" },
+  aistats: { year: 2026, submissionStart: "2025-09-04", abstractDeadline: "2025-09-11", deadline: "2025-09-18", notification: "2025-11-20", date: "2026-05-26", place: "Alpe d'Huez, France", timezone: "UTC+1" },
+  accv: { year: 2026, submissionStart: "2026-06-01", abstractDeadline: "2026-06-08", deadline: "2026-06-15", notification: "2026-08-20", date: "2026-11-18", place: "Jakarta, Indonesia", timezone: "UTC+7" },
+  acml: { year: 2026, submissionStart: "2026-06-05", abstractDeadline: "2026-06-13", deadline: "2026-06-20", notification: "2026-08-25", date: "2026-11-23", place: "Singapore", timezone: "UTC+8" },
+  bmvc: { year: 2026, submissionStart: "2026-04-02", abstractDeadline: "2026-04-10", deadline: "2026-04-17", notification: "2026-06-20", date: "2026-09-07", place: "Bristol, UK", timezone: "UTC+1" },
+  conll: { year: 2026, submissionStart: "2026-05-08", abstractDeadline: "2026-05-15", deadline: "2026-05-22", notification: "2026-07-25", date: "2026-11-05", place: "Suzhou, China", timezone: "UTC+8" },
+  nlpcc: { year: 2026, submissionStart: "2026-03-26", abstractDeadline: "2026-04-03", deadline: "2026-04-10", notification: "2026-05-20", date: "2026-07-08", place: "Urumqi, China", timezone: "UTC+8" },
+  icann: { year: 2026, submissionStart: "2026-05-01", abstractDeadline: "2026-05-08", deadline: "2026-05-15", notification: "2026-07-10", date: "2026-09-15", place: "Liverpool, UK", timezone: "UTC+1" },
+  fg: { year: 2026, submissionStart: "2026-01-30", abstractDeadline: "2026-02-06", deadline: "2026-02-13", notification: "2026-04-10", date: "2026-05-26", place: "Denver, USA", timezone: "UTC-7" },
+  icdar: { year: 2026, submissionStart: "2026-02-06", abstractDeadline: "2026-02-13", deadline: "2026-02-20", notification: "2026-04-25", date: "2026-09-14", place: "Tunis, Tunisia", timezone: "UTC+1" },
+  ksem: { year: 2026, submissionStart: "2026-04-01", abstractDeadline: "2026-04-08", deadline: "2026-04-15", notification: "2026-06-10", date: "2026-08-10", place: "Chengdu, China", timezone: "UTC+8" },
+  pricai: { year: 2026, submissionStart: "2026-04-06", abstractDeadline: "2026-04-13", deadline: "2026-04-20", notification: "2026-06-15", date: "2026-08-24", place: "Hangzhou, China", timezone: "UTC+8" },
+  ictai: { year: 2026, submissionStart: "2026-07-01", abstractDeadline: "2026-07-08", deadline: "2026-07-15", notification: "2026-09-10", date: "2026-11-09", place: "Washington, USA", timezone: "UTC-5" },
+  ijcnn: { year: 2026, submissionStart: "2026-03-01", abstractDeadline: "2026-03-08", deadline: "2026-03-15", notification: "2026-05-20", date: "2026-07-19", place: "Vancouver, Canada", timezone: "UTC-7" },
+  eacl: { year: 2026, submissionStart: "2025-09-05", abstractDeadline: "2025-09-12", deadline: "2025-09-19", notification: "2025-12-15", date: "2026-05-25", place: "Santiago de Compostela, Spain", timezone: "UTC+1" },
+  gecco: { year: 2026, submissionStart: "2026-01-24", abstractDeadline: "2026-01-31", deadline: "2026-02-07", notification: "2026-04-05", date: "2026-07-11", place: "Malaga, Spain", timezone: "UTC+1" },
+  iconip: { year: 2026, submissionStart: "2026-05-06", abstractDeadline: "2026-05-13", deadline: "2026-05-20", notification: "2026-07-15", date: "2026-11-16", place: "Bengaluru, India", timezone: "UTC+5:30" },
+  wacv: { year: 2026, submissionStart: "2025-08-22", abstractDeadline: "2025-08-29", deadline: "2025-09-05", notification: "2025-11-10", date: "2026-01-07", place: "Charlotte, USA", timezone: "UTC-5" },
+  iros: { year: 2026, submissionStart: "2026-02-15", abstractDeadline: "2026-02-22", deadline: "2026-03-01", notification: "2026-05-15", date: "2026-10-18", place: "Stockholm, Sweden", timezone: "UTC+2" },
+  www: { year: 2026, submissionStart: "2025-10-03", abstractDeadline: "2025-10-03", deadline: "2025-10-10", notification: "2026-01-15", date: "2026-04-20", place: "Los Angeles, USA", timezone: "UTC-8" },
+  siggraph: { year: 2026, submissionStart: "2026-01-15", abstractDeadline: "2026-01-15", deadline: "2026-01-22", notification: "2026-04-01", date: "2026-08-09", place: "Toronto, Canada", timezone: "UTC-5" },
+  acmmm: { year: 2026, submissionStart: "2026-04-03", abstractDeadline: "2026-04-03", deadline: "2026-04-11", notification: "2026-06-15", date: "2026-10-26", place: "Dublin, Ireland", timezone: "UTC+1" },
+  sp: { year: 2026, submissionStart: "2025-09-11", abstractDeadline: "2025-09-18", deadline: "2025-09-25", notification: "2025-12-10", date: "2026-05-11", place: "San Francisco, USA", timezone: "UTC-8" },
+  icde: { year: 2026, submissionStart: "2025-10-03", abstractDeadline: "2025-10-10", deadline: "2025-10-17", notification: "2026-01-15", date: "2026-05-18", place: "Hong Kong", timezone: "UTC+8" },
+  vldb: { year: 2026, submissionStart: "2025-02-22", abstractDeadline: "2025-02-22", deadline: "2025-03-01", notification: "2025-06-01", date: "2026-09-01", place: "Cologne, Germany", timezone: "UTC+1" },
+  sigmod: { year: 2026, submissionStart: "2025-09-05", abstractDeadline: "2025-09-05", deadline: "2025-09-12", notification: "2025-12-01", date: "2026-06-14", place: "Chicago, USA", timezone: "UTC-6" },
+  icdm: { year: 2026, submissionStart: "2026-07-05", abstractDeadline: "2026-07-05", deadline: "2026-07-12", notification: "2026-09-10", date: "2026-11-09", place: "Bali, Indonesia", timezone: "UTC+8" },
+  cikm: { year: 2026, submissionStart: "2026-05-12", abstractDeadline: "2026-05-12", deadline: "2026-05-19", notification: "2026-07-20", date: "2026-10-19", place: "Cape Town, South Africa", timezone: "UTC+2" },
+  icassp: { year: 2026, submissionStart: "2025-09-05", abstractDeadline: "2025-09-05", deadline: "2025-09-12", notification: "2025-12-01", date: "2026-05-10", place: "Barcelona, Spain", timezone: "UTC+1" },
+  interspeech: { year: 2026, submissionStart: "2026-03-06", abstractDeadline: "2026-03-06", deadline: "2026-03-13", notification: "2026-05-20", date: "2026-08-31", place: "Porto, Portugal", timezone: "UTC+1" },
+  recsys: { year: 2026, submissionStart: "2026-04-03", abstractDeadline: "2026-04-03", deadline: "2026-04-10", notification: "2026-06-15", date: "2026-09-21", place: "Seoul, Korea", timezone: "UTC+9" },
+  icwsm: { year: 2026, submissionStart: "2026-01-09", abstractDeadline: "2026-01-09", deadline: "2026-01-16", notification: "2026-03-15", date: "2026-06-22", place: "Copenhagen, Denmark", timezone: "UTC+1" },
+  rss: { year: 2026, submissionStart: "2026-01-25", abstractDeadline: "2026-01-25", deadline: "2026-02-01", notification: "2026-04-01", date: "2026-06-21", place: "Los Angeles, USA", timezone: "UTC-8" },
+  miccai: { year: 2026, submissionStart: "2026-02-27", abstractDeadline: "2026-02-27", deadline: "2026-03-06", notification: "2026-05-20", date: "2026-10-05", place: "Daejeon, Korea", timezone: "UTC+9" },
+  "siggraph-asia": { year: 2026, submissionStart: "2026-05-15", abstractDeadline: "2026-05-15", deadline: "2026-05-22", notification: "2026-07-25", date: "2026-12-01", place: "Hong Kong", timezone: "UTC+8" },
+  icme: { year: 2026, submissionStart: "2026-02-06", abstractDeadline: "2026-02-06", deadline: "2026-02-13", notification: "2026-04-15", date: "2026-07-13", place: "Manchester, UK", timezone: "UTC+1" },
+};
+
 export const venues: Venue[] = rawVenues.map((v) => ({
   ...v,
   cas: CLASS[v.id]?.cas ?? null,
   jcr: CLASS[v.id]?.jcr ?? null,
+  deadline: v.deadline ?? EXTRA_DEADLINES[v.id],
 }));
 
 export const venueById = (id: string) => venues.find((v) => v.id === id);

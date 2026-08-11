@@ -24,12 +24,7 @@ const SOURCES = [
 export default function MethodologyPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold tracking-tight">关于 & 更新日志</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          公开、可解释、可复现的 AI 研究热度指数计算口径。
-        </p>
-      </div>
+      <h1 className="mb-6 text-2xl font-semibold tracking-tight">关于</h1>
 
       <Card className="mb-6">
         <CardHeader>

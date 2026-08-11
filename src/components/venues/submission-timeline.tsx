@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { CalendarClock, FileText, Info, Mail, MapPin } from "lucide-react";
+import { CalendarClock, FileText, Info, Mail, MapPin, PenLine } from "lucide-react";
 import type { DeadlineInfo } from "@/lib/types";
 
 const fmt = (s?: string) =>
@@ -36,6 +36,15 @@ function toBeijing(dateStr?: string, offset?: number | null): string | null {
   }).format(new Date(utcMs));
 }
 
+type Stage = {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  date?: string;
+  tone: string;
+  // primary: 投稿核心节点（开始投稿 / 截止摘要 / 截止全文），视觉上更突出
+  primary?: boolean;
+};
+
 export function SubmissionTimeline({ deadline }: { deadline?: DeadlineInfo }) {
   if (!deadline) {
     return null;
@@ -43,41 +52,58 @@ export function SubmissionTimeline({ deadline }: { deadline?: DeadlineInfo }) {
   const offset = parseOffset(deadline.timezone);
   const isBeijing = offset === 8;
 
-  const stages = [
-    { icon: FileText, label: "摘要截稿", date: deadline.abstractDeadline, tone: "text-sky-400" },
-    { icon: CalendarClock, label: "全文截稿", date: deadline.deadline, tone: "text-amber-400" },
+  // 投稿核心三节点前置并突出，录用通知与正式召开作为后续节点弱化展示
+  const submitStages: Stage[] = [
+    { icon: PenLine, label: "开始投稿", date: deadline.submissionStart, tone: "text-sky-400", primary: true },
+    { icon: FileText, label: "截止摘要", date: deadline.abstractDeadline, tone: "text-amber-400", primary: true },
+    { icon: CalendarClock, label: "截止全文", date: deadline.deadline, tone: "text-rose-400", primary: true },
+  ];
+  const laterStages: Stage[] = [
     { icon: Mail, label: "录用通知", date: deadline.notification, tone: "text-violet-400" },
     { icon: MapPin, label: "正式召开", date: deadline.date, tone: "text-emerald-400" },
   ];
 
+  const renderStage = (s: Stage, i: number) => {
+    const bj = toBeijing(s.date, offset);
+    const showBj = bj && !isBeijing;
+    return (
+      <motion.div
+        key={s.label}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.08 }}
+        className={
+          "rounded-xl border p-4 " +
+          (s.primary
+            ? "border-sky-400/40 bg-sky-400/5"
+            : "border-border/60 bg-card/50")
+        }
+      >
+        <div className={`flex items-center gap-2 text-sm font-medium ${s.tone}`}>
+          <s.icon className="size-4" />
+          {s.label}
+        </div>
+        <div className="mt-2 text-sm tabular-nums">{fmt(s.date)}</div>
+        {showBj && (
+          <div className="mt-0.5 text-xs text-muted-foreground tabular-nums">
+            北京时间 {bj}
+          </div>
+        )}
+      </motion.div>
+    );
+  };
+
   return (
     <div className="relative">
-      <div className="absolute left-0 right-0 top-5 h-px bg-gradient-to-r from-border via-border to-transparent" />
-      <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {stages.map((s, i) => {
-          const bj = toBeijing(s.date, offset);
-          const showBj = bj && !isBeijing;
-          return (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-xl border border-border/60 bg-card/50 p-4"
-            >
-              <div className={`flex items-center gap-2 text-sm font-medium ${s.tone}`}>
-                <s.icon className="size-4" />
-                {s.label}
-              </div>
-              <div className="mt-2 text-sm tabular-nums">{fmt(s.date)}</div>
-              {showBj && (
-                <div className="mt-0.5 text-xs text-muted-foreground tabular-nums">
-                  北京时间 {bj}
-                </div>
-              )}
-            </motion.div>
-          );
-        })}
+      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        投稿关键节点
+      </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {submitStages.map((s, i) => renderStage(s, i))}
+      </div>
+
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {laterStages.map((s, i) => renderStage(s, i + submitStages.length))}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground">

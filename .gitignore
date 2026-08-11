@@ -57,3 +57,5 @@ scripts/cache/
 scripts/fetch-all.mjs
 scripts/sample-fetch.mjs
 scripts/probe-enname.mjs
+
+scripts/pipeline/metrics-cache/

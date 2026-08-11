@@ -5,7 +5,8 @@
 //  - 失败返回 null 而非抛错，让上层做"多源交叉、缺源降级"。
 import { setTimeout as sleep } from "timers/promises";
 
-const UA = "ApexTrace/1.0 (academic-landscape-index; mailto:apextrace@example.com)";
+const MAILTO = process.env.OA_MAILTO || "apextrace@gmail.com";
+const UA = `ApexTrace/1.0 (academic-landscape-index; mailto:)`;
 
 // ---------- 通用带重试的 JSON 请求 ----------
 async function getJSON(url, { headers = {}, retries = 5, baseWait = 1200 } = {}) {
@@ -13,10 +14,9 @@ async function getJSON(url, { headers = {}, retries = 5, baseWait = 1200 } = {})
     try {
       const res = await fetch(url, { headers: { "User-Agent": UA, ...headers } });
       if (res.status === 429) {
-        const wait = Math.min(30000, baseWait * 2 ** attempt);
-        console.warn(`  [429] ${new URL(url).host} 退避 ${wait}ms`);
-        await sleep(wait);
-        continue;
+        console.warn(`  [429] ${new URL(url).host}`);
+        await sleep(2000);
+        return null;
       }
       if (res.status === 301 || res.status === 302) {
         const loc = res.headers.get("location");
@@ -70,7 +70,7 @@ export const openalex = {
   name: "OpenAlex",
   async countByPhrase(phrase, { from = 2015, to = 2025 } = {}) {
     const filter = `title_and_abstract.search:${JSON.stringify(phrase)},from_publication_date:${from}-01-01,to_publication_date:${to}-12-31`;
-    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=apextrace@example.com`;
+    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=${MAILTO}`;
     const d = await getJSON(url);
     return d ? d.meta.count : null;
   },
@@ -78,15 +78,30 @@ export const openalex = {
     const years = [];
     for (let y = from; y <= to; y++) {
       const filter = `title_and_abstract.search:${JSON.stringify(phrase)},publication_year:${y}`;
-      const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=apextrace@example.com`;
+      const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=${MAILTO}`;
       const d = await getJSON(url);
       years.push(d ? d.meta.count : 0);
       await sleep(400);
     }
     return years;
   },
+  async groupBy(phrase, key, { from = 2015, to = 2025 } = {}) {
+    const filter = `title_and_abstract.search:${JSON.stringify(phrase)},from_publication_date:${from}-01-01,to_publication_date:${to}-12-31`;
+    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&group_by=${encodeURIComponent(key)}&per-page=1&mailto=${MAILTO}`;
+    const d = await getJSON(url);
+    return d?.group_by ?? null;
+  },
+  async countWithExtra(phrase, extra, { from = 2015, to = 2025 } = {}) {
+    const filter = `title_and_abstract.search:${JSON.stringify(phrase)},from_publication_date:${from}-01-01,to_publication_date:${to}-12-31${extra ? "," + extra : ""}`;
+    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=${MAILTO}`;
+    const d = await getJSON(url);
+    return d ? d.meta.count : null;
+  },
+  async _raw(url) {
+    return getJSON(url);
+  },
   async findConcept(term) {
-    const url = `https://api.openalex.org/concepts?search=${encodeURIComponent(term)}&per-page=5&mailto=apextrace@example.com`;
+    const url = `https://api.openalex.org/concepts?search=${encodeURIComponent(term)}&per-page=5&mailto=${MAILTO}`;
     const d = await getJSON(url);
     if (!d || !d.results?.length) return null;
     return d.results.map((c) => ({
@@ -98,7 +113,7 @@ export const openalex = {
   },
   async countByConcept(conceptId, { from = 2015, to = 2025 } = {}) {
     const filter = `concepts.id:${conceptId},from_publication_date:${from}-01-01,to_publication_date:${to}-12-31`;
-    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=apextrace@example.com`;
+    const url = `https://api.openalex.org/works?filter=${encodeURIComponent(filter)}&per-page=1&mailto=${MAILTO}`;
     const d = await getJSON(url);
     return d ? d.meta.count : null;
   },
@@ -111,7 +126,7 @@ export const crossref = {
     const url =
       `https://api.crossref.org/works?query=${encodeURIComponent(query)}` +
       `&filter=from-pub-date:${from}-01-01,until-pub-date:${to}-12-31` +
-      `&rows=0&mailto=apextrace@example.com`;
+      `&rows=0&mailto=${MAILTO}`;
     const d = await getJSON(url);
     return d?.message?.["total-results"] ?? null;
   },

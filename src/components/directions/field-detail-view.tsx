@@ -1,9 +1,27 @@
 "use client";
 
 import * as React from "react";
+
+// 由管线真实指标派生雷达五维（0–100，真实驱动，避免手写假值）
+function deriveRadarFromReal(node: any) {
+  const clamp = (v: number, a = 0, b = 100) => Math.max(a, Math.min(b, Math.round(v)));
+  const out = node.paperCount ? clamp((Math.log10(node.paperCount) - 2) * 32) : 0;     // 体量
+  const imp = node.avgCitations ? clamp(node.avgCitations / 5) : 0;                     // 影响力(平均被引)
+  const gro = node.growth != null ? clamp(node.growth * 150) : 0;                       // 增长(CAGR)
+  const eco = node.openRate != null ? clamp(node.openRate * 100) : 0;                   // 生态(开放率)
+  const fus = node.crossFields?.length ? clamp(node.crossFields.length * 20) : 0;       // 融合(跨领域)
+  return [
+    { metric: "output", value: out },
+    { metric: "impact", value: imp },
+    { metric: "growth", value: gro },
+    { metric: "ecosystem", value: eco },
+    { metric: "fusion", value: fus },
+  ] as { metric: RadarMetricKey; value: number }[];
+}
+
 import Link from "next/link";
 import { ArrowUpRight, Building2, Layers, Flag, Database, ChevronRight } from "lucide-react";
-import type { FieldNode } from "@/lib/types";
+import type { FieldNode, Venue, RadarMetricKey } from "@/lib/types";
 import { pathToNode, nodePapers, topLevelId, findNode } from "@/lib/field-tree-utils";
 import { colorById } from "@/lib/chart-palette";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,10 +40,10 @@ import type { DictKey } from "@/lib/i18n/translations";
 const STAT_KEYS: { key: DictKey; value: (n: FieldNode) => string }[] = [
   { key: "stat_index", value: () => "0" },
   { key: "stat_output", value: (n) => nodePapers(n).toLocaleString() },
-  { key: "stat_citations", value: (n) => (n.avgCitations ?? 0).toString() },
-  { key: "stat_topcited", value: (n) => `${Math.round((n.topCitedRatio ?? 0) * 100)}%` },
-  { key: "stat_cagr", value: (n) => `${Math.round((n.growth ?? 0) * 100)}%` },
-  { key: "stat_open", value: (n) => `${Math.round((n.openRate ?? 0) * 100)}%` },
+  { key: "stat_citations", value: (n) => (n.realMetrics ? (n.avgCitations ?? 0).toString() : "—") },
+  { key: "stat_topcited", value: (n) => (n.realMetrics && n.topCitedRatio != null ? `${Math.round(n.topCitedRatio * 100)}%` : "—") },
+  { key: "stat_cagr", value: (n) => (n.realMetrics && n.growth != null ? `${Math.round(n.growth * 100)}%` : "—") },
+  { key: "stat_open", value: (n) => (n.realMetrics && n.openRate != null ? `${Math.round(n.openRate * 100)}%` : "—") },
 ];
 
 export function FieldDetailView({
@@ -107,7 +125,20 @@ export function FieldDetailView({
     );
   }
 
-  const top = (node.topVenues ?? []).map((id) => venueById(id)).filter(Boolean) as NonNullable<ReturnType<typeof venueById>>[];
+  // 真实来源全称 → 已知 venue（模糊匹配）以支持跳转；匹配不到则纯文本展示
+  const VENUE_KEYWORDS: Record<string, string> = {
+    "neurips": "neurips", "nips": "neurips", "icml": "icml", "iclr": "iclr", "cvpr": "cvpr",
+    "iccv": "iccv", "eccv": "eccv", "aaai": "aaai", "acl": "acl", "emnlp": "emnlp", "naacl": "naacl",
+    "coling": "coling", "ijcai": "ijcai", "corl": "corl", "mlsys": "mlsys", "wacv": "wacv", "iros": "iros",
+    "icra": "icra", "kdd": "kdd", "sigir": "sigir", "www": "www", "siggraph": "siggraph", "acmmm": "acmmm",
+    "tpami": "tpami", "ijcv": "ijcv", "jmlr": "jmlr", "tmlr": "tmlr", "arxiv": "arxiv", "nature": "nature-mi",
+  };
+  const top: any[] = (node.topVenues ?? []).map((name) => {
+    const low = name.toLowerCase();
+    const key = Object.keys(VENUE_KEYWORDS).find((k) => low.includes(k));
+    const v = key ? venueById(VENUE_KEYWORDS[key]) : undefined;
+    return v ? { ...v, displayName: name } : { id: name, name, displayName: name, isRaw: true };
+  });
   const milestones = milestonesByDirection(node.id);
   const bottlenecks = bottlenecksByDirection(node.id);
   const baselines = baselinesByDirection(node.id);
@@ -157,8 +188,10 @@ export function FieldDetailView({
         <DirectionCharts
           direction={{
             color,
-            radar: node.radar ?? [],
-            yearly: node.yearly ?? [],
+            radar: node.realMetrics
+              ? deriveRadarFromReal(node)
+              : [],
+            yearly: node.realMetrics ? node.yearly ?? [] : [],
           }}
         />
       </div>
@@ -170,14 +203,24 @@ export function FieldDetailView({
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
             {top.map((v) => (
-              <Link
-                key={v.id}
-                href={`/venues/${v.id}`}
-                className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-1.5 text-sm hover:border-primary/40"
-              >
-                <span className="font-medium">{v.name}</span>
-                <CcfBadge venue={v} />
-              </Link>
+              (v as any).isRaw ? (
+                <span
+                  key={v.id}
+                  className="rounded-lg border border-border/60 bg-card/40 px-3 py-1.5 text-sm text-muted-foreground"
+                  title="OpenAlex 来源（未在场馆库收录）"
+                >
+                  {(v as any).displayName}
+                </span>
+              ) : (
+                <Link
+                  key={v.id}
+                  href={`/venues/${v.id}`}
+                  className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-1.5 text-sm hover:border-primary/40"
+                >
+                  <span className="font-medium">{(v as any).displayName}</span>
+                  <CcfBadge venue={v} />
+                </Link>
+              )
             ))}
           </CardContent>
         </Card>

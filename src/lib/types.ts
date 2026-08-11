@@ -53,6 +53,7 @@ export interface FieldNode {
   confidence?: "high" | "medium" | "low";
   corroborated?: boolean;
   statSources?: { oa_phrase: number | null; oa_concept: number | null; crossref: number | null; arxiv: number | null };
+  realMetrics?: boolean; // 标记该节点已注入管线真实指标（OpenAlex）
 }
 
 export interface DeadlineInfo {

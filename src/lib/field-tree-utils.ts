@@ -1,6 +1,7 @@
 import type { FieldNode } from "@/lib/types";
 import { fieldTree } from "@/lib/data/field-tree";
 import { allFieldStats, getFieldStat } from "@/lib/data/generated/FieldStats";
+import { allFieldMetrics, getFieldMetric } from "@/lib/data/generated/FieldMetrics";
 
 // 构建 enriched 树：把管线生成的真实统计（多源交叉）合并进每个末级节点的 papers 字段。
 function buildEnrichedTree(): FieldNode[] {
@@ -16,6 +17,18 @@ function buildEnrichedTree(): FieldNode[] {
         n.confidence = stat.confidence;
         n.corroborated = stat.corroborated;
         n.statSources = stat.sources;
+        // 真实指标（OpenAlex 抓取）：年份/来源/引用/开放率/增长
+        const m = getFieldMetric(n.id);
+        if (m) {
+          n.yearly = m.yearly;
+          n.topVenues = m.topVenues;            // 真实来源全称
+          n.topInstitutions = m.topInstitutions; // 真实机构 + 论文数
+          n.avgCitations = m.avgCitations;
+          n.topCitedRatio = m.topCitedRatio;
+          n.openRate = m.openRate;
+          n.growth = m.growth;
+          n.realMetrics = true;
+        }
       }
       if (n.children) walk(n.children);
     }

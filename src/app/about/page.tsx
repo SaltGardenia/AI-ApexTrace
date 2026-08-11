@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Database, GitBranch, Scale } from "lucide-react";
+import { Database, Scale } from "lucide-react";
 import { heatWeights } from "@/lib/heat-index";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "关于",
-  description: "AI 研究热度指数的计算口径、数据来源与局限性。",
+  description: "AI 研究热度指数的计算口径与数据来源。",
 };
 
 const WEIGHT_ROWS = [
@@ -19,13 +19,6 @@ const SOURCES = [
   { name: "OpenAlex", desc: "主力数据源（CC0 开放）。用 title/abstract 精确短语匹配统计各子领域 2015–2025 论文数，并以 concepts 官方主题体系做分类归一。" },
   { name: "Crossref", desc: "交叉校验源。全文检索总量用于佐证方向的真实体量，口径较宽（含预印本与会议录），不参与最终数值合成。" },
   { name: "arXiv", desc: "趋势补充源。预印本检索量用于观察新兴方向的早期热度，仅作参照不参与合成。" },
-];
-
-const LIMITS = [
-  "新论文引用存在滞后，新方向冷启动期影响力被低估。",
-  "方向分类依赖主题模型，存在少量标注误差。",
-  "开源率依赖 GitHub 链接识别，覆盖不完全。",
-  "CCF 等级年度变动可能导致跨年口径不可比。",
 ];
 
 export default function MethodologyPage() {
@@ -65,55 +58,19 @@ export default function MethodologyPage() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base flex items-center gap-2">
-              <Database className="size-4" /> 数据来源
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm">
-            {SOURCES.map((s) => (
-              <div key={s.name} className="border-b border-border/40 pb-2 last:border-0">
-                <div className="font-medium">{s.name}</div>
-                <div className="text-xs text-muted-foreground">{s.desc}</div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base flex items-center gap-2">
-              <GitBranch className="size-4" /> 局限性说明
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="list-disc space-y-1.5 pl-5 text-sm text-muted-foreground">
-              {LIMITS.map((l) => (
-                <li key={l}>{l}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
-
       <Card className="mt-6">
         <CardHeader>
           <CardTitle className="text-base flex items-center gap-2">
-            <Database className="size-4" /> 数据管线与多源交叉印证
+            <Database className="size-4" /> 数据来源
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2 text-sm text-muted-foreground">
-          <p>每个子领域的论文数由离线数据管线生成，而非手工填写：</p>
-          <ol className="list-decimal space-y-1 pl-5">
-            <li><span className="text-foreground">采集</span>：对领域树每个末级节点，并行查询 OpenAlex（主）、Crossref、arXiv 三源，原始计数落盘缓存、可断点续跑。</li>
-            <li><span className="text-foreground">映射</span>：用 OpenAlex concepts 官方主题体系将自研领域树自动归一，解决「自研分类 vs 真实分类不对应」问题。</li>
-            <li><span className="text-foreground">交叉印证</span>：以 OpenAlex 短语口径为最终值，concept 口径互相验证；Crossref/arXiv 仅佐证方向是否有真实体量，不参与数值合成。</li>
-            <li><span className="text-foreground">可信度</span>：各口径比值 &lt;3 标记为 high，单一可靠口径为 high，严重分歧降为 low/medium，并在详情页标注。</li>
-            <li><span className="text-foreground">归一化</span>：真实绝对数（常达数万）经 log 压缩后映射到图表可视区间，保留相对排序，详情页展示原始真实数。</li>
-          </ol>
-          <p className="pt-1">数据产物位于 <code className="rounded bg-muted px-1">src/lib/data/generated/field-stats.json</code>，可重跑 <code className="rounded bg-muted px-1">scripts/pipeline</code> 刷新。</p>
+        <CardContent className="space-y-2 text-sm">
+          {SOURCES.map((s) => (
+            <div key={s.name} className="border-b border-border/40 pb-2 last:border-0">
+              <div className="font-medium">{s.name}</div>
+              <div className="text-xs text-muted-foreground">{s.desc}</div>
+            </div>
+          ))}
         </CardContent>
       </Card>
 

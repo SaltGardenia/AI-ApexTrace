@@ -70,7 +70,7 @@ export function RecentCalendar() {
               <span className={cn("rounded border px-1.5 py-0.5 text-[10px]", kindStyle[e.kind])}>
                 {t(kindLabel[e.kind])}
               </span>
-              <span className="truncate font-medium">{e.venue.name}</span>
+              <span className="truncate font-medium">{e.venue.name} {e.venue.deadline?.year}</span>
             </div>
             <div className="mt-0.5 text-xs tabular-nums text-muted-foreground">{fmt(e.date)}</div>
           </div>

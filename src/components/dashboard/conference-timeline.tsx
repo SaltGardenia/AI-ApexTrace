@@ -45,7 +45,7 @@ export function ConferenceTimeline() {
             className="w-60 shrink-0 rounded-xl border border-border/60 bg-card/50 p-4"
           >
             <div className="flex items-center justify-between">
-              <span className="font-semibold">{venue.name}</span>
+              <span className="font-semibold">{venue.name} {venue.deadline?.year}</span>
               <CcfBadge venue={venue} />
             </div>
             <p className="mt-1 truncate text-xs text-muted-foreground">{venue.fullName}</p>

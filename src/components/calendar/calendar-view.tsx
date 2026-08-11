@@ -187,7 +187,9 @@ export function CalendarView() {
                                 {new Date(e.date + "T00:00:00").getDate()}日
                               </span>
                               <span className="font-medium">{t(kindLabel[e.kind])}</span>
-                              <span className="ml-auto truncate text-foreground/80">{e.venue.name}</span>
+                              <span className="ml-auto truncate text-foreground/80">
+                                {e.venue.name} {e.venue.deadline?.year}
+                              </span>
                             </div>
                           ))
                         ) : (
@@ -224,7 +226,7 @@ export function CalendarView() {
                   <span className={cn("rounded border px-1.5 py-0.5 text-[10px]", kindStyle[e.kind])}>
                     {t(kindLabel[e.kind])}
                   </span>
-                  <span className="truncate font-medium">{e.venue.name}</span>
+                  <span className="truncate font-medium">{e.venue.name} {e.venue.deadline?.year}</span>
                 </div>
                 <div className="mt-0.5 text-xs tabular-nums text-muted-foreground">{fmt(e.date)}</div>
               </div>

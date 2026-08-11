@@ -157,7 +157,6 @@ export function CalendarView() {
           {months.map((m) => {
             const key = `${m.year}-${m.month}`;
             const items = byMonth[key] ?? [];
-            const kinds: Kind[] = ["submit", "abstract", "full", "conference"];
             return (
               <div key={key} className="rounded-xl border border-border/60 bg-card/40 p-3">
                 <div className="mb-2 flex items-baseline justify-between">
@@ -167,27 +166,33 @@ export function CalendarView() {
                   <span className="text-xs text-muted-foreground">{m.year}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {kinds.map((k) => {
-                    const colItems = items.filter((e) => e.kind === k);
+                  {Array.from({ length: 4 }, (_, c) => {
+                    const colSize = Math.ceil(items.length / 4) || 1;
+                    const colItems = items
+                      .slice()
+                      .sort((a, b) => a.date.localeCompare(b.date))
+                      .slice(c * colSize, c * colSize + colSize);
                     return (
-                      <div key={k} className="min-w-0">
-                        <div className={cn("mb-1 rounded px-1.5 py-0.5 text-[11px] font-medium", kindStyle[k])}>
-                          {t(kindLabel[k])}
-                        </div>
-                        <div className="space-y-1">
-                          {colItems.length ? (
-                            colItems.map((e, i) => (
-                              <div key={i} className="flex items-center gap-1 text-xs">
-                                <span className="tabular-nums text-muted-foreground">
-                                  {new Date(e.date + "T00:00:00").getDate()}日
-                                </span>
-                                <span className="truncate text-foreground/80">{e.venue.name}</span>
-                              </div>
-                            ))
-                          ) : (
-                            <span className="text-[11px] text-muted-foreground/50">—</span>
-                          )}
-                        </div>
+                      <div key={c} className="min-w-0 space-y-1">
+                        {colItems.length ? (
+                          colItems.map((e, i) => (
+                            <div
+                              key={i}
+                              className={cn(
+                                "flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs",
+                                kindStyle[e.kind],
+                              )}
+                            >
+                              <span className="tabular-nums opacity-70">
+                                {new Date(e.date + "T00:00:00").getDate()}日
+                              </span>
+                              <span className="font-medium">{t(kindLabel[e.kind])}</span>
+                              <span className="ml-auto truncate text-foreground/80">{e.venue.name}</span>
+                            </div>
+                          ))
+                        ) : (
+                          <span className="text-[11px] text-muted-foreground/50">—</span>
+                        )}
                       </div>
                     );
                   })}

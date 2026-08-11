@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Database, Scale } from "lucide-react";
+import { Database, Mail, Scale } from "lucide-react";
 import { heatWeights } from "@/lib/heat-index";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const CONTACT_EMAIL = "saltgardenia@gmail.com";
 
 export const metadata: Metadata = {
   title: "关于",
@@ -66,6 +69,25 @@ export default function MethodologyPage() {
               <div className="text-xs text-muted-foreground">{s.desc}</div>
             </div>
           ))}
+        </CardContent>
+      </Card>
+
+      <Card className="mt-6">
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            <Mail className="size-4" /> 勘误与联系
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 text-sm text-muted-foreground">
+          <p>如发现数据、分类或引用上的错误，欢迎反馈以便及时勘误。</p>
+          <Button
+            render={<a href={`mailto:${CONTACT_EMAIL}`} />}
+            variant="outline"
+            className="gap-2"
+          >
+            <Mail className="size-4" />
+            {CONTACT_EMAIL}
+          </Button>
         </CardContent>
       </Card>
 

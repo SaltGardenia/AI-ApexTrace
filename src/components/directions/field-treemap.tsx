@@ -45,6 +45,43 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
 
 type HoverState = { label: string; size: number; path: string[]; color: string; x: number; y: number };
 
+function isLatin(text: string): boolean {
+  return !/[\u4e00-\u9fff]/.test(text);
+}
+
+// 自动换行：英文按词换行（绝不切断单词），中文按字换行；放不下的部分交由
+// clipPath 自然裁切，不做省略号截断。
+function wrapLabel(text: string, maxChars: number, maxLines: number): string[] {
+  if (maxChars <= 0 || maxLines <= 0) return [];
+  const lines: string[] = [];
+  if (isLatin(text)) {
+    const words = text.split(/\s+/).filter(Boolean);
+    let cur = "";
+    for (const w of words) {
+      if (lines.length >= maxLines) break;
+      const cand = cur ? cur + " " + w : w;
+      if (cand.length <= maxChars) {
+        cur = cand;
+      } else {
+        if (cur) {
+          lines.push(cur);
+          cur = "";
+        }
+        if (lines.length >= maxLines) break;
+        cur = w; // 单词整体保留，超出部分由矩形裁切，不切断单词
+      }
+    }
+    if (cur && lines.length < maxLines) lines.push(cur);
+  } else {
+    let i = 0;
+    while (i < text.length && lines.length < maxLines) {
+      lines.push(text.slice(i, i + maxChars));
+      i += maxChars;
+    }
+  }
+  return lines;
+}
+
 // recharts clones `content` with `nodeProps`, so our data fields (label,
 // catColor, size, path) arrive as direct props (no `payload` wrapper).
 function Content(props: any) {
@@ -53,17 +90,16 @@ function Content(props: any) {
   const color = catColor ?? "#9a8fd0";
   const text = label ?? "";
   const clipId = `tm-clip-${index}`;
-  const fontSize = width < 70 ? 9 : 11;
+  const fontSize = width < 70 ? 10 : 12;
   const charW = fontSize * 0.92;
   const maxChars = Math.floor((width - 8) / charW);
   // 仅给足够大的格子标注，避免小格文字拥挤、笔画粘连
-  const showText = width > 46 && height > 20 && maxChars >= 2;
-  // 一律单行横排：放得下则完整显示，放不下则省略号截断，避免竖排换行
-  let lines: string[] = [];
-  if (showText) {
-    lines = text.length <= maxChars ? [text] : [text.slice(0, Math.max(1, maxChars - 1)) + "…"];
-  }
+  const showText = width > 34 && height > 18 && maxChars >= 2;
+  // 自动换行：放得下则完整显示，放不下按词（英文）或按字（中文）换行，
+  // 超出矩形高度的部分由 clipPath 自然裁切，不做省略号截断、不切断单词。
   const lineH = fontSize * 1.25;
+  const maxLines = Math.max(1, Math.min(6, Math.floor((height - 6) / lineH)));
+  const lines = showText ? wrapLabel(text, maxChars, maxLines) : [];
   const tx = x + 5;
   const ty = y + fontSize + 3;
 
@@ -92,9 +128,9 @@ function Content(props: any) {
           fill="#fff"
           fillOpacity={1}
           fontSize={fontSize}
-          fontWeight={500}
+          fontWeight={200}
           style={{
-            fontWeight: 500,
+            fontWeight: 200,
             fontFamily: CJK_FONT,
           }}
           clipPath={`url(#${clipId})`}

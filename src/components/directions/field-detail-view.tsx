@@ -7,7 +7,7 @@ import { deriveRadar } from "@/lib/radar";
 import Link from "next/link";
 import { ArrowUpRight, Building2, Layers, Flag, Database, ChevronRight } from "lucide-react";
 import type { FieldNode, Venue, RadarMetricKey } from "@/lib/types";
-import { pathToNode, nodePapers, topLevelId, findNode } from "@/lib/field-tree-utils";
+import { pathToNode, nodePapers, topLevelId, findNode, fieldRadarMax } from "@/lib/field-tree-utils";
 import { colorById } from "@/lib/chart-palette";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CcfBadge } from "@/components/shared/ccf-badge";
@@ -24,7 +24,7 @@ import type { DictKey } from "@/lib/i18n/translations";
 
 // 由真实指标派生综合热度指数（0–100，五维加权，避免手写假值）
 function deriveHeatIndex(node: any): number {
-  const radar = deriveRadar(node);
+  const radar = deriveRadar(node, fieldRadarMax);
   const w: Record<string, number> = { output: 0.3, impact: 0.25, growth: 0.2, ecosystem: 0.15, fusion: 0.1 };
   const sum = radar.reduce((s, r) => s + r.value * (w[r.metric] ?? 0), 0);
   return Math.round(sum);
@@ -195,7 +195,7 @@ export function FieldDetailView({
           direction={{
             color,
             radar: node.yearly?.length || node.avgCitations != null || node.growth != null
-              ? deriveRadar(node)
+              ? deriveRadar(node, fieldRadarMax)
               : [],
             yearly: node.yearly ?? [],
           }}

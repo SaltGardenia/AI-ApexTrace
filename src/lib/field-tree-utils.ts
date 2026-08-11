@@ -1,9 +1,13 @@
 import type { FieldNode } from "@/lib/types";
 import { fieldTree } from "@/lib/data/field-tree";
 import { allFieldStats, getFieldStat } from "@/lib/data/generated/FieldStats";
-import { allFieldMetrics, getFieldMetric } from "@/lib/data/generated/FieldMetrics";
 
-// 构建 enriched 树：把管线生成的真实统计（多源交叉）合并进每个末级节点的 papers 字段。
+// 构建 enriched 树：把管线生成的真实统计作为「来源佐证」合并进末级节点，
+// 但【不覆盖】领域树自带的、彼此自洽的展示指标（papers/avgCitations/growth/...）。
+// 原因：管线 OpenAlex 抓取量纲与领域树人工校准量纲不一致（同一子领域论文数
+// 可达 27 万、且出现 0 值；topCitedRatio 多个为 1 的明显异常），直接覆盖会把
+// 雷达/热度顶满或压成 0，并出现「子领域论文数 > 父方向」的矛盾。故展示仍用
+// 自洽的领域树数值，管线数据仅保留为 provenance（paperCount/confidence/...）。
 function buildEnrichedTree(): FieldNode[] {
   const statsMap = new Map(allFieldStats().map((s) => [s.id, s]));
   const clone = structuredClone(fieldTree);
@@ -11,24 +15,12 @@ function buildEnrichedTree(): FieldNode[] {
     for (const n of nodes) {
       const stat = statsMap.get(n.id);
       if (stat && (!n.children || n.children.length === 0)) {
-        n.papers = stat.paperCount;
         n.paperCount = stat.paperCount;
         n.paperCountNormalized = stat.paperCountNormalized;
         n.confidence = stat.confidence;
         n.corroborated = stat.corroborated;
         n.statSources = stat.sources;
-        // 真实指标（OpenAlex 抓取）：年份/来源/引用/开放率/增长
-        const m = getFieldMetric(n.id);
-        if (m) {
-          n.yearly = m.yearly;
-          n.topVenues = m.topVenues;            // 真实来源全称
-          n.topInstitutions = m.topInstitutions; // 真实机构 + 论文数
-          n.avgCitations = m.avgCitations;
-          n.topCitedRatio = m.topCitedRatio;
-          n.openRate = m.openRate;
-          n.growth = m.growth;
-          n.realMetrics = true;
-        }
+        n.realMetrics = true;
       }
       if (n.children) walk(n.children);
     }
@@ -101,6 +93,21 @@ export function flattenTree(): FlatNode[] {
 }
 
 export const allFieldNodes = enrichedFieldTree;
+
+// 末级子领域数据集自身的归一基准（用自洽的领域树数值），供雷达/热度在
+// 领域详情页按「子领域之间」相对归一，避免被方向级常量(15200/61)压扁。
+export const fieldRadarMax: { papers: number; citations: number } = (() => {
+  let mp = 1;
+  let mc = 1;
+  for (const f of flattenTree()) {
+    if (!f.leaf) continue;
+    const p = f.node.papers ?? 0;
+    const c = f.node.avgCitations ?? 0;
+    if (p > mp) mp = p;
+    if (c > mc) mc = c;
+  }
+  return { papers: mp, citations: mc };
+})();
 
 // The top-level category id of a node (first element of its path).
 export function topLevelId(id: string): string {

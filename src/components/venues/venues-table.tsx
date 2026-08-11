@@ -23,6 +23,13 @@ const JCR_CLS: Record<"Q1" | "Q2" | "Q3" | "Q4", string> = {
   Q4: "bg-[#d08a8a]/15 text-[#c2766f]",
 };
 
+const CCF_DOT: Record<"A" | "B" | "C" | "none", string> = {
+  A: "#f43f5e",
+  B: "#f59e0b",
+  C: "#0ea5e9",
+  none: "#94a3b8",
+};
+
 const CAS_DOT: Record<1 | 2 | 3 | 4, string> = {
   1: "#7c9cf0",
   2: "#5ac9a6",
@@ -128,7 +135,11 @@ export function VenuesTable({
                 <HeaderFilter
                   label={t("th_tier")}
                   active={level !== "all"}
-                  options={LEVELS.map((l) => ({ value: l, label: levelLabel(l) }))}
+                  options={LEVELS.map((l) => ({
+                    value: l,
+                    label: levelLabel(l),
+                    dot: l === "all" ? undefined : CCF_DOT[l as "A" | "B" | "C" | "none"],
+                  }))}
                   selected={level}
                   onSelect={(v) => setLevel(v as LevelKey)}
                 />

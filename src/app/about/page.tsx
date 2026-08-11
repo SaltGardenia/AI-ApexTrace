@@ -82,6 +82,7 @@ export default function MethodologyPage() {
           <p>如发现数据、分类或引用上的错误，欢迎反馈以便及时勘误。</p>
           <Button
             render={<a href={`mailto:${CONTACT_EMAIL}`} />}
+            nativeButton={false}
             variant="outline"
             className="gap-2"
           >

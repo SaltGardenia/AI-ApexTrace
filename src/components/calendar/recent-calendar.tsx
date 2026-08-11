@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CalendarDays } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -56,7 +57,7 @@ export function RecentCalendar() {
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: i * 0.03 }}
-          className="relative flex items-center gap-3 rounded-lg border border-border/60 bg-card/50 p-3"
+          className="group relative flex items-center gap-3 rounded-lg border border-border/60 bg-card/50 p-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
         >
           <span
             className={cn(
@@ -64,16 +65,18 @@ export function RecentCalendar() {
               e.kind === "conference" ? "bg-[#6bb39a]" : "bg-primary",
             )}
           />
-          <CalendarDays className="size-4 shrink-0 text-muted-foreground" />
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 text-sm">
-              <span className={cn("rounded border px-1.5 py-0.5 text-[10px]", kindStyle[e.kind])}>
-                {t(kindLabel[e.kind])}
-              </span>
-              <span className="truncate font-medium">{e.venue.name} {e.venue.deadline?.year}</span>
+          <Link href={`/venues/${e.venue.id}`} className="flex flex-1 items-center gap-3">
+            <CalendarDays className="size-4 shrink-0 text-muted-foreground" />
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 text-sm">
+                <span className={cn("rounded border px-1.5 py-0.5 text-[10px]", kindStyle[e.kind])}>
+                  {t(kindLabel[e.kind])}
+                </span>
+                <span className="truncate font-medium">{e.venue.name} {e.venue.deadline?.year}</span>
+              </div>
+              <div className="mt-0.5 text-xs tabular-nums text-muted-foreground">{fmt(e.date)}</div>
             </div>
-            <div className="mt-0.5 text-xs tabular-nums text-muted-foreground">{fmt(e.date)}</div>
-          </div>
+          </Link>
         </motion.div>
       ))}
     </div>

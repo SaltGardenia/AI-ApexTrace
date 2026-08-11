@@ -1,41 +1,51 @@
 "use client";
 
 import * as React from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { FieldTreeNav } from "@/components/directions/field-tree-nav";
 import { FieldDetailView } from "@/components/directions/field-detail-view";
-import { findNode, allFieldNodes, flattenTree } from "@/lib/field-tree-utils";
+import { FieldTreemap } from "@/components/directions/field-treemap";
+import { findNode } from "@/lib/field-tree-utils";
 
-const FIRST_LEAF = flattenTree().find((n) => n.leaf)?.node.id ?? allFieldNodes[0]?.id ?? "";
-
-export function DirectionsBrowser({ initialId }: { initialId?: string }) {
+export function DirectionsBrowser() {
   const { t } = useI18n();
-  const [selectedId, setSelectedId] = React.useState<string>(initialId || FIRST_LEAF);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const handleSelect = React.useCallback((id: string) => {
-    setSelectedId(id || FIRST_LEAF);
-  }, []);
+  // URL is the single source of truth: /directions -> treemap, /directions/{id} -> detail.
+  const match = pathname?.match(/^\/directions\/(.+)$/);
+  const selectedId = match ? match[1] : "";
+  const node = selectedId ? findNode(selectedId) : undefined;
+  const showDetail = !!node;
 
-  // Keep the URL in sync for deep-linking / refresh, without full navigation.
-  React.useEffect(() => {
-    if (!selectedId) return;
-    window.history.replaceState(null, "", `/directions/${selectedId}`);
-  }, [selectedId]);
-
-  const node = findNode(selectedId) ?? allFieldNodes[0];
+  const goTo = React.useCallback(
+    (id: string) => {
+      router.push(id ? `/directions/${id}` : "/directions");
+    },
+    [router],
+  );
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
         <aside className="lg:sticky lg:top-20 lg:h-[calc(100vh-6rem)] lg:overflow-y-auto">
-          <FieldTreeNav activeId={selectedId} onSelect={handleSelect} />
+          <FieldTreeNav activeId={selectedId} onSelect={goTo} />
         </aside>
 
         <div className="min-w-0">
-          {node ? (
-            <FieldDetailView node={node} onSelect={handleSelect} />
+          {showDetail && node ? (
+            <FieldDetailView node={node} onSelect={goTo} />
           ) : (
-            <p className="text-sm text-muted-foreground">{t("dir_select_hint")}</p>
+            <div>
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-semibold tracking-tight">{t("field_treemap_title")}</h2>
+                  <p className="mt-1 text-sm text-muted-foreground">{t("field_treemap_sub")}</p>
+                </div>
+              </div>
+              <FieldTreemap onLeafClick={goTo} />
+            </div>
           )}
         </div>
       </div>

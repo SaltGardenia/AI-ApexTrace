@@ -1,4 +1,4 @@
-# ApexTrace · AI Research Landscape Index
+# AI-ApexTrace · AI Research Landscape Index
 
 > An open, explainable map of the AI academic landscape — research-direction heat, venue profiles, and submission timelines across CCF A/B/C venues, indexed and comparable at a glance.
 
@@ -9,10 +9,10 @@
 [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)](https://tailwindcss.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SaltGardenia/ApexTrace/blob/main/CONTRIBUTING.md)
-[![Stars](https://img.shields.io/github/stars/SaltGardenia/ApexTrace?style=social)](https://github.com/SaltGardenia/ApexTrace)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SaltGardenia/AI-ApexTrace/blob/main/CONTRIBUTING.md)
+[![Stars](https://img.shields.io/github/stars/SaltGardenia/AI-ApexTrace?style=social)](https://github.com/SaltGardenia/AI-ApexTrace)
 
-ApexTrace turns the firehose of AI publications into a **calm, comparative dashboard**. Instead of listing individual papers, it aggregates CCF A/B/C venues (plus widely-recognized industry conferences) into an **AI Research Heat Index** — so you can see *which directions are heating up, which venues matter, and when to submit*.
+AI-ApexTrace turns the firehose of AI publications into a **calm, comparative dashboard**. Instead of listing individual papers, it aggregates CCF A/B/C venues (plus widely-recognized industry conferences) into an **AI Research Heat Index** — so you can see *which directions are heating up, which venues matter, and when to submit*.
 
 ---
 
@@ -30,7 +30,7 @@ ApexTrace turns the firehose of AI publications into a **calm, comparative dashb
 
 ## 🖼 Preview
 
-![ApexTrace hero](https://github.com/SaltGardenia/ApexTrace/raw/main/public/preview-hero.png)
+![AI-ApexTrace hero](https://github.com/SaltGardenia/AI-ApexTrace/raw/main/public/preview-hero.png)
 > _Tip: drop a `public/preview-hero.png` screenshot here to show the live dashboard._
 
 ---
@@ -100,12 +100,12 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 ## 🚀 Deploy
 
-ApexTrace is a static-friendly Next.js (App Router) app. Pick one:
+AI-ApexTrace is a static-friendly Next.js (App Router) app. Pick one:
 
 ### Option A — Vercel (recommended)
 
 1. Push this repo to GitHub.
-2. Go to [vercel.com](https://vercel.com) → **Add New → Project** → import `SaltGardenia/ApexTrace`.
+2. Go to [vercel.com](https://vercel.com) → **Add New → Project** → import `SaltGardenia/AI-ApexTrace`.
 3. Framework preset is auto-detected as **Next.js**. Build command `npm run build`, output is handled automatically.
 4. Click **Deploy**. Every push to `main` re-deploys via preview/production.
 
@@ -123,7 +123,7 @@ ApexTrace is a static-friendly Next.js (App Router) app. Pick one:
    npm run build   # emits ./out
    ```
 3. In **Settings → Pages**, set Source to **GitHub Actions** and add a workflow (`.github/workflows/deploy.yml`) that checks out, runs `npm ci && npm run build`, and publishes `./out` to `gh-pages`.
-4. After the workflow runs, the site is live at `https://SaltGardenia.github.io/ApexTrace`.
+4. After the workflow runs, the site is live at `https://SaltGardenia.github.io/AI-ApexTrace`.
 
 > Note: `output: "export"` disables server features (none are used here), so the full app works as a static site.
 
@@ -131,4 +131,4 @@ ApexTrace is a static-friendly Next.js (App Router) app. Pick one:
 
 ## 📄 License
 
-[MIT](LICENSE) © ApexTrace contributors.
+[MIT](LICENSE) © AI-ApexTrace contributors.

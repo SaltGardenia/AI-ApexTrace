@@ -38,19 +38,12 @@ export default function HomePage() {
 
         <div className="min-w-0 space-y-20">
           <section id="trend" className="scroll-mt-24">
-            <SectionHeader title={t("trend_title")} desc={t("trend_sub")} />
             <div className="mt-6">
               <DirectionTrend />
             </div>
           </section>
 
           <section id="directions" className="scroll-mt-24">
-            <SectionHeader
-              title={t("page_directions")}
-              desc={t("page_directions_desc")}
-              href="/directions"
-              hrefLabel={t("home_view_all")}
-            />
             <div className="mt-6 space-y-6">
               <div id="ranking" className="scroll-mt-24">
                 <TopDirections />
@@ -58,7 +51,6 @@ export default function HomePage() {
               <DirectionsExplorer />
             </div>
             <div className="mt-8">
-              <SectionHeader title={t("compare_title")} desc={t("compare_desc")} />
               <div className="mt-4">
                 <CompareExplorer />
               </div>
@@ -95,14 +87,17 @@ function SectionHeader({
 }) {
   return (
     <div className="flex items-end justify-between gap-4 border-b border-border/60 pb-3">
-      <div>
-        <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
-        <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+      <div className="flex items-start gap-3">
+        <span className="mt-1 hidden h-7 w-1 shrink-0 rounded-full bg-primary/70 sm:block" />
+        <div>
+          <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+        </div>
       </div>
       {href && hrefLabel && (
         <Link
           href={href}
-          className="shrink-0 text-sm text-primary transition-colors hover:underline"
+          className="inline-flex shrink-0 items-center gap-1 text-sm text-primary transition-colors hover:gap-2 hover:underline"
         >
           {hrefLabel} →
         </Link>

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
@@ -41,12 +41,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="grid size-7 place-items-center rounded-md bg-primary/15 text-primary ring-1 ring-primary/30">
-            <Sparkles className="size-4" />
-          </span>
+        <Link
+          href="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2 font-semibold tracking-tight"
+        >
           <span className="text-[15px]">
-            Apex<span className="text-primary">Trace</span>
+            AI-<span className="text-primary">ApexTrace</span>
           </span>
         </Link>
 
@@ -71,13 +72,22 @@ export function SiteHeader() {
             <LanguageToggle />
             <ThemeToggle />
             <a
-              href="https://github.com/SaltGardenia/ApexTrace"
+              href="https://github.com/SaltGardenia/AI-ApexTrace"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub 仓库"
               className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
             >
               <GithubIcon className="size-4" />
+            </a>
+            <a
+              href="mailto:saltgardenia@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="联系邮箱"
+              className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
+            >
+              <Mail className="size-4" />
             </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <Button
@@ -108,7 +118,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <a
-                  href="https://github.com/SaltGardenia/ApexTrace"
+                  href="https://github.com/SaltGardenia/AI-ApexTrace"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setOpen(false)}
@@ -116,6 +126,16 @@ export function SiteHeader() {
                 >
                   <GithubIcon className="size-4" />
                   GitHub
+                </a>
+                <a
+                  href="mailto:saltgardenia@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 px-4 py-2.5 text-sm text-muted-foreground hover:bg-muted/60"
+                >
+                  <Mail className="size-4" />
+                  邮箱
                 </a>
               </nav>
             </SheetContent>

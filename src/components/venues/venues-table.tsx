@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowUp, Check, ChevronDown, ListFilter } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { ArrowDown, ArrowUp, Check, ChevronDown } from "lucide-react";
 import { venues } from "@/lib/data/venues";
 import { CcfBadge } from "@/components/shared/ccf-badge";
 import { cn } from "@/lib/utils";
@@ -24,6 +23,27 @@ const JCR_CLS: Record<"Q1" | "Q2" | "Q3" | "Q4", string> = {
   Q4: "bg-[#d08a8a]/15 text-[#c2766f]",
 };
 
+const CAS_DOT: Record<1 | 2 | 3 | 4, string> = {
+  1: "#7c9cf0",
+  2: "#5ac9a6",
+  3: "#e0b257",
+  4: "#d98a8a",
+};
+
+const CAS_CLS: Record<1 | 2 | 3 | 4, string> = {
+  1: "bg-[#7c9cf0]/15 text-[#6f8ce0] border border-[#7c9cf0]/30",
+  2: "bg-[#5ac9a6]/15 text-[#4fae90] border border-[#5ac9a6]/30",
+  3: "bg-[#e0b257]/15 text-[#c79a45] border border-[#e0b257]/30",
+  4: "bg-[#d98a8a]/15 text-[#c2766f] border border-[#d98a8a]/30",
+};
+
+const JCR_DOT: Record<"Q1" | "Q2" | "Q3" | "Q4", string> = {
+  Q1: "#6bb39a",
+  Q2: "#5aa9c9",
+  Q3: "#c9a95a",
+  Q4: "#d08a8a",
+};
+
 const LEVELS: LevelKey[] = ["all", "A", "B", "C", "none"];
 const levelLabel = (l: LevelKey) =>
   l === "all" ? t_global("th_filter_all") : l === "none" ? "非 CCF" : `CCF-${l}`;
@@ -41,12 +61,18 @@ const ccfRank = (v: { ccf: CCFLevel }) =>
 
 export function VenuesTable({
   type = "conference",
+  q,
+  onQChange,
 }: {
   type?: "conference" | "journal";
+  q?: string;
+  onQChange?: (v: string) => void;
 }) {
   const { pick, t } = useI18n();
   _t = t;
-  const [q, setQ] = React.useState("");
+  const [innerQ, setInnerQ] = React.useState("");
+  const query = q ?? innerQ;
+  const setQuery = onQChange ?? setInnerQ;
   const [level, setLevel] = React.useState<LevelKey>("all");
   const [cas, setCas] = React.useState<CasKey>("all");
   const [jcr, setJcr] = React.useState<JcrKey>("all");
@@ -68,9 +94,9 @@ export function VenuesTable({
       const okCas = cas === "all" || v.cas === cas;
       const okJcr = jcr === "all" || v.jcr === jcr;
       const okQ =
-        !q ||
-        v.name.toLowerCase().includes(q.toLowerCase()) ||
-        v.fullName.toLowerCase().includes(q.toLowerCase());
+        !query ||
+        v.name.toLowerCase().includes(query.toLowerCase()) ||
+        v.fullName.toLowerCase().includes(query.toLowerCase());
       return okType && okLevel && okCas && okJcr && okQ;
     })
     .sort((a, b) => {
@@ -92,24 +118,11 @@ export function VenuesTable({
 
   return (
     <div>
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        <div className="relative ml-auto w-full max-w-xs">
-          <Input
-            placeholder={t("venue_search")}
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            className="pl-8"
-          />
-          <ListFilter className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
-        </div>
-      </div>
-
       <div className="overflow-x-auto rounded-xl border border-border/60">
         <table className="w-full min-w-[920px] text-sm">
           <thead className="bg-muted/40 text-left text-xs text-muted-foreground">
             <tr>
               <th className="px-4 py-2.5 font-medium">{t("th_abbr")}</th>
-              <th className="px-4 py-2.5 font-medium">{t("th_full")}</th>
               <th className="px-4 py-2.5 font-medium">{t("th_field")}</th>
               <th className="px-4 py-2.5 font-medium">
                 <HeaderFilter
@@ -118,9 +131,6 @@ export function VenuesTable({
                   options={LEVELS.map((l) => ({ value: l, label: levelLabel(l) }))}
                   selected={level}
                   onSelect={(v) => setLevel(v as LevelKey)}
-                  sortable
-                  sortDir={sort === "ccf" ? dir : null}
-                  onSort={() => toggleSort("ccf")}
                 />
               </th>
               <th className="px-4 py-2.5 text-center font-medium">
@@ -131,6 +141,7 @@ export function VenuesTable({
                   options={CAS_OPTS.map((c) => ({
                     value: c,
                     label: c === "all" ? t("th_filter_all") : `CAS ${c}`,
+                    dot: c === "all" ? undefined : CAS_DOT[c as 1 | 2 | 3 | 4],
                   }))}
                   selected={cas}
                   onSelect={(v) => setCas(v as CasKey)}
@@ -144,6 +155,7 @@ export function VenuesTable({
                   options={JCR_OPTS.map((j) => ({
                     value: j,
                     label: j === "all" ? t("th_filter_all") : (j ?? ""),
+                    dot: j === "all" ? undefined : JCR_DOT[j as "Q1" | "Q2" | "Q3" | "Q4"],
                   }))}
                   selected={jcr}
                   onSelect={(v) => setJcr(v as JcrKey)}
@@ -168,14 +180,13 @@ export function VenuesTable({
                     {v.name}
                   </Link>
                 </td>
-                <td className="max-w-[260px] truncate px-4 py-2.5 text-muted-foreground">{v.fullName}</td>
                 <td className="px-4 py-2.5 text-muted-foreground">{pick(v.field)}</td>
                 <td className="px-4 py-2.5"><CcfBadge venue={v} /></td>
                 <td className="px-4 py-2.5 text-center tabular-nums">
                   {v.cas ? (
-                    <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs font-medium text-primary">CAS {v.cas}</span>
+                    <span className={cn("rounded px-1.5 py-0.5 text-xs font-medium", CAS_CLS[v.cas])}>CAS {v.cas}</span>
                   ) : (
-                    <span className="text-muted-foreground/50">—</span>
+                    <span className="text-xs text-muted-foreground/50">—</span>
                   )}
                 </td>
                 <td className="px-4 py-2.5 text-center">
@@ -243,7 +254,7 @@ function HeaderFilter({
   onSort,
 }: {
   label: string;
-  options: { value: string | number | null; label: string }[];
+  options: { value: string | number | null; label: string; dot?: string }[];
   selected: string | number | null;
   onSelect: (v: string | number | null) => void;
   active: boolean;
@@ -308,14 +319,18 @@ function HeaderFilter({
                 }}
                 className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs transition-colors hover:bg-muted/60"
               >
-                <span
-                  className={cn(
-                    "grid size-3.5 place-items-center rounded border",
-                    on ? "border-primary bg-primary text-primary-foreground" : "border-border",
-                  )}
-                >
-                  {on && <Check className="size-2.5" />}
-                </span>
+                {o.dot ? (
+                  <span className="size-3.5 shrink-0 rounded-sm" style={{ background: o.dot }} />
+                ) : (
+                  <span
+                    className={cn(
+                      "grid size-3.5 place-items-center rounded border",
+                      on ? "border-primary bg-primary text-primary-foreground" : "border-border",
+                    )}
+                  >
+                    {on && <Check className="size-2.5" />}
+                  </span>
+                )}
                 <span className={cn(on ? "font-medium text-foreground" : "text-muted-foreground")}>{o.label}</span>
               </button>
             );

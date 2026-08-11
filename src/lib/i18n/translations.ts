@@ -144,6 +144,11 @@ export const dict = {
     zh: "每个色块为一个最小子领域，面积 = 其论文数量，颜色为所属一级领域",
     en: "Each block is a smallest sub-field; area = paper count, color = its top-level category",
   },
+  field_treemap_title: { zh: "领域分布总览", en: "Field Overview" },
+  field_treemap_sub: {
+    zh: "点击任意色块进入该最小子领域的详情",
+    en: "Click any block to open that sub-field's detail",
+  },
   lvl_one: { zh: "一级领域", en: "L1 Category" },
   lvl_two: { zh: "二级领域", en: "L2 Field" },
   lvl_three: { zh: "三级子领域", en: "L3 Sub-field" },
@@ -308,8 +313,8 @@ export const dict = {
     en: "The venue whitelist (authoritative source: LIST.md) covers CCF 2022 AI A/B/C tiers and extends to widely-recognized industry venues such as ICLR / CoRL / MLSys / WACV, plus adjacent fields researchers frequently submit to — databases, graphics & multimedia, security, systems, HCI. Every venue carries a CCF tier, field tag and structured submission/deadline/conference fields.",
   },
   footer: {
-    zh: "ApexTrace · AI Research Landscape Index · 数据以 DBLP / OpenAlex / Semantic Scholar / ccfddl 为口径（示例数据为结构化演示）",
-    en: "ApexTrace · AI Research Landscape Index · Data per DBLP / OpenAlex / Semantic Scholar / ccfddl (sample data is structured demo)",
+    zh: "© 2026 AI-ApexTrace. 保留所有权利。",
+    en: "© 2026 AI-ApexTrace. All rights reserved.",
   },
 } satisfies Record<string, Bilingual>;
 

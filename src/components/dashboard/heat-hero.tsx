@@ -1,17 +1,11 @@
 "use client";
 
 import * as React from "react";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowUpRight, CalendarClock, Layers, TrendingUp } from "lucide-react";
 import { directions } from "@/lib/data/directions";
 import { venues } from "@/lib/data/venues";
 import { useI18n } from "@/lib/i18n";
-
-const ResearchGlobe = dynamic(() => import("@/components/three/research-globe"), {
-  ssr: false,
-  loading: () => <div className="size-full" />,
-});
 
 function useCountUp(target: number, duration = 1200) {
   const [value, setValue] = React.useState(0);
@@ -48,13 +42,13 @@ export function HeatHero() {
   return (
     <section className="relative overflow-hidden border-b border-border/60">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_70%_0%,theme(colors.primary/10%),transparent)]" />
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-16">
+      <div className="mx-auto grid max-w-3xl justify-items-center gap-8 px-4 py-16 text-center sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="flex flex-col items-center"
         >
-          <p className="text-sm font-medium text-primary">AI Research Landscape Index · v2026.Q2</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             {t("hero_title")}
           </h1>
@@ -66,20 +60,20 @@ export function HeatHero() {
             <div className="bg-gradient-to-br from-primary to-primary/60 bg-clip-text text-6xl font-bold tabular-nums tracking-tight text-transparent">
               {globe.toFixed(1)}
             </div>
-            <div className="pb-2 text-sm text-muted-foreground">
+            <div className="pb-2 text-left text-sm text-muted-foreground">
               <div>{t("composite_index")}</div>
               <div className="text-[#6bb39a]">▲ 12.6% YoY</div>
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-3">
+          <div className="mt-8 grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
             {tiles.map((tile, i) => (
               <motion.div
                 key={tile.label}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + i * 0.08 }}
-                className="rounded-xl border border-border/60 bg-card/50 p-4 transition-colors hover:border-primary/40 hover:bg-card/80"
+                className="rounded-xl border border-border/60 bg-card/50 p-4 text-left transition-colors hover:border-primary/40 hover:bg-card/80"
               >
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <tile.icon className="size-4" />
@@ -90,16 +84,6 @@ export function HeatHero() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="relative h-[320px] md:h-[420px]"
-        >
-          <ResearchGlobe />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
         </motion.div>
       </div>
     </section>

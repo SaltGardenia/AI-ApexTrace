@@ -1,4 +1,4 @@
-# ApexTrace · AI 研究版图指数
+# AI-ApexTrace · AI 研究版图指数
 
 > 一个开放、可解释的 AI 学术版图工具——以指数化、对比化、全景化的视角，呈现 CCF A/B/C 类顶会顶刊的研究方向热度、会议画像与投稿时间线。
 
@@ -9,10 +9,10 @@
 [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)](https://tailwindcss.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SaltGardenia/ApexTrace/blob/main/CONTRIBUTING.md)
-[![Stars](https://img.shields.io/github/stars/SaltGardenia/ApexTrace?style=social)](https://github.com/SaltGardenia/ApexTrace)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SaltGardenia/AI-ApexTrace/blob/main/CONTRIBUTING.md)
+[![Stars](https://img.shields.io/github/stars/SaltGardenia/AI-ApexTrace?style=social)](https://github.com/SaltGardenia/AI-ApexTrace)
 
-ApexTrace 把海量 AI 论文整理成一个**冷静、可对比的仪表盘**。它不堆砌单篇论文，而是把 CCF A/B/C 类（及业界公认顶会）聚合为 **AI 研究热度指数**——让你一眼看清*哪些方向在升温、哪些会议值得投、何时截稿*。
+AI-ApexTrace 把海量 AI 论文整理成一个**冷静、可对比的仪表盘**。它不堆砌单篇论文，而是把 CCF A/B/C 类（及业界公认顶会）聚合为 **AI 研究热度指数**——让你一眼看清*哪些方向在升温、哪些会议值得投、何时截稿*。
 
 ---
 
@@ -30,7 +30,7 @@ ApexTrace 把海量 AI 论文整理成一个**冷静、可对比的仪表盘**�
 
 ## 🖼 预览
 
-![ApexTrace 首页](https://github.com/SaltGardenia/ApexTrace/raw/main/public/preview-hero.png)
+![AI-ApexTrace 首页](https://github.com/SaltGardenia/AI-ApexTrace/raw/main/public/preview-hero.png)
 > _提示：在此处放入 `public/preview-hero.png` 截图即可展示实时仪表盘。_
 
 ---
@@ -100,12 +100,12 @@ npm run start
 
 ## 🚀 部署
 
-ApexTrace 是一个对静态化友好的 Next.js（App Router）应用，任选其一：
+AI-ApexTrace 是一个对静态化友好的 Next.js（App Router）应用，任选其一：
 
 ### 方式 A — Vercel（推荐）
 
 1. 把本仓库推送到 GitHub。
-2. 打开 [vercel.com](https://vercel.com) → **Add New → Project** → 导入 `SaltGardenia/ApexTrace`。
+2. 打开 [vercel.com](https://vercel.com) → **Add New → Project** → 导入 `SaltGardenia/AI-ApexTrace`。
 3. 框架会自动识别为 **Next.js**，构建命令 `npm run build`，输出由平台自动处理。
 4. 点击 **Deploy**。每次向 `main` 推送都会自动重新部署（预览/生产）。
 
@@ -123,7 +123,7 @@ ApexTrace 是一个对静态化友好的 Next.js（App Router）应用，任选�
    npm run build   # 产物输出到 ./out
    ```
 3. 在仓库 **Settings → Pages** 中，将 Source 设为 **GitHub Actions**，并添加工作流文件（`.github/workflows/deploy.yml`）：检出代码 → `npm ci && npm run build` → 将 `./out` 发布到 `gh-pages` 分支。
-4. 工作流运行后，站点地址为 `https://SaltGardenia.github.io/ApexTrace`。
+4. 工作流运行后，站点地址为 `https://SaltGardenia.github.io/AI-ApexTrace`。
 
 > 说明：开启 `output: "export"` 会禁用服务端特性（本项目未使用），因此整站可作为纯静态站点运行。
 
@@ -131,4 +131,4 @@ ApexTrace 是一个对静态化友好的 Next.js（App Router）应用，任选�
 
 ## 📄 许可证
 
-[MIT](LICENSE) © ApexTrace 贡献者。
+[MIT](LICENSE) © AI-ApexTrace 贡献者。

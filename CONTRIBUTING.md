@@ -1,6 +1,6 @@
-# Contributing to ApexTrace
+# Contributing to AI-ApexTrace
 
-Thanks for your interest in improving ApexTrace! This guide covers the basics.
+Thanks for your interest in improving AI-ApexTrace! This guide covers the basics.
 
 ## Development setup
 

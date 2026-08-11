@@ -1,6 +1,6 @@
 # Project Agents & Skills Index
 
-This file registers the specialist capabilities available to the ApexTrace project
+This file registers the specialist capabilities available to the AI-ApexTrace project
 (an AI research-landscape analytics dashboard — see `PLAN.md` / `LIST.md`).
 All 15 capabilities below are installed both as **skills** (`.kilo/skills/<id>/SKILL.md`,
 invokable via the `skill` tool) and as **agents** (`.kilo/agents/<id>.md`, invokable

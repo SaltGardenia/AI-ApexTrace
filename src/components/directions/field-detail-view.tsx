@@ -148,11 +148,19 @@ export function FieldDetailView({
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       {onSelect ? (
-        <button onClick={() => goTo("")} className="text-sm text-muted-foreground hover:text-foreground">
+        <button
+          onClick={() => goTo("")}
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ChevronRight className="size-3.5 -rotate-180" />
           {t("back_directions")}
         </button>
       ) : (
-        <Link href="/directions" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          href="/directions"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ChevronRight className="size-3.5 -rotate-180" />
           {t("back_directions")}
         </Link>
       )}
@@ -167,8 +175,8 @@ export function FieldDetailView({
         <span className="font-medium text-foreground">{pick(node.name)}</span>
       </nav>
 
-      <div className="mt-3 flex items-center gap-3">
-        <span className="size-4 rounded-full" style={{ background: color }} />
+      <div className="mt-3 flex items-center gap-3 rounded-2xl border border-border/50 bg-muted/30 px-4 py-3">
+        <span className="size-4 rounded-full shadow-sm ring-2 ring-background" style={{ background: color }} />
         <h1 className="text-2xl font-semibold tracking-tight">{pick(node.name)}</h1>
       </div>
       <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
@@ -177,7 +185,10 @@ export function FieldDetailView({
 
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {STAT_KEYS.map((s) => (
-          <div key={s.key} className="rounded-xl border border-border/60 bg-card/50 p-3">
+          <div
+            key={s.key}
+            className="group rounded-xl border border-border/60 bg-gradient-to-b from-card to-card/40 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm"
+          >
             <div className="text-[11px] text-muted-foreground">{t(s.key)}</div>
             <div className="mt-1 text-lg font-semibold tabular-nums">{s.value(node)}</div>
           </div>
@@ -228,7 +239,10 @@ export function FieldDetailView({
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Building2 className="size-4" /> {t("top_insts")}
+              <span className="grid size-6 place-items-center rounded-md bg-primary/10 text-primary">
+                <Building2 className="size-3.5" />
+              </span>
+              {t("top_insts")}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -247,7 +261,10 @@ export function FieldDetailView({
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Layers className="size-4" /> {t("tab_milestone")}
+              <span className="grid size-6 place-items-center rounded-md bg-primary/10 text-primary">
+                <Layers className="size-3.5" />
+              </span>
+              {t("tab_milestone")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -258,7 +275,10 @@ export function FieldDetailView({
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Flag className="size-4" /> {t("tab_bottleneck")}
+              <span className="grid size-6 place-items-center rounded-md bg-primary/10 text-primary">
+                <Flag className="size-3.5" />
+              </span>
+              {t("tab_bottleneck")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -269,7 +289,10 @@ export function FieldDetailView({
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Layers className="size-4" /> {t("card_baselines")}
+              <span className="grid size-6 place-items-center rounded-md bg-primary/10 text-primary">
+                <Layers className="size-3.5" />
+              </span>
+              {t("card_baselines")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -280,7 +303,10 @@ export function FieldDetailView({
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Database className="size-4" /> {t("card_datasets")}
+              <span className="grid size-6 place-items-center rounded-md bg-primary/10 text-primary">
+                <Database className="size-3.5" />
+              </span>
+              {t("card_datasets")}
             </CardTitle>
           </CardHeader>
           <CardContent>

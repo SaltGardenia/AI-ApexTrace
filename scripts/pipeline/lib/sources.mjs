@@ -6,7 +6,7 @@
 import { setTimeout as sleep } from "timers/promises";
 
 const MAILTO = process.env.OA_MAILTO || "apextrace@gmail.com";
-const UA = `ApexTrace/1.0 (academic-landscape-index; mailto:)`;
+const UA = `AI-ApexTrace/1.0 (academic-landscape-index; mailto:)`;
 
 // ---------- 通用带重试的 JSON 请求 ----------
 async function getJSON(url, { headers = {}, retries = 5, baseWait = 1200 } = {}) {

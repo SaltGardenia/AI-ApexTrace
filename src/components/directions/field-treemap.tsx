@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import { ResponsiveContainer, Treemap } from "recharts";
 import { fieldTree } from "@/lib/data/field-tree";
 import { pathToNode } from "@/lib/field-tree-utils";
@@ -86,6 +87,7 @@ function Content(props: any) {
         fillOpacity={0.85}
         stroke="#fff"
         strokeWidth={1}
+        style={{ cursor: "pointer" }}
       />
       {lines.length > 0 && (
         <text
@@ -112,12 +114,19 @@ function Content(props: any) {
   );
 }
 
-export function FieldTreemap() {
+export function FieldTreemap({ onLeafClick }: { onLeafClick?: (id: string) => void }) {
   const { lang, pick, t } = useI18n();
+  const router = useRouter();
   const data = React.useMemo(() => buildRaw(lang), [lang]);
   const [hover, setHover] = React.useState<HoverState | null>(null);
 
   const levelNames = [t("lvl_one"), t("lvl_two"), t("lvl_three")];
+
+  const handleClick = (node: any) => {
+    if (!node?.id) return;
+    if (onLeafClick) onLeafClick(node.id);
+    else router.push(`/directions/${node.id}`);
+  };
 
   return (
     <div className="rounded-xl border border-border/60 bg-card/40 p-4">
@@ -141,6 +150,7 @@ export function FieldTreemap() {
               });
             }}
             onMouseLeave={() => setHover(null)}
+            onClick={handleClick}
           />
         </ResponsiveContainer>
 

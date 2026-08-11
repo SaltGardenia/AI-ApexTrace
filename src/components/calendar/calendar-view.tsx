@@ -9,9 +9,9 @@ import type { CCFLevel, Venue } from "@/lib/types";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
 
-type Kind = "submit" | "abstract" | "full" | "conference";
+export type Kind = "submit" | "abstract" | "full" | "conference";
 
-interface Ev {
+export interface Ev {
   date: string;
   kind: Kind;
   venue: Venue;
@@ -25,9 +25,9 @@ const ccfColor: Record<string, string> = {
 };
 const ccfKey = (v: Venue) => (v.ccf ?? "none") as string;
 
-const NOW = new Date("2026-08-11T00:00:00");
+export const NOW = new Date("2026-08-11T00:00:00");
 
-function buildEvents(): Ev[] {
+export function buildEvents(): Ev[] {
   const out: Ev[] = [];
   for (const v of venues) {
     const d = v.deadline;

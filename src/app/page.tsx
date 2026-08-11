@@ -6,7 +6,7 @@ import { TopDirections } from "@/components/dashboard/top-directions";
 import { DirectionTrend } from "@/components/charts/direction-trend";
 import { DirectionsExplorer } from "@/components/directions/directions-explorer";
 import { CompareExplorer } from "@/components/compare/compare-explorer";
-import { CalendarView } from "@/components/calendar/calendar-view";
+import { RecentCalendar } from "@/components/calendar/recent-calendar";
 import { HomeNav } from "@/components/home/home-nav";
 import { useI18n } from "@/lib/i18n";
 import type { DictKey } from "@/lib/i18n/translations";
@@ -60,12 +60,12 @@ export default function HomePage() {
           <section id="calendar" className="scroll-mt-24">
             <SectionHeader
               title={t("page_calendar")}
-              desc={t("page_calendar_desc")}
-              href="/venues"
-              hrefLabel={t("home_view_all")}
+              desc={t("home_calendar_desc")}
+              href="/calendar"
+              hrefLabel={t("full_calendar")}
             />
             <div className="mt-6">
-              <CalendarView />
+              <RecentCalendar />
             </div>
           </section>
         </div>

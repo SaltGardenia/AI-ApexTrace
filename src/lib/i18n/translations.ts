@@ -137,6 +137,10 @@ export const dict = {
     zh: "全年 12 个月的截稿与召开节点，快速规划投稿与参会节奏。",
     en: "All submission and conference nodes across 12 months to plan your year.",
   },
+  home_calendar_desc: {
+    zh: "近 30 天内的截稿与会议节点一览，完整时间线见会议日历页。",
+    en: "Upcoming deadlines & conferences within 30 days; see the full calendar page for everything.",
+  },
 
   // ---------- directions explorer ----------
   treemap_title: { zh: "领域论文占比", en: "Field Paper Share" },

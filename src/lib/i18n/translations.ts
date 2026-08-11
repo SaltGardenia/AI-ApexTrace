@@ -241,7 +241,7 @@ export const dict = {
   sort_tier: { zh: "等级", en: "Tier" },
   th_abbr: { zh: "简称", en: "Abbr" },
   th_full: { zh: "全称", en: "Full name" },
-  th_tier: { zh: "分级", en: "Tier" },
+  th_tier: { zh: "CCF 分级", en: "CCF Tier" },
   th_field: { zh: "领域", en: "Field" },
   th_accept: { zh: "录用率", en: "Accept." },
   th_cit: { zh: "平均引用", en: "Citations" },

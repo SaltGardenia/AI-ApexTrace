@@ -43,21 +43,6 @@ function buildRaw(locale: "zh" | "en"): LeafDatum[] {
   return out;
 }
 
-// Break a (mostly CJK) label into lines that fit the rect width.
-function wrapLabel(str: string, maxChars: number): string[] {
-  if (maxChars <= 0) return [];
-  const lines: string[] = [];
-  for (let i = 0; i < str.length; i += maxChars) {
-    lines.push(str.slice(i, i + maxChars));
-    if (lines.length >= 4) break;
-  }
-  if (str.length > lines.length * maxChars) {
-    const last = lines[lines.length - 1];
-    lines[lines.length - 1] = last.slice(0, Math.max(1, maxChars - 1)) + "…";
-  }
-  return lines;
-}
-
 type HoverState = { label: string; size: number; path: string[]; color: string; x: number; y: number };
 
 // recharts clones `content` with `nodeProps`, so our data fields (label,
@@ -73,7 +58,11 @@ function Content(props: any) {
   const maxChars = Math.floor((width - 8) / charW);
   // 仅给足够大的格子标注，避免小格文字拥挤、笔画粘连
   const showText = width > 46 && height > 20 && maxChars >= 2;
-  const lines = showText ? wrapLabel(text, maxChars) : [];
+  // 一律单行横排：放得下则完整显示，放不下则省略号截断，避免竖排换行
+  let lines: string[] = [];
+  if (showText) {
+    lines = text.length <= maxChars ? [text] : [text.slice(0, Math.max(1, maxChars - 1)) + "…"];
+  }
   const lineH = fontSize * 1.25;
   const tx = x + 5;
   const ty = y + fontSize + 3;

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AI-ApexTrace · AI 研究版图指数",
+    default: "AI-ApexTrace",
     template: "%s · AI-ApexTrace",
   },
   description:

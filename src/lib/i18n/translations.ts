@@ -19,7 +19,7 @@ export const dict = {
   toggle_lang: { zh: "语言", en: "Language" },
 
   // ---------- home / hero ----------
-  hero_title: { zh: "AI 研究版图指数", en: "AI Research Landscape Index" },
+  hero_title: { zh: "AI-ApexTrace", en: "AI-ApexTrace" },
   home_nav_overview: { zh: "指数概览", en: "Index Overview" },
   home_nav_directions: { zh: "研究方向版图", en: "Research Directions" },
   home_nav_ranking: { zh: "方向热度总榜", en: "Direction Ranking" },

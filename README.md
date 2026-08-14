@@ -2,6 +2,10 @@
 
 > 把"AI 领域现在在研究什么、哪里最热、谁在主导、该往哪投"做成一张可交互的仪表盘。
 
+<p align="right">
+  <a href="README_EN.md">English</a>
+</p>
+
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [在线体验](https://saltgardenia.github.io/AI-ApexTrace/) ·
 [源代码](https://github.com/saltgardenia/ApexTrace)

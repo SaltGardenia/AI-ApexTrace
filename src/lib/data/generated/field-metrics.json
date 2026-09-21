@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T09:46:36.367Z",
+  "generatedAt": "2026-09-21T09:03:30.847Z",
   "method": "OpenAlex /works 采样（top-cited 200 篇）计算平均被引/高引占比/开放率/来源机构；逐年分布用 11 次 meta.count 精确统计。",
   "sources": [
     "OpenAlex"

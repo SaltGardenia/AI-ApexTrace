@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T08:51:36.324Z",
+  "generatedAt": "2026-09-21T08:08:30.796Z",
   "method": "OpenAlex title/abstract phrase 为主口径；Crossref 全文、arXiv 预印本交叉印证；概念口径(concept)辅助归一。",
   "sources": [
     "OpenAlex",
@@ -18,17 +18,17 @@
         "ml-rep-ssl-cl"
       ],
       "sources": {
-        "oa_phrase": 27920,
+        "oa_phrase": 27915,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1847083,
-        "arxiv": null
+        "crossref": 1847478,
+        "arxiv": 588138
       },
-      "paperCount": 27920,
+      "paperCount": 27915,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1897
+      "paperCountNormalized": 1776
     },
     {
       "id": "ml-rep-ssl-mm",
@@ -41,17 +41,17 @@
         "ml-rep-ssl-mm"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 328,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 614365,
-        "arxiv": null
+        "crossref": 614469,
+        "arxiv": 1238366
       },
-      "paperCount": 614365,
-      "confidence": "medium",
+      "paperCount": 328,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2589
+      "paperCountNormalized": 850
     },
     {
       "id": "ml-rep-ssl-multi",
@@ -68,13 +68,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 803902,
-        "arxiv": null
+        "crossref": 804060,
+        "arxiv": 52658
       },
       "paperCount": 103,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 645
+      "paperCountNormalized": 608
     },
     {
       "id": "ml-rep-align-xmodal",
@@ -87,17 +87,17 @@
         "ml-rep-align-xmodal"
       ],
       "sources": {
-        "oa_phrase": 1597,
+        "oa_phrase": 1596,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 616594,
-        "arxiv": null
+        "crossref": 616647,
+        "arxiv": 100205
       },
-      "paperCount": 1597,
+      "paperCount": 1596,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1258
+      "paperCountNormalized": 1180
     },
     {
       "id": "ml-rep-align-emb",
@@ -110,17 +110,17 @@
         "ml-rep-align-emb"
       ],
       "sources": {
-        "oa_phrase": 2378,
+        "oa_phrase": 2382,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1868645,
-        "arxiv": null
+        "crossref": 1869042,
+        "arxiv": 573018
       },
-      "paperCount": 2378,
+      "paperCount": 2382,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1347
+      "paperCountNormalized": 1263
     },
     {
       "id": "ml-paradigm-few-meta",
@@ -133,17 +133,17 @@
         "ml-paradigm-few-meta"
       ],
       "sources": {
-        "oa_phrase": null,
-        "oa_concept": 3897,
+        "oa_phrase": 13849,
+        "oa_concept": 3896,
         "concept_id": "https://openalex.org/C2781002164",
         "concept_name": "Meta learning (computer science)",
-        "crossref": 2198398,
-        "arxiv": null
+        "crossref": 2198788,
+        "arxiv": 514988
       },
-      "paperCount": 3897,
+      "paperCount": 13849,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1457
+      "paperCountNormalized": 1630
     },
     {
       "id": "ml-paradigm-few-icl",
@@ -156,17 +156,17 @@
         "ml-paradigm-few-icl"
       ],
       "sources": {
-        "oa_phrase": null,
-        "oa_concept": 12204,
+        "oa_phrase": 6633,
+        "oa_concept": 12217,
         "concept_id": "https://openalex.org/C2777648619",
         "concept_name": "Learning analytics",
-        "crossref": 2140110,
-        "arxiv": null
+        "crossref": 2140552,
+        "arxiv": 622164
       },
-      "paperCount": 12204,
-      "confidence": "medium",
+      "paperCount": 6633,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1712
+      "paperCountNormalized": 1477
     },
     {
       "id": "ml-paradigm-cont-inc",
@@ -179,17 +179,17 @@
         "ml-paradigm-cont-inc"
       ],
       "sources": {
-        "oa_phrase": 8090,
-        "oa_concept": 2619,
+        "oa_phrase": 8084,
+        "oa_concept": 2620,
         "concept_id": "https://openalex.org/C2780735816",
         "concept_name": "Incremental learning",
-        "crossref": 1857478,
-        "arxiv": null
+        "crossref": 1857870,
+        "arxiv": 516724
       },
-      "paperCount": 8090,
+      "paperCount": 8084,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1621
+      "paperCountNormalized": 1518
     },
     {
       "id": "ml-paradigm-cont-forget",
@@ -202,17 +202,17 @@
         "ml-paradigm-cont-forget"
       ],
       "sources": {
-        "oa_phrase": 71832,
-        "oa_concept": 18157,
+        "oa_phrase": 71857,
+        "oa_concept": 18175,
         "concept_id": "https://openalex.org/C7149132",
         "concept_name": "Forgetting",
         "crossref": 6081,
-        "arxiv": null
+        "arxiv": 7531
       },
-      "paperCount": 71832,
+      "paperCount": 71857,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2109
+      "paperCountNormalized": 1973
     },
     {
       "id": "ml-paradigm-data",
@@ -224,17 +224,17 @@
         "ml-paradigm-data"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 388,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 3869827,
-        "arxiv": null
+        "crossref": 3870766,
+        "arxiv": 557473
       },
-      "paperCount": 3869827,
-      "confidence": "medium",
+      "paperCount": 388,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 3000
+      "paperCountNormalized": 885
     },
     {
       "id": "cv-recog-cls",
@@ -246,17 +246,17 @@
         "cv-recog-cls"
       ],
       "sources": {
-        "oa_phrase": null,
-        "oa_concept": 42037,
+        "oa_phrase": 70279,
+        "oa_concept": 42061,
         "concept_id": "https://openalex.org/C75294576",
         "concept_name": "Contextual image classification",
-        "crossref": 825103,
-        "arxiv": null
+        "crossref": 825251,
+        "arxiv": 340154
       },
-      "paperCount": 42037,
-      "confidence": "medium",
+      "paperCount": 70279,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1989
+      "paperCountNormalized": 1969
     },
     {
       "id": "cv-recog-longtail",
@@ -268,17 +268,17 @@
         "cv-recog-longtail"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 315,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1111880,
-        "arxiv": null
+        "crossref": 1111976,
+        "arxiv": 235000
       },
-      "paperCount": 1111880,
-      "confidence": "medium",
+      "paperCount": 315,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2721
+      "paperCountNormalized": 841
     },
     {
       "id": "cv-det-two",
@@ -294,13 +294,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1814971,
-        "arxiv": 297949
+        "crossref": 1815265,
+        "arxiv": 298934
       },
       "paperCount": 616,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1045
+      "paperCountNormalized": 981
     },
     {
       "id": "cv-det-one",
@@ -312,17 +312,17 @@
         "cv-det-one"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 225,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1658847,
-        "arxiv": null
+        "crossref": 1659112,
+        "arxiv": 283698
       },
-      "paperCount": 1658847,
-      "confidence": "medium",
+      "paperCount": 225,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2811
+      "paperCountNormalized": 771
     },
     {
       "id": "cv-det-trans",
@@ -334,17 +334,17 @@
         "cv-det-trans"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 92,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 966425,
-        "arxiv": null
+        "crossref": 966616,
+        "arxiv": 434718
       },
-      "paperCount": 966425,
-      "confidence": "medium",
+      "paperCount": 92,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2690
+      "paperCountNormalized": 585
     },
     {
       "id": "cv-det-open",
@@ -356,17 +356,17 @@
         "cv-det-open"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 47,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2605254,
-        "arxiv": 282615
+        "crossref": 2605600,
+        "arxiv": 283505
       },
-      "paperCount": 2605254,
-      "confidence": "medium",
+      "paperCount": 47,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2912
+      "paperCountNormalized": 445
     },
     {
       "id": "cv-seg-sem",
@@ -378,17 +378,17 @@
         "cv-seg-sem"
       ],
       "sources": {
-        "oa_phrase": 41063,
+        "oa_phrase": 41070,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 197794,
-        "arxiv": null
+        "crossref": 197804,
+        "arxiv": 123268
       },
-      "paperCount": 41063,
+      "paperCount": 41070,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1984
+      "paperCountNormalized": 1857
     },
     {
       "id": "cv-seg-inst",
@@ -400,17 +400,17 @@
         "cv-seg-inst"
       ],
       "sources": {
-        "oa_phrase": 10331,
+        "oa_phrase": 10334,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 129764,
-        "arxiv": null
+        "crossref": 129774,
+        "arxiv": 111689
       },
-      "paperCount": 10331,
+      "paperCount": 10334,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1675
+      "paperCountNormalized": 1569
     },
     {
       "id": "cv-seg-found",
@@ -426,8 +426,8 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 6636130,
-        "arxiv": null
+        "crossref": 6636853,
+        "arxiv": 86567
       },
       "paperCount": 9,
       "confidence": "high",
@@ -445,17 +445,17 @@
         "cv-3d-recon-trad"
       ],
       "sources": {
-        "oa_phrase": 671,
+        "oa_phrase": 670,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 357354,
-        "arxiv": null
+        "crossref": 357391,
+        "arxiv": 164946
       },
-      "paperCount": 671,
+      "paperCount": 670,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1064
+      "paperCountNormalized": 999
     },
     {
       "id": "cv-3d-recon-nerf",
@@ -472,13 +472,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 516801,
-        "arxiv": 217907
+        "crossref": 516852,
+        "arxiv": 218518
       },
       "paperCount": 1263,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1205
+      "paperCountNormalized": 1131
     },
     {
       "id": "cv-3d-recon-gs",
@@ -496,12 +496,12 @@
         "concept_id": null,
         "concept_name": null,
         "crossref": 55471,
-        "arxiv": null
+        "arxiv": 106185
       },
       "paperCount": 45,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 460
+      "paperCountNormalized": 436
     },
     {
       "id": "cv-3d-understand",
@@ -517,13 +517,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 667552,
-        "arxiv": null
+        "crossref": 667620,
+        "arxiv": 265588
       },
       "paperCount": 440,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 970
+      "paperCountNormalized": 911
     },
     {
       "id": "cv-3d-indoor",
@@ -539,13 +539,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 426662,
-        "arxiv": null
+        "crossref": 426734,
+        "arxiv": 222710
       },
       "paperCount": 120,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 679
+      "paperCountNormalized": 640
     },
     {
       "id": "cv-video",
@@ -556,17 +556,17 @@
         "cv-video"
       ],
       "sources": {
-        "oa_phrase": 3091,
+        "oa_phrase": 3085,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 512777,
-        "arxiv": null
+        "crossref": 512835,
+        "arxiv": 259884
       },
-      "paperCount": 3091,
+      "paperCount": 3085,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1405
+      "paperCountNormalized": 1317
     },
     {
       "id": "nlp-llm-base",
@@ -578,17 +578,17 @@
         "nlp-llm-base"
       ],
       "sources": {
-        "oa_phrase": 247501,
-        "oa_concept": 2436,
+        "oa_phrase": 247580,
+        "oa_concept": 2437,
         "concept_id": "https://openalex.org/C2780873155",
         "concept_name": "Agent-based model",
-        "crossref": 737738,
-        "arxiv": null
+        "crossref": 737893,
+        "arxiv": 1659361
       },
-      "paperCount": 247501,
+      "paperCount": 247580,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2385
+      "paperCountNormalized": 2231
     },
     {
       "id": "nlp-llm-train",
@@ -600,17 +600,17 @@
         "nlp-llm-train"
       ],
       "sources": {
-        "oa_phrase": 51296,
+        "oa_phrase": 51311,
         "oa_concept": 1314,
         "concept_id": "https://openalex.org/C5465570",
         "concept_name": "Early stopping",
-        "crossref": 2172576,
-        "arxiv": null
+        "crossref": 2172998,
+        "arxiv": 1299398
       },
-      "paperCount": 51296,
+      "paperCount": 51311,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2033
+      "paperCountNormalized": 1903
     },
     {
       "id": "nlp-llm-peft",
@@ -622,17 +622,17 @@
         "nlp-llm-peft"
       ],
       "sources": {
-        "oa_phrase": 2758,
+        "oa_phrase": 2757,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 676524,
-        "arxiv": null
+        "crossref": 676578,
+        "arxiv": 98949
       },
-      "paperCount": 2758,
+      "paperCount": 2757,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1380
+      "paperCountNormalized": 1294
     },
     {
       "id": "nlp-cap-rag",
@@ -644,17 +644,17 @@
         "nlp-cap-rag"
       ],
       "sources": {
-        "oa_phrase": 12555,
+        "oa_phrase": 12558,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 539901,
-        "arxiv": 944742
+        "crossref": 539951,
+        "arxiv": 947918
       },
-      "paperCount": 12555,
+      "paperCount": 12558,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1719
+      "paperCountNormalized": 1610
     },
     {
       "id": "nlp-cap-reason",
@@ -666,17 +666,17 @@
         "nlp-cap-reason"
       ],
       "sources": {
-        "oa_phrase": 269192,
-        "oa_concept": 16997,
+        "oa_phrase": 269272,
+        "oa_concept": 17037,
         "concept_id": "https://openalex.org/C161301231",
         "concept_name": "Knowledge representation and reasoning",
-        "crossref": 46466,
-        "arxiv": null
+        "crossref": 46472,
+        "arxiv": 109315
       },
-      "paperCount": 269192,
+      "paperCount": 269272,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2404
+      "paperCountNormalized": 2249
     },
     {
       "id": "nlp-cap-agent",
@@ -688,17 +688,17 @@
         "nlp-cap-agent"
       ],
       "sources": {
-        "oa_phrase": 524,
+        "oa_phrase": 523,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 168925,
-        "arxiv": null
+        "crossref": 168960,
+        "arxiv": 203355
       },
-      "paperCount": 524,
+      "paperCount": 523,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1009
+      "paperCountNormalized": 947
     },
     {
       "id": "nlp-app",
@@ -709,17 +709,831 @@
         "nlp-app"
       ],
       "sources": {
-        "oa_phrase": 3048,
+        "oa_phrase": 3049,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1359680,
-        "arxiv": null
+        "crossref": 1359880,
+        "arxiv": 477846
       },
-      "paperCount": 3048,
+      "paperCount": 3049,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1402
+      "paperCountNormalized": 1315
+    },
+    {
+      "id": "multimodal-vlm-understand",
+      "zh": "图文理解",
+      "en": "Image-Text Understanding",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-understand"
+      ],
+      "sources": {
+        "oa_phrase": 29,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 987681,
+        "arxiv": 209324
+      },
+      "paperCount": 29,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 344
+    },
+    {
+      "id": "multimodal-vlm-large",
+      "zh": "多模态大模型",
+      "en": "Multimodal Large Model",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-large"
+      ],
+      "sources": {
+        "oa_phrase": 318,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 2197002,
+        "arxiv": 1498073
+      },
+      "paperCount": 318,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 843
+    },
+    {
+      "id": "multimodal-vlm-reason",
+      "zh": "视觉推理",
+      "en": "Visual Reasoning",
+      "path": [
+        "multimodal",
+        "multimodal-vlm",
+        "multimodal-vlm-reason"
+      ],
+      "sources": {
+        "oa_phrase": 1829,
+        "oa_concept": 4854,
+        "concept_id": "https://openalex.org/C2777508537",
+        "concept_name": "Visual reasoning",
+        "crossref": 329268,
+        "arxiv": 192059
+      },
+      "paperCount": 1829,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1208
+    },
+    {
+      "id": "multimodal-gen-t2i",
+      "zh": "文生图",
+      "en": "Text-to-Image",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2i"
+      ],
+      "sources": {
+        "oa_phrase": 25714,
+        "oa_concept": 1155,
+        "concept_id": "https://openalex.org/C202493439",
+        "concept_name": "Discursive psychology",
+        "crossref": 658861,
+        "arxiv": 22625
+      },
+      "paperCount": 25714,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1759
+    },
+    {
+      "id": "multimodal-gen-t2v",
+      "zh": "文生视频",
+      "en": "Text-to-Video",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t2v"
+      ],
+      "sources": {
+        "oa_phrase": 5777,
+        "oa_concept": 1492,
+        "concept_id": "https://openalex.org/C2780126544",
+        "concept_name": "Hypermedia",
+        "crossref": 328020,
+        "arxiv": 6160
+      },
+      "paperCount": 5777,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1448
+    },
+    {
+      "id": "multimodal-gen-t23d",
+      "zh": "文生三维",
+      "en": "Text-to-3D",
+      "path": [
+        "multimodal",
+        "multimodal-gen",
+        "multimodal-gen-t23d"
+      ],
+      "sources": {
+        "oa_phrase": 1136,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 483606,
+        "arxiv": 3049
+      },
+      "paperCount": 1136,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1109
+    },
+    {
+      "id": "generative-diff-image",
+      "zh": "图像生成",
+      "en": "Image Generation",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-image"
+      ],
+      "sources": {
+        "oa_phrase": 18431,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 918574,
+        "arxiv": 1105580
+      },
+      "paperCount": 18431,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1690
+    },
+    {
+      "id": "generative-diff-video",
+      "zh": "视频生成",
+      "en": "Video Generation",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-video"
+      ],
+      "sources": {
+        "oa_phrase": 3726,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 586791,
+        "arxiv": 992175
+      },
+      "paperCount": 3726,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1356
+    },
+    {
+      "id": "generative-diff-3d",
+      "zh": "三维生成",
+      "en": "3D Generation",
+      "path": [
+        "generative",
+        "generative-diff",
+        "generative-diff-3d"
+      ],
+      "sources": {
+        "oa_phrase": 953,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 738846,
+        "arxiv": 999605
+      },
+      "paperCount": 953,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1072
+    },
+    {
+      "id": "generative-found",
+      "zh": "基础模型",
+      "en": "Foundation Model",
+      "path": [
+        "generative",
+        "generative-found"
+      ],
+      "sources": {
+        "oa_phrase": 20017,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 6539954,
+        "arxiv": 1249210
+      },
+      "paperCount": 20017,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1707
+    },
+    {
+      "id": "embodied-agent-cog",
+      "zh": "认知智能体",
+      "en": "Cognitive Agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-cog"
+      ],
+      "sources": {
+        "oa_phrase": 1318,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 485375,
+        "arxiv": 95897
+      },
+      "paperCount": 1318,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1140
+    },
+    {
+      "id": "embodied-agent-llm",
+      "zh": "LLM 智能体",
+      "en": "LLM Agent",
+      "path": [
+        "embodied",
+        "embodied-agent",
+        "embodied-agent-llm"
+      ],
+      "sources": {
+        "oa_phrase": 3135,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 144572,
+        "arxiv": 142663
+      },
+      "paperCount": 3135,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1320
+    },
+    {
+      "id": "embodied-env-nav",
+      "zh": "视觉导航",
+      "en": "Visual Navigation",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-nav"
+      ],
+      "sources": {
+        "oa_phrase": 2440,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 359635,
+        "arxiv": 112138
+      },
+      "paperCount": 2440,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 1268
+    },
+    {
+      "id": "embodied-env-3d",
+      "zh": "三维空间理解",
+      "en": "3D Spatial Understanding",
+      "path": [
+        "embodied",
+        "embodied-env",
+        "embodied-env-3d"
+      ],
+      "sources": {
+        "oa_phrase": 49,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 968403,
+        "arxiv": 398688
+      },
+      "paperCount": 49,
+      "confidence": "high",
+      "corroborated": true,
+      "paperCountNormalized": 453
+    },
+    {
+      "id": "embodied-robot",
+      "zh": "机器人学习",
+      "en": "Robot Learning",
+      "path": [
+        "embodied",
+        "embodied-robot"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 1992055,
+        "arxiv": 535479
+      },
+      "paperCount": 1992055,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2666
+    },
+    {
+      "id": "rl-deep",
+      "zh": "深度强化学习",
+      "en": "Deep Reinforcement Learning",
+      "path": [
+        "rl",
+        "rl-deep"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 2128267,
+        "arxiv": 563849
+      },
+      "paperCount": 2128267,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2680
+    },
+    {
+      "id": "rl-offline",
+      "zh": "离线强化学习",
+      "en": "Offline RL",
+      "path": [
+        "rl",
+        "rl-offline"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 24501,
+        "arxiv": 31974
+      },
+      "paperCount": 24501,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1749
+    },
+    {
+      "id": "rl-rlhf",
+      "zh": "RLHF",
+      "en": "RLHF",
+      "path": [
+        "rl",
+        "rl-rlhf"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 109,
+        "arxiv": 1396
+      },
+      "paperCount": 109,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 620
+    },
+    {
+      "id": "robotics-perc",
+      "zh": "机器人感知",
+      "en": "Robot Perception",
+      "path": [
+        "robotics",
+        "robotics-perc"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 339338,
+        "arxiv": 70271
+      },
+      "paperCount": 339338,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2297
+    },
+    {
+      "id": "robotics-plan",
+      "zh": "机器人规划",
+      "en": "Robot Planning",
+      "path": [
+        "robotics",
+        "robotics-plan"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 607304,
+        "arxiv": 90672
+      },
+      "paperCount": 607304,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2418
+    },
+    {
+      "id": "robotics-ctrl",
+      "zh": "机器人控制",
+      "en": "Robot Control",
+      "path": [
+        "robotics",
+        "robotics-ctrl"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 1550868,
+        "arxiv": 336737
+      },
+      "paperCount": 1550868,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2614
+    },
+    {
+      "id": "efficiency-compress-prune",
+      "zh": "剪枝",
+      "en": "Pruning",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-prune"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 9035,
+        "arxiv": 10500
+      },
+      "paperCount": 9035,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1541
+    },
+    {
+      "id": "efficiency-compress-quant",
+      "zh": "量化",
+      "en": "Quantization",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-quant"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 11734,
+        "arxiv": 40062
+      },
+      "paperCount": 11734,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1596
+    },
+    {
+      "id": "efficiency-compress-distill",
+      "zh": "蒸馏",
+      "en": "Distillation",
+      "path": [
+        "efficiency",
+        "efficiency-compress",
+        "efficiency-compress-distill"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 22660,
+        "arxiv": 19992
+      },
+      "paperCount": 22660,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 1733
+    },
+    {
+      "id": "efficiency-trans",
+      "zh": "高效 Transformer",
+      "en": "Efficient Transformer",
+      "path": [
+        "efficiency",
+        "efficiency-trans"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 507322,
+        "arxiv": 491229
+      },
+      "paperCount": 507322,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2381
+    },
+    {
+      "id": "efficiency-system",
+      "zh": "AI 系统",
+      "en": "AI Systems",
+      "path": [
+        "efficiency",
+        "efficiency-system"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 2608364,
+        "arxiv": 914773
+      },
+      "paperCount": 2608364,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2722
+    },
+    {
+      "id": "security-adv",
+      "zh": "对抗攻击",
+      "en": "Adversarial Attack",
+      "path": [
+        "security",
+        "security-adv"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 90286,
+        "arxiv": 68573
+      },
+      "paperCount": 90286,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2021
+    },
+    {
+      "id": "security-model",
+      "zh": "模型安全",
+      "en": "Model Security",
+      "path": [
+        "security",
+        "security-model"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 2211317,
+        "arxiv": 1274155
+      },
+      "paperCount": 2211317,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2688
+    },
+    {
+      "id": "security-align",
+      "zh": "AI 对齐",
+      "en": "AI Alignment",
+      "path": [
+        "security",
+        "security-align"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 432550,
+        "arxiv": 151742
+      },
+      "paperCount": 432550,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2348
+    },
+    {
+      "id": "applications-driving",
+      "zh": "自动驾驶",
+      "en": "Autonomous Driving",
+      "path": [
+        "applications",
+        "applications-driving"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 243084,
+        "arxiv": 99445
+      },
+      "paperCount": 243084,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2228
+    },
+    {
+      "id": "applications-health",
+      "zh": "医疗 AI",
+      "en": "Healthcare AI",
+      "path": [
+        "applications",
+        "applications-health"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 709972,
+        "arxiv": null
+      },
+      "paperCount": 709972,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2451
+    },
+    {
+      "id": "applications-science",
+      "zh": "科学智能",
+      "en": "AI for Science",
+      "path": [
+        "applications",
+        "applications-science"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 9877308,
+        "arxiv": null
+      },
+      "paperCount": 9877308,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 3000
+    },
+    {
+      "id": "applications-industry",
+      "zh": "工业智能",
+      "en": "Industrial AI",
+      "path": [
+        "applications",
+        "applications-industry"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 960256,
+        "arxiv": null
+      },
+      "paperCount": 960256,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2514
+    },
+    {
+      "id": "frontier-agent",
+      "zh": "AI Agent",
+      "en": "AI Agent",
+      "path": [
+        "frontier",
+        "frontier-agent"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 514384,
+        "arxiv": null
+      },
+      "paperCount": 514384,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2384
+    },
+    {
+      "id": "frontier-world",
+      "zh": "World Model",
+      "en": "World Model",
+      "path": [
+        "frontier",
+        "frontier-world"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 2632593,
+        "arxiv": 1290238
+      },
+      "paperCount": 2632593,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2724
+    },
+    {
+      "id": "frontier-embodied",
+      "zh": "具身智能",
+      "en": "Embodied Intelligence",
+      "path": [
+        "frontier",
+        "frontier-embodied"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 720556,
+        "arxiv": 246438
+      },
+      "paperCount": 720556,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2454
+    },
+    {
+      "id": "frontier-multimodal",
+      "zh": "多模态基础模型",
+      "en": "Multimodal Foundation Model",
+      "path": [
+        "frontier",
+        "frontier-multimodal"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 6611035,
+        "arxiv": 1257330
+      },
+      "paperCount": 6611035,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2916
+    },
+    {
+      "id": "frontier-3d",
+      "zh": "三维基础模型",
+      "en": "3D Foundation Model",
+      "path": [
+        "frontier",
+        "frontier-3d"
+      ],
+      "sources": {
+        "oa_phrase": null,
+        "oa_concept": null,
+        "concept_id": null,
+        "concept_name": null,
+        "crossref": 6809917,
+        "arxiv": 1288133
+      },
+      "paperCount": 6809917,
+      "confidence": "medium",
+      "corroborated": true,
+      "paperCountNormalized": 2922
     }
   ]
 }

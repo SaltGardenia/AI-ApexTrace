@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T09:41:37.896Z",
+  "generatedAt": "2026-11-09T10:04:00.257Z",
   "method": "OpenAlex title/abstract phrase 为主口径；Crossref 全文、arXiv 预印本交叉印证；概念口径(concept)辅助归一。",
   "sources": [
     "OpenAlex",
@@ -18,17 +18,17 @@
         "ml-rep-ssl-cl"
       ],
       "sources": {
-        "oa_phrase": 23791,
+        "oa_phrase": 23006,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1852909,
-        "arxiv": 607683
+        "crossref": 1853293,
+        "arxiv": 610556
       },
-      "paperCount": 23791,
+      "paperCount": 23006,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1765
+      "paperCountNormalized": 1640
     },
     {
       "id": "ml-rep-ssl-mm",
@@ -41,17 +41,17 @@
         "ml-rep-ssl-mm"
       ],
       "sources": {
-        "oa_phrase": 266,
+        "oa_phrase": 258,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 615245,
-        "arxiv": 1268899
+        "crossref": 615394,
+        "arxiv": 1273756
       },
-      "paperCount": 266,
+      "paperCount": 258,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 845
+      "paperCountNormalized": 633
     },
     {
       "id": "ml-rep-ssl-multi",
@@ -64,17 +64,17 @@
         "ml-rep-ssl-multi"
       ],
       "sources": {
-        "oa_phrase": 90,
+        "oa_phrase": 81,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 804895,
-        "arxiv": 55341
+        "crossref": 805013,
+        "arxiv": 55724
       },
-      "paperCount": 90,
+      "paperCount": 81,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 623
+      "paperCountNormalized": 373
     },
     {
       "id": "ml-rep-align-xmodal",
@@ -87,17 +87,17 @@
         "ml-rep-align-xmodal"
       ],
       "sources": {
-        "oa_phrase": 1328,
+        "oa_phrase": 1275,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 617252,
-        "arxiv": 104796
+        "crossref": 617399,
+        "arxiv": 105436
       },
-      "paperCount": 1328,
+      "paperCount": 1275,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1174
+      "paperCountNormalized": 991
     },
     {
       "id": "ml-rep-align-emb",
@@ -110,17 +110,17 @@
         "ml-rep-align-emb"
       ],
       "sources": {
-        "oa_phrase": 2191,
+        "oa_phrase": 2127,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1874378,
-        "arxiv": 592402
+        "crossref": 1874761,
+        "arxiv": 595246
       },
-      "paperCount": 2191,
+      "paperCount": 2127,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1277
+      "paperCountNormalized": 1106
     },
     {
       "id": "ml-paradigm-few-meta",
@@ -133,17 +133,17 @@
         "ml-paradigm-few-meta"
       ],
       "sources": {
-        "oa_phrase": 12101,
-        "oa_concept": 3416,
+        "oa_phrase": 11726,
+        "oa_concept": 3288,
         "concept_id": "https://openalex.org/C2781002164",
         "concept_name": "Meta learning (computer science)",
-        "crossref": 2204308,
-        "arxiv": 532927
+        "crossref": 2204718,
+        "arxiv": 535547
       },
-      "paperCount": 12101,
+      "paperCount": 11726,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1627
+      "paperCountNormalized": 1489
     },
     {
       "id": "ml-paradigm-few-icl",
@@ -156,17 +156,17 @@
         "ml-paradigm-few-icl"
       ],
       "sources": {
-        "oa_phrase": 4237,
-        "oa_concept": 12527,
+        "oa_phrase": 3980,
+        "oa_concept": 12253,
         "concept_id": "https://openalex.org/C2777648619",
         "concept_name": "Learning analytics",
-        "crossref": 2145836,
-        "arxiv": 642488
+        "crossref": 2146325,
+        "arxiv": 645488
       },
-      "paperCount": 4237,
-      "confidence": "high",
+      "paperCount": 3980,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1412
+      "paperCountNormalized": 1246
     },
     {
       "id": "ml-paradigm-cont-inc",
@@ -179,17 +179,17 @@
         "ml-paradigm-cont-inc"
       ],
       "sources": {
-        "oa_phrase": 7310,
-        "oa_concept": 2341,
+        "oa_phrase": 7097,
+        "oa_concept": 2263,
         "concept_id": "https://openalex.org/C2780735816",
         "concept_name": "Incremental learning",
-        "crossref": 1863282,
-        "arxiv": 534852
+        "crossref": 1863667,
+        "arxiv": 537501
       },
-      "paperCount": 7310,
+      "paperCount": 7097,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1523
+      "paperCountNormalized": 1376
     },
     {
       "id": "ml-paradigm-cont-forget",
@@ -202,17 +202,17 @@
         "ml-paradigm-cont-forget"
       ],
       "sources": {
-        "oa_phrase": 70041,
-        "oa_concept": 16946,
+        "oa_phrase": 67960,
+        "oa_concept": 16124,
         "concept_id": "https://openalex.org/C7149132",
         "concept_name": "Forgetting",
-        "crossref": 6106,
-        "arxiv": 7930
+        "crossref": 6107,
+        "arxiv": 7979
       },
-      "paperCount": 70041,
+      "paperCount": 67960,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1986
+      "paperCountNormalized": 1883
     },
     {
       "id": "ml-paradigm-data",
@@ -224,17 +224,17 @@
         "ml-paradigm-data"
       ],
       "sources": {
-        "oa_phrase": 305,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 3878316,
-        "arxiv": 576011
+        "crossref": 3879290,
+        "arxiv": 578713
       },
-      "paperCount": 305,
-      "confidence": "high",
+      "paperCount": 3879290,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 873
+      "paperCountNormalized": 2790
     },
     {
       "id": "cv-recog-cls",
@@ -246,17 +246,17 @@
         "cv-recog-cls"
       ],
       "sources": {
-        "oa_phrase": 65889,
-        "oa_concept": 41546,
+        "oa_phrase": 64459,
+        "oa_concept": 40737,
         "concept_id": "https://openalex.org/C75294576",
         "concept_name": "Contextual image classification",
-        "crossref": 825338,
-        "arxiv": 347807
+        "crossref": 825483,
+        "arxiv": 349054
       },
-      "paperCount": 65889,
+      "paperCount": 64459,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1974
+      "paperCountNormalized": 1871
     },
     {
       "id": "cv-recog-longtail",
@@ -268,17 +268,17 @@
         "cv-recog-longtail"
       ],
       "sources": {
-        "oa_phrase": 247,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1112287,
-        "arxiv": 241621
+        "crossref": 1112403,
+        "arxiv": 242687
       },
-      "paperCount": 247,
-      "confidence": "high",
+      "paperCount": 1112403,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 830
+      "paperCountNormalized": 2510
     },
     {
       "id": "cv-det-two",
@@ -290,17 +290,17 @@
         "cv-det-two"
       ],
       "sources": {
-        "oa_phrase": 577,
+        "oa_phrase": 565,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1816841,
-        "arxiv": 305421
+        "crossref": 1816954,
+        "arxiv": 306498
       },
-      "paperCount": 577,
+      "paperCount": 565,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1003
+      "paperCountNormalized": 808
     },
     {
       "id": "cv-det-one",
@@ -312,17 +312,17 @@
         "cv-det-one"
       ],
       "sources": {
-        "oa_phrase": 214,
+        "oa_phrase": 210,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1660738,
-        "arxiv": 289520
+        "crossref": 1660839,
+        "arxiv": 290497
       },
-      "paperCount": 214,
+      "paperCount": 210,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 800
+      "paperCountNormalized": 587
     },
     {
       "id": "cv-det-trans",
@@ -334,17 +334,17 @@
         "cv-det-trans"
       ],
       "sources": {
-        "oa_phrase": 89,
+        "oa_phrase": 88,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 967501,
-        "arxiv": 444264
+        "crossref": 967566,
+        "arxiv": 445772
       },
-      "paperCount": 89,
+      "paperCount": 88,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 621
+      "paperCountNormalized": 391
     },
     {
       "id": "cv-det-open",
@@ -356,17 +356,17 @@
         "cv-det-open"
       ],
       "sources": {
-        "oa_phrase": 37,
+        "oa_phrase": 35,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2619053,
-        "arxiv": 289101
+        "crossref": 2619350,
+        "arxiv": 290041
       },
-      "paperCount": 37,
+      "paperCount": 35,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 441
+      "paperCountNormalized": 185
     },
     {
       "id": "cv-seg-sem",
@@ -378,17 +378,17 @@
         "cv-seg-sem"
       ],
       "sources": {
-        "oa_phrase": 36463,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 198059,
-        "arxiv": 127812
+        "crossref": 198081,
+        "arxiv": 128488
       },
-      "paperCount": 36463,
-      "confidence": "high",
+      "paperCount": 198081,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1853
+      "paperCountNormalized": 2123
     },
     {
       "id": "cv-seg-inst",
@@ -400,17 +400,17 @@
         "cv-seg-inst"
       ],
       "sources": {
-        "oa_phrase": 8924,
+        "oa_phrase": 8651,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 129857,
-        "arxiv": 114807
+        "crossref": 129863,
+        "arxiv": 115323
       },
-      "paperCount": 8924,
+      "paperCount": 8651,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1564
+      "paperCountNormalized": 1420
     },
     {
       "id": "cv-seg-found",
@@ -422,17 +422,17 @@
         "cv-seg-found"
       ],
       "sources": {
-        "oa_phrase": 7,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 6644253,
-        "arxiv": 89732
+        "crossref": 6644830,
+        "arxiv": 90241
       },
-      "paperCount": 7,
-      "confidence": "high",
+      "paperCount": 6644830,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 100
+      "paperCountNormalized": 2911
     },
     {
       "id": "cv-3d-recon-trad",
@@ -445,17 +445,17 @@
         "cv-3d-recon-trad"
       ],
       "sources": {
-        "oa_phrase": 632,
+        "oa_phrase": 615,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 357958,
-        "arxiv": 169519
+        "crossref": 358019,
+        "arxiv": 170191
       },
-      "paperCount": 632,
+      "paperCount": 615,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1022
+      "paperCountNormalized": 828
     },
     {
       "id": "cv-3d-recon-nerf",
@@ -468,17 +468,17 @@
         "cv-3d-recon-nerf"
       ],
       "sources": {
-        "oa_phrase": 960,
+        "oa_phrase": 910,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 517224,
-        "arxiv": 223099
+        "crossref": 517266,
+        "arxiv": 223825
       },
-      "paperCount": 960,
+      "paperCount": 910,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1108
+      "paperCountNormalized": 915
     },
     {
       "id": "cv-3d-recon-gs",
@@ -491,17 +491,17 @@
         "cv-3d-recon-gs"
       ],
       "sources": {
-        "oa_phrase": 42,
+        "oa_phrase": 40,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 55496,
-        "arxiv": 109857
+        "crossref": 55519,
+        "arxiv": 110450
       },
-      "paperCount": 42,
+      "paperCount": 40,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 467
+      "paperCountNormalized": 215
     },
     {
       "id": "cv-3d-understand",
@@ -513,17 +513,17 @@
         "cv-3d-understand"
       ],
       "sources": {
-        "oa_phrase": 374,
+        "oa_phrase": 360,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 667260,
-        "arxiv": 270365
+        "crossref": 667486,
+        "arxiv": 271056
       },
-      "paperCount": 374,
+      "paperCount": 360,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 915
+      "paperCountNormalized": 707
     },
     {
       "id": "cv-3d-indoor",
@@ -535,17 +535,17 @@
         "cv-3d-indoor"
       ],
       "sources": {
-        "oa_phrase": 100,
+        "oa_phrase": 97,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 426348,
-        "arxiv": 227380
+        "crossref": 426418,
+        "arxiv": 228057
       },
-      "paperCount": 100,
+      "paperCount": 97,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 645
+      "paperCountNormalized": 413
     },
     {
       "id": "cv-video",
@@ -556,17 +556,17 @@
         "cv-video"
       ],
       "sources": {
-        "oa_phrase": 2596,
+        "oa_phrase": 2513,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 512019,
-        "arxiv": 265031
+        "crossref": 512109,
+        "arxiv": 265788
       },
-      "paperCount": 2596,
+      "paperCount": 2513,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1311
+      "paperCountNormalized": 1143
     },
     {
       "id": "nlp-llm-base",
@@ -578,17 +578,17 @@
         "nlp-llm-base"
       ],
       "sources": {
-        "oa_phrase": 232036,
-        "oa_concept": 2208,
+        "oa_phrase": 225784,
+        "oa_concept": 2126,
         "concept_id": "https://openalex.org/C2780873155",
         "concept_name": "Agent-based model",
-        "crossref": 738639,
-        "arxiv": 1696637
+        "crossref": 738792,
+        "arxiv": 1702546
       },
-      "paperCount": 232036,
+      "paperCount": 225784,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2231
+      "paperCountNormalized": 2152
     },
     {
       "id": "nlp-llm-train",
@@ -600,17 +600,17 @@
         "nlp-llm-train"
       ],
       "sources": {
-        "oa_phrase": 48718,
-        "oa_concept": 1150,
+        "oa_phrase": 47689,
+        "oa_concept": 1099,
         "concept_id": "https://openalex.org/C5465570",
         "concept_name": "Early stopping",
-        "crossref": 2176039,
-        "arxiv": 1332294
+        "crossref": 2176410,
+        "arxiv": 1337452
       },
-      "paperCount": 48718,
+      "paperCount": 47689,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1912
+      "paperCountNormalized": 1803
     },
     {
       "id": "nlp-llm-peft",
@@ -622,17 +622,17 @@
         "nlp-llm-peft"
       ],
       "sources": {
-        "oa_phrase": 2281,
+        "oa_phrase": 2186,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 677089,
-        "arxiv": 102670
+        "crossref": 677148,
+        "arxiv": 103222
       },
-      "paperCount": 2281,
+      "paperCount": 2186,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1285
+      "paperCountNormalized": 1112
     },
     {
       "id": "nlp-cap-rag",
@@ -644,17 +644,17 @@
         "nlp-cap-rag"
       ],
       "sources": {
-        "oa_phrase": 11196,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 540564,
-        "arxiv": 970249
+        "crossref": 540679,
+        "arxiv": 973651
       },
-      "paperCount": 11196,
-      "confidence": "high",
+      "paperCount": 540679,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1611
+      "paperCountNormalized": 2348
     },
     {
       "id": "nlp-cap-reason",
@@ -666,17 +666,17 @@
         "nlp-cap-reason"
       ],
       "sources": {
-        "oa_phrase": 257799,
-        "oa_concept": 15846,
+        "oa_phrase": null,
+        "oa_concept": 15145,
         "concept_id": "https://openalex.org/C161301231",
         "concept_name": "Knowledge representation and reasoning",
-        "crossref": 46562,
-        "arxiv": 113522
+        "crossref": 46569,
+        "arxiv": 114052
       },
-      "paperCount": 257799,
+      "paperCount": 15145,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2253
+      "paperCountNormalized": 1546
     },
     {
       "id": "nlp-cap-agent",
@@ -688,17 +688,17 @@
         "nlp-cap-agent"
       ],
       "sources": {
-        "oa_phrase": 546,
+        "oa_phrase": 528,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 169063,
-        "arxiv": 212155
+        "crossref": 169091,
+        "arxiv": 213412
       },
-      "paperCount": 546,
+      "paperCount": 528,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 992
+      "paperCountNormalized": 793
     },
     {
       "id": "nlp-app",
@@ -709,17 +709,17 @@
         "nlp-app"
       ],
       "sources": {
-        "oa_phrase": 2852,
+        "oa_phrase": 2787,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1361487,
-        "arxiv": 484660
+        "crossref": 1361712,
+        "arxiv": 485785
       },
-      "paperCount": 2852,
+      "paperCount": 2787,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1331
+      "paperCountNormalized": 1166
     },
     {
       "id": "multimodal-vlm-understand",
@@ -731,17 +731,17 @@
         "multimodal-vlm-understand"
       ],
       "sources": {
-        "oa_phrase": 25,
+        "oa_phrase": 24,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 987310,
-        "arxiv": 213140
+        "crossref": 987521,
+        "arxiv": 213679
       },
-      "paperCount": 25,
+      "paperCount": 24,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 361
+      "paperCountNormalized": 100
     },
     {
       "id": "multimodal-vlm-large",
@@ -753,17 +753,17 @@
         "multimodal-vlm-large"
       ],
       "sources": {
-        "oa_phrase": 295,
+        "oa_phrase": 291,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2199636,
-        "arxiv": 1532395
+        "crossref": 2199944,
+        "arxiv": 1537887
       },
-      "paperCount": 295,
+      "paperCount": 291,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 866
+      "paperCountNormalized": 660
     },
     {
       "id": "multimodal-vlm-reason",
@@ -775,17 +775,17 @@
         "multimodal-vlm-reason"
       ],
       "sources": {
-        "oa_phrase": 1526,
-        "oa_concept": 3984,
+        "oa_phrase": 1459,
+        "oa_concept": 3801,
         "concept_id": "https://openalex.org/C2777508537",
         "concept_name": "Visual reasoning",
-        "crossref": 329894,
-        "arxiv": 199293
+        "crossref": 330013,
+        "arxiv": 200248
       },
-      "paperCount": 1526,
+      "paperCount": 1459,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1203
+      "paperCountNormalized": 1021
     },
     {
       "id": "multimodal-gen-t2i",
@@ -797,17 +797,17 @@
         "multimodal-gen-t2i"
       ],
       "sources": {
-        "oa_phrase": 7213,
-        "oa_concept": 1281,
+        "oa_phrase": 6973,
+        "oa_concept": 1175,
         "concept_id": "https://openalex.org/C202493439",
         "concept_name": "Discursive psychology",
-        "crossref": 658954,
-        "arxiv": 23503
+        "crossref": 659113,
+        "arxiv": 23646
       },
-      "paperCount": 7213,
+      "paperCount": 6973,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1521
+      "paperCountNormalized": 1372
     },
     {
       "id": "multimodal-gen-t2v",
@@ -819,17 +819,17 @@
         "multimodal-gen-t2v"
       ],
       "sources": {
-        "oa_phrase": 1162,
-        "oa_concept": 1585,
+        "oa_phrase": 1132,
+        "oa_concept": 1492,
         "concept_id": "https://openalex.org/C2780126544",
         "concept_name": "Hypermedia",
-        "crossref": 327976,
-        "arxiv": 6472
+        "crossref": 328076,
+        "arxiv": 6515
       },
-      "paperCount": 1162,
+      "paperCount": 1132,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1147
+      "paperCountNormalized": 964
     },
     {
       "id": "multimodal-gen-t23d",
@@ -841,17 +841,17 @@
         "multimodal-gen-t23d"
       ],
       "sources": {
-        "oa_phrase": 496,
+        "oa_phrase": null,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 484012,
-        "arxiv": 3164
+        "crossref": 484246,
+        "arxiv": 3184
       },
-      "paperCount": 496,
-      "confidence": "high",
+      "paperCount": 484246,
+      "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 972
+      "paperCountNormalized": 2323
     },
     {
       "id": "generative-diff-image",
@@ -863,17 +863,17 @@
         "generative-diff-image"
       ],
       "sources": {
-        "oa_phrase": 15998,
+        "oa_phrase": 15564,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 918784,
-        "arxiv": 1130817
+        "crossref": 918953,
+        "arxiv": 1134746
       },
-      "paperCount": 15998,
+      "paperCount": 15564,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1684
+      "paperCountNormalized": 1552
     },
     {
       "id": "generative-diff-video",
@@ -885,17 +885,17 @@
         "generative-diff-video"
       ],
       "sources": {
-        "oa_phrase": 3050,
+        "oa_phrase": 2976,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 586853,
-        "arxiv": 1015497
+        "crossref": 586960,
+        "arxiv": 1019062
       },
-      "paperCount": 3050,
+      "paperCount": 2976,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1344
+      "paperCountNormalized": 1181
     },
     {
       "id": "generative-diff-3d",
@@ -907,17 +907,17 @@
         "generative-diff-3d"
       ],
       "sources": {
-        "oa_phrase": 745,
+        "oa_phrase": 713,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 739362,
-        "arxiv": 1022898
+        "crossref": 739605,
+        "arxiv": 1026461
       },
-      "paperCount": 745,
+      "paperCount": 713,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1056
+      "paperCountNormalized": 861
     },
     {
       "id": "generative-found",
@@ -928,17 +928,17 @@
         "generative-found"
       ],
       "sources": {
-        "oa_phrase": 16817,
+        "oa_phrase": 16055,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 6547366,
-        "arxiv": 1279811
+        "crossref": 6547951,
+        "arxiv": 1284686
       },
-      "paperCount": 16817,
+      "paperCount": 16055,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1694
+      "paperCountNormalized": 1559
     },
     {
       "id": "embodied-agent-cog",
@@ -950,17 +950,17 @@
         "embodied-agent-cog"
       ],
       "sources": {
-        "oa_phrase": 1249,
+        "oa_phrase": 1213,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 485899,
-        "arxiv": 102518
+        "crossref": 485945,
+        "arxiv": 103489
       },
-      "paperCount": 1249,
+      "paperCount": 1213,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1162
+      "paperCountNormalized": 980
     },
     {
       "id": "embodied-agent-llm",
@@ -972,17 +972,17 @@
         "embodied-agent-llm"
       ],
       "sources": {
-        "oa_phrase": 2582,
+        "oa_phrase": 2457,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 144649,
-        "arxiv": 152439
+        "crossref": 144661,
+        "arxiv": 153851
       },
-      "paperCount": 2582,
+      "paperCount": 2457,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1310
+      "paperCountNormalized": 1138
     },
     {
       "id": "embodied-env-nav",
@@ -994,17 +994,17 @@
         "embodied-env-nav"
       ],
       "sources": {
-        "oa_phrase": 2210,
+        "oa_phrase": 2161,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 360200,
-        "arxiv": 116585
+        "crossref": 360329,
+        "arxiv": 117183
       },
-      "paperCount": 2210,
+      "paperCount": 2161,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1278
+      "paperCountNormalized": 1109
     },
     {
       "id": "embodied-env-3d",
@@ -1016,17 +1016,17 @@
         "embodied-env-3d"
       ],
       "sources": {
-        "oa_phrase": 40,
+        "oa_phrase": 41,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 967997,
-        "arxiv": 407244
+        "crossref": 968243,
+        "arxiv": 408592
       },
-      "paperCount": 40,
+      "paperCount": 41,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 457
+      "paperCountNormalized": 220
     },
     {
       "id": "embodied-robot",
@@ -1037,17 +1037,17 @@
         "embodied-robot"
       ],
       "sources": {
-        "oa_phrase": 2401,
-        "oa_concept": 4583,
+        "oa_phrase": 2330,
+        "oa_concept": 4440,
         "concept_id": "https://openalex.org/C188888258",
         "concept_name": "Robot learning",
-        "crossref": 1997534,
-        "arxiv": 554548
+        "crossref": 1997929,
+        "arxiv": 557327
       },
-      "paperCount": 2401,
+      "paperCount": 2330,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1295
+      "paperCountNormalized": 1126
     },
     {
       "id": "rl-deep",
@@ -1058,17 +1058,17 @@
         "rl-deep"
       ],
       "sources": {
-        "oa_phrase": 45764,
+        "oa_phrase": 44697,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2133867,
-        "arxiv": 582396
+        "crossref": 2134264,
+        "arxiv": 585125
       },
-      "paperCount": 45764,
+      "paperCount": 44697,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1899
+      "paperCountNormalized": 1789
     },
     {
       "id": "rl-offline",
@@ -1079,17 +1079,17 @@
         "rl-offline"
       ],
       "sources": {
-        "oa_phrase": 1179,
+        "oa_phrase": 1145,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
         "crossref": 24496,
-        "arxiv": 34075
+        "arxiv": 34367
       },
-      "paperCount": 1179,
+      "paperCount": 1145,
       "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 1150
+      "paperCountNormalized": 967
     },
     {
       "id": "rl-rlhf",
@@ -1100,17 +1100,17 @@
         "rl-rlhf"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 1524,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
         "crossref": 110,
-        "arxiv": 1422
+        "arxiv": 1429
       },
-      "paperCount": 110,
-      "confidence": "medium",
+      "paperCount": 1524,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 664
+      "paperCountNormalized": 1031
     },
     {
       "id": "robotics-perc",
@@ -1121,17 +1121,17 @@
         "robotics-perc"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 1654,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 339736,
-        "arxiv": 73781
+        "crossref": 339804,
+        "arxiv": 74258
       },
-      "paperCount": 339736,
-      "confidence": "medium",
+      "paperCount": 1654,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2310
+      "paperCountNormalized": 1049
     },
     {
       "id": "robotics-plan",
@@ -1142,17 +1142,17 @@
         "robotics-plan"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 927,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 607151,
-        "arxiv": 95030
+        "crossref": 607241,
+        "arxiv": null
       },
-      "paperCount": 607151,
-      "confidence": "medium",
+      "paperCount": 927,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2428
+      "paperCountNormalized": 920
     },
     {
       "id": "robotics-ctrl",
@@ -1163,17 +1163,17 @@
         "robotics-ctrl"
       ],
       "sources": {
-        "oa_phrase": null,
+        "oa_phrase": 11099,
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 1551334,
-        "arxiv": 351015
+        "crossref": 1551444,
+        "arxiv": null
       },
-      "paperCount": 1551334,
-      "confidence": "medium",
+      "paperCount": 11099,
+      "confidence": "high",
       "corroborated": true,
-      "paperCountNormalized": 2621
+      "paperCountNormalized": 1476
     },
     {
       "id": "efficiency-compress-prune",
@@ -1190,12 +1190,12 @@
         "concept_id": null,
         "concept_name": null,
         "crossref": 9033,
-        "arxiv": 11021
+        "arxiv": null
       },
       "paperCount": 9033,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1567
+      "paperCountNormalized": 1430
     },
     {
       "id": "efficiency-compress-quant",
@@ -1212,12 +1212,12 @@
         "concept_id": null,
         "concept_name": null,
         "crossref": 11736,
-        "arxiv": 40976
+        "arxiv": null
       },
       "paperCount": 11736,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1620
+      "paperCountNormalized": 1489
     },
     {
       "id": "efficiency-compress-distill",
@@ -1233,13 +1233,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 22683,
-        "arxiv": 21679
+        "crossref": 22685,
+        "arxiv": null
       },
-      "paperCount": 22683,
+      "paperCount": 22685,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 1755
+      "paperCountNormalized": 1637
     },
     {
       "id": "efficiency-trans",
@@ -1254,13 +1254,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 507687,
-        "arxiv": 502089
+        "crossref": 507742,
+        "arxiv": null
       },
-      "paperCount": 507687,
+      "paperCount": 507742,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2392
+      "paperCountNormalized": 2334
     },
     {
       "id": "efficiency-system",
@@ -1275,13 +1275,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2610637,
-        "arxiv": 933175
+        "crossref": 2610943,
+        "arxiv": null
       },
-      "paperCount": 2610637,
+      "paperCount": 2610943,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2727
+      "paperCountNormalized": 2701
     },
     {
       "id": "security-adv",
@@ -1296,13 +1296,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 90345,
-        "arxiv": 70614
+        "crossref": 90354,
+        "arxiv": null
       },
-      "paperCount": 90345,
+      "paperCount": 90354,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2038
+      "paperCountNormalized": 1947
     },
     {
       "id": "security-model",
@@ -1317,13 +1317,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2214272,
-        "arxiv": 1305173
+        "crossref": 2214643,
+        "arxiv": 1310088
       },
-      "paperCount": 2214272,
+      "paperCount": 2214643,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2693
+      "paperCountNormalized": 2664
     },
     {
       "id": "security-align",
@@ -1338,13 +1338,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 433932,
-        "arxiv": 159315
+        "crossref": 434123,
+        "arxiv": 160427
       },
-      "paperCount": 433932,
+      "paperCount": 434123,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2360
+      "paperCountNormalized": 2299
     },
     {
       "id": "applications-driving",
@@ -1359,13 +1359,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 243345,
-        "arxiv": 102602
+        "crossref": 243384,
+        "arxiv": 103126
       },
-      "paperCount": 243345,
+      "paperCount": 243384,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2241
+      "paperCountNormalized": 2169
     },
     {
       "id": "applications-health",
@@ -1380,13 +1380,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 711658,
-        "arxiv": 79038
+        "crossref": 711892,
+        "arxiv": 79636
       },
-      "paperCount": 711658,
+      "paperCount": 711892,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2461
+      "paperCountNormalized": 2410
     },
     {
       "id": "applications-science",
@@ -1401,10 +1401,10 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 9894732,
-        "arxiv": 1186734
+        "crossref": 9896164,
+        "arxiv": 1192335
       },
-      "paperCount": 9894732,
+      "paperCount": 9896164,
       "confidence": "medium",
       "corroborated": true,
       "paperCountNormalized": 3000
@@ -1422,13 +1422,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 961955,
-        "arxiv": 103882
+        "crossref": 962192,
+        "arxiv": 104566
       },
-      "paperCount": 961955,
+      "paperCount": 962192,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2523
+      "paperCountNormalized": 2477
     },
     {
       "id": "frontier-agent",
@@ -1443,13 +1443,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 515769,
-        "arxiv": 141365
+        "crossref": 515964,
+        "arxiv": 142682
       },
-      "paperCount": 515769,
+      "paperCount": 515964,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2395
+      "paperCountNormalized": 2337
     },
     {
       "id": "frontier-world",
@@ -1464,13 +1464,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 2647211,
-        "arxiv": 1321519
+        "crossref": 2647682,
+        "arxiv": 1326466
       },
-      "paperCount": 2647211,
+      "paperCount": 2647682,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2730
+      "paperCountNormalized": 2704
     },
     {
       "id": "frontier-embodied",
@@ -1485,13 +1485,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 721820,
-        "arxiv": 257631
+        "crossref": 722027,
+        "arxiv": 259228
       },
-      "paperCount": 721820,
+      "paperCount": 722027,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2464
+      "paperCountNormalized": 2413
     },
     {
       "id": "frontier-multimodal",
@@ -1506,13 +1506,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 6618532,
-        "arxiv": 1288329
+        "crossref": 6619139,
+        "arxiv": 1293257
       },
-      "paperCount": 6618532,
+      "paperCount": 6619139,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2918
+      "paperCountNormalized": 2910
     },
     {
       "id": "frontier-3d",
@@ -1527,13 +1527,13 @@
         "oa_concept": null,
         "concept_id": null,
         "concept_name": null,
-        "crossref": 6817391,
-        "arxiv": 1319433
+        "crossref": 6818126,
+        "arxiv": 1324416
       },
-      "paperCount": 6817391,
+      "paperCount": 6818126,
       "confidence": "medium",
       "corroborated": true,
-      "paperCountNormalized": 2924
+      "paperCountNormalized": 2916
     }
   ]
 }
